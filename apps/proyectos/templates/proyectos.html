@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titulo%} Proyectos de codigo {% endblock %}
+{% block contenido %}
+
+
+{% if proyectos %}
+	{% for proyecto in proyectos %}
+		{{ proyecto.nombre }}
+
+		{% if proyecto.archivo %}
+			con archivo
+		{% else %}
+			sin archivo
+		{% endif %}
+
+	{% endfor %}
+{% endif%}
+
+
+
+
+
+
+{% endblock %}

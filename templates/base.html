@@ -1,0 +1,90 @@
+{% load static from staticfiles %}
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Plantilla Base{% endblock %}</title>
+	<link rel="stylesheet" href="{% static "css/style.css"%}"/>
+	<link rel="stylesheet" href="{% static "css/codigo.css"%}"/>
+
+
+	 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}app/django_pygments/css/pygments_default.css" />
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}app/django_pygments/css/demo.css" />
+        
+
+
+
+<script>
+	setInterval(function(){
+window.location.reload()
+
+	}, 1000000)
+
+
+
+</script>
+</head>
+<body>
+	{% include 'menu.html'%}
+
+<aside>
+
+</aside>
+	<section id="contenido">
+		<div class="barraTitulo">
+			<label> </label>
+			{% block barraContenido %}{% endblock %}		
+			<span class="icon-grid"></span>
+			<span class=" icon-list"></span>
+		</div>
+		<div class="contenidoAgrupado">
+			{% block contenido%}{% endblock%}
+		</div>
+	</section>
+
+
+
+
+
+	<section id="cuadroInteractivo">
+
+<div class="tituloBarra">Filtros</div>
+<div class="interativoContenido">
+	
+{% block cuadroInteractivo %}
+
+		{% endblock%}
+
+</div>
+	</section>
+
+<footer>
+	<div><img src="{{STATIC_URL}}/img/logo.png"/></div>
+	<div><span>sobre ... </span><p>Internet Explorer Firefox Opera Google Chrome Safari. The vertical-align property is supported in all major browsers. Note: The value "inherit" is not supported in </p></div>
+	<div>
+		<ul><span>Navegacion</span>
+			<li><a href="/galeria/page/1" class='icon-home'> Inicio</a></li>
+			<li><a href="/galeria/page/1"  class="icon-images"> Galeria</a></li>
+			<!-- <li></li>
+			<li></li>
+			<li></li> -->
+		</ul>
+
+
+	</div>
+	
+
+</footer>
+<!-- 	<section>
+		<figure>
+			<img src="{{STATIC_URL}}img/hot.jpg" width="100" height="100"/>
+		</figure>
+	</section> -->
+
+	<link rel="stylesheet" href="{% static "js/vendor/jquery-1.10.1.min.js"%}"/>
+	<link rel="stylesheet" href="{% static "js/vendor/bootstrap.js"%}"/>
+	<link rel="stylesheet" href="{% static "js/main.js"%}"/>
+
+
+</body>
+</html>

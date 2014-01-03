@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+{% load pygmentify %}
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}" xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}" xmlns:fb="http://www.facebook.com/2008/fbml">
+    <head>
+        <title>django-pygments demo</title>
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}app/django_pygments/css/pygments_default.css" />
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}app/django_pygments/css/demo.css" />
+    </head>
+
+    <body>
+        <div id="content">
+            <h1>django-pygments demo</h1>
+
+            <h3>the "pygmentify_inline" filter</h3>
+            {{ snippet|pygmentify_inline }}
+            <br />
+
+
+        </div>
+    </body>
+
+</html>
+
+{% comment %}
+vim:filetype=htmldjango
+{% endcomment %}
+

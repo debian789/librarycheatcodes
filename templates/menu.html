@@ -1,0 +1,35 @@
+	<header>
+		<div class="heardTitulo">
+			<span>
+				
+				{% if user.is_authenticated %}
+					<a href=""  class=" icon-enter"> cerrar cesion</a>
+				{% else %}
+					<a href="" class=" icon-enter"> login</a>
+				{% endif %}
+			</span>
+			
+		</div>
+		<div class="heradMenu">
+			<span class="titulo">Test Tecnologia</span>
+	
+		<nav>
+
+			{% for item in menu%}
+				
+				<span><a href="{{ item.url }}" class="icon-images" {% if cat.active%}style="color:red"{% endif %}> {{ item.name }}</a></span>
+
+			{% endfor %}
+	<!-- 		<span><a href="/galeria/page/1" class='icon-home'> Inicio</a></span>
+			<span><a href="/galeria/page/1" class="icon-images"> Diagramas</a></span>
+			<span><a href="/codigos/1" class="icon-code"> Codigos</a></span>
+			<span><a href="/proyectos/1" class=" icon-book"> Proyectos </a></span>
+			<span><a href="/proyectos/1" class=" icon-book"> Enlaces </a></span> -->
+
+
+		{%comment %}	<a href="{% url vista_galeria_ingresar1 %}">agregar productos dos</a>{% endcomment %}
+		</nav>
+</div>
+	</header>
+
+

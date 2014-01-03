@@ -1,0 +1,31 @@
+{% load pygmentize_tags %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/pygmentize/css/pygments.css" rel="stylesheet" type="text/css"/>
+
+  </head>
+  <body>
+    <h2>django-pygmentize</h2>
+
+
+    {% pygmentize 'python' %}
+    """ this text is pygmentized in the template with templatetag"""
+    def func(arg):
+        pass
+    {% endpygmentize %}
+
+    {{pygmentized_text|safe}}
+
+    {{not_pygmentized_text}}
+
+    {{ not_pygmentized_text|pygmentize_all }}
+
+    {{ not_pygmentized_text|pygmentize:"django" }}
+    aaa
+
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "base.html"%}
+{% block title %}Agregar Proyecto{% endblock%}
+{% block contenido %}
+<form action="." method="post" enctype="multipart/form-data" >
+	
+	{{formulario.as_p}}
+	{% csrf_token %}
+	<input type="submit" value="Enviar">
+</form>
+
+{% endblock%}
+

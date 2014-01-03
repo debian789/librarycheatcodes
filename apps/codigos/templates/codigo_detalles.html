@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load pygmentify %}
+
+{% block titulo%} Detalle del codigo  {% endblock %}
+{% block barraContenido %} Detalle Codigo {% endblock %}
+{% block contenido %}
+{% if codigo %}
+	<article class="detalles">
+		<h1>{{ codigo.titulo}} </h1>
+		<div class="detallesCodigoBarra">
+			<h2>Descripcion	</h2>
+			<span class="lenguajeCodigo" >{{ codigo.lenguaje }}</span>	
+			<span class="lenguajeCodigo" >			
+			<select name="" id="">
+					<option value="">Sistemas Operativos</option>
+				{% for codi in codigo.so.all %}
+				<option value="">
+				  {{ codi}}
+				</option>
+				{% endfor %}
+			</select>	 
+			</span>
+					
+			{% if codigo.archivo %}
+				<a href="{{MEDIA_URL}}/{{codigo.archivo}}">
+					<span class=" icon-download"></span>
+				</a>
+			{% else %}
+				<span class="  icon-download"></span>
+			{% endif %}
+		</div>	
+		<p >{{ codigo.descripcion }} </p>
+
+		<div class="detallesCodigoBarra">
+			<h2>Codigo	</h2>
+
+		</div>	
+
+			<div class="codigoFuente">
+				
+		  {{ codigoFuente|pygmentify_inline }}
+			</div>
+		  
+
+	</article>
+{% endif%}
+		
+		  	
+		 
+{% endblock %}
+
+
+{% block cuadroInteractivo %}
+
+<form action="." method="post" enctype="multipart/form-data" >	
+	{{ formularioBusqueda }}
+	{% csrf_token %}
+	<input type="submit" value="Enviar">
+</form>
+
+		{% endblock%}
+
+		{% comment %}
+vim:filetype=htmldjango
+{% endcomment %}

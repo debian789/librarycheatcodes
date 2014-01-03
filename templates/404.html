@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title%}Página no encontrada | Mejorando.la{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/base.css?2903" />
+	<style>
+		html,body{height:100%} 
+		body{
+			background: url('http://mejorando.la/static/images/error/left-404.jpg') no-repeat left center,url('http://mejorando.la/static/images/error/right-404.jpg') no-repeat right center ,#008fd5;
+			color: #c9edff;
+			height: auto;
+		}
+		a{
+			color: #c9edff;
+			text-decoration: none;
+		}
+		span{
+			font-size: 30px;
+		}
+		.content{
+			width: 480px;
+			margin: 120px auto 0 auto;
+			text-align: center;
+		}
+		header{
+			max-width: none;
+		}
+		footer {
+			display: none;
+		}
+		#wrapper{
+			max-width: none;
+			background:  transparent;
+		}
+	</style>
+{% endblock %}
+{% block body %}
+	<div class="content">
+		<img src="http://mejorando.la/static/images/error/404.png"/>
+		<p><span>El contenido solicitado no existe.</span>  Puedes revisar nuestro archivo de <a href="http://mejorando.la/videos">vídeos</a> y de <a href="http://mejorando.la/cursos">cursos</a></p>	
+	</div>
+{% endblock %}
+	

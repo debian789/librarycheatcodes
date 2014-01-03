@@ -1,0 +1,71 @@
+.Box2D_logo, .box2d, .django-icon-256, .node_logo-01, .html5, .python-logo, .pygame_logo, .logo, .prygame, .django-logo, .python_logo{
+	background: url(../img/sprites.png) no-repeat;
+}
+
+.Box2D_logo{
+	background-position: -994px 0;
+	width: 86px;
+	height: 76px;
+}
+
+.box2d{
+	background-position: -585px -270px ;
+	width: 300px;
+	height: 76px;
+
+}
+
+.django-icon-256{
+	background-position: -595px -2px ;
+	width: 256px;
+	height: 256px;
+}
+
+.node_logo-01{
+	background-position: -28px -180px ;
+	width: 500px;
+	height: 200px;
+}
+
+.html5{
+	background-position: -636px -409px ;
+	width: 70px;
+	height: 70px;
+}
+
+.python-logo{
+	background-position: -21px -417px ;
+	width: 601px;
+	height: 203px;
+}
+
+.pygame_logo{
+	background-position: -873px -113px ;
+	width: 150px;
+	height: 59px;
+}
+
+.logo{
+	background-position: -856px -5px ;
+	width: 55px;
+	height: 55px;
+}
+
+.prygame{
+	background-position: 0 0;
+	width: 584px;
+	height: 164px;
+}
+
+.django-logo{
+	background-position: -908px -258px ;
+	width: 150px;
+	height: 84px;
+}
+
+.python_logo{
+	background-position: -791px -358px ;
+	width: 280px;
+	height: 280px;
+}
+

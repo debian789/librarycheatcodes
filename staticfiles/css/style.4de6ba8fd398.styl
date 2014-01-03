@@ -1,0 +1,493 @@
+gris_80 = #343434
+gris_70 = #5c5c5c
+gris_60 = #3d3d3d
+gris_50 = #ccc
+gris_40 = #D5D5D5
+gris_30 = #E1E1E1
+gris_10 = #f0f0f0
+azul_10 = #6FB6F1
+negro_10 = #181818
+azul_claro = #376697
+
+blanco = #F7F7F7
+verde_oscuro = #1c444d
+gris_20 = #e2e2e2
+azul_oscuro = #1d354d
+
+c_twitter = #2FC2EF
+c_facebook = #3B5998
+
+
+@import "normalize.min.styl"
+@import "sprites.styl"
+@import "icono.styl"
+
+border-radius()
+	-webkit-border-radius arguments
+	-moz-border-radius arguments
+	border-radius arguments
+
+lis()
+	border 1px solid blue
+
+body
+	font-size 16px
+	text-align center
+	background-color gris_20	
+
+header
+	width 100%
+
+	.heradMenu
+		background-color #1d354d
+		height 60px
+		border 1px solid #1d354d
+
+		.titulo 
+			float left
+			margin-left 2%
+			height 10px
+			margin-top 17px 
+			color blanco
+			font-size 1.1em
+
+		nav 
+			margin-top 24px
+			height 38px
+			text-align left
+			position relative
+			padding-right 4%
+			text-align right
+			text-align bottom
+
+			span 
+				border 1px solid negro_10
+				background-color azul_oscuro
+				display inline-block
+				height 100%
+				margin 0px 0px 0px 0px
+				vertical-align top
+				padding 0px 10px 0px 10px	
+
+				a 
+					color blanco				
+					display block
+					margin 10px 0px 0px 0px
+					width 100%	
+					text-decoration none
+
+			span:hover 
+				background-color gris_10
+				border-top 0px  solid negro_10 
+				border-left 1px  solid negro_10 
+				border-right 1px  solid negro_10 
+				border-bottom 0px  solid negro_10 
+
+				a 
+					color gris_60				
+					display block
+
+	.heardTitulo
+		background-color verde_oscuro
+		padding 0.3em
+		text-align right
+
+		span
+			font-size 16px
+			color #e2e2e2
+			width 60%
+			text-align left
+
+			a 
+				color gris_20
+				text-decoration none
+.codigoFuente
+	//border 1px solid red
+	text-align left 
+	box-shadow 3px 3px 3px gris_50
+	background-color blanco
+	border-left 1em solid azul_claro
+	color azul_claro
+	margin-top 10px
+	margin-bottom 10px 
+	padding 1em 
+	text-align left
+.cuadroImagen
+	//border 1px solid red
+	width 20%
+	position relative
+	text-align left
+	display inline-block
+	vertical-align top
+	margin 10px
+	//height 30px
+	figure 
+		//border 2px solid blue
+		//position relative
+		height 180px
+		//display block
+		overflow hidden
+
+		img 
+			//position absolute
+			width 100%
+	.tituloImagen
+		color black
+		background-color gris_40
+		border-radius 0 0 10px 10px
+		display block
+		opacity  0;
+		padding-top 5px 
+		padding-bottom 5px
+		position absolute 
+		text-align center 
+		transition opacity 0.2s linear
+		width 100%
+		&:hover 
+			opacity  0.7
+	.opcionesImagen
+		position absolute
+		display block
+		//border 1px solid red
+		background-color gris_80
+		margin-top -30px 
+		opacity  0;
+		color white
+		transition opacity 0.2s linear
+		width 100%
+		text-align right
+		padding-top 3px 
+		padding-bottom 3px  
+		border-radius 15px 0 0 15px 
+		a 
+			color white
+			text-decoration none
+			margin-right  10px
+
+	&:hover 
+		.tituloImagen
+			opacity  0.7
+		.opcionesImagen
+			opacity  0.5
+.contenidoFormulario 
+	position relative
+	text-align left
+	position:  relative
+
+	label
+		color azul_claro
+		font-weight bold
+		margin-left 3%
+		width 20%
+		display inline-block
+
+	input
+		width 70%
+
+	select
+		width 70% 
+
+	textarea
+		margin-left 3%
+		position:  relative
+		width 90%
+
+	input[type='submit']
+		width 90%
+		margin-left 3%		
+
+	span 
+		margin-left 23%
+
+#contenido
+	width 100%
+	position relative
+
+	.codigos_codigo
+		background-color blanco
+		border-left 0.6em solid azul_claro
+		margin-top 7px
+		padding 7px
+		box-shadow 3px 3px 3px gris_50
+		border-bottom 1px solid gris_50
+		
+		.listCodigoTitulo
+			padding 4px
+			height 20px
+
+			span,strong
+				vertical-align top
+
+			span 
+				display inline-block
+				vertical-align top
+				width auto
+				height auto
+				float right
+				margin 0px
+				margin-right 7px 
+				overflow hidden
+				border 0px
+
+			.tituloCodigo
+				font-size 1.3em
+				text-align left
+				float left
+				margin-bottom 0.2em
+				width 60%
+				overflow hidden 
+
+				a 
+					color azul_claro
+					font-weight bold
+					text-decoration none
+
+			.lenguajeCodigo
+				width auto
+
+		.listCodigoContenido
+			text-align left
+			padding 5px
+			border-top 1px solid gris_50
+			border-bottom 1px solid gris_50
+			margin-bottom 5px
+			margin-top 5px 
+
+			p 
+				text-align justify
+				margin 2px auto 2px auto
+				color #6387ac 
+				font-size 0.9em
+				overflow hidden
+				height auto
+
+		.informacionExtra
+			text-align right
+
+	.fragmentos_codigo
+		border-radius(5px)
+		width 100%
+		display inline-block
+		vertical-align top
+		margin 0.5em 0em 0em 0em
+
+		p 
+			padding 0.5em 0.5em 0.7em 0.5em
+			border-bottom 1px solid gris_60
+		span
+			margin-top 0.5em
+			border 0
+			display inline-block
+			vertical-align top
+			width 25%
+
+	fieldset
+		border 1px solid gris_60
+		border-radius(4px)
+		margin 2em auto 2em auto
+		padding 10px
+		width 50%
+
+		input 
+			width 90%
+			margin-bottom 6px
+
+		input[type=text] 
+			border 1px solid gris_30
+			border-radius(5px)
+			height 2em
+
+		input[type=password] 
+			border 1px solid gris_30
+			border-radius(5px)
+			height 2em
+		.conFacebook
+			background-color c_facebook
+			border-radius(3px)
+			padding 7px 15px 7px 7px			
+			color white
+			text-align right
+
+
+		.conTwitter
+			background-color c_twitter
+			color white
+			border-radius(3px)
+			margin-top 5px
+			margin-bottom 7px
+			padding 7px 15px 7px 7px
+			text-align right
+
+	.barraTitulo
+		background-color verde_oscuro
+		box-shadow 3px 3px 3px gris_50
+		text-align right
+		padding 0.3em 0.5em 0.3em 0.5em
+		font-weight bold
+
+		span
+			color gris_10
+			margin-left 0.2em
+		.nuevoItem
+			a 
+				color gris_10
+				font-size 1.1em
+				text-decoration none
+				float left 
+
+.detallesCodigoBarra
+	border-bottom 4px solid gris_40
+	border-top  4px solid gris_40
+	text-align left
+	padding 20px 0px 20px 5px
+	margin 10px 0px 10px 0px
+
+	h2
+		display inline-block
+		margin 0
+
+	span 
+		margin-right 1em
+		float right
+		vertical-align bottom
+
+.detalles
+		border-right 1px solid gris_20
+		padding 7px
+		//text-align center
+
+		h1
+			color azul_claro
+
+		h2
+			text-align left 
+			color azul_claro
+
+		p 
+			box-shadow 3px 3px 3px gris_50
+			background-color blanco
+			border-left 1em solid azul_claro
+			color azul_claro
+			margin-top 10px
+			margin-bottom 10px 
+			padding 1em 
+			text-align left
+		.figura 
+			width 80%
+			border 1px solid red
+			margin-left auto 
+			margin-right auto 
+
+			img
+				box-shadow 5px 5px 10px gris_80
+				width 100%
+
+.lineaPunteada
+	border-style dotted
+	border-color gris_30
+
+	&:hover
+		border-color gris_50
+		background-color red
+
+.tituloBarra
+	background-color verde_oscuro
+	box-shadow 3px 3px 3px gris_50
+	color blanco
+	padding 7px 4px 4px 10px
+	text-align left
+	font-weight bold 
+	margin-bottom 7px
+
+#cuadroInteractivo
+	text-align left
+	min-height 100px
+	margin 1em 3% 1em 0px
+
+	.interativoContenido
+		padding 3px 10px 10px 10px
+		background-color blanco
+
+		input[type="text"]
+			width 100%
+			height 30px
+			margin-top 0.5em 
+			margin-bottom 0.5em
+			border-radius 10px
+
+		select 
+			width 100%
+			margin-bottom 5px
+			margin-top 2px 
+
+		label 
+			margin 3px 0 10px 0
+
+		input[type='checkbox']
+			float right
+
+		input[type='submit']
+			width 100%
+			margin-top 10px
+
+#contenido, #cuadroInteractivo
+	display inline-block
+	vertical-align top
+
+footer
+	background-color gris_80
+			
+	div
+		display inline-block
+		vertical-align top
+		width 100%
+
+		img 
+			width 4em
+
+		ul 
+			list-style-type none
+			padding 0
+			margin 0em 0em 0em 0em
+
+			span 
+				font-size 1.2em
+				color gris_60
+
+			li 
+				border-bottom 1px solid gris_60
+				height 1.5em
+				text-align left
+				margin-left 0.5em
+
+
+				a
+					color gris_50
+					display block
+					text-decoration none
+				a:hover
+					color gris_70
+					background-color gris_60
+					display block
+					text-decoration none
+		span 
+			margin-top 0.5em
+			color gris_60
+			font-size 1.2em
+			display block
+			width 100%
+			border-bottom 1px solid gris_60
+
+		p 
+			color gris_50
+			font-size 0.9em
+			margin 1em 1em 1em 1em 
+			margin-bottom -1em
+			
+			height 80%
+			overflow hidden
+			text-align justify
+			width 90%
+
+
+@import "responsive.styl"

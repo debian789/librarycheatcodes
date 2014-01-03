@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block titulo%} codigos de codigo {% endblock %}
+{% block barraContenido %}
+	<span class="nuevoItem">
+		
+	</span>
+{% endblock %}
+{% block contenido %}
+
+{% if user.is_authenticated %}
+	<article class="codigos_codigo lineaPunteada">
+	<a href="{% url 'agregar_codigo' %}"> 
+		<div class="listCodigoTitulo ">
+			<span class="icon-plus"></span>Agregar Codigo
+		</div>
+		</a>
+		
+	</article>
+{% endif %}
+
+	{% if codigos %}
+		{% for codigo in codigos %}
+			<article class="codigos_codigo">			
+				<div class="listCodigoTitulo">				
+					<span class="tituloCodigo">
+						<a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo }}</a>
+					</span>
+					<span class="icon-remove"></span>
+						
+				</div>
+				<div class="listCodigoContenido">
+					<p>{{ codigo.descripcion }} </p>
+				</div>	
+				<div class="informacionExtra">
+					
+					{% if codigo.archivo %}
+						<a href="{{MEDIA_URL}}/{{codigo.archivo}}">
+							<span class=" icon-clip"></span>
+						</a>
+					{% else %}
+						<span class="  icon-clip"></span>
+					{% endif %}
+						<span class="lenguajeCodigo" >{{ codigo.lenguaje }}</span>
+				</div>
+
+			</article>
+		{% endfor %}
+	{% endif %}
+{% endblock %}
+
+
+{% block cuadroInteractivo %}
+
+<form action="." method="post" enctype="multipart/form-data" >	
+	{{ formularioBusqueda }}
+	{% csrf_token %}
+	<input type="submit" value="Enviar">
+</form>
+
+
+
+<!--
+<input type="text">
+<select>
+	<option> Sistema Operativo </option>
+</select>
+<select>
+	<option>Lenguaje </option>
+</select>
+<div>
+	<h3>resultado de busqueda </h3>
+</div>
+-->
+
+
+		{% endblock%}
