@@ -47,6 +47,7 @@ Thumbs.db
 #
 # Ficheros generados por el SO
 #
+/app-dev
 
 /.project
 /libpeerconnection.log
