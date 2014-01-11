@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block titulo %} Inicio Sesion {% endblock %}
+{% block contenido %}
+<article class="agregar">
+	<hr/>
+			<div class="botonCrear">
+				<a href="{% url 'agregar_codigo'%}">				
+			Agregar Codigo
+			 <span class=" icon-plus-sign"></span>
+			</a>
+			</div>
+		<!-- 	<div class="botonCrear">Agregar Proyecto <span class=" icon-plus-sign"></span></div> -->
+			<hr/>
+		</article>
+		<article class="favoritosProyectos">
+			<div  class="itemIngresados">
+				<div class="tituloFavoritos">
+				<h3>Codigos Favoritos</h3>
+				<span class=" icon-star"></span>
+					
+				</div>
+				<div class="contenidoFavorito">
+
+{% if favoritos %}
+{% for favorito in favoritos %}
+					<div class="item">
+
+						<h4><a href="{% url 'detalle_codigo' favorito.codigo.id %}"> {{ favorito.codigo.titulo }}</a></h4><span>
+						
+								<a href="{% url 'quitar_fav_princ' favorito.codigo.id %}" class="icon-close "></a>
+
+
+					</span>
+						<hr>
+						<p>{{ favorito.codigo.descripcion }}</p>
+					</div>
+{% endfor %}
+{% endif %}
+				</div>
+			</div>
+
+{% if proyectos %}
+
+			<div class="proyectos">
+				
+						<div  class="itemIngresados">
+				<div class="tituloFavoritos">
+				<h3>Favoritos Proyectos</h3>
+					<span class=" icon-star"></span>
+					
+				</div>
+				<div class="contenidoFavorito">
+
+					<div class="item">
+						<h4>Codigo de ejemplo </h4><span>quitar</span>
+						<hr/>
+						<p>descripcion de los codigos de ejemplo </p>
+					</div>
+
+
+				</div>
+			</div>
+
+
+			</div>
+{% endif %}
+		</article>
+
+
+
+		<article class="ultimosIngresados">
+			<div class="itemIngresados">
+				<div class="tituloFavoritos">
+				<h3>Ultimos Ingresados</h3>
+				<span class="icon-download-alt"></span>
+					
+				</div>
+
+				<div class="contenidoFavorito">
+					{% if codigos %}
+					{% for codigo in codigos %}
+					<div class="item">
+						<h4> 
+							<a href="{% url 'detalle_codigo' codigo.id %}">
+								{{ codigo.titulo }}
+							</a>
+							</h4>
+						<hr/>
+						<p>{{ codigo.descripcion }}</p>
+					</div>
+					{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+
+		</article>
+
+
+
+{% endblock %}
+

@@ -1,10 +1,11 @@
-from django.shortcuts import render_to_response,get_object_or_404,render
+from django.shortcuts import render_to_response,get_object_or_404,render,Http404
 from django.template import RequestContext
 from apps.codigos.models import *
 from apps.codigos.forms import *
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator,EmptyPage,InvalidPage
+from django.contrib.auth.models import User
 
 
 from django.utils.html import escape
@@ -19,9 +20,15 @@ def codigos_view(request):
 		return render(request,"codigos.html",contexto)
 	#contexto = {"codigos":codigos}
 	else:
+		usuario = User.objects.select_related().get(id=request.user.id)
+		codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
+
+
 		formularioBusqueda = frm_codigos_busqueda()
-		codigos = mdl_codigos.objects.filter(publicado=True)
+		#codigos = mdl_codigos.objects.filter(publicado=True)
+		#codigos = mdl_codigos.objects.all()
 		contexto = {"codigos":codigos,"formularioBusqueda":formularioBusqueda}
+		
 		return render(request,"codigos.html",contexto)
 	#return render_to_response("codigos.html",contexto,context_instance = RequestContext(request))
 
@@ -30,19 +37,57 @@ def codigos_view(request):
 
 def view_agregar_codigo(request):
 	if request.user.is_authenticated():
+		try: 
+			usuario = get_object_or_404(User, id=request.user.id)
+		except Http404:
+			return HttpResponseRedirect(reserve('codigos'))
+
 		if request.method == "POST":
-			contenidoForm = frm_codigos(request.POST,request.FILES)
-			if contenidoForm.is_valid:
+			contenidoForm = frm_codigos(usuario,request.POST,request.FILES)
+			if contenidoForm.is_valid():
 				contenidoForm.save()
 				return HttpResponseRedirect('/codigos')
 
-
-		formulario = frm_codigos()
+		formulario = frm_codigos(usuario)
 		contexto = {'formulario':formulario}
 		#return render_to_response('codigos/codigo_ingresar.html',contexto,context_instance=RequestContext(request))
 		return render(request,'codigo_ingresar.html',contexto)
 	else:
 		return HttpResponseRedirect('/codigos/')
+
+def editar_codigo_view(request,id_codigo):
+	if request.user.is_authenticated():
+		try: 
+			usuario = get_object_or_404(User, id=request.user.id)
+		except Http404:
+			return HttpResponseRedirect(reserve('codigos'))
+
+		try:
+			datos= mdl_codigos.objects.get(id=id_codigo)
+		except mdl_codigos.DoesNotExist:
+			return HttpResponseRedirect(reserve('codigos'))
+
+		if request.method == "POST":
+			contenidoForm = frm_codigos(usuario,request.POST,request.FILES,instance=datos)
+			if contenidoForm.is_valid():
+				contenidoForm.save()
+				return HttpResponseRedirect('/codigos')
+
+		
+
+		formulario = frm_codigos(usuario,instance = datos )
+		contexto = {'formulario':formulario}
+		return render(request,'codigo_ingresar.html',contexto)
+
+def eliminiar_codigo_view(request,id_codigo):
+	if request.user.is_authenticated():
+		datos = mdl_codigos.objects.get(id=id_codigo)
+		datos.delete()
+		return HttpResponseRedirect('/codigos')
+
+	return HttpResponseRedirect('/')
+
+
 
 
 

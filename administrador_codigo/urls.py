@@ -5,8 +5,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^',include('apps.proyectos.urls')),
-	url(r'^',include('apps.codigos.urls')),
+    url(r'^',include('apps.home.urls')),
+    url(r'^',include('apps.proyectos.urls')),
+    url(r'^',include('apps.codigos.urls')),
 
     #url(r'^',include('apps.prueba.urls')),
 	

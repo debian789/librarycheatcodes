@@ -5,7 +5,7 @@ from apps.elementos_comunes.models import mdl_lenguaje, mdl_sistema_operativo
 class codigosSerializer(serializers.HyperlinkedModelSerializer ):					   
 	class Meta:
 		model = mdl_codigos
-		fields = ("url","titulo","descripcion","url","so","lenguaje","archivo","codigo","publicado")
+		fields = ("url","titulo","descripcion","url","lenguaje","archivo","codigo")
 
 
 class lenguajeSerializer(serializers.HyperlinkedModelSerializer):

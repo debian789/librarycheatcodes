@@ -1,35 +1,55 @@
-	<header>
-		<div class="heardTitulo">
-			<span>
-				
-				{% if user.is_authenticated %}
-					<a href=""  class=" icon-enter"> cerrar cesion</a>
-				{% else %}
-					<a href="" class=" icon-enter"> login</a>
-				{% endif %}
-			</span>
-			
-		</div>
-		<div class="heradMenu">
-			<span class="titulo">Test Tecnologia</span>
-	
-		<nav>
+		<header>
+		<div class="barraTitulo">
+			<div class="logo">
+				BIBLIOTECA DE REFERENCIA
+				<span class="icon-books "></span>
+			</div>
 
+			<div class="ingresoSalida">
+				{% if user.is_authenticated %}
+					<a href="{% url 'inicio_sesion' %}" class=" icon-home inicio"></a>
+					<a href="{% url 'salir' %}"> Cerrar Sesion <span class="icon-exit"></span></a>
+				{% else %}
+					<a href="{% url 'inicio' %}" class=" icon-home inicio "></a>
+					<a href="{% url 'ingresar' %}" class=" "> Ingresar  <span class="icon-enter"></span> </a>
+				{% endif %}
+
+
+
+
+
+
+			</div>
+		</div>
+	
+			<nav class="navegacion">
+
+
+{% if user.is_authenticated %}
+				<ul>
 			{% for item in menu%}
-				
-				<span><a href="{{ item.url }}" class="icon-images" {% if cat.active%}style="color:red"{% endif %}> {{ item.name }}</a></span>
+
+					<li>
+						<a href="{{ item.url }}" {% if item.active%} style=":hover"{% endif %}>
+							{{ item.name }}<span class=" icon-code"></span>
+						</a>
+					</li>
+
+
 
 			{% endfor %}
-	<!-- 		<span><a href="/galeria/page/1" class='icon-home'> Inicio</a></span>
-			<span><a href="/galeria/page/1" class="icon-images"> Diagramas</a></span>
-			<span><a href="/codigos/1" class="icon-code"> Codigos</a></span>
-			<span><a href="/proyectos/1" class=" icon-book"> Proyectos </a></span>
-			<span><a href="/proyectos/1" class=" icon-book"> Enlaces </a></span> -->
+	
+				</ul>
+				
 
 
-		{%comment %}	<a href="{% url vista_galeria_ingresar1 %}">agregar productos dos</a>{% endcomment %}
-		</nav>
-</div>
+				<div class="buscador">
+					<div class="icon-search"></div>
+					<input type="text">
+				</div>
+
+				{% endif%}
+			</nav>
 	</header>
 
 

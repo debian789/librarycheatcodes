@@ -1,0 +1,20 @@
+{% extends "base.html"%}
+{% block title %} Inicio de Sesion {% endblock%}
+{% block contenido %}
+
+<article class="ingresar">
+	
+<fieldset>
+	<span>Ingrese sus Datos</span>
+
+<form action="." method="POST">
+	{% csrf_token %}
+	{{mensaje}}
+	{{form.as_p}}
+	<input type="submit" value="Ingresar" class="boton ">
+
+</form>
+</fieldset>
+</article>
+
+{% endblock%}

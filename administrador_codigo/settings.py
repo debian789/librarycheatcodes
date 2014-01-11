@@ -4,12 +4,8 @@ import os
 
 
 
-# configuracion para heroku 
-import dj_database_url
 
-############################
-
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -22,14 +18,23 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'app-dev',                      # Or path to database file if using sqlite3.
-        'USER': 'user',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
+        #'USER': 'user',  #.
+        'USER': 'user',
+        'PASSWORD': '123456',                  # Not used with sqlite3.
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
-DATABASES['default'] =  dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+
+
+# configuracion para heroku 
+#import dj_database_url
+
+#DATABASES['default'] =  dj_database_url.config()
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+############################
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.4/ref/settings/#allowed-hosts
@@ -144,6 +149,7 @@ INSTALLED_APPS = (
     'apps.proyectos',
     'apps.elementos_comunes',
     'apps.django_pygments',
+    'apps.home',
     'rest_framework',
     'django_extensions',
     #'apps.prueba',
@@ -183,3 +189,10 @@ LOGGING = {
         },
     }
 }
+
+
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'apps.home.context_processors.menu',
+    )

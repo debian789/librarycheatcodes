@@ -5,20 +5,20 @@ from actions import export_as_csv
 
 ## crea el listado de opciones en el administrado !!! 
 class codigosAdmin(admin.ModelAdmin):
-	list_display  = ('titulo','lenguaje','archivo','imagen_azul','esta_publicado','url')
-	list_filter   = ('publicado','so','lenguaje')
+	list_display  = ('titulo','lenguaje','archivo','url')
+	list_filter   = ('lenguaje',)
 	search_fields = ('titulo','codigo')
 	list_editable = ('archivo',)
 	actions       = [export_as_csv] 
 	raw_id_fields = ('lenguaje',)
-	filter_horizontal = ('so',)
+	#filter_horizontal = ('so',)
 
-	def imagen_azul(self,obj):
-		url = obj.imagen_azul_publicado()
-		tag = '<img src="%s">'% url 
-		return tag
-	imagen_azul.allow_tags = True  #permite que tenga tag html
-	imagen_azul.admin_order_field = 'publicado' #permite ordenarlos por publicado
+	#def imagen_azul(self,obj):
+	#	url = obj.imagen_azul_publicado()
+	#	tag = '<img src="%s">'% url 
+	#	return tag
+	#imagen_azul.allow_tags = True  #permite que tenga tag html
+	#imagen_azul.admin_order_field = 'publicado' #permite ordenarlos por publicado
 
 
 class CodigosInline(admin.StackedInline):

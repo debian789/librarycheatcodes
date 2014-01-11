@@ -1,76 +1,117 @@
 {% extends "base.html" %}
 {% block titulo%} codigos de codigo {% endblock %}
-{% block barraContenido %}
-	<span class="nuevoItem">
-		
-	</span>
-{% endblock %}
+
 {% block contenido %}
 
 {% if user.is_authenticated %}
-	<article class="codigos_codigo lineaPunteada">
-	<a href="{% url 'agregar_codigo' %}"> 
-		<div class="listCodigoTitulo ">
-			<span class="icon-plus"></span>Agregar Codigo
-		</div>
-		</a>
-		
-	</article>
+
+<hr/>
+
+<div class="botonCrear">
+				<a href="{% url 'agregar_codigo'%}">				
+			Agregar Codigo
+			 <span class=" icon-plus-sign"></span>
+			</a>
+</div>
+<hr/>
+
 {% endif %}
+<!-- 
+<article class="opcionesBusqueda">
+	<div class="subTituloBarra">
+		<h3>Filtro de Busqueda</h3>
+	</div>
+	<span class="tituloBuscar">Buscar</span>
+	<input type="text">
+	<hr/>	
+	<div class="filtros">
+		<div class="itemFiltros">
+			<div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div>
+			<div class="datosFiltro"><span>
+				<select name="" id="">
+					<option value=""></option>
+					<option value="">javaScript</option>
+					<option value="">Python</option>
+					<option value="">Java</option>
+				</select>
+			</span></div>
+		</div>
+		<div class="itemFiltros">
+			<div class="nombreFiltro"><span>Sistema Operativo</span></div>
+			<div class="datosFiltro"><span>
+				<select name="" id="">
+					<option value=""></option>
+					<option value="">Linux</option>
+					<option value="">Windows</option>
+					<option value="">Android</option>
+				</select>
+			</span></div>
+		</div>
+	</div>
+	<hr/>
+	<article class="opcionBuscar">
+
+		<div class="opcionCheckbox">
+			<input type="checkbox" name="checkbox" id="checkbox_id1" value="value">
+			<label for="checkbox_id1">Favoritos</label>
+		</div>
+		<div class="opcionCheckbox">
+			<input type="checkbox" name="checkbox" id="checkbox_id2" value="value">
+			<label for="checkbox_id2">Archivo Adjunto</label>
+		</div>
+		<hr/>
+		<div class="cantidadBusqueda">
+			<input type="submit" value="Buscar">
+		</div>
+	</article>
+</article> -->
+
+
+<article class="resultadoBusqueda">
+	<div class="subTituloBarra">
+		<h3>Mis Codigos </h3>
+		<div class="opcionesVisualizacion">
+			<span class="  icon-th-large"></span>
+			<span class="   icon-reorder"></span>
+		</div>
+	</div>
 
 	{% if codigos %}
-		{% for codigo in codigos %}
-			<article class="codigos_codigo">			
-				<div class="listCodigoTitulo">				
-					<span class="tituloCodigo">
-						<a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo }}</a>
-					</span>
-					<span class="icon-remove"></span>
-						
-				</div>
-				<div class="listCodigoContenido">
-					<p>{{ codigo.descripcion }} </p>
-				</div>	
-				<div class="informacionExtra">
-					
-					{% if codigo.archivo %}
-						<a href="{{MEDIA_URL}}/{{codigo.archivo}}">
-							<span class=" icon-clip"></span>
-						</a>
-					{% else %}
-						<span class="  icon-clip"></span>
-					{% endif %}
-						<span class="lenguajeCodigo" >{{ codigo.lenguaje }}</span>
-				</div>
 
-			</article>
-		{% endfor %}
+	{% for codigo in codigos %}
+	<div class="itemIngresadosCodigos">
+		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo }}</a></h4>
+		<div class="favoritoCodigo">
+			{% if codigo.favorito %}
+			<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a>
+
+			{% else %}
+			<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a>
+			{% endif %}
+			
+
+			{% if codigo.archivo %}
+				<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2"></a>
+			{% else %}
+				<a href="" class=" icon-download2"></a>
+			{% endif %}
+
+		</div>
+			<hr>
+			<p>{{ codigo.descripcion }}  </p>
+			<hr/>
+			<div class="informacionLenguaje">
+				<div>{{ codigo.lenguaje }}</div>
+				<div>Lenguaje </div>
+			</div>
+			<div class="edicionCodigo">
+				<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil"></a>
+				<a href="{% url 'eliminar_codigo' codigo.id %}" class="icon-trash" ></a>
+			</div>
+		</div>
+	{% endfor %}
 	{% endif %}
+
+	</article>
 {% endblock %}
 
-
-{% block cuadroInteractivo %}
-
-<form action="." method="post" enctype="multipart/form-data" >	
-	{{ formularioBusqueda }}
-	{% csrf_token %}
-	<input type="submit" value="Enviar">
-</form>
-
-
-
-<!--
-<input type="text">
-<select>
-	<option> Sistema Operativo </option>
-</select>
-<select>
-	<option>Lenguaje </option>
-</select>
-<div>
-	<h3>resultado de busqueda </h3>
-</div>
--->
-
-
-		{% endblock%}

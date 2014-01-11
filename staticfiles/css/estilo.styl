@@ -1,0 +1,784 @@
+azul_a = #1D4599
+azul_b = #2F3F60
+azul_c = #031A49
+azul_d = #7297E6
+azul_e = #A9BDE6
+
+blanco = #fcfcfc
+
+naranja_a = #E69F17
+naranja_b = #8F743F
+naranja_c = #6D4903
+naranja_d = #F9C96D
+naranja_e = #F9E0B0
+
+gris_a = #f7f8fb 
+gris_b = #e0e1e7
+@import "iconfonts.styl"
+@import "fonts.styl"
+body 
+		font-size 16px 
+		text-align center
+		background gris_a
+		color azul_b
+		font-family: 'open_sansregular'
+
+footer 
+	background azul_b
+	margin-top 2%
+	padding 2% 0 2% 0 
+	a 
+		color blanco 
+		text-decoration none 
+.alinear-izquierda
+	float left 
+	//border 1px solid red
+.barraTitulo
+	background azul_c
+	color blanco
+	margin 0
+	text-align left  
+	.logo 
+		//border 1px solid pink
+		display block
+		display inline-block
+		font-weight bold 
+		padding 0.5em 0 0.5em 0
+		text-align center
+		vertical-align top 
+		width 96%
+	.ingresoSalida
+		//border 1px solid pink
+		display block
+		display inline-block
+		padding 0.5em 1% 0.5em 0
+		vertical-align top 
+		text-align right 
+		width 96%
+		a 
+			color blanco
+			text-decoration none 
+		.inicio 
+			margin-right 2%
+			border-right 1px solid gris_a
+			padding-right 3%
+			
+.contenido 
+	margin-left auto
+	margin-right auto 
+	.agregar 
+		//border 1px solid 
+		margin-left auto
+		margin-right auto
+		margin-top 0.5em
+		margin-bottom 0.5em
+		width 96%
+
+	.detallesCodigo
+		background gris_b
+		//border-top 0.5em solid azul_e
+		border-radius 10px 10px 0 0 
+		box-shadow 5px 5px 10px azul_b
+		margin 0.5em auto 0.5em auto 
+		padding-bottom 1em
+		width 96%
+		.funcionalidades
+			border-radius 10px 10px 0 0 
+			background naranja_a
+			text-align right 
+			padding 0.5em 0 0.4em 0 
+			width 100%
+			//border 1px solid red 
+			.agregarNuevo
+				display inline-block
+				vertical-align top 
+				text-align left 
+				width 60%
+			.edicion
+				display inline-block 
+				vertical-align top 
+				margin-right 1%
+				width 36%
+
+
+			a 
+				color naranja_c
+				//margin-right 0.5em
+				text-decoration none
+				font-weight bold
+			a:hover 
+				color naranja_e
+		h1 
+			width 96% 
+		.informacion
+			//border 1px solid red
+			margin-left auto 
+			margin-right auto 
+			width 96%
+			.itemInformacion
+				//border 1px solid red
+				margin-bottom 0.3em
+				width 100%
+				display inline-block 
+				vertical-align top 
+				.nombreInformacion
+					color blanco
+					border-radius 10px 0 0 10px 
+					background azul_d
+					padding 0.3em 0 0.3em 0em
+					text-align left
+					width 100%
+					span 
+						margin-left 2%
+				.datosInformacion
+					//border 1px solid pink
+					border-radius 0 10px 10px 0 
+					background blanco
+					padding 0.3em 0 0.3em 0em
+					text-align left
+					width 100%
+					span 
+						margin-left 2%
+				.nombreInformacion,.datosInformacion
+					display inline-block 
+					vertical-align top 
+		.subTitulo
+			color blanco
+			border-radius 10px 10px 0 0 
+			font-weight bold
+			margin 0.8em auto 0.8em auto 
+			background azul_a
+			padding 0.4em 0 0.4em 0em
+			text-align left
+			width 96%
+			span 
+				margin-left 2%
+		.descripcionCodigo
+			background blanco
+			border-left 0.5em solid azul_d
+			margin 1% auto 0.3em auto 
+			text-align left
+			padding 1% 0 0.2em 0 
+			width 96%
+			//border 1px solid red
+			p
+				margin 0 1% 0 1%
+				display block
+			div 
+				margin-left auto
+				margin-right  auto 
+				width 96%
+				//border 1px solid red
+
+	.favoritosProyectos
+		//border 1px solid red
+		margin 0 0 0 0
+		width 96% 
+		.itemIngresados
+			//border 1px solid red
+			background gris_b
+			border-radius 10px 10px 0 0
+			box-shadow 3px 3px 10px azul_b
+			margin-bottom 1em
+			width 100%
+			.tituloFavoritos
+				//border 3px solid green
+				background azul_a
+				border-radius 10px 10px 0 0 
+				width 100%
+				h3 
+					//border 1px solid red
+					color blanco
+					display inline-block
+					margin 0 0 0 1%
+					padding 0.5em 0 0.5em 0 
+					text-align left 
+					vertical-align top
+					width 80%
+				span 
+					//border  1px solid red
+					color blanco
+					display inline-block
+					padding 0.5em 0 0.5em 0 
+					padding-right 1%
+					text-align right 
+					vertical-align top
+					width 15%
+			.contenidoFavorito
+				margin 0 
+				width 100%
+				padding-bottom 1em
+				.item 
+					//border 1px solid red
+					border-left 0.7em solid azul_d
+					background blanco
+					margin 0.5em  auto 0.5em auto 
+					text-align left
+					width 90%
+					h4 
+						//border 1px solid red
+						margin 0.3em 1% 0 1%
+						text-align left
+						width 80%
+						a 
+							display block
+							font-size 1.2em 
+							color azul_b
+							font-family: 'texgyreherosregular'
+							text-decoration none 
+					hr 
+						border 1px solid gris_b
+					span 
+						margin 0.3em 1% 0 1%
+						width 15%
+						text-align right 
+						a 
+							color naranja_b
+							text-decoration none 
+							&:hover 
+								color naranja_a
+					p
+						//border 1px solid red
+						display block
+						margin 0.1em 1% 0.3em 1%
+						text-align left
+						width 96%
+						text-align justify
+
+					h4,span 
+						display inline-block
+						vertical-align top
+				.item:hover
+					border-left 0.7em solid azul_a
+	.ingresar 
+		width 96% 
+		margin 6% auto 3% auto 
+		//border 1px solid red 
+		fieldset 
+			opacity 0.6
+			background gris_b
+			border-radius 15px 15px 15px 15px 
+			margin 6% auto 3% auto 
+			padding 5% 5% 6% 5% 
+			//border 1px solid azul_a 
+			box-shadow 5px 5px 10px azul_b
+	.ingresoCodigo
+		width 96% 
+		margin 2% auto 2em auto 
+		background gris_b
+		border-radius 10px 10px 10px 10px 
+		box-shadow 5px 5px 10px azul_b
+		form 
+			.ingresoTitulo 
+				margin 1% 1% 1% 1%
+				//border 1px solid red 
+				span 
+					display inline-block 
+					vertical-align top
+					text-align left
+					width 100%
+				input 
+					border 1px solid naranja_a
+					padding 0
+					width 96%
+			.urlLenguaje
+				margin 1% 1% 1% 1%
+				.ingresoUrl
+					display inline-block
+					vertical-align top
+					//border 1px solid red
+					width 100%
+					span 
+						display inline-block
+						vertical-align top
+						margin 0.5em 0 0.3em 0 
+						display inline-block 
+						vertical-align top
+						text-align left
+						width 96%
+					input 
+						display inline-block
+						vertical-align top
+						border 1px solid naranja_a
+						padding 0
+						width 96%
+				.ingresoLenguaje
+					display inline-block
+					vertical-align top
+					width 100%
+					span 
+						display inline-block 
+						margin 0.5em 0 0.3em 0 
+						vertical-align top
+						text-align left
+						width 100%
+					select 
+						width 96%
+			.ingresoOperativo
+				margin 1% 1% 1% 1%
+				span 
+					display inline-block 
+					vertical-align top
+					text-align left
+					margin 0.5em 0 0.3em 0 
+					width 100%
+				select 
+					border 1px solid naranja_a
+					width 100%
+			.ingresoAdjunto
+				margin 1% 1% 1% 1%
+				span 
+					margin 0.5em 0 0.3em 0 
+					display inline-block 
+					vertical-align top
+					text-align left
+					width 100%
+				input 
+					padding 0
+					width 100%
+			.descripcionCodigo
+				margin 1% 1% 1% 1%
+				//border 1px solid blue
+				margin 0 auto 0 auto 
+				padding 0
+				width 96%
+				.ingresoDescripcion
+					margin-top 1%
+					display inline-block
+					vertical-align top 
+					//border 1px solid blue
+					padding 0
+					width 100%
+					span 
+						display inline-block 
+						vertical-align top
+						text-align left
+						width 100%
+					textarea 
+						//border 1px solid azul_a
+						border 1px solid naranja_a
+						padding 0
+						width 96%
+				.ingresoCodigoFuente
+					display inline-block
+					vertical-align top 
+					margin-top 1%
+					//border 1px solid blue 
+					padding 0
+					width 100%
+					//margin 1% 1% 1% 1%
+					span 
+						//margin 0.5em 0 0.3em 0 
+						display inline-block 
+						vertical-align top
+						text-align left
+						width 100%
+					textarea 
+						border 1px solid naranja_a
+						padding 0
+						width 96%
+			.guardarCodigo
+				input 
+					width 70%
+					margin 1% 0 2% 0 
+	.opcionesBusqueda
+		//border 1px solid red
+		border-radius 10px 10px 0 0 
+		margin 0.5em auto 1em auto 
+		background gris_b
+		box-shadow 5px 5px 10px azul_b
+		padding 0 0 1em 0
+		width 96%
+		.tituloBuscar
+			margin-top 0.7em
+			display inline-block
+			margin-left  2%
+			vertical-align top
+			text-align left
+			width 98%
+			//border 1px solid red
+		input[type=text]
+			width 96%
+		.filtros
+			width 100%
+			//border 1px solid red
+			margin-left auto 
+			margin-right auto 
+			.itemFiltros
+				//border 1px solid red
+				//background blanco
+				margin-top 0.5em				
+				.nombreFiltro
+					display inline-block 
+					vertical-align top 
+					color blanco
+					background azul_d
+					//border 1px solid green
+					padding 0.3em 0 0.3em 0
+					text-align left
+					width 100%
+					span 
+						margin-left 1%
+				.datosFiltro 
+					background blanco
+					display inline-block
+					vertical-align top 
+					text-align left
+					padding 0.3em 0 0.3em 0
+					width 100%
+					span
+						margin 0 auto 0 auto 
+						margin-left 1%
+						select
+							width 96%
+		.opcionBuscar
+			width 100%
+			.opcionCheckbox
+				//border 1px solid red
+				display inline-block
+				vertical-align top
+				margin 1%
+				//width 30%
+			.cantidadBusqueda
+				display inline-block
+				//border 1px solid red
+				width 96%
+				input 
+					width 100% 
+					//border 1px solid naranja_a 
+					border 0
+					box-shadow 2px 2px 5px naranja_c
+					background naranja_a 
+					border-radius 10px 10px 10px 10px 
+					padding 0.4em 0 0.4em 0 
+					color blanco
+				input:hover 
+					background naranja_d
+					color naranja_c
+	.paginaInicial
+		figure 
+			background gris_b 
+			width 96%
+			margin 1% auto 1% auto 
+			box-shadow 5px 5px 10px gris_b
+			img 
+				width 80%
+		
+	.resultadoBusqueda
+		background gris_b
+		box-shadow 5px 5px 10px azul_b
+		border-radius 10px 10px 0 0
+		//border 1px solid red
+		margin 0.5em auto 0.5em auto 
+		padding-bottom 1em
+		width 96%
+		.itemResultado
+			border-left 0.7em solid azul_d
+			background blanco
+			margin 0.5em auto 0.5em auto 
+			text-align left
+			width 90%
+			h4 
+				margin 0.5em 0 0 1%
+				//border 1px solid red
+				display inline-block 
+				vertical-align top 
+				width 80%
+			p 
+				display inline-block 
+				vertical-align top 
+				margin 1%
+		.itemIngresadosCodigos
+			border-left 0.7em solid azul_d
+			background blanco
+			margin 0.5em auto 0.5em auto 
+			padding-bottom 0.5em
+			text-align left
+			width 90%
+			h4 
+				margin 0.2em 0 0 1%
+				//border 1px solid red
+				display inline-block 
+				vertical-align top 
+				width 80%
+				a 
+					display block
+					text-decoration none 
+					color azul_b
+					font-family: 'texgyreherosregular'
+					font-size 1.2em
+			.favoritoCodigo 
+				display inline-block 
+				margin 0.5em 0 0 1%
+				vertical-align top
+				text-align right 
+				//border 1px solid red
+				width 15%
+				a:first-of-type
+					border-right 1px solid azul_c
+					//border 1px solid red
+					padding-right 6%
+					padding-left 0
+				a 
+					display inline-block 
+					vertical-align top 
+					//margin-right 4% !important
+					padding-left 6% 
+					color naranja_b
+					text-decoration none 
+			p 
+				display inline-block 
+				vertical-align top 
+				margin 0 1% 0 1%
+				text-align  justify
+				//margin 1%
+			hr 
+				margin 0.2em 0 0.2em 0 
+			.informacionLenguaje
+				display inline-block 
+				vertical-align top
+				//border 1px solid red 
+				text-align right 
+				margin 0 0 0 1%
+				width 80%
+				div:first-of-type 
+					border-radius 0px 10px 10px 0px 
+					background blanco
+					color azul_c
+					float right
+					padding 0.2em 0 0.2em 1% 
+				div 
+					//padding-left 1%
+					padding 0.2em 1% 0.2em 1% 
+					background azul_a
+					border 1px solid azul_a
+					color blanco
+					float right 
+					border-radius 10px 0 0 10px 
+					display inline-block 
+					vertical-align top 
+					text-align left 
+					width 45%
+			.edicionCodigo
+				//border 1px solid red
+				display inline-block 
+				vertical-align top 
+				width 15%
+				text-align right
+				a:first-of-type
+					border-right 1px solid azul_c
+					//border 1px solid red
+					padding-right 6%
+					padding-left 0
+					color naranja_b
+				a 
+					display inline-block 
+					vertical-align top 
+					color naranja_c
+					//border-left 1px solid azul_c
+					//margin-right 3% !important
+					//padding-left 4% 
+					text-decoration none 
+
+
+	.ultimosIngresados
+		//border 1px solid blue 
+		width 96%
+		.itemIngresados
+			//border 1px solid red
+			background gris_b
+			border-radius 10px 10px 0 0
+			box-shadow 3px 3px 10px azul_b
+			width 100%
+			.tituloFavoritos
+				//border 3px solid green
+				background azul_a
+				border-radius 10px 10px 0 0
+				width 100%
+				h3 
+					//border 1px solid red
+					color blanco
+					display inline-block
+					margin 0 0 0 1%
+					padding 0.5em 0 0.5em 0 
+					text-align left 
+					vertical-align top
+					width 80%
+				span 
+					//border  1px solid red
+					display inline-block
+					color blanco
+					padding 0.5em 1% 1em 0 
+					text-align right
+					vertical-align top
+					width 14%
+			.contenidoFavorito
+				margin 0 
+				width 100%
+				padding-bottom 1em
+				.item 
+					//border 1px solid red
+					border-left 0.7em solid azul_d
+					background blanco
+					margin 0.5em  auto 0.5em auto 
+					text-align left
+					width 90%
+					h4 
+						//border 1px solid red
+						margin 0.3em 1% 0 1%
+						text-align left
+						width 80%
+						a 
+							font-size 1.2em 
+							color azul_b
+							font-family: 'texgyreherosregular'
+							text-decoration none 
+
+					hr 
+						border 1px solid gris_b
+					span 
+						margin 0.3em 1% 0 1%
+						width 15%
+					p
+						//border 1px solid red
+						display block
+						margin 0.1em 1% 0.3em 1%
+						text-align left
+						width 96%
+						text-align justify
+					h4,span 
+						display inline-block
+						vertical-align top
+
+	.favoritosProyectos,.ultimosIngresados
+		display inline-block
+		vertical-align top
+		
+
+.navegacion
+	//border 1px solid red
+	background azul_a
+	margin 0
+	padding 0
+	ul
+		//border 1px solid red
+		margin 0
+		padding 0
+		width 96%
+		li 
+			background azul_d
+			border-radius 0.7em
+			display inline-block
+			margin-top 0.3em
+			padding 0.4em 0 0.4em 0 
+			text-align center
+			vertical-align top 
+			width 100%
+			a 
+				//border 1px solid red 
+				color blanco
+				display block
+				font-weight bold
+				text-decoration none
+		li:hover 
+			background azul_e
+			a 
+				color azul_b
+
+	.buscador
+		//border 1px solid pink
+		display block
+		display inline-block
+		font-weight bold 
+		margin-top 0.5em	
+		margin-bottom 0.5em	
+		padding 0em
+		vertical-align top 
+		width 96%
+		input[type=text]
+			border-radius 15px 0 0 15px
+			border 1px solid azul_a
+			float right 
+			margin 0
+			padding-top 0.4em
+			padding-bottom 0.3em
+			width 87%
+		div
+			//border 1px solid red
+			background naranja_a
+			border-radius 0 15px 15px 0
+			color blanco
+			display inline-block
+			float right
+			margin 0 
+			padding-top 0.5em
+			padding-bottom 0.4em
+			width 10%
+		div:hover 
+			background naranja_d
+
+
+	ul,.buscador
+		display inline-block
+		vertical-align top 
+.botonCrear 
+	//border 1px solid red
+	background naranja_a
+	border-radius 0.6em
+	box-shadow 3px 3px 6px naranja_b
+	color blanco
+	display inline-block
+	font-weight bold
+	font-size 1.3em
+	margin 0.4em 0 0.2em 0
+	padding-top 0.3em
+	padding-bottom 0.3em
+	vertical-align top 
+	width 96%
+	a 
+		display block
+		color blanco 
+		text-decoration none 
+		font-family: 'texgyreherosregular'
+	&:hover 
+		background naranja_d
+.boton
+	border 0
+	background naranja_a
+	color blanco
+	border-radius 10px 10px 10px 10px 
+	padding 0.4em 0 0.4em 0 
+	width 100%
+.lineaDerecha
+	border-left 2px solid gris_b
+	margin-left 1%
+	//border 1px solid red
+	padding-left 2% 
+	
+.subTituloBarra
+	//border 1px solid red
+	background azul_a
+	border-radius 10px 10px 0 0 
+	padding 0.4em 0 0.4em 0
+	text-align left
+	width 100%
+	h3 
+		margin 0
+		width 80%
+		display inline-block 
+		vertical-align top 
+		margin-left 1%
+		color blanco
+		font-family: 'texgyreherosregular'
+		//font-family: 'open_sansbold'
+	.opcionesVisualizacion
+		display inline-block 
+		vertical-align top 
+		//border 1px solid red
+		text-align right 
+		width 15%
+		span 
+			vertical-align top 
+			color blanco
+			margin-right 1%
+@import "responsive.styl"
