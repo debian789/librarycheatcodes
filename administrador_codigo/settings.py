@@ -32,8 +32,8 @@ DATABASES = {
 # configuracion para heroku 
 import dj_database_url
 
-DATABASES['default'] =  dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#DATABASES['default'] =  dj_database_url.config()
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ############################
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -146,7 +146,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.codigos',
-    'apps.proyectos',
+    #'apps.proyectos',
     'apps.elementos_comunes',
     'apps.django_pygments',
     'apps.home',
