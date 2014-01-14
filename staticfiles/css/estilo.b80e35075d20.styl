@@ -102,7 +102,7 @@ footer
 
 
 			a 
-				color naranja_c
+				color blanco
 				//margin-right 0.5em
 				text-decoration none
 				font-weight bold
@@ -328,13 +328,14 @@ footer
 			.ingresoAdjunto
 				margin 1% 1% 1% 1%
 				span 
-					margin 0.5em 0 0.3em 0 
+					margin 0em 0 0em 0 
 					display inline-block 
 					vertical-align top
 					text-align left
 					width 100%
 				input 
 					padding 0
+					margin 0em 0 0em 0 
 					width 100%
 			.descripcionCodigo
 				margin 1% 1% 1% 1%
@@ -356,6 +357,7 @@ footer
 						width 100%
 					textarea 
 						//border 1px solid azul_a
+						border-radius 10px 
 						border 1px solid naranja_a
 						padding 0
 						width 96%
@@ -375,6 +377,7 @@ footer
 						width 100%
 					textarea 
 						border 1px solid naranja_a
+						border-radius 10px 
 						padding 0
 						width 96%
 			.guardarCodigo
@@ -546,10 +549,10 @@ footer
 					background blanco
 					color azul_c
 					float right
-					padding 0.2em 0 0.2em 1% 
+					padding 0em 0 0em 1% 
 				div 
 					//padding-left 1%
-					padding 0.2em 1% 0.2em 1% 
+					padding 0em 1% 0em 1% 
 					background azul_a
 					border 1px solid azul_a
 					color blanco
@@ -749,6 +752,8 @@ footer
 	border-radius 10px 10px 10px 10px 
 	padding 0.4em 0 0.4em 0 
 	width 100%
+	&:hover 
+		background naranja_d
 .lineaDerecha
 	border-left 2px solid gris_b
 	margin-left 1%
