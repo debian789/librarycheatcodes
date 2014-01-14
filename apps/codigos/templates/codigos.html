@@ -8,63 +8,49 @@
 <hr/>
 
 <div class="botonCrear">
-				<a href="{% url 'agregar_codigo'%}">				
-			Agregar Codigo
-			 <span class=" icon-plus-sign"></span>
-			</a>
+	<a href="{% url 'agregar_codigo'%}">				
+		Agregar Codigo
+		<span class=" icon-plus-sign"></span>
+	</a>
 </div>
 <hr/>
 
 {% endif %}
-<!-- 
 <article class="opcionesBusqueda">
+
+
 	<div class="subTituloBarra">
 		<h3>Filtro de Busqueda</h3>
 	</div>
-	<span class="tituloBuscar">Buscar</span>
-	<input type="text">
-	<hr/>	
-	<div class="filtros">
-		<div class="itemFiltros">
-			<div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div>
-			<div class="datosFiltro"><span>
-				<select name="" id="">
-					<option value=""></option>
-					<option value="">javaScript</option>
-					<option value="">Python</option>
-					<option value="">Java</option>
-				</select>
-			</span></div>
-		</div>
-		<div class="itemFiltros">
-			<div class="nombreFiltro"><span>Sistema Operativo</span></div>
-			<div class="datosFiltro"><span>
-				<select name="" id="">
-					<option value=""></option>
-					<option value="">Linux</option>
-					<option value="">Windows</option>
-					<option value="">Android</option>
-				</select>
-			</span></div>
-		</div>
-	</div>
-	<hr/>
-	<article class="opcionBuscar">
+	<form action="." method="post" >
 
-		<div class="opcionCheckbox">
-			<input type="checkbox" name="checkbox" id="checkbox_id1" value="value">
-			<label for="checkbox_id1">Favoritos</label>
-		</div>
-		<div class="opcionCheckbox">
-			<input type="checkbox" name="checkbox" id="checkbox_id2" value="value">
-			<label for="checkbox_id2">Archivo Adjunto</label>
+
+		<span class="tituloBuscar">Buscar</span>
+		{{ formularioBusqueda.busqueda }}
+		<hr/>	
+		<div class="filtros">
+			<div class="itemFiltros">
+				<div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div>
+				<div class="datosFiltro"><span>
+					{{ formularioBusqueda.lenguaje }}
+
+				</span></div>
+			</div>
 		</div>
 		<hr/>
-		<div class="cantidadBusqueda">
-			<input type="submit" value="Buscar">
-		</div>
-	</article>
-</article> -->
+		<article class="opcionBuscar">
+			<div class="opcionCheckbox">
+				{{ formularioBusqueda.adjunto }}
+				<label for="id_adjunto">Archivo Adjunto</label>
+			</div>
+			<hr/>
+			<div class="cantidadBusqueda">
+				<input type="submit" value="Buscar">
+			</div>
+		</article>
+		{% csrf_token %}
+	</form>
+</article> 
 
 
 <article class="resultadoBusqueda">
@@ -88,30 +74,30 @@
 			{% else %}
 			<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a>
 			{% endif %}
-			
+
 
 			{% if codigo.archivo %}
-				<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2"></a>
+			<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2"></a>
 			{% else %}
-				<a href="" class=" icon-download2"></a>
+			<a href="" class=" icon-download2"></a>
 			{% endif %}
 
 		</div>
-			<hr>
-			<p>{{ codigo.descripcion }}  </p>
-			<hr/>
-			<div class="informacionLenguaje">
-				<div>{{ codigo.lenguaje }}</div>
-				<div>Lenguaje </div>
-			</div>
-			<div class="edicionCodigo">
-				<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil"></a>
-				<a href="{% url 'eliminar_codigo' codigo.id %}" class="icon-trash" ></a>
-			</div>
+		<hr>
+		<p>{{ codigo.descripcion }}  </p>
+		<hr/>
+		<div class="informacionLenguaje">
+			<div>{{ codigo.lenguaje }}</div>
+			<div>Lenguaje </div>
 		</div>
+		<div class="edicionCodigo">
+			<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil"></a>
+			<a href="{% url 'eliminar_codigo' codigo.id %}" class="icon-trash" ></a>
+		</div>
+	</div>
 	{% endfor %}
 	{% endif %}
 
-	</article>
+</article>
 {% endblock %}
 

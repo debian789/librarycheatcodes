@@ -235,7 +235,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .detallesCodigo .funcionalidades{border-radius:10px 10px 0 0;background:#e69f17;text-align:right;padding:.5em 0 .4em 0;width:100%;}
 .contenido .detallesCodigo .funcionalidades .agregarNuevo{display:inline-block;vertical-align:top;text-align:left;width:60%}
 .contenido .detallesCodigo .funcionalidades .edicion{display:inline-block;vertical-align:top;margin-right:1%;width:36%}
-.contenido .detallesCodigo .funcionalidades a{color:#6d4903;text-decoration:none;font-weight:bold}
+.contenido .detallesCodigo .funcionalidades a{color:#fcfcfc;text-decoration:none;font-weight:bold}
 .contenido .detallesCodigo .funcionalidades a:hover{color:#f9e0b0}
 .contenido .detallesCodigo h1{width:96%}
 .contenido .detallesCodigo .informacion{margin-left:auto;margin-right:auto;width:96%;}
@@ -283,15 +283,15 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo form .ingresoOperativo span{display:inline-block;vertical-align:top;text-align:left;margin:.5em 0 .3em 0;width:100%}
 .contenido .ingresoCodigo form .ingresoOperativo select{border:1px solid #e69f17;width:100%}
 .contenido .ingresoCodigo form .ingresoAdjunto{margin:1% 1% 1% 1%;}
-.contenido .ingresoCodigo form .ingresoAdjunto span{margin:.5em 0 .3em 0;display:inline-block;vertical-align:top;text-align:left;width:100%}
-.contenido .ingresoCodigo form .ingresoAdjunto input{padding:0;width:100%}
+.contenido .ingresoCodigo form .ingresoAdjunto span{margin:0 0 0 0;display:inline-block;vertical-align:top;text-align:left;width:100%}
+.contenido .ingresoCodigo form .ingresoAdjunto input{padding:0;margin:0 0 0 0;width:100%}
 .contenido .ingresoCodigo form .descripcionCodigo{margin:1% 1% 1% 1%;margin:0 auto 0 auto;padding:0;width:96%;}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion{margin-top:1%;display:inline-block;vertical-align:top;padding:0;width:100%;}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion span{display:inline-block;vertical-align:top;text-align:left;width:100%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{border:1px solid #e69f17;padding:0;width:96%}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{border-radius:10px;border:1px solid #e69f17;padding:0;width:96%}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente{display:inline-block;vertical-align:top;margin-top:1%;padding:0;width:100%;}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente span{display:inline-block;vertical-align:top;text-align:left;width:100%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea{border:1px solid #e69f17;padding:0;width:96%}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea{border:1px solid #e69f17;border-radius:10px;padding:0;width:96%}
 .contenido .ingresoCodigo form .guardarCodigo input{width:70%;margin:1% 0 2% 0}
 .contenido .opcionesBusqueda{border-radius:10px 10px 0 0;margin:.5em auto 1em auto;background:#e0e1e7;box-shadow:5px 5px 10px #2f3f60;padding:0 0 1em 0;width:96%;}
 .contenido .opcionesBusqueda .tituloBuscar{margin-top:.7em;display:inline-block;margin-left:2%;vertical-align:top;text-align:left;width:98%}
@@ -323,8 +323,8 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .resultadoBusqueda .itemIngresadosCodigos p{display:inline-block;vertical-align:top;margin:0 1% 0 1%;text-align:justify}
 .contenido .resultadoBusqueda .itemIngresadosCodigos hr{margin:.2em 0 .2em 0}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje{display:inline-block;vertical-align:top;text-align:right;margin:0 0 0 1%;width:80%;}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div:first-of-type{border-radius:0 10px 10px 0;background:#fcfcfc;color:#031a49;float:right;padding:.2em 0 .2em 1%}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{padding:.2em 1% .2em 1%;background:#1d4599;border:1px solid #1d4599;color:#fcfcfc;float:right;border-radius:10px 0 0 10px;display:inline-block;vertical-align:top;text-align:left;width:45%}
+.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div:first-of-type{border-radius:0 10px 10px 0;background:#fcfcfc;color:#031a49;float:right;padding:0 0 0 1%}
+.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{padding:0 1% 0 1%;background:#1d4599;border:1px solid #1d4599;color:#fcfcfc;float:right;border-radius:10px 0 0 10px;display:inline-block;vertical-align:top;text-align:left;width:45%}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo{display:inline-block;vertical-align:top;width:15%;text-align:right;}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo a:first-of-type{border-right:1px solid #031a49;padding-right:6%;padding-left:0;color:#8f743f}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo a{display:inline-block;vertical-align:top;color:#6d4903;text-decoration:none}
@@ -356,7 +356,8 @@ footer a{color:#fcfcfc;text-decoration:none}
 .botonCrear{background:#e69f17;border-radius:.6em;box-shadow:3px 3px 6px #8f743f;color:#fcfcfc;display:inline-block;font-weight:bold;font-size:1.3em;margin:.4em 0 .2em 0;padding-top:.3em;padding-bottom:.3em;vertical-align:top;width:96%;}
 .botonCrear a{display:block;color:#fcfcfc;text-decoration:none;font-family:'texgyreherosregular'}
 .botonCrear:hover{background:#f9c96d}
-.boton{border:0;background:#e69f17;color:#fcfcfc;border-radius:10px 10px 10px 10px;padding:.4em 0 .4em 0;width:100%}
+.boton{border:0;background:#e69f17;color:#fcfcfc;border-radius:10px 10px 10px 10px;padding:.4em 0 .4em 0;width:100%;}
+.boton:hover{background:#f9c96d}
 .lineaDerecha{border-left:2px solid #e0e1e7;margin-left:1%;padding-left:2%}
 .subTituloBarra{background:#1d4599;border-radius:10px 10px 0 0;padding:.4em 0 .4em 0;text-align:left;width:100%;}
 .subTituloBarra h3{margin:0;width:80%;display:inline-block;vertical-align:top;margin-left:1%;color:#fcfcfc;font-family:'texgyreherosregular'}
@@ -374,21 +375,20 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .detallesCodigo .informacion .itemInformacion .datosInformacion select{width:96%}
 .contenido .detallesCodigo .descripcionCodigo{width:90%}
 .contenido .ingresar{width:40%}
-.contenido .ingresoCodigo{width:80%;}
+.contenido .ingresoCodigo{width:70%;}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoUrl{margin-right:1%;width:48%;display:inline-block;vertical-align:top;}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoUrl span{text-align:left;margin:0 0 0 0;width:30%}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoUrl input{width:66%}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoLenguaje{margin-left:2%;display:inline-block;vertical-align:top;width:47%;}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoLenguaje span{margin:0 0 0 0;width:30%}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoLenguaje select{width:66%}
-.contenido .ingresoCodigo form .ingresoAdjunto{text-align:right;}
-.contenido .ingresoCodigo form .ingresoAdjunto span{text-align:right;width:48%}
-.contenido .ingresoCodigo form .ingresoAdjunto input{text-align:right;width:40%}
+.contenido .ingresoCodigo form .ingresoAdjunto{text-align:left;}
+.contenido .ingresoCodigo form .ingresoAdjunto span{text-align:left;width:18%}
+.contenido .ingresoCodigo form .ingresoAdjunto input{text-align:left;width:76%}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion{margin:0 1% 0 0%;width:48%;}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{width:100%}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente{margin:0 0% 0 2%;width:47%;}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea{width:100%}
-.contenido .ingresoCodigo form .guardarCodigo input{width:50%}
 .contenido .opcionesBusqueda{width:30%;display:inline-block;vertical-align:top;margin-right:1%;}
 .contenido .opcionesBusqueda .filtros{width:96%;}
 .contenido .opcionesBusqueda .filtros .itemFiltros{margin-left:1%;display:inline-block;vertical-align:top;width:96%;}
@@ -397,9 +397,10 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .opcionesBusqueda .opcionBuscar .cantidadBusqueda{width:40%}
 .contenido .resultadoBusqueda{display:inline-block;vertical-align:top;width:66%;}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{width:20%}
-.navegacion ul{width:47%;}
+.navegacion ul{width:40%;}
 .navegacion ul li{margin-top:1em;width:45%;padding:.3em 0 .3em 0;margin-left:1%;margin-right:1%}
-.navegacion .buscador{width:47%;margin-top:1em;margin-bottom:1em}
+.navegacion .buscador{width:40%;margin-top:1em;margin-bottom:1em}
 .botonCrear{width:35%;margin:0 1% 0 1%}
+.boton{width:15% !important}
 }@media screen and (min-width:1024px){.barraTitulo{border:0 solid #008000}
 }

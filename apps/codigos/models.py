@@ -10,9 +10,9 @@ def url(self,filename):
 class mdl_codigos(models.Model):
 	titulo 		= models.CharField(max_length=500)
 	descripcion = models.TextField(blank=True)
-	url    		= models.URLField(max_length=300,blank=False)
+	url    		= models.URLField(max_length=300,blank=True)
 	lenguaje    = models.ForeignKey(mdl_lenguaje,blank=False)
-	archivo     = models.ImageField(upload_to=url,null=True,blank=True)
+	archivo     = models.FileField(upload_to=url,null=True,blank=True)
 	codigo 		= models.TextField()
 	usuario     = models.ForeignKey(User)
 	favorito    = models.BooleanField(default=False,blank=False)

@@ -14,10 +14,49 @@ from pygments.lexers import LEXERS
 def codigos_view(request):
 	if request.method == 'POST':
 		formularioBusqueda = frm_codigos_busqueda(request.POST)
-		print formularioBusqueda
-		codigosBuequeda = mdl_codigos.objects.filter(titulo= formularioBusqueda.cleaned_data['buesqueda'])
-		contexto = {"codigos":codigosBuequeda,"formularioBusqueda":formularioBusqueda}
+		if formularioBusqueda.is_valid():
+			usuario = User.objects.select_related().get(id=request.user.id)
+			codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
+
+			if formularioBusqueda.cleaned_data['busqueda']:
+				codigos = codigos.filter(titulo__icontains=formularioBusqueda.cleaned_data['busqueda'])
+				print "busqued por nombre : " + formularioBusqueda.cleaned_data['busqueda']
+
+			else:
+				print "no hay nombre :( "
+
+			if formularioBusqueda.cleaned_data['lenguaje']  :
+				codigos = codigos.filter(lenguaje=formularioBusqueda.cleaned_data['lenguaje'])
+				print "busqueda por lenguaje "+ formularioBusqueda.cleaned_data['lenguaje']
+				
+			else:
+				print "no hay lenguaje "
+
+
+			if formularioBusqueda.cleaned_data['adjunto']:
+				codigos = codigos.filter(archivo__isnull=False).exclude(archivo__exact='')
+				#codigos = codigos.filter(archivo__isnull=formularioBusqueda.cleaned_data['adjunto'])
+				print "busqueda por adjunto "
+			else:
+				print "no hay adjunto "
+
+
+
+
+			#print formularioBusqueda
+			#resultado = mdl_codigos.objects.filter(titulo__icontains="fasdfasdf",lenguaje=2,archivo__isnull=False)
+			##codigosBuequeda = mdl_codigos.objects.filter(titulo= formularioBusqueda.cleaned_data['busqueda'])
+			print(formularioBusqueda.cleaned_data['adjunto'])
+			contexto = {"codigos":codigos,"formularioBusqueda":formularioBusqueda}
+		else:
+			usuario = User.objects.select_related().get(id=request.user.id)
+			codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
+			formularioBusqueda = frm_codigos_busqueda()
+			contexto = {"codigos":codigos,"formularioBusqueda":formularioBusqueda}
+
+		
 		return render(request,"codigos.html",contexto)
+
 	#contexto = {"codigos":codigos}
 	else:
 		usuario = User.objects.select_related().get(id=request.user.id)
@@ -88,7 +127,12 @@ def eliminiar_codigo_view(request,id_codigo):
 	return HttpResponseRedirect('/')
 
 
+def filtroBusqueda(request):
+	pass
 
+
+	#le envieo los datos completos del formulario he iria uno por uno validado si
+	#contiene informacion y con eso haria la consulta final 
 
 
 #def view_codigos(request,pagina):

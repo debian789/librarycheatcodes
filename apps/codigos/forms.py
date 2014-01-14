@@ -10,6 +10,9 @@ TITLE_CHOICES = (
     ('MS', 'Ms.'),
 )
 
+SIN_OPCION = [
+('','----')
+]
 
 class frm_codigos(ModelForm):
 
@@ -76,18 +79,21 @@ class frm_codigos(ModelForm):
 
 
 class frm_codigos_busqueda(forms.Form):
-	buesqueda = forms.CharField(label='',max_length = 200, widget=forms.TextInput(attrs={'class': 'input',
+
+	busqueda = forms.CharField(required=False,label='',max_length = 200, widget=forms.TextInput(attrs={'class': 'input',
 			   'placeholder':'Buscar'
 			   },) )
-	#lenguaje = forms.CharField(max_length = 200 ,  widget=forms.Textarea())
-	#lenguaje = forms.CharField(max_length = 200 ,  widget=forms.Select(choices=TITLE_CHOICES))
-	lenguaje = forms.CharField(label="Lenguaje de Programacion",max_length = 200 ,  widget=forms.Select(
-		
-		choices=mdl_lenguaje.objects.all().values_list('id','nombre'),  ))
+	lenguaje = forms.CharField(required=False,label="Lenguaje de Programacion",max_length = 200 ,  widget=forms.Select(
+		choices= SIN_OPCION + list(mdl_lenguaje.objects.all().values_list('id','nombre')),  ))
+	#favorito = forms.BooleanField(label="Favorito")
+	adjunto = forms.BooleanField(required=False,label="Archivo Adjunto")
 
-	sistema = forms.CharField(label="Sistema Operativo",max_length = 200 ,  widget=forms.Select(
+	#lenguaje = forms.CharField(max_length = 200 ,  widget=forms.Select(choices=TITLE_CHOICES))
+	#lenguaje = forms.CharField(max_length = 200 ,  widget=forms.Textarea())
+	#sistema = forms.CharField(label="Sistema Operativo",max_length = 200 ,  widget=forms.Select(
+	#	choices=mdl_sistema_operativo.objects.all().values_list('id','nombre')  ))
 		
-		choices=mdl_sistema_operativo.objects.all().values_list('id','nombre')  ))
-	adjunto = forms.BooleanField(label="Archivo Adjunto")
+
+		
 
 	
