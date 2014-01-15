@@ -5,24 +5,28 @@
 
 {% if user.is_authenticated %}
 
-<hr/>
+	
+<hr class="ocultarMenu principalMenu "/>
 
-<div class="botonCrear">
+<div class="botonCrear ocultarMenu principalMenu ">
 	<a href="{% url 'agregar_codigo'%}">				
 		Agregar Codigo
 		<span class=" icon-plus-sign"></span>
 	</a>
 </div>
-<hr/>
+<hr class="ocultarMenu principalMenu" />
 
 {% endif %}
 <article class="opcionesBusqueda">
 
 
-	<div class="subTituloBarra">
-		<h3>Filtro de Busqueda</h3>
+	<div class="subTituloBarra mostrar">
+		<h3>Filtros de Busqueda</h3>
+		<div class="opcionesVisualizacion">
+			<span class="icon-th-menu-outline"></span>
+		</div>
 	</div>
-	<form action="." method="post" >
+	<form action="." method="post" class="menuMovil ocultar" >
 
 
 		<span class="tituloBuscar">Buscar</span>

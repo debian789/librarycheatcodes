@@ -95,8 +95,11 @@
 			width 30%
 			display inline-block 
 			vertical-align top 
+			//padding 0 0 1em 0
 			//border 4px solid red 
 			margin-right 1%
+			.subTituloBarra
+				background azul_a
 			.filtros
 				width 96%
 				.itemFiltros
@@ -114,7 +117,7 @@
 						width 96%
 			.opcionBuscar 
 				.cantidadBusqueda
-					width 40%
+					width 50%
 		.resultadoBusqueda
 			display inline-block 
 			vertical-align top 
@@ -125,7 +128,8 @@
 					div 
 						width 20%
 
-			
+	.menuMobilPrincipal 
+		display none
 	.navegacion
 		//height 4em
 		ul 
@@ -146,10 +150,14 @@
 	.botonCrear
 		//width 50%
 		width 35%
-		margin 0 1% 0 1%
+		margin 0 auto  0 auto
 	.boton 
 		//border 1px solid red
-		width 15% !important
+		width 30% !important
+	.ocultar 
+		display inline
+	.ocultarMenu
+		display block
 @media screen and (min-width:1024px)
 	.barraTitulo
 		border 0px solid green

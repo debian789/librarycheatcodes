@@ -390,8 +390,11 @@ footer
 		margin 0.5em auto 1em auto 
 		background gris_b
 		box-shadow 5px 5px 10px azul_b
-		padding 0 0 1em 0
+		//padding 0 0 1em 0
 		width 96%
+
+		.subTituloBarra  
+			background naranja_a
 		.tituloBuscar
 			margin-top 0.7em
 			display inline-block
@@ -445,6 +448,7 @@ footer
 			.cantidadBusqueda
 				display inline-block
 				//border 1px solid red
+				padding-bottom 1em 
 				width 96%
 				input 
 					width 100% 
@@ -657,7 +661,13 @@ footer
 		display inline-block
 		vertical-align top
 		
-
+.menuMobilPrincipal
+	background azul_c
+	border-top 1px solid gris_b
+	padding 0.5em 0 0.5em 0 
+	color blanco 
+	span 
+		color blanco
 .navegacion
 	//border 1px solid red
 	background azul_a
@@ -754,6 +764,10 @@ footer
 	width 100%
 	&:hover 
 		background naranja_d
+.ocultar 
+	display none
+.ocultarMenu
+	display none
 .lineaDerecha
 	border-left 2px solid gris_b
 	margin-left 1%

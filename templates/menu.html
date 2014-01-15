@@ -21,11 +21,12 @@
 
 			</div>
 		</div>
+
 	
-			<nav class="navegacion">
-
-
 {% if user.is_authenticated %}
+<div class="menuMobilPrincipal"> Menu <span class="   icon-reorder"></span> </div>
+			<nav class="navegacion ocultarMenu  principalMenu ">
+
 				<ul>
 			{% for item in menu%}
 
@@ -48,8 +49,8 @@
 					<input type="text">
 				</div>
 
-				{% endif%}
 			</nav>
+				{% endif%}
 	</header>
 
 

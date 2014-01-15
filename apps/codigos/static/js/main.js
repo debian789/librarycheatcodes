@@ -1,4 +1,18 @@
-// $(document).ready(function(){
+$(document).ready(function(){
+	$(".mostrar").click(function(){
+		//$(this).parent().css('padding-bottom','1em')
+		//$(".oculto").css('display','inline');
+       $(".menuMovil").toggleClass('ocultar');
+	});
+
+	$(".menuMobilPrincipal").click(function(){
+		//$(this).parent().css('padding','0')
+       $(".principalMenu").toggleClass('ocultarMenu');
+
+		//$(".ocultarMenu").css('display','inline');
+       //$(".menuMovil").toggleClass('ocultar');
+	});
+
 // 	//alert("hola");
 
 // //$('#myTab a:last').tab('show'); 
@@ -8,4 +22,4 @@
 
 //  SelectFilter.init(this.id, "S.O", 0, "/static/");  
 // });
-// })
+ });

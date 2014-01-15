@@ -293,7 +293,8 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente span{display:inline-block;vertical-align:top;text-align:left;width:100%}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea{border:1px solid #e69f17;border-radius:10px;padding:0;width:96%}
 .contenido .ingresoCodigo form .guardarCodigo input{width:70%;margin:1% 0 2% 0}
-.contenido .opcionesBusqueda{border-radius:10px 10px 0 0;margin:.5em auto 1em auto;background:#e0e1e7;box-shadow:5px 5px 10px #2f3f60;padding:0 0 1em 0;width:96%;}
+.contenido .opcionesBusqueda{border-radius:10px 10px 0 0;margin:.5em auto 1em auto;background:#e0e1e7;box-shadow:5px 5px 10px #2f3f60;width:96%;}
+.contenido .opcionesBusqueda .subTituloBarra{background:#e69f17}
 .contenido .opcionesBusqueda .tituloBuscar{margin-top:.7em;display:inline-block;margin-left:2%;vertical-align:top;text-align:left;width:98%}
 .contenido .opcionesBusqueda input[type=text]{width:96%}
 .contenido .opcionesBusqueda .filtros{width:100%;margin-left:auto;margin-right:auto;}
@@ -305,7 +306,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .opcionesBusqueda .filtros .itemFiltros .datosFiltro span select{width:96%}
 .contenido .opcionesBusqueda .opcionBuscar{width:100%;}
 .contenido .opcionesBusqueda .opcionBuscar .opcionCheckbox{display:inline-block;vertical-align:top;margin:1%}
-.contenido .opcionesBusqueda .opcionBuscar .cantidadBusqueda{display:inline-block;width:96%;}
+.contenido .opcionesBusqueda .opcionBuscar .cantidadBusqueda{display:inline-block;padding-bottom:1em;width:96%;}
 .contenido .opcionesBusqueda .opcionBuscar .cantidadBusqueda input{width:100%;border:0;box-shadow:2px 2px 5px #6d4903;background:#e69f17;border-radius:10px 10px 10px 10px;padding:.4em 0 .4em 0;color:#fcfcfc}
 .contenido .opcionesBusqueda .opcionBuscar .cantidadBusqueda input:hover{background:#f9c96d;color:#6d4903}
 .contenido .paginaInicial figure{background:#e0e1e7;width:96%;margin:1% auto 1% auto;box-shadow:5px 5px 10px #e0e1e7;}
@@ -342,6 +343,8 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item p{display:block;margin:.1em 1% .3em 1%;text-align:left;width:96%;text-align:justify}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item h4,.contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item span{display:inline-block;vertical-align:top}
 .contenido .favoritosProyectos,.contenido .ultimosIngresados{display:inline-block;vertical-align:top}
+.menuMobilPrincipal{background:#031a49;border-top:1px solid #e0e1e7;padding:.5em 0 .5em 0;color:#fcfcfc;}
+.menuMobilPrincipal span{color:#fcfcfc}
 .navegacion{background:#1d4599;margin:0;padding:0;}
 .navegacion ul{margin:0;padding:0;width:96%;}
 .navegacion ul li{background:#7297e6;border-radius:.7em;display:inline-block;margin-top:.3em;padding:.4em 0 .4em 0;text-align:center;vertical-align:top;width:100%;}
@@ -358,6 +361,8 @@ footer a{color:#fcfcfc;text-decoration:none}
 .botonCrear:hover{background:#f9c96d}
 .boton{border:0;background:#e69f17;color:#fcfcfc;border-radius:10px 10px 10px 10px;padding:.4em 0 .4em 0;width:100%;}
 .boton:hover{background:#f9c96d}
+.ocultar{display:none}
+.ocultarMenu{display:none}
 .lineaDerecha{border-left:2px solid #e0e1e7;margin-left:1%;padding-left:2%}
 .subTituloBarra{background:#1d4599;border-radius:10px 10px 0 0;padding:.4em 0 .4em 0;text-align:left;width:100%;}
 .subTituloBarra h3{margin:0;width:80%;display:inline-block;vertical-align:top;margin-left:1%;color:#fcfcfc;font-family:'texgyreherosregular'}
@@ -390,17 +395,21 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente{margin:0 0% 0 2%;width:47%;}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea{width:100%}
 .contenido .opcionesBusqueda{width:30%;display:inline-block;vertical-align:top;margin-right:1%;}
+.contenido .opcionesBusqueda .subTituloBarra{background:#1d4599}
 .contenido .opcionesBusqueda .filtros{width:96%;}
 .contenido .opcionesBusqueda .filtros .itemFiltros{margin-left:1%;display:inline-block;vertical-align:top;width:96%;}
 .contenido .opcionesBusqueda .filtros .itemFiltros .nombreFiltro{border-radius:10px 0 0 10px;padding-left:2%;width:96%}
 .contenido .opcionesBusqueda .filtros .itemFiltros .datosFiltro{width:96%}
-.contenido .opcionesBusqueda .opcionBuscar .cantidadBusqueda{width:40%}
+.contenido .opcionesBusqueda .opcionBuscar .cantidadBusqueda{width:50%}
 .contenido .resultadoBusqueda{display:inline-block;vertical-align:top;width:66%;}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{width:20%}
+.menuMobilPrincipal{display:none}
 .navegacion ul{width:40%;}
 .navegacion ul li{margin-top:1em;width:45%;padding:.3em 0 .3em 0;margin-left:1%;margin-right:1%}
 .navegacion .buscador{width:40%;margin-top:1em;margin-bottom:1em}
-.botonCrear{width:35%;margin:0 1% 0 1%}
-.boton{width:15% !important}
+.botonCrear{width:35%;margin:0 auto 0 auto}
+.boton{width:30% !important}
+.ocultar{display:inline}
+.ocultarMenu{display:block}
 }@media screen and (min-width:1024px){.barraTitulo{border:0 solid #008000}
 }
