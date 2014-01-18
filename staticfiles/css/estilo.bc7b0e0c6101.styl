@@ -35,23 +35,24 @@ footer
 	//border 1px solid red
 .barraTitulo
 	background azul_c
+
 	color blanco
 	margin 0
 	text-align left  
 	.logo 
-		//border 1px solid pink
+		border-bottom 1px solid gris_a
 		display block
 		display inline-block
 		font-weight bold 
-		padding 0.5em 0 0.5em 0
-		text-align center
+		padding 0.5em 0 0.5em 1%
+		text-align left
 		vertical-align top 
-		width 96%
+		width 98%
 	.ingresoSalida
-		//border 1px solid pink
-		display block
-		display inline-block
-		padding 0.5em 1% 0.5em 0
+		//border 1px solid red
+		//display block
+		//display inline-block
+		padding 0.5em 0 0.5em 0
 		vertical-align top 
 		text-align right 
 		width 96%
@@ -212,7 +213,7 @@ footer
 					//border 1px solid red
 					border-left 0.7em solid azul_d
 					background blanco
-					margin 0.5em  auto 0.5em auto 
+					margin 0.5em  auto 0em auto 
 					text-align left
 					width 90%
 					h4 
@@ -404,7 +405,8 @@ footer
 			width 98%
 			//border 1px solid red
 		input[type=text]
-			width 96%
+			margin-top 0.5em 
+			width 94%
 		.filtros
 			width 100%
 			//border 1px solid red
@@ -413,20 +415,20 @@ footer
 			.itemFiltros
 				//border 1px solid red
 				//background blanco
-				margin-top 0.5em				
+				margin-top 0em				
 				.nombreFiltro
 					display inline-block 
 					vertical-align top 
-					color blanco
-					background azul_d
+					//color blanco
+					//background azul_d
 					//border 1px solid green
-					padding 0.3em 0 0.3em 0
+					padding 0em 0 0.3em 0
 					text-align left
 					width 100%
 					span 
 						margin-left 1%
 				.datosFiltro 
-					background blanco
+					//background blanco
 					display inline-block
 					vertical-align top 
 					text-align left
@@ -496,14 +498,14 @@ footer
 				vertical-align top 
 				margin 1%
 		.itemIngresadosCodigos
-			border-left 0.7em solid azul_d
+			border-left 0.5em solid azul_d
 			background blanco
 			margin 0.5em auto 0.5em auto 
-			padding-bottom 0.5em
+			padding-bottom 0.2em
 			text-align left
-			width 90%
+			width 95%
 			h4 
-				margin 0.2em 0 0 1%
+				margin 0em 0 0 1%
 				//border 1px solid red
 				display inline-block 
 				vertical-align top 
@@ -513,7 +515,7 @@ footer
 					text-decoration none 
 					color azul_b
 					font-family: 'texgyreherosregular'
-					font-size 1.2em
+					font-size 1.1em
 			.favoritoCodigo 
 				display inline-block 
 				margin 0.5em 0 0 1%
@@ -538,34 +540,39 @@ footer
 				vertical-align top 
 				margin 0 1% 0 1%
 				text-align  justify
+				padding 0
+				//border 1px solid red
 				//margin 1%
 			hr 
-				margin 0.2em 0 0.2em 0 
+				margin 0.1em 0 0.1em 0 
 			.informacionLenguaje
 				display inline-block 
 				vertical-align top
 				//border 1px solid red 
-				text-align right 
+				//text-align right 
 				margin 0 0 0 1%
 				width 80%
-				div:first-of-type 
-					border-radius 0px 10px 10px 0px 
-					background blanco
-					color azul_c
-					float right
-					padding 0em 0 0em 1% 
+				// div:first-of-type 
+				// 	border-radius 10px 0 0 10px 
+				// 	background azul_e
+				// 	color azul_a
+				// 	float left
+				// 	padding 0em 0 0em 1% 
+				// 	width 20%
+				// 	min-width 5em 
 				div 
 					//padding-left 1%
+					border-radius 0px 10px 10px 0px 
 					padding 0em 1% 0em 1% 
-					background azul_a
-					border 1px solid azul_a
-					color blanco
-					float right 
-					border-radius 10px 0 0 10px 
+					background blanco
+					//border 1px solid azul_a
+					color naranja_b
+					float left 
 					display inline-block 
 					vertical-align top 
 					text-align left 
-					width 45%
+					width auto 
+					max-width 50
 			.edicionCodigo
 				//border 1px solid red
 				display inline-block 
@@ -662,10 +669,13 @@ footer
 		vertical-align top
 		
 .menuMobilPrincipal
+	//border 1px solid red
+	display inline-block
 	background azul_c
-	border-top 1px solid gris_b
-	padding 0.5em 0 0.5em 0 
+	//border-top 1px solid gris_b
+	padding 0.3em 2% 0.5em 0 
 	color blanco 
+	float right 
 	span 
 		color blanco
 .navegacion
@@ -677,6 +687,7 @@ footer
 		//border 1px solid red
 		margin 0
 		padding 0
+		text-align left
 		width 96%
 		li 
 			background azul_d
@@ -765,7 +776,9 @@ footer
 	&:hover 
 		background naranja_d
 .ocultar 
-	display none
+	display none 
+.ocultarTodo
+	display none 
 .ocultarMenu
 	display none
 .lineaDerecha
