@@ -5,7 +5,7 @@
 
 {% if user.is_authenticated %}
 
-	
+
 <hr class="ocultarMenu principalMenu "/>
 
 <div class="botonCrear ocultarMenu principalMenu ">
@@ -21,7 +21,7 @@
 
 
 	<div class="subTituloBarra mostrar">
-		<h3>Filtros de Busqueda</h3>
+		<h3>Buscador</h3>
 		<div class="opcionesVisualizacion">
 			<span class="icon-th-menu-outline"></span>
 		</div>
@@ -29,12 +29,12 @@
 	<form action="." method="post" class="menuMovil ocultar" >
 
 
-		<span class="tituloBuscar">Buscar</span>
+		<!-- <span class="tituloBuscar">Buscar</span> -->
 		{{ formularioBusqueda.busqueda }}
 		<hr/>	
 		<div class="filtros">
 			<div class="itemFiltros">
-				<div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div>
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
 				<div class="datosFiltro"><span>
 					{{ formularioBusqueda.lenguaje }}
 
@@ -54,6 +54,9 @@
 		</article>
 		{% csrf_token %}
 	</form>
+
+
+
 </article> 
 
 
@@ -68,31 +71,28 @@
 
 	{% if codigos %}
 
+
+
 	{% for codigo in codigos %}
 	<div class="itemIngresadosCodigos">
-		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo }}</a></h4>
+		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|upper }}</a></h4>
 		<div class="favoritoCodigo">
 			{% if codigo.favorito %}
 			<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a>
-
 			{% else %}
 			<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a>
 			{% endif %}
-
-
 			{% if codigo.archivo %}
 			<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2"></a>
 			{% else %}
 			<a href="" class=" icon-download2"></a>
 			{% endif %}
-
 		</div>
 		<hr>
-		<p>{{ codigo.descripcion }}  </p>
+		<p>{{ codigo.descripcion|truncatechars:140 }}  </p>
 		<hr/>
-		<div class="informacionLenguaje">
+		<div class="informacionLenguaje">		
 			<div>{{ codigo.lenguaje }}</div>
-			<div>Lenguaje </div>
 		</div>
 		<div class="edicionCodigo">
 			<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil"></a>
@@ -100,6 +100,71 @@
 		</div>
 	</div>
 	{% endfor %}
+
+
+	{% if not porFormulario %}
+	<div class="pagination">
+		<span class="step-links">
+			{% if codigos.has_previous %}
+			<a href="?page={{ codigos.previous_page_number }}">Anterior</a>
+			{% endif %}
+			<span class="current">
+				Pagina {{ codigos.number }} de {{ codigos.paginator.num_pages }}.
+			</span>
+			{% if codigos.has_next %}
+			<a href="?page={{ codigos.next_page_number }}">Siguiente</a>
+			{% endif %}
+		</span>
+	</div>
+	{% endif %}
+	{% if  porFormulario %}
+	<div class="pagination">
+		<span class="step-links">
+			<form action="." method="post" class=" " >
+				{% if codigos.has_previous %}
+				<input type="hidden" name='page' value="{{ codigos.previous_page_number }}">
+				<input type="submit" value="Anterior">
+
+				{% endif %}
+				{% csrf_token %}
+
+
+				<label class="ocultarTodo">
+
+					{{ formularioBusqueda.busqueda }}
+					{{ formularioBusqueda.lenguaje }}
+					{{ formularioBusqueda.adjunto }}
+				</label>
+
+			</form>
+
+
+			<span class="current">
+				Pagina {{ codigos.number }} de {{ codigos.paginator.num_pages }}.
+			</span>
+			<form action="." method="post" class=" " >
+
+				{% if codigos.has_next %}
+				<input type="hidden" name="page" value="{{ codigos.next_page_number }}">
+				<input type="submit" value='Siguiente'>
+
+				{% endif %}
+
+				<label class="ocultarTodo">
+					{{ formularioBusqueda.busqueda }}
+					{{ formularioBusqueda.lenguaje }}
+					{{ formularioBusqueda.adjunto }}
+				</label>
+
+				{% csrf_token %}
+
+			</form>
+
+		</span>
+	</div>
+	{% endif%}
+
+
 	{% endif %}
 
 </article>

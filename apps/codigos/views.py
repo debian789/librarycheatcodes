@@ -4,7 +4,7 @@ from apps.codigos.models import *
 from apps.codigos.forms import *
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator,EmptyPage,InvalidPage
+from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 from django.contrib.auth.models import User
 
 
@@ -20,39 +20,53 @@ def codigos_view(request):
 
 			if formularioBusqueda.cleaned_data['busqueda']:
 				codigos = codigos.filter(titulo__icontains=formularioBusqueda.cleaned_data['busqueda'])
-				print "busqued por nombre : " + formularioBusqueda.cleaned_data['busqueda']
-
 			else:
-				print "no hay nombre :( "
+				pass
 
 			if formularioBusqueda.cleaned_data['lenguaje']  :
 				codigos = codigos.filter(lenguaje=formularioBusqueda.cleaned_data['lenguaje'])
-				print "busqueda por lenguaje "+ formularioBusqueda.cleaned_data['lenguaje']
-				
 			else:
-				print "no hay lenguaje "
-
+				pass
 
 			if formularioBusqueda.cleaned_data['adjunto']:
 				codigos = codigos.filter(archivo__isnull=False).exclude(archivo__exact='')
 				#codigos = codigos.filter(archivo__isnull=formularioBusqueda.cleaned_data['adjunto'])
 				print "busqueda por adjunto "
 			else:
-				print "no hay adjunto "
+				pass
 
 
+			paginator = Paginator(codigos,10)
+			page = request.POST.get('page')
 
+			try:
+				contacts = paginator.page(page)
+			except PageNotAnInteger:
+				contacts = paginator.page(1)
+			except EmptyPage:
+				contacts = paginator.page(paginator.num_pages)
 
-			#print formularioBusqueda
-			#resultado = mdl_codigos.objects.filter(titulo__icontains="fasdfasdf",lenguaje=2,archivo__isnull=False)
-			##codigosBuequeda = mdl_codigos.objects.filter(titulo= formularioBusqueda.cleaned_data['busqueda'])
-			print(formularioBusqueda.cleaned_data['adjunto'])
-			contexto = {"codigos":codigos,"formularioBusqueda":formularioBusqueda}
+			porFormulario=True
+
+			contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 		else:
 			usuario = User.objects.select_related().get(id=request.user.id)
 			codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
 			formularioBusqueda = frm_codigos_busqueda()
-			contexto = {"codigos":codigos,"formularioBusqueda":formularioBusqueda}
+
+			paginator = Paginator(codigos,10)
+
+			page = request.POST.get('page')
+
+			try:
+				contacts = paginator.page(page)
+			except PageNotAnInteger:
+				contacts = paginator.page(1)
+			except EmptyPage:
+				contacts = paginator.page(paginator.num_pages)
+
+			porFormulario=True
+			contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 
 		
 		return render(request,"codigos.html",contexto)
@@ -64,9 +78,19 @@ def codigos_view(request):
 
 
 		formularioBusqueda = frm_codigos_busqueda()
-		#codigos = mdl_codigos.objects.filter(publicado=True)
-		#codigos = mdl_codigos.objects.all()
-		contexto = {"codigos":codigos,"formularioBusqueda":formularioBusqueda}
+
+		paginator = Paginator(codigos,10)
+
+		page = request.GET.get('page')
+
+		try:
+			contacts = paginator.page(page)
+		except PageNotAnInteger:
+			contacts = paginator.page(1)
+		except EmptyPage:
+			contacts = paginator.page(paginator.num_pages)
+
+		contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda}
 		
 		return render(request,"codigos.html",contexto)
 	#return render_to_response("codigos.html",contexto,context_instance = RequestContext(request))

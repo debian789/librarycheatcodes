@@ -11,14 +11,14 @@ TITLE_CHOICES = (
 )
 
 SIN_OPCION = [
-('','----')
+('','Lenguaje de Progrmacion')
 ]
 
 class frm_codigos(ModelForm):
 
 	def __init__(self, *args, **kwargs):
 		super(frm_codigos, self).__init__(*args, **kwargs)
-		self.fields.keyOrder = ['titulo','url','lenguaje','archivo','descripcion','codigo','usuario','favorito']
+		self.fields.keyOrder = ['titulo','links','lenguaje','archivo','descripcion','codigo','usuario','favorito']
 		self.fields['titulo'].widget.attrs.update({'class':'titulo'})
 
 
@@ -27,7 +27,7 @@ class frm_codigos(ModelForm):
 			fields=(
 					'titulo',
 					'descripcion',
-					'url',					
+					'links',					
 					'lenguaje',
 					'archivo',
 					'codigo',

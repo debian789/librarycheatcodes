@@ -225,8 +225,8 @@ footer{background:#2f3f60;margin-top:2%;padding:2% 0 2% 0;}
 footer a{color:#fcfcfc;text-decoration:none}
 .alinear-izquierda{float:left}
 .barraTitulo{background:#031a49;color:#fcfcfc;margin:0;text-align:left;}
-.barraTitulo .logo{display:block;display:inline-block;font-weight:bold;padding:.5em 0 .5em 0;text-align:center;vertical-align:top;width:96%}
-.barraTitulo .ingresoSalida{display:block;display:inline-block;padding:.5em 1% .5em 0;vertical-align:top;text-align:right;width:96%;}
+.barraTitulo .logo{border-bottom:1px solid #f7f8fb;display:block;display:inline-block;font-weight:bold;padding:.5em 0 .5em 1%;text-align:left;vertical-align:top;width:98%}
+.barraTitulo .ingresoSalida{padding:.5em 0 .5em 0;vertical-align:top;text-align:right;width:96%;}
 .barraTitulo .ingresoSalida a{color:#fcfcfc;text-decoration:none}
 .barraTitulo .ingresoSalida .inicio{margin-right:2%;border-right:1px solid #f7f8fb;padding-right:3%}
 .contenido{margin-left:auto;margin-right:auto;}
@@ -256,7 +256,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .favoritosProyectos .itemIngresados .tituloFavoritos h3{color:#fcfcfc;display:inline-block;margin:0 0 0 1%;padding:.5em 0 .5em 0;text-align:left;vertical-align:top;width:80%}
 .contenido .favoritosProyectos .itemIngresados .tituloFavoritos span{color:#fcfcfc;display:inline-block;padding:.5em 0 .5em 0;padding-right:1%;text-align:right;vertical-align:top;width:15%}
 .contenido .favoritosProyectos .itemIngresados .contenidoFavorito{margin:0;width:100%;padding-bottom:1em;}
-.contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item{border-left:.7em solid #7297e6;background:#fcfcfc;margin:.5em auto .5em auto;text-align:left;width:90%;}
+.contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item{border-left:.7em solid #7297e6;background:#fcfcfc;margin:.5em auto 0 auto;text-align:left;width:90%;}
 .contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item h4{margin:.3em 1% 0 1%;text-align:left;width:80%;}
 .contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item h4 a{display:block;font-size:1.2em;color:#2f3f60;font-family:'texgyreherosregular';text-decoration:none}
 .contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item hr{border:1px solid #e0e1e7}
@@ -296,12 +296,12 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .opcionesBusqueda{border-radius:10px 10px 0 0;margin:.5em auto 1em auto;background:#e0e1e7;box-shadow:5px 5px 10px #2f3f60;width:96%;}
 .contenido .opcionesBusqueda .subTituloBarra{background:#e69f17}
 .contenido .opcionesBusqueda .tituloBuscar{margin-top:.7em;display:inline-block;margin-left:2%;vertical-align:top;text-align:left;width:98%}
-.contenido .opcionesBusqueda input[type=text]{width:96%}
+.contenido .opcionesBusqueda input[type=text]{margin-top:.5em;width:94%}
 .contenido .opcionesBusqueda .filtros{width:100%;margin-left:auto;margin-right:auto;}
-.contenido .opcionesBusqueda .filtros .itemFiltros{margin-top:.5em;}
-.contenido .opcionesBusqueda .filtros .itemFiltros .nombreFiltro{display:inline-block;vertical-align:top;color:#fcfcfc;background:#7297e6;padding:.3em 0 .3em 0;text-align:left;width:100%;}
+.contenido .opcionesBusqueda .filtros .itemFiltros{margin-top:0;}
+.contenido .opcionesBusqueda .filtros .itemFiltros .nombreFiltro{display:inline-block;vertical-align:top;padding:0 0 .3em 0;text-align:left;width:100%;}
 .contenido .opcionesBusqueda .filtros .itemFiltros .nombreFiltro span{margin-left:1%}
-.contenido .opcionesBusqueda .filtros .itemFiltros .datosFiltro{background:#fcfcfc;display:inline-block;vertical-align:top;text-align:left;padding:.3em 0 .3em 0;width:100%;}
+.contenido .opcionesBusqueda .filtros .itemFiltros .datosFiltro{display:inline-block;vertical-align:top;text-align:left;padding:.3em 0 .3em 0;width:100%;}
 .contenido .opcionesBusqueda .filtros .itemFiltros .datosFiltro span{margin:0 auto 0 auto;margin-left:1%;}
 .contenido .opcionesBusqueda .filtros .itemFiltros .datosFiltro span select{width:96%}
 .contenido .opcionesBusqueda .opcionBuscar{width:100%;}
@@ -315,17 +315,16 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .resultadoBusqueda .itemResultado{border-left:.7em solid #7297e6;background:#fcfcfc;margin:.5em auto .5em auto;text-align:left;width:90%;}
 .contenido .resultadoBusqueda .itemResultado h4{margin:.5em 0 0 1%;display:inline-block;vertical-align:top;width:80%}
 .contenido .resultadoBusqueda .itemResultado p{display:inline-block;vertical-align:top;margin:1%}
-.contenido .resultadoBusqueda .itemIngresadosCodigos{border-left:.7em solid #7297e6;background:#fcfcfc;margin:.5em auto .5em auto;padding-bottom:.5em;text-align:left;width:90%;}
-.contenido .resultadoBusqueda .itemIngresadosCodigos h4{margin:.2em 0 0 1%;display:inline-block;vertical-align:top;width:80%;}
-.contenido .resultadoBusqueda .itemIngresadosCodigos h4 a{display:block;text-decoration:none;color:#2f3f60;font-family:'texgyreherosregular';font-size:1.2em}
+.contenido .resultadoBusqueda .itemIngresadosCodigos{border-left:.5em solid #7297e6;background:#fcfcfc;margin:.5em auto .5em auto;padding-bottom:.2em;text-align:left;width:95%;}
+.contenido .resultadoBusqueda .itemIngresadosCodigos h4{margin:0 0 0 1%;display:inline-block;vertical-align:top;width:80%;}
+.contenido .resultadoBusqueda .itemIngresadosCodigos h4 a{display:block;text-decoration:none;color:#2f3f60;font-family:'texgyreherosregular';font-size:1.1em}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .favoritoCodigo{display:inline-block;margin:.5em 0 0 1%;vertical-align:top;text-align:right;width:15%;}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .favoritoCodigo a:first-of-type{border-right:1px solid #031a49;padding-right:6%;padding-left:0}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .favoritoCodigo a{display:inline-block;vertical-align:top;padding-left:6%;color:#8f743f;text-decoration:none}
-.contenido .resultadoBusqueda .itemIngresadosCodigos p{display:inline-block;vertical-align:top;margin:0 1% 0 1%;text-align:justify}
-.contenido .resultadoBusqueda .itemIngresadosCodigos hr{margin:.2em 0 .2em 0}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje{display:inline-block;vertical-align:top;text-align:right;margin:0 0 0 1%;width:80%;}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div:first-of-type{border-radius:0 10px 10px 0;background:#fcfcfc;color:#031a49;float:right;padding:0 0 0 1%}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{padding:0 1% 0 1%;background:#1d4599;border:1px solid #1d4599;color:#fcfcfc;float:right;border-radius:10px 0 0 10px;display:inline-block;vertical-align:top;text-align:left;width:45%}
+.contenido .resultadoBusqueda .itemIngresadosCodigos p{display:inline-block;vertical-align:top;margin:0 1% 0 1%;text-align:justify;padding:0}
+.contenido .resultadoBusqueda .itemIngresadosCodigos hr{margin:.1em 0 .1em 0}
+.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje{display:inline-block;vertical-align:top;margin:0 0 0 1%;width:80%;}
+.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{border-radius:0 10px 10px 0;padding:0 1% 0 1%;background:#fcfcfc;color:#8f743f;float:left;display:inline-block;vertical-align:top;text-align:left;width:auto;max-width:50}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo{display:inline-block;vertical-align:top;width:15%;text-align:right;}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo a:first-of-type{border-right:1px solid #031a49;padding-right:6%;padding-left:0;color:#8f743f}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo a{display:inline-block;vertical-align:top;color:#6d4903;text-decoration:none}
@@ -343,10 +342,10 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item p{display:block;margin:.1em 1% .3em 1%;text-align:left;width:96%;text-align:justify}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item h4,.contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item span{display:inline-block;vertical-align:top}
 .contenido .favoritosProyectos,.contenido .ultimosIngresados{display:inline-block;vertical-align:top}
-.menuMobilPrincipal{background:#031a49;border-top:1px solid #e0e1e7;padding:.5em 0 .5em 0;color:#fcfcfc;}
+.menuMobilPrincipal{display:inline-block;background:#031a49;padding:.3em 2% .5em 0;color:#fcfcfc;float:right;}
 .menuMobilPrincipal span{color:#fcfcfc}
 .navegacion{background:#1d4599;margin:0;padding:0;}
-.navegacion ul{margin:0;padding:0;width:96%;}
+.navegacion ul{margin:0;padding:0;text-align:left;width:96%;}
 .navegacion ul li{background:#7297e6;border-radius:.7em;display:inline-block;margin-top:.3em;padding:.4em 0 .4em 0;text-align:center;vertical-align:top;width:100%;}
 .navegacion ul li a{color:#fcfcfc;display:block;font-weight:bold;text-decoration:none}
 .navegacion ul li:hover{background:#a9bde6;}
@@ -362,17 +361,18 @@ footer a{color:#fcfcfc;text-decoration:none}
 .boton{border:0;background:#e69f17;color:#fcfcfc;border-radius:10px 10px 10px 10px;padding:.4em 0 .4em 0;width:100%;}
 .boton:hover{background:#f9c96d}
 .ocultar{display:none}
+.ocultarTodo{display:none}
 .ocultarMenu{display:none}
 .lineaDerecha{border-left:2px solid #e0e1e7;margin-left:1%;padding-left:2%}
 .subTituloBarra{background:#1d4599;border-radius:10px 10px 0 0;padding:.4em 0 .4em 0;text-align:left;width:100%;}
 .subTituloBarra h3{margin:0;width:80%;display:inline-block;vertical-align:top;margin-left:1%;color:#fcfcfc;font-family:'texgyreherosregular'}
 .subTituloBarra .opcionesVisualizacion{display:inline-block;vertical-align:top;text-align:right;width:15%;}
 .subTituloBarra .opcionesVisualizacion span{vertical-align:top;color:#fcfcfc;margin-right:1%}
-@media screen and (min-width:780px){.barraTitulo .logo{padding:.5em 0 .5em 1%;text-align:left;width:68%}
-.barraTitulo .ingresoSalida{width:28%}
+@media screen and (min-width:780px){.barraTitulo .logo{border:0;margin-left:8%;padding:.5em 0 .5em 1%;text-align:left;width:42%}
+.barraTitulo .ingresoSalida{display:inline-block;width:40%}
 .contenido .agregar{width:100%;margin-top:1.5em;margin-bottom:1.5em}
-.contenido .favoritosProyectos{margin:0 1% 0 1%;width:56%}
-.contenido .ultimosIngresados{width:38%}
+.contenido .favoritosProyectos{margin:0 1% 0 1%;width:52%}
+.contenido .ultimosIngresados{width:30%}
 .contenido .detallesCodigo{width:90%;}
 .contenido .detallesCodigo .informacion .itemInformacion{width:30%;}
 .contenido .detallesCodigo .informacion .itemInformacion .nombreInformacion{float:left;width:49%}
@@ -394,18 +394,18 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{width:100%}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente{margin:0 0% 0 2%;width:47%;}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea{width:100%}
-.contenido .opcionesBusqueda{width:30%;display:inline-block;vertical-align:top;margin-right:1%;}
+.contenido .opcionesBusqueda{width:20%;display:inline-block;vertical-align:top;margin-right:1%;}
 .contenido .opcionesBusqueda .subTituloBarra{background:#1d4599}
-.contenido .opcionesBusqueda .filtros{width:96%;}
-.contenido .opcionesBusqueda .filtros .itemFiltros{margin-left:1%;display:inline-block;vertical-align:top;width:96%;}
-.contenido .opcionesBusqueda .filtros .itemFiltros .nombreFiltro{border-radius:10px 0 0 10px;padding-left:2%;width:96%}
-.contenido .opcionesBusqueda .filtros .itemFiltros .datosFiltro{width:96%}
+.contenido .opcionesBusqueda .filtros{width:100%;}
+.contenido .opcionesBusqueda .filtros .itemFiltros{margin-left:1%;display:inline-block;vertical-align:top;width:100%;text-align:left;}
+.contenido .opcionesBusqueda .filtros .itemFiltros .nombreFiltro{padding-left:2%;width:96%}
+.contenido .opcionesBusqueda .filtros .itemFiltros .datosFiltro{width:98%}
 .contenido .opcionesBusqueda .opcionBuscar .cantidadBusqueda{width:50%}
-.contenido .resultadoBusqueda{display:inline-block;vertical-align:top;width:66%;}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{width:20%}
+.contenido .resultadoBusqueda{display:inline-block;vertical-align:top;width:60%;}
+.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{width:auto}
 .menuMobilPrincipal{display:none}
-.navegacion ul{width:40%;}
-.navegacion ul li{margin-top:1em;width:45%;padding:.3em 0 .3em 0;margin-left:1%;margin-right:1%}
+.navegacion ul{width:42%;}
+.navegacion ul li{margin-top:1em;width:60%;padding:.3em 0 .3em 0;margin-left:1%;margin-right:1%}
 .navegacion .buscador{width:40%;margin-top:1em;margin-bottom:1em}
 .botonCrear{width:35%;margin:0 auto 0 auto}
 .boton{width:30% !important}

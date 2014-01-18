@@ -3,9 +3,13 @@
 			<div class="logo">
 				BIBLIOTECA DE REFERENCIA
 				<span class="icon-books "></span>
+			
+					<div class="  menuMobilPrincipal   icon-reorder"></div>
+					
+			
 			</div>
 
-			<div class="ingresoSalida">
+			<div class="ingresoSalida     ocultarMenu  principalMenu  ">
 				{% if user.is_authenticated %}
 					<a href="{% url 'inicio_sesion' %}" class=" icon-home inicio"></a>
 					<a href="{% url 'salir' %}"> Cerrar Sesion <span class="icon-exit"></span></a>
@@ -13,20 +17,12 @@
 					<a href="{% url 'inicio' %}" class=" icon-home inicio "></a>
 					<a href="{% url 'ingresar' %}" class=" "> Ingresar  <span class="icon-enter"></span> </a>
 				{% endif %}
-
-
-
-
-
-
 			</div>
 		</div>
 
 	
 {% if user.is_authenticated %}
-<div class="menuMobilPrincipal"> Menu <span class="   icon-reorder"></span> </div>
 			<nav class="navegacion ocultarMenu  principalMenu ">
-
 				<ul>
 			{% for item in menu%}
 
@@ -35,8 +31,6 @@
 							{{ item.name }}<span class=" icon-code"></span>
 						</a>
 					</li>
-
-
 
 			{% endfor %}
 	

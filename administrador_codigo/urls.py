@@ -1,23 +1,32 @@
 from django.conf.urls import patterns, include, url
+from rest_framework import routers
+from apps.codigos.views import *
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^',include('apps.home.urls')),
-    #url(r'^',include('apps.proyectos.urls')),
-    url(r'^',include('apps.codigos.urls')),
+router = routers.DefaultRouter()
+router.register(r'codigos',CodigosViewSet)
+router.register(r'leguaje',LenguajeViewSet)
 
-    #url(r'^',include('apps.prueba.urls')),
-	
+
+urlpatterns = patterns('',
+    url(r'^api/',include(router.urls)),
+    url(r'^api-auth/',include('rest_framework.urls',namespace='rest_framework')),
+    url(r'^',include('apps.home.urls')),
+    url(r'^',include('apps.codigos.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+
+    
     # Examples:
     # url(r'^$', 'administrador_codigo.views.home', name='home'),
     # url(r'^administrador_codigo/', include('administrador_codigo.foo.urls')),
-
+    #url(r'^',include('apps.prueba.urls')),
+    #url(r'^',include('apps.proyectos.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
+
+
 )

@@ -5,7 +5,7 @@ from actions import export_as_csv
 
 ## crea el listado de opciones en el administrado !!! 
 class codigosAdmin(admin.ModelAdmin):
-	list_display  = ('titulo','lenguaje','archivo','url')
+	list_display  = ('titulo','lenguaje','archivo','links')
 	list_filter   = ('lenguaje',)
 	search_fields = ('titulo','codigo')
 	list_editable = ('archivo',)

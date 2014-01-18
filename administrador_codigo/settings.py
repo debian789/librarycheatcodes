@@ -5,7 +5,7 @@ import os
 
 
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -13,6 +13,9 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
 
 DATABASES = {
     'default': {
@@ -32,9 +35,8 @@ DATABASES = {
 # configuracion para heroku 
 import dj_database_url
 
-DATABASES['default'] =  dj_database_url.config()
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#DATABASES['default'] =  dj_database_url.config()
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ############################
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -147,15 +149,17 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.codigos',
-    #'apps.proyectos',
+    'mockups',
     'apps.elementos_comunes',
     'apps.django_pygments',
     'apps.home',
     'rest_framework',
     'django_extensions',
-    #'apps.prueba',
-    #'rest_framework',
+    
 
+    #'rest_framework',
+    #'apps.prueba',
+    #'apps.proyectos',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

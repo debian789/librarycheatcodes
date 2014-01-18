@@ -25,14 +25,14 @@
 {% for favorito in favoritos %}
 					<div class="item">
 
-						<h4><a href="{% url 'detalle_codigo' favorito.codigo.id %}"> {{ favorito.codigo.titulo }}</a></h4><span>
+						<h4><a href="{% url 'detalle_codigo' favorito.codigo.id %}"> {{ favorito.codigo.titulo|truncatechars:140 }}</a></h4><span>
 						
 								<a href="{% url 'quitar_fav_princ' favorito.codigo.id %}" class="icon-close "></a>
 
 
 					</span>
 						<hr>
-						<p>{{ favorito.codigo.descripcion }}</p>
+						<p>{{ favorito.codigo.descripcion|truncatechars:140 }}</p>
 					</div>
 {% endfor %}
 {% endif %}
@@ -82,11 +82,11 @@
 					<div class="item">
 						<h4> 
 							<a href="{% url 'detalle_codigo' codigo.id %}">
-								{{ codigo.titulo }}
+								{{ codigo.titulo|truncatechars:70 }}
 							</a>
-							</h4>
-						<hr/>
-						<p>{{ codigo.descripcion }}</p>
+						
+					
+	
 					</div>
 					{% endfor %}
 					{% endif %}
