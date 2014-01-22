@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block titulo%} Proyectos de proyecto {% endblock %}
+{% block contenido %}
+{% if proyecto %}
+
+
+<article class="detalles">
+	<div class="subTituloBarra">
+		<h3>Detalles del Proyecto </h3>
+	</div>
+	<h1>{{ proyecto.nombre}}</h1>
+	<div class="funcionalidades">
+		<div class="agregarNuevo">
+			<a href="{% url 'agregar_proyecto'%}">Agregar proyecto   <span class=" icon-plus-sign"></span></a>	
+		</div>
+		<div class="edicion">
+			{% if proyecto.favorito %}
+			<a href="{% url 'quitar_favorito' proyecto.id %}" class=" icon-star "></a>
+
+			{% else %}
+			<a href="{% url 'agregar_favorito' proyecto.id %}" class="icon-star3 "></a>
+			{% endif %}
+
+			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" lineaDerecha icon-pencil"></a>
+			<a href="" class=" lineaDerecha icon-remove2"></a>
+		</div>
+
+	</div>
+
+	<div class="subTitulo"><span>Descripcion</span></div>
+	<div class="descripcionInformacion">
+		<div class="descripcionDetallada">
+
+		 <p>{{ proyecto.descripcion }}Los chicos se enteran (gracias al señor Mackey)que pueden ''agarrar tremenda nota'' inhalando una orina concentrada que rocían los gatos. Esto se conoce como ''quesear'' y es la droga de moda. Entonces los chicos deciden probar con Kenny, convirtiéndolo en adicto. </p>
+
+
+
+				 </div>
+
+
+		<div class="descripcionExtra">
+			<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Lenguaje</span></div>
+				<div class="contenidoExtra"><span>{{ proyecto.lenguaje }}</span></div>
+			</div>
+			{% if proyecto.link %}
+			<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Url</span></div>
+				<div class="contenidoExtra"><span>{{ proyecto.link }}</span></div>
+			</div>
+			{% else  %}
+						<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Url</span></div>
+				<div class="contenidoExtra"><span>Sin Url</span></div>
+			</div>
+			{% endif  %}
+
+
+
+			<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Nivel de desarrollo </span></div>
+				<div class="contenidoExtra"><span>{{ proyecto.Nivel }}</span></div>
+			</div>
+			<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Sistema Operativo </span></div>
+				<div class="contenidoExtra"><span>{{ proyecto.os }}</span></div>
+			</div>
+			<div class="itemInformacion">
+
+				<div class="tituloDescripcion"><span>Archivo Adjunto</span></div>
+				<div class="contenidoExtra">
+					<span>	
+						{% if proyecto.archivo %}
+						<a href="{{MEDIA_URL}}/{{proyecto.archivo}}">
+							<span class=" icon-download2"></span>
+						</a>
+						{% else %}
+						<span class="icon-download2"></span>
+						{% endif %}
+					</span>
+				</div>
+				</div>
+				
+		</div>
+
+
+	</div>
+</article>
+
+
+
+
+
+
+
+
+{% endif%}
+
+
+
+{% endblock %}

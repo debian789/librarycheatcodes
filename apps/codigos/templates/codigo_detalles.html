@@ -5,7 +5,11 @@
 {% if codigo %}
 
 
-<article class="detallesCodigo">
+<article class="detalles">
+	<div class="subTituloBarra">
+		<h3>Detalles del Codigo </h3>
+	</div>
+	<h1>{{ codigo.titulo}}</h1>
 	<div class="funcionalidades">
 		<div class="agregarNuevo">
 			<a href="{% url 'agregar_codigo'%}">Agregar Codigo   <span class=" icon-plus-sign"></span></a>	
@@ -23,33 +27,34 @@
 		</div>
 
 	</div>
-	<h1>{{ codigo.titulo}}</h1>
-	<hr/>
-	<div class="informacion">
-		<div class="itemInformacion">
-			<div class="nombreInformacion"><span>Lenguaje</span></div>
-			<div class="datosInformacion"><span>{{ codigo.lenguaje }}</span></div>
+
+	<div class="subTitulo"><span>Descripcion</span></div>
+
+	<div class="descripcionInformacion">
+		<div class="descripcionDetallada"><p>{{ codigo.descripcion }}</p></div>
+	<div class="descripcionExtra">
+		<div class="tituloDescripcion">Lenguaje de Programacion</div>
+		<div class="contenidoExtra">{{ codigo.lenguaje }}</div>
+		<div class="tituloDescripcion">Archivo Adjunto </div>
+		<div class="contenidoExtra">
+			{% if codigo.archivo %}
+			<a href="{{MEDIA_URL}}/{{codigo.archivo}}">
+				<span class=" icon-download"></span>
+			</a>
+			{% else %}
+			<span class="  icon-download"></span>
+			{% endif %}
 		</div>
+	</div>
+</div>
 
-		<div class="itemInformacion">
-			<div class="nombreInformacion"><span>Archivo Adjunto</span></div>
-			<div class="datosInformacion"><span>		{% if codigo.archivo %}
-				<a href="{{MEDIA_URL}}/{{codigo.archivo}}">
-					<span class=" icon-download"></span>
-				</a>
-				{% else %}
-				<span class="  icon-download"></span>
-				{% endif %}</span></div>
-			</div>
-		</div>
-		<hr/>
 
-		<div class="subTitulo"><span>Descripcion</span></div>
-		<div class="descripcionCodigo"> <p>{{ codigo.descripcion }}</p> </div>
-		<div class="subTitulo"><span>Codigo Fuente</span></div>
-		<div class="descripcionCodigo"> {{ codigoFuente|pygmentify_inline }}</div>
 
-	</article>
+<div > <p></p> </div>
+<div class="subTitulo"><span>Codigo Fuente</span></div>
+<div class="descripcionCodigo"> {{ codigoFuente|pygmentify_inline }}</div>
+
+</article>
 
 
 
@@ -58,10 +63,10 @@
 
 
 
-	{% endif%}
+{% endif%}
 
 
 
-	{% endblock %}
+{% endblock %}
 
 

@@ -1,24 +1,202 @@
 {% extends "base.html" %}
-{% block titulo%} Proyectos de codigo {% endblock %}
+{% block titulo%} Proyectos de proyecto {% endblock %}
 {% block contenido %}
 
 
-{% if proyectos %}
+
+
+
+
+
+
+
+
+<article class="resultadoBusqueda">
+	<div class="subTituloBarra">
+		<h3>Mis Proyectos  </h3>
+		<div class="opcionesVisualizacion">
+			<span class="  icon-th-large"></span>
+			<span class="   icon-reorder"></span>
+		</div>
+	</div>
+
+
+
+<div class="botonCrear   ">
+	<a href="{% url 'agregar_proyecto'%}">				
+		Agregar Proyecto
+		<span class=" icon-plus-sign"></span>
+	</a>
+</div>
+<hr class="ocultarMenu principalMenu" />
+
+
+	{% if proyectos %}
+
+
+
 	{% for proyecto in proyectos %}
-		{{ proyecto.nombre }}
+	<div class="itemIngresadosCodigos">
+		<h4><a href="{% url 'detalle_proyecto' proyecto.id %}">{{ proyecto.nombre|truncatechars:140|capfirst }}</a></h4>
+		<div class="favoritoCodigo">
+			{% if proyecto.favorito %}
+			<a href="" class=" icon-star "></a>
+			{% else %}
+			<a href="" class="icon-star3 "></a>
+			{% endif %}
+			{% if proyecto.archivo %}
+			<a href="{{MEDIA_URL}}/{{proyecto.archivo}} " class=" icon-download2"></a>
+			{% else %}
+			<a href="" class=" icon-download2"></a>
+			{% endif %}
+		</div>
+		<hr>
+		<p>{{ proyecto.descripcion|truncatechars:140 }}  </p>
+		<hr/>
+		<div class="informacionLenguaje">		
+			<div>{{ proyecto.lenguaje }}</div>
+			<div>{{ proyecto.Nivel }}</div>
+			<div>{{ proyecto.os }}</div>
+			<div>{{ proyecto.interfaz }}</div>
 
-		{% if proyecto.archivo %}
-			con archivo
-		{% else %}
-			sin archivo
-		{% endif %}
 
+		</div>
+		<div class="edicionCodigo">
+			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" icon-pencil"></a>
+			<a href="" class="icon-trash" ></a>
+		</div>
+	</div>
 	{% endfor %}
-{% endif%}
+
+
+	{% if not porFormulario %}
+	<div class="pagination">
+		<span class="step-links">
+			{% if proyectos.has_previous %}
+			<a href="?page={{ proyectos.previous_page_number }}">Anterior</a>
+			{% endif %}
+			<span class="current">
+				Pagina {{ proyectos.number }} de {{ proyectos.paginator.num_pages }}.
+			</span>
+			{% if proyectos.has_next %}
+			<a href="?page={{ proyectos.next_page_number }}">Siguiente</a>
+			{% endif %}
+		</span>
+	</div>
+	{% endif %}
+	{% if  porFormulario %}
+	<div class="pagination">
+		<span class="step-links">
+			<form action="." method="post" class=" " >
+				{% if proyectos.has_previous %}
+				<input type="hidden" name='page' value="{{ proyectos.previous_page_number }}">
+				<input type="submit" value="Anterior">
+
+				{% endif %}
+				{% csrf_token %}
+
+
+				<label class="ocultarTodo">
+
+					{{ formularioBusqueda.busqueda }}
+					{{ formularioBusqueda.lenguaje }}
+					{{ formularioBusqueda.adjunto }}
+				</label>
+
+			</form>
+
+
+			<span class="current">
+				Pagina {{ proyectos.number }} de {{ proyectos.paginator.num_pages }}.
+			</span>
+			<form action="." method="post" class=" " >
+
+				{% if proyectos.has_next %}
+				<input type="hidden" name="page" value="{{ proyectos.next_page_number }}">
+				<input type="submit" value='Siguiente'>
+
+				{% endif %}
+
+				<label class="ocultarTodo">
+					{{ formularioBusqueda.busqueda }}
+					{{ formularioBusqueda.lenguaje }}
+					{{ formularioBusqueda.adjunto }}
+				</label>
+
+				{% csrf_token %}
+
+			</form>
+
+		</span>
+	</div>
+	{% endif%}
+
+
+	{% endif %}
+
+</article>
 
 
 
+<article class="opcionesBusqueda">
+
+
+	<div class="subTituloBarra mostrar">
+		<h3>Buscador</h3>
+		<div class="opcionesVisualizacion">
+			<span class="icon-search"></span>
+		</div>
+	</div>
+	<form action="." method="post" class="menuMovil ocultar" >
+		<!-- <span class="tituloBuscar">Buscar</span> -->
+		{{ formularioBusqueda.busqueda }}
+		<hr/>	
+		<div class="filtros">
+			<div class="itemFiltros">
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
+				<div class="datosFiltro"><span>
+					{{ formularioBusqueda.lenguaje }}
+
+				</span></div>
+			</div>
+			<div class="itemFiltros">
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
+				<div class="datosFiltro"><span>
+					{{ formularioBusqueda.Nivel }}
+
+				</span></div>
+			</div>
+					<div class="itemFiltros">
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
+				<div class="datosFiltro"><span>
+					{{ formularioBusqueda.os }}
+
+				</span></div>
+			</div>
+					<div class="itemFiltros">
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
+				<div class="datosFiltro"><span>
+					{{ formularioBusqueda.interfaz }}
+
+				</span></div>
+			</div>
+
+		</div>
+		<hr/>
+		<article class="opcionBuscar">
+			<div class="opcionCheckbox">
+				{{ formularioBusqueda.adjunto }}
+				<label for="id_adjunto">Archivo Adjunto</label>
+			</div>
+			<hr/>
+			<div class="cantidadBusqueda">
+				<input type="submit" value="Buscar">
+			</div>
+		</article>
+		{% csrf_token %}
+	</form>
 
 
 
+</article> 
 {% endblock %}

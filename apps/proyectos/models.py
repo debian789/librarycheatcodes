@@ -1,22 +1,20 @@
 #encoding:utf-8
 from django.db import models
+from django.contrib.auth.models import User
 from apps.elementos_comunes.models import *
-
-def url(self,filename):
-	ruta = 'ArchivosProyectos/archivos/%s' % filename
-	return ruta
-
 
 class mdl_proyectos(models.Model):
 	nombre 		 = models.CharField(max_length=500,verbose_name="Nombre")
-	descripcion  = models.TextField(verbose_name="Descripción")
-	version 	 = models.CharField(max_length=100,verbose_name="Version")
-	url 		 = models.URLField(max_length=300,verbose_name="Url")
+	descripcion  = models.TextField(verbose_name="Descripción",blank=True)
+	version 	 = models.CharField(max_length=100,verbose_name="Version",blank=True,null=True)
+	link 		 = models.URLField(max_length=300,verbose_name="Url",blank=True,null=True)
+	lenguaje    = models.ForeignKey(mdl_lenguaje,blank=False)
 	Nivel		 = models.ForeignKey(mdl_nivel_desarrollo,verbose_name="Nivel de Desarrollo")
 	os 			 = models.ForeignKey(mdl_sistema_operativo,verbose_name="Sistema Operativo")
 	interfaz	 = models.ForeignKey(mdl_interfaz_aplicacion,verbose_name="Interfaz de Aplicación")
-	archivo 	 = models.FileField(upload_to=url,null=True,blank=True,verbose_name="Archivo Adjunto")
-	publicado 	 = models.BooleanField(default=True)
+	usuario     = models.ForeignKey(User)
+	archivo 	 = models.FileField(upload_to='archivoProyectos',null=True,blank=True,verbose_name="Archivo Adjunto")
+	favorito    = models.BooleanField(default=False,blank=False)
 	fechaIngreso = models.DateField(auto_now = True)
 
 	class Meta:

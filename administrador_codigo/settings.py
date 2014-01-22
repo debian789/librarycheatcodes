@@ -35,8 +35,8 @@ DATABASES = {
 # configuracion para heroku 
 import dj_database_url
 
-DATABASES['default'] =  dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#DATABASES['default'] =  dj_database_url.config()
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ############################
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -159,7 +159,7 @@ INSTALLED_APPS = (
 
     #'rest_framework',
     #'apps.prueba',
-    #'apps.proyectos',
+    'apps.proyectos',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

@@ -3,59 +3,8 @@
 
 {% block contenido %}
 
-{% if user.is_authenticated %}
 
 
-<hr class="ocultarMenu principalMenu "/>
-
-<div class="botonCrear ocultarMenu principalMenu ">
-	<a href="{% url 'agregar_codigo'%}">				
-		Agregar Codigo
-		<span class=" icon-plus-sign"></span>
-	</a>
-</div>
-<hr class="ocultarMenu principalMenu" />
-
-{% endif %}
-<article class="opcionesBusqueda">
-
-
-	<div class="subTituloBarra mostrar">
-		<h3>Buscador</h3>
-		<div class="opcionesVisualizacion">
-			<span class="icon-th-menu-outline"></span>
-		</div>
-	</div>
-	<form action="." method="post" class="menuMovil ocultar" >
-		<!-- <span class="tituloBuscar">Buscar</span> -->
-		{{ formularioBusqueda.busqueda }}
-		<hr/>	
-		<div class="filtros">
-			<div class="itemFiltros">
-				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
-				<div class="datosFiltro"><span>
-					{{ formularioBusqueda.lenguaje }}
-
-				</span></div>
-			</div>
-		</div>
-		<hr/>
-		<article class="opcionBuscar">
-			<div class="opcionCheckbox">
-				{{ formularioBusqueda.adjunto }}
-				<label for="id_adjunto">Archivo Adjunto</label>
-			</div>
-			<hr/>
-			<div class="cantidadBusqueda">
-				<input type="submit" value="Buscar">
-			</div>
-		</article>
-		{% csrf_token %}
-	</form>
-
-
-
-</article> 
 
 
 <article class="resultadoBusqueda">
@@ -67,13 +16,21 @@
 		</div>
 	</div>
 
+<div class="botonCrear ocultarMenu principalMenu ">
+	<a href="{% url 'agregar_codigo'%}">				
+		Agregar Codigo
+		<span class=" icon-plus-sign"></span>
+	</a>
+</div>
+<hr class="ocultarMenu principalMenu" />
+
 	{% if codigos %}
 
 
 
 	{% for codigo in codigos %}
 	<div class="itemIngresadosCodigos">
-		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|upper }}</a></h4>
+		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a></h4>
 		<div class="favoritoCodigo">
 			{% if codigo.favorito %}
 			<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a>
@@ -166,5 +123,49 @@
 	{% endif %}
 
 </article>
+
+
+<article class="opcionesBusqueda">
+
+
+	<div class="subTituloBarra mostrar">
+		<h3>Buscador</h3>
+		<div class="opcionesVisualizacion">
+			<span class="icon-search"></span>
+		</div>
+	</div>
+	<form action="." method="post" class="menuMovil ocultar" >
+		<!-- <span class="tituloBuscar">Buscar</span> -->
+		{{ formularioBusqueda.busqueda }}
+		<hr/>	
+		<div class="filtros">
+			<div class="itemFiltros">
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
+				<div class="datosFiltro"><span>
+					{{ formularioBusqueda.lenguaje }}
+
+				</span></div>
+			</div>
+		</div>
+		<hr/>
+		<article class="opcionBuscar">
+			<div class="opcionCheckbox">
+				{{ formularioBusqueda.adjunto }}
+				<label for="id_adjunto">Archivo Adjunto</label>
+			</div>
+			<hr/>
+			<div class="cantidadBusqueda">
+				<input type="submit" value="Buscar">
+			</div>
+		</article>
+		{% csrf_token %}
+	</form>
+
+
+
+</article> 
+
+
+
 {% endblock %}
 

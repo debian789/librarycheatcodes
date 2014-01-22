@@ -12,6 +12,7 @@ from django.core.urlresolvers import reverse
 def menu(request):
     menu = {'menu': [
         {'name': 'Mis Codigos', 'url': reverse('codigos')},
+        {'name': 'Mis Proyectos', 'url': reverse('proyectos')}
         #{'name': 'Proyectos', 'url': reverse('proyectos')},
         #{'name': 'Codigos', 'url': reverse('codigos')},
         #{'name': 'Proyectos', 'url': reverse('proyectos')},

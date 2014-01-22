@@ -19,7 +19,8 @@ class frm_codigos(ModelForm):
 	def __init__(self, *args, **kwargs):
 		super(frm_codigos, self).__init__(*args, **kwargs)
 		self.fields.keyOrder = ['titulo','links','lenguaje','archivo','descripcion','codigo','usuario','favorito']
-		self.fields['titulo'].widget.attrs.update({'class':'titulo'})
+		#self.fields['titulo'].widget.attrs({'class':'titulo'})
+		#self.fields['titulo'].widget.attrs['required']="required"
 
 
 	class Meta:
@@ -32,6 +33,15 @@ class frm_codigos(ModelForm):
 					'archivo',
 					'codigo',
 				)
+			widgets = {
+			'titulo':forms.TextInput(attrs={'required':'','title':'Se necesita un Titulo'}),
+			'lenguaje':forms.Select(attrs={'required':'','title':'Se necesita un Lenguaje '}),
+			'codigo':forms.Textarea(attrs={'required':'','title':'Se necesita un Codigo '}),
+			'links':forms.URLInput(attrs={'title':'http://pagina.com o http://www.pagina.com','pattern':"https?://.+"}),
+
+
+
+			}
 
 	def __init__(self, usuario, *args, **kwargs):
 		super(frm_codigos, self).__init__(*args, **kwargs)
