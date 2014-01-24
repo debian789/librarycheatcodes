@@ -38,7 +38,7 @@
 			<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a>
 			{% endif %}
 			{% if codigo.archivo %}
-			<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2"></a>
+			<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2" target="blank"></a>
 			{% else %}
 			<a href="" class=" icon-download2"></a>
 			{% endif %}

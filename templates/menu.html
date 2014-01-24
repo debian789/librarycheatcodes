@@ -26,8 +26,8 @@
 				<ul>
 			{% for item in menu%}
 
-					<li>
-						<a href="{{ item.url }}" {% if item.active%} style=":hover"{% endif %}>
+					<li {% if item.active%} style="background:#A9BDE6"{% endif %}>
+						<a href="{{ item.url }}" >
 							{{ item.name }}<span class=" icon-code"></span>
 						</a>
 					</li>

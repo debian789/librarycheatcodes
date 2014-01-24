@@ -15,10 +15,10 @@
 		</div>
 		<div class="edicion">
 			{% if proyecto.favorito %}
-			<a href="{% url 'quitar_favorito' proyecto.id %}" class=" icon-star "></a>
+			<!-- <a href="{% url 'quitar_favorito' proyecto.id %}" class=" icon-star "></a> -->
 
 			{% else %}
-			<a href="{% url 'agregar_favorito' proyecto.id %}" class="icon-star3 "></a>
+		<!-- 	<a href="{% url 'agregar_favorito' proyecto.id %}" class="icon-star3 "></a> -->
 			{% endif %}
 
 			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" lineaDerecha icon-pencil"></a>
@@ -71,11 +71,11 @@
 				<div class="contenidoExtra">
 					<span>	
 						{% if proyecto.archivo %}
-						<a href="{{MEDIA_URL}}/{{proyecto.archivo}}">
-							<span class=" icon-download2"></span>
+						<a href="{{MEDIA_URL}}/{{proyecto.archivo}}" target="blank">
+							<span class=" icon-download2"></span> Descargar 
 						</a>
 						{% else %}
-						<span class="icon-download2"></span>
+						<span class="icon-download2"></span> Sin Archivo Adjunto 
 						{% endif %}
 					</span>
 				</div>

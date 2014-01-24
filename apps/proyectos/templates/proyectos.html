@@ -40,12 +40,12 @@
 		<h4><a href="{% url 'detalle_proyecto' proyecto.id %}">{{ proyecto.nombre|truncatechars:140|capfirst }}</a></h4>
 		<div class="favoritoCodigo">
 			{% if proyecto.favorito %}
-			<a href="" class=" icon-star "></a>
+			<!-- <a href="" class=" icon-star "></a> -->
 			{% else %}
-			<a href="" class="icon-star3 "></a>
+			<!-- <a href="" class="icon-star3 "></a> -->
 			{% endif %}
 			{% if proyecto.archivo %}
-			<a href="{{MEDIA_URL}}/{{proyecto.archivo}} " class=" icon-download2"></a>
+			<a href="{{MEDIA_URL}}/{{proyecto.archivo}} " class=" icon-download2" target="blank"></a>
 			{% else %}
 			<a href="" class=" icon-download2"></a>
 			{% endif %}
@@ -63,7 +63,7 @@
 		</div>
 		<div class="edicionCodigo">
 			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" icon-pencil"></a>
-			<a href="" class="icon-trash" ></a>
+			<a href="{% url 'eliminar_proyecto' proyecto.id %}" class="icon-trash" ></a>
 		</div>
 	</div>
 	{% endfor %}

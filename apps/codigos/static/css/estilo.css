@@ -234,9 +234,11 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .detalles{background:#e0e1e7;border-radius:10px 10px 0 0;box-shadow:5px 5px 10px #2f3f60;margin:.5em auto .5em auto;padding-bottom:1em;width:82%;}
 .contenido .detalles .funcionalidades{border-top:1px solid #f7f8fb;border-bottom:1px solid #f7f8fb;text-align:right;padding:.5em 0 .4em 0;width:100%;}
 .contenido .detalles .funcionalidades .agregarNuevo{display:inline-block;vertical-align:top;text-align:left;width:60%;}
-.contenido .detalles .funcionalidades .agregarNuevo a{color:#fcfcfc;border-radius:10px;background:#e69f17;width:30%;padding:.2em .7em .2em .7em}
+.contenido .detalles .funcionalidades .agregarNuevo a{color:#fcfcfc;border-radius:10px;background:#e69f17;width:30%;padding:.2em .7em .2em .7em;}
+.contenido .detalles .funcionalidades .agregarNuevo a:hover{background:#f9c96d;color:#fcfcfc}
 .contenido .detalles .funcionalidades .edicion{display:inline-block;vertical-align:top;margin-right:2%;width:36%;}
-.contenido .detalles .funcionalidades .edicion a{color:#e69f17 !important}
+.contenido .detalles .funcionalidades .edicion a{color:#e69f17 !important;}
+.contenido .detalles .funcionalidades .edicion a:hover{color:#f9c96d !important}
 .contenido .detalles .funcionalidades a{text-decoration:none;font-weight:bold}
 .contenido .detalles .funcionalidades a:hover{color:#f9e0b0}
 .contenido .detalles h1{width:96%;margin:.2em 0 .3em 0}
@@ -250,7 +252,8 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .detalles .descripcionInformacion .descripcionAdjunto,.contenido .detalles .descripcionInformacion .descripcionNombreAdjunto{display:inline-block;vertical-align:buttom;margin:0;padding:0;buttom:0}
 .contenido .detalles .descripcionInformacion .descripcionExtra{border-left:1px solid #e0e1e7;display:inline-block;vertical-align:top;text-align:left;margin-left:auto;margin-right:auto;width:31%;padding:1%;}
 .contenido .detalles .descripcionInformacion .descripcionExtra .tituloDescripcion{background:#7297e6;color:#f9e0b0;padding:.1em 0 .1em 2%;width:100%}
-.contenido .detalles .descripcionInformacion .descripcionExtra .contenidoExtra{padding:.3em 0 .3em 4%;width:98%}
+.contenido .detalles .descripcionInformacion .descripcionExtra .contenidoExtra{padding:.3em 0 .3em 4%;width:98%;}
+.contenido .detalles .descripcionInformacion .descripcionExtra .contenidoExtra a{text-decoration:none;color:#e69f17}
 .contenido .detalles .descripcionCodigo{background:#fcfcfc;border-left:.5em solid #7297e6;margin:1% auto .3em auto;text-align:left;padding:1% 0 .2em 0;width:96%;}
 .contenido .detalles .descripcionCodigo p{margin:0 1% 0 1%;display:block}
 .contenido .detalles .descripcionCodigo div{margin-left:auto;margin-right:auto;width:96%}
@@ -260,8 +263,8 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .favoritosProyectos .itemIngresados .tituloFavoritos h3{color:#fcfcfc;display:inline-block;margin:0 0 0 1%;padding:.5em 0 .5em 0;text-align:left;vertical-align:top;width:80%}
 .contenido .favoritosProyectos .itemIngresados .tituloFavoritos span{color:#fcfcfc;display:inline-block;padding:.5em 0 .5em 0;padding-right:1%;text-align:right;vertical-align:top;width:15%}
 .contenido .favoritosProyectos .itemIngresados .contenidoFavorito{margin:0;width:100%;padding-bottom:1em;}
-.contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item{border-left:.7em solid #7297e6;background:#fcfcfc;margin:.5em auto 0 auto;text-align:left;width:90%;}
-.contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item h4{margin:.3em 1% 0 1%;text-align:left;width:80%;}
+.contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item{border-radius:10px 10px 10px 10px;border-left:.7em solid #7297e6;background:#fcfcfc;margin:.5em auto 0 auto;text-align:left;width:90%;}
+.contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item h4{margin:0 1% 0 1%;text-align:left;width:80%;}
 .contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item h4 a{display:block;font-size:1.2em;color:#2f3f60;font-family:'texgyreherosregular';text-decoration:none}
 .contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item hr{border:1px solid #e0e1e7}
 .contenido .favoritosProyectos .itemIngresados .contenidoFavorito .item span{margin:.3em 1% 0 1%;width:15%;text-align:right;}
@@ -324,7 +327,8 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .resultadoBusqueda .itemResultado{border-left:.7em solid #7297e6;background:#fcfcfc;margin:.5em auto .5em auto;text-align:left;width:90%;}
 .contenido .resultadoBusqueda .itemResultado h4{margin:.5em 0 0 1%;display:inline-block;vertical-align:top;width:80%}
 .contenido .resultadoBusqueda .itemResultado p{display:inline-block;vertical-align:top;margin:1%}
-.contenido .resultadoBusqueda .itemIngresadosCodigos{border-left:.5em solid #7297e6;background:#fcfcfc;margin:.5em auto .5em auto;padding-bottom:.2em;text-align:left;width:95%;}
+.contenido .resultadoBusqueda .itemIngresadosCodigos{border-left:.5em solid #7297e6;background:#fcfcfc;margin:.5em auto .5em auto;padding-bottom:.2em;text-align:left;width:95%;border-radius:10px 10px 10px 10px;}
+.contenido .resultadoBusqueda .itemIngresadosCodigos:hover{border-left:.5em solid #1d4599}
 .contenido .resultadoBusqueda .itemIngresadosCodigos h4{margin:0 0 0 1%;display:inline-block;vertical-align:top;width:80%;}
 .contenido .resultadoBusqueda .itemIngresadosCodigos h4 a{display:block;text-decoration:none;color:#2f3f60;font-family:'texgyreherosregular';font-size:1.1em}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .favoritoCodigo{display:inline-block;margin:.5em 0 0 1%;vertical-align:top;text-align:right;width:15%;}
@@ -343,8 +347,9 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ultimosIngresados .itemIngresados .tituloFavoritos h3{color:#fcfcfc;display:inline-block;margin:0 0 0 1%;padding:.5em 0 .5em 0;text-align:left;vertical-align:top;width:80%}
 .contenido .ultimosIngresados .itemIngresados .tituloFavoritos span{display:inline-block;color:#fcfcfc;padding:.5em 1% 1em 0;text-align:right;vertical-align:top;width:14%}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito{margin:0;width:100%;padding-bottom:1em;}
-.contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item{border-left:.7em solid #7297e6;background:#fcfcfc;margin:.5em auto .5em auto;text-align:left;width:90%;}
-.contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item h4{margin:.3em 1% 0 1%;text-align:left;width:80%;}
+.contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item{border-radius:10px 10px 10px 10px;border-left:.7em solid #7297e6;background:#fcfcfc;margin:.5em auto .5em auto;text-align:left;width:90%;}
+.contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item:hover{border-left:.7em solid #1d4599}
+.contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item h4{margin:0 1% 0 1%;text-align:left;width:80%;}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item h4 a{font-size:1.2em;color:#2f3f60;font-family:'texgyreherosregular';text-decoration:none}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item hr{border:1px solid #e0e1e7}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item span{margin:.3em 1% 0 1%;width:15%}
@@ -360,7 +365,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .navegacion ul li:hover{background:#a9bde6;}
 .navegacion ul li:hover a{color:#2f3f60}
 .navegacion .buscador{display:block;display:inline-block;font-weight:bold;margin-top:.5em;margin-bottom:.5em;padding:0;vertical-align:top;width:96%;}
-.navegacion .buscador input[type=text]{border-radius:15px 0 0 15px;border:1px solid #1d4599;float:right;margin:0;padding-top:.4em;padding-bottom:.3em;width:87%}
+.navegacion .buscador input[type=text]{border-radius:15px 0 0 15px;border:1px solid #1d4599;border-right:0;float:right;margin:0;padding-top:.4em;padding-bottom:.3em;width:87%}
 .navegacion .buscador div{background:#e69f17;border-radius:0 15px 15px 0;color:#fcfcfc;display:inline-block;float:right;margin:0;padding-top:.5em;padding-bottom:.4em;width:10%}
 .navegacion .buscador div:hover{background:#f9c96d}
 .navegacion ul,.navegacion .buscador{display:inline-block;vertical-align:top}

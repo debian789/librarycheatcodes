@@ -6,6 +6,7 @@ from forms import *
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 
 
@@ -20,7 +21,8 @@ def view_agregar_proyecto(request):
 			contenidoForm = frm_proyectos(usuario,request.POST,request.FILES)
 			if contenidoForm.is_valid:
 				contenidoForm.save()
-				return HttpResponseRedirect('/proyectos/1')
+				return HttpResponseRedirect(reverse('proyectos'))
+				#return reverse('proyectos')
 
 
 		formulario = frm_proyectos(usuario)
@@ -160,3 +162,11 @@ def single_proyecto_view(request,id_proyecto):
 
 #def proyecto_uno_view(request,id_proyecto):
 
+def eliminiar_proyecto_view(request,id_proyecto):
+	if request.user.is_authenticated():
+		usuario = User.objects.select_related().get(id=request.user.id)
+		proyecto = mdl_proyectos.objects.select_related().filter(usuario=usuario).get(id=id_proyecto)
+		proyecto.delete()
+		return HttpResponseRedirect(reverse("proyectos"))
+	
+	return HttpResponseRedirect(reverse('inicio'))
