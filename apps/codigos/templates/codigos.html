@@ -31,6 +31,7 @@
 	{% for codigo in codigos %}
 	<div class="itemIngresadosCodigos">
 		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a></h4>
+		
 		<div class="favoritoCodigo">
 			{% if codigo.favorito %}
 			<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a>

@@ -9,6 +9,7 @@
 			 <span class=" icon-plus-sign"></span>
 			</a>
 			</div>
+
 			<div class="botonCrear ocultarMenu principalMenu" >
 				<a href="{% url 'agregar_proyecto' %}">
 					
@@ -17,32 +18,30 @@
 			</div> 
 			<hr class="ocultarMenu principalMenu "/>
 		</article>
-		<article class="favoritosProyectos">
-			<div  class="itemIngresados">
-				<div class="tituloFavoritos">
+		<article class="resultadoBusquedaInicio">
+				<div class="subTituloBarra">
 				<h3>Codigos Favoritos</h3>
+		<div class="opcionesVisualizacion">
 				<span class=" icon-star"></span>
-					
-				</div>
-				<div class="contenidoFavorito">
-
+		</div>
+	</div>
+	
 {% if favoritos %}
 {% for favorito in favoritos %}
-					<div class="item">
+					<div class="itemIngresadosCodigos">
 
 						<h4><a href="{% url 'detalle_codigo' favorito.codigo.id %}"> {{ favorito.codigo.titulo|truncatechars:140 }}</a></h4><span>
-						
+							<div class="favoritoCodigo">
 								<a href="{% url 'quitar_fav_princ' favorito.codigo.id %}" class="icon-close "></a>
+							</div>
 
-
-					</span>
+			
 						<hr>
 						<p>{{ favorito.codigo.descripcion|truncatechars:140 }}</p>
 					</div>
 {% endfor %}
+
 {% endif %}
-				</div>
-			</div>
 
 {% if proyectos %}
 
