@@ -224,7 +224,7 @@ body{font-size:16px;text-align:center;background:url("../img/fondo.png");color:#
 footer{background:-o-linear-gradient(top, #2f3f60, #031a49);background:-ms-linear-gradient(top, #2f3f60, #031a49);background:-moz-linear-gradient(top, #2f3f60, #031a49);background:-webkit-linear-gradient(top, #2f3f60, #031a49);background:linear-gradient(to bottom, #2f3f60, #031a49);padding:2% 0 2% 0;}
 footer a{color:#fcfcfc;text-decoration:none}
 .alinear-izquierda{float:left}
-.barraTitulo{background:-o-linear-gradient(top, #031a49, #2f3f60);background:-ms-linear-gradient(top, #031a49, #2f3f60);background:-moz-linear-gradient(top, #031a49, #2f3f60);background:-webkit-linear-gradient(top, #031a49, #2f3f60);background:linear-gradient(to bottom, #031a49, #2f3f60);color:#fcfcfc;margin:0;text-align:left;}
+.barraTitulo{background:#031a49;color:#fcfcfc;margin:0;text-align:left;}
 .barraTitulo .logo{border-bottom:1px solid #f7f8fb;display:block;display:inline-block;font-weight:bold;padding:.5em 0 .5em 1%;text-align:left;vertical-align:top;width:98%}
 .barraTitulo .ingresoSalida{padding:.5em 0 .5em 0;vertical-align:top;text-align:right;width:96%;}
 .barraTitulo .ingresoSalida a{color:#fcfcfc;text-decoration:none}

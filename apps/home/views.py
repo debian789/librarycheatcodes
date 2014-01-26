@@ -30,7 +30,7 @@ def salir_view(request):
 def ingresar_view(request):
 	mensaje=""
 	if request.user.is_authenticated():
-		return HttpResponseRedirect
+		return HttpResponseRedirect('/inicioSesion')
 	else:
 		if request.method == "POST":
 			form = loginForm(request.POST)
