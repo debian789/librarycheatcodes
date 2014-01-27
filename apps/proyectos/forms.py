@@ -11,8 +11,6 @@ SIN_OPCION = {
 	'interfaz':[ ('','Interfaz de Aplicacion')],
 }
 
-
-
 class frm_proyectos(ModelForm):
 
 	def __init__(self,*args,**kwargs):

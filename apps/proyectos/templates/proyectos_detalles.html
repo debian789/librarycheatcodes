@@ -2,8 +2,6 @@
 {% block titulo%} Proyectos de proyecto {% endblock %}
 {% block contenido %}
 {% if proyecto %}
-
-
 <article class="detalles">
 	<div class="subTituloBarra">
 		<h3>Detalles del Proyecto </h3>
@@ -16,7 +14,6 @@
 		<div class="edicion">
 			{% if proyecto.favorito %}
 			<!-- <a href="{% url 'quitar_favorito' proyecto.id %}" class=" icon-star "></a> -->
-
 			{% else %}
 		<!-- 	<a href="{% url 'agregar_favorito' proyecto.id %}" class="icon-star3 "></a> -->
 			{% endif %}
@@ -26,18 +23,11 @@
 		</div>
 
 	</div>
-
 	<div class="subTitulo"><span>Descripcion</span></div>
 	<div class="descripcionInformacion">
 		<div class="descripcionDetallada">
-
-		 <p>{{ proyecto.descripcion }}Los chicos se enteran (gracias al señor Mackey)que pueden ''agarrar tremenda nota'' inhalando una orina concentrada que rocían los gatos. Esto se conoce como ''quesear'' y es la droga de moda. Entonces los chicos deciden probar con Kenny, convirtiéndolo en adicto. </p>
-
-
-
+		 <p>{{ proyecto.descripcion }}</p>
 				 </div>
-
-
 		<div class="descripcionExtra">
 			<div class="itemInformacion">
 				<div class="tituloDescripcion"><span>Lenguaje</span></div>
@@ -54,9 +44,6 @@
 				<div class="contenidoExtra"><span>Sin Url</span></div>
 			</div>
 			{% endif  %}
-
-
-
 			<div class="itemInformacion">
 				<div class="tituloDescripcion"><span>Nivel de desarrollo </span></div>
 				<div class="contenidoExtra"><span>{{ proyecto.Nivel }}</span></div>
@@ -66,7 +53,6 @@
 				<div class="contenidoExtra"><span>{{ proyecto.os }}</span></div>
 			</div>
 			<div class="itemInformacion">
-
 				<div class="tituloDescripcion"><span>Archivo Adjunto</span></div>
 				<div class="contenidoExtra">
 					<span>	
@@ -80,22 +66,8 @@
 					</span>
 				</div>
 				</div>
-				
 		</div>
-
-
 	</div>
 </article>
-
-
-
-
-
-
-
-
 {% endif%}
-
-
-
 {% endblock %}

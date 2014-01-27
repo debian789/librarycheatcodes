@@ -9,9 +9,6 @@ from django.test import TestCase
 from apps.codigos.models import mdl_codigos
 from apps.elementos_comunes.models import mdl_sistema_operativo
 
-
-
-
 class SimpleTest(TestCase):
    def registrar(self):
    		self.sistema = mdl_sistema_operativo.objects.create(nombred='Linux jajja')

@@ -93,10 +93,6 @@ def codigos_view(request):
 		contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda}
 		
 		return render(request,"codigos.html",contexto)
-	#return render_to_response("codigos.html",contexto,context_instance = RequestContext(request))
-
-
-
 
 def view_agregar_codigo(request):
 	if request.user.is_authenticated():
@@ -136,7 +132,6 @@ def editar_codigo_view(request,id_codigo):
 				contenidoForm.save()
 				return HttpResponseRedirect('/codigos')
 
-		
 
 		formulario = frm_codigos(usuario,instance = datos )
 		contexto = {'formulario':formulario}
@@ -155,23 +150,9 @@ def filtroBusqueda(request):
 	pass
 
 
-	#le envieo los datos completos del formulario he iria uno por uno validado si
-	#contiene informacion y con eso haria la consulta final 
-
-
-#def view_codigos(request,pagina):
-#	codigos = mdl_codigos.objects.filter(publicado=True)
-	#lenguaje = mdl_lenguaje.objects.all()
-#	contexto = {"codigos":codigos,"formularioBusqueda":formularioBusqueda}
-	#return render_to_response("codigos.html",contexto,context_instance = RequestContext(request))
-#	return render(request,"codigos.html",contexto)
-
-
-
 def single_codigo(request,id_codigo):
 	if request.method == 'POST':
 		formularioBusqueda = frm_codigos_busqueda(request.POST)
-		#print formularioBusqueda
 		codigosBuequeda = mdl_codigos.objects.filter(titulo= formularioBusqueda.cleaned_data['buesqueda'])
 		contexto = {"codigos":codigosBuequeda,"formularioBusqueda":formularioBusqueda}
 		return render(request,"codigos.html",contexto)
@@ -183,25 +164,6 @@ def single_codigo(request,id_codigo):
 		contexto = {"codigo":codigo,"formularioBusqueda":formularioBusqueda,"codigoFuente":codigoFuente}
 		return render(request,'codigo_detalles.html',contexto)
 
-	#     raw_snippet="""
-	# class ListHtmlFormatter(HtmlFormatter):
-	#     def wrap(self, source, outfile):
-	#         return self._wrap_div(self._wrap_pre(self._wrap_list(source)))
-
-	#     def _wrap_list(self, source):
-	#         yield 0, '<ol>'
-	#         for i, t in source:
-	#             if i == 1:
-	#                 # it's a line of formatted code
-	#                 t = '<li><div class="line">%s</div></li>' % t
-	#             yield i, t
-	#         yield 0, '</ol>'
-	#     # a unicode co
-	#     """
-	#     snippet = '<pre lang="python">' + escape(raw_snippet) + '</pre>'
-	#     contexto2 = {"datos":snippet}
-	#     print(contexto2)
-	#     return render(request,'codigo_detalles.html',contexto2)
 
 from django.views.generic import ListView, DetailView
 

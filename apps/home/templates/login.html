@@ -3,18 +3,14 @@
 {% block contenidoInicio %}
 
 <article class="ingresar">
-	
-<fieldset>
-	<span> Username: demo y Password: demo </span>
-
-<form action="." method="POST">
-	{% csrf_token %}
-	{{mensaje}}
-	{{form.as_p}}
-	<input type="submit" value="Ingresar" class="boton ">
-
-</form>
-</fieldset>
+	<fieldset>
+		<span> Username: demo y Password: demo </span>
+		<form action="." method="POST">
+			{% csrf_token %}
+			{{mensaje}}
+			{{form.as_p}}
+			<input type="submit" value="Ingresar" class="boton ">
+		</form>
+	</fieldset>
 </article>
-
 {% endblock%}

@@ -14,8 +14,6 @@ def inicio_sesion_view(request):
 		codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
 		favoritos = mdl_favoritos.objects.select_related().filter(codigo=codigos)
 		ultimoCodigo = mdl_codigos.objects.select_related().filter(usuario=usuario)[:10]
-		#codigos = mdl_codigos.objects.all()[:2]
-		#codigo
 		contexto = {"favoritos":favoritos,"codigos":ultimoCodigo}
 		return render(request,"inicioSesion.html",contexto)
 
@@ -79,11 +77,8 @@ def quitar_favoritos_principal_view(request,id_codigo):
 	if request.user.is_authenticated():
 		codigo = mdl_codigos.objects.get(id=id_codigo)
 		datos = mdl_favoritos.objects.filter(codigo=codigo).delete()
-		#datos.save()
 		codigo.favorito = False
 		codigo.save()
-
-
 		usuario = User.objects.select_related().get(id=request.user.id)
 		codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
 		favoritos = mdl_favoritos.objects.select_related().filter(codigo=codigos)
@@ -92,11 +87,3 @@ def quitar_favoritos_principal_view(request,id_codigo):
 		#codigo
 		contexto = {"favoritos":favoritos,"codigos":ultimoCodigo}
 		return render(request,"inicioSesion.html",contexto)
-
-
-
-
-
-
-
-

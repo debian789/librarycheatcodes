@@ -3,8 +3,7 @@
 {% block contenido %}
 <article class="ingresoCodigo">
 	<div class="subTituloBarra">
-	<h3>Ingresar Codigo  </h3>
-		
+		<h3>Ingresar Codigo  </h3>		
 	</div>
 	<form action="." method="post" enctype="multipart/form-data" >	
 		<div class="ingresoTitulo">
@@ -21,37 +20,28 @@
 				<span>Lenguaje</span>
 				{{ formulario.lenguaje }}
 			</div>
-		</div>
-		
+		</div>		
 		<hr/>
-
-
 		<div class="ingresoAdjunto">
 			<span>Archivo Adjunto </span>
 			{{ formulario.archivo }}
-
 		</div>
 		<hr/>
 		<div class="descripcionCodigo">
 			<div class="ingresoDescripcion">
 				<span>Descripcion</span>
 				{{ formulario.descripcion }}
-
 			</div>
 			<div class="ingresoCodigoFuente">
 				<span>Codigo</span>			
 				{{ formulario.codigo }}
-
 			</div>
 		</div>
 		<hr/>
 		<div class="guardarCodigo">
 			<div class="publicar"></div>
-		<input type="submit" value="Guardar" class="boton">
+			<input type="submit" value="Guardar" class="boton">
 		</div>
-
-
-
 		{% csrf_token %}
 	</form>	
 </article>

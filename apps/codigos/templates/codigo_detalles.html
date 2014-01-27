@@ -4,7 +4,6 @@
 {% block contenido %}
 {% if codigo %}
 
-
 <article class="detalles">
 	<div class="subTituloBarra">
 		<h3>Detalles del Codigo </h3>
@@ -16,44 +15,35 @@
 		</div>
 		<div class="edicion">
 			{% if codigo.favorito %}
-			<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a>
-
+				<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a>
 			{% else %}
-			<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a>
+				<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a>
 			{% endif %}
-
 			<a href="{% url 'editar_codigo' codigo.id %}" class=" lineaDerecha icon-pencil"></a>
 			<a href="{% url 'eliminar_codigo' codigo.id %}" class=" lineaDerecha icon-remove2"></a>
 		</div>
-
 	</div>
-
 	<div class="subTitulo"><span>Descripcion</span></div>
-
 	<div class="descripcionInformacion">
 		<div class="descripcionDetallada"><p>{{ codigo.descripcion }}</p></div>
-	<div class="descripcionExtra">
-		<div class="tituloDescripcion">Lenguaje de Programacion</div>
-		<div class="contenidoExtra">{{ codigo.lenguaje }}</div>
-		<div class="tituloDescripcion">Archivo Adjunto </div>
-		<div class="contenidoExtra">
-			{% if codigo.archivo %}
-			<a href="{{MEDIA_URL}}/{{codigo.archivo}}" target="blank">
-				<span class=" icon-download2 " ></span> Descargar
-			</a>
-			{% else %}
-			Sin archivo adjunto 
-			{% endif %}
+		<div class="descripcionExtra">
+			<div class="tituloDescripcion">Lenguaje de Programacion</div>
+			<div class="contenidoExtra">{{ codigo.lenguaje }}</div>
+			<div class="tituloDescripcion">Archivo Adjunto </div>
+			<div class="contenidoExtra">
+				{% if codigo.archivo %}
+				<a href="{{MEDIA_URL}}/{{codigo.archivo}}" target="blank">
+					<span class=" icon-download2 " ></span> Descargar
+				</a>
+				{% else %}
+				Sin archivo adjunto 
+				{% endif %}
+			</div>
 		</div>
 	</div>
-</div>
-
-
-
-<div > <p></p> </div>
-<div class="subTitulo"><span>Codigo Fuente</span></div>
-<div class="descripcionCodigo"> {{ codigoFuente|pygmentify_inline }}</div>
-
+	<div > <p></p> </div>
+	<div class="subTitulo"><span>Codigo Fuente</span></div>
+	<div class="descripcionCodigo"> {{ codigoFuente|pygmentify_inline }}</div>
 </article>
 
 

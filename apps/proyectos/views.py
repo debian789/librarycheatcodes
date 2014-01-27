@@ -127,7 +127,6 @@ def view_proyectos(request):
 		contexto = {"proyectos":contacts,"formularioBusqueda":formularioBusqueda}
 		
 		return render(request,"proyectos.html",contexto)
-	#return render_to_response("proyectos.html",contexto,context_instance = RequestContext(request))
 
 
 def editar_proyecto_view(request,id_proyecto):

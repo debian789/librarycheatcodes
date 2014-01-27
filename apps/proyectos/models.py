@@ -23,6 +23,3 @@ class mdl_proyectos(models.Model):
 
 	def __unicode__(self):
 		return self.nombre
-
-
-# Create your models here.

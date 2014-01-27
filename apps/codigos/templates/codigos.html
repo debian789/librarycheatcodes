@@ -1,12 +1,6 @@
 {% extends "base.html" %}
 {% block titulo%} codigos de codigo {% endblock %}
-
 {% block contenido %}
-
-
-
-
-
 <article class="resultadoBusqueda">
 	<div class="subTituloBarra">
 		<h3>Mis Codigos </h3>
@@ -15,7 +9,6 @@
 			<span class="   icon-reorder"></span>
 		</div>
 	</div>
-
 <div class="botonCrear ocultarMenu principalMenu ">
 	<a href="{% url 'agregar_codigo'%}">				
 		Agregar Codigo
@@ -23,15 +16,10 @@
 	</a>
 </div>
 <hr class="ocultarMenu principalMenu" />
-
 	{% if codigos %}
-
-
-
 	{% for codigo in codigos %}
 	<div class="itemIngresadosCodigos">
 		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a></h4>
-		
 		<div class="favoritoCodigo">
 			{% if codigo.favorito %}
 			<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a>
@@ -56,8 +44,6 @@
 		</div>
 	</div>
 	{% endfor %}
-
-
 	{% if not porFormulario %}
 	<div class="pagination">
 		<span class="step-links">
@@ -80,55 +66,35 @@
 				{% if codigos.has_previous %}
 				<input type="hidden" name='page' value="{{ codigos.previous_page_number }}">
 				<input type="submit" value="Anterior">
-
 				{% endif %}
 				{% csrf_token %}
-
-
 				<label class="ocultarTodo">
-
 					{{ formularioBusqueda.busqueda }}
 					{{ formularioBusqueda.lenguaje }}
 					{{ formularioBusqueda.adjunto }}
 				</label>
-
 			</form>
-
-
 			<span class="current">
 				Pagina {{ codigos.number }} de {{ codigos.paginator.num_pages }}.
 			</span>
 			<form action="." method="post" class=" " >
-
 				{% if codigos.has_next %}
 				<input type="hidden" name="page" value="{{ codigos.next_page_number }}">
 				<input type="submit" value='Siguiente'>
-
 				{% endif %}
-
 				<label class="ocultarTodo">
 					{{ formularioBusqueda.busqueda }}
 					{{ formularioBusqueda.lenguaje }}
 					{{ formularioBusqueda.adjunto }}
 				</label>
-
 				{% csrf_token %}
-
 			</form>
-
 		</span>
 	</div>
 	{% endif%}
-
-
 	{% endif %}
-
 </article>
-
-
 <article class="opcionesBusqueda">
-
-
 	<div class="subTituloBarra mostrar">
 		<h3>Buscador</h3>
 		<div class="opcionesVisualizacion">
@@ -144,7 +110,6 @@
 				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
 				<div class="datosFiltro"><span>
 					{{ formularioBusqueda.lenguaje }}
-
 				</span></div>
 			</div>
 		</div>
@@ -161,12 +126,6 @@
 		</article>
 		{% csrf_token %}
 	</form>
-
-
-
 </article> 
-
-
-
 {% endblock %}
 

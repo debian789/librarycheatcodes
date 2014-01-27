@@ -3,103 +3,75 @@
 {% block contenido %}
 <article class="agregar">
 	<hr class="ocultarMenu principalMenu " />
-			<div class="botonCrear ocultarMenu principalMenu">
-				<a href="{% url 'agregar_codigo'%}">				
+	<div class="botonCrear ocultarMenu principalMenu">
+		<a href="{% url 'agregar_codigo'%}">				
 			Agregar Codigo
-			 <span class=" icon-plus-sign"></span>
-			</a>
-			</div>
-
-			<div class="botonCrear ocultarMenu principalMenu" >
-				<a href="{% url 'agregar_proyecto' %}">
-					
-				Agregar Proyecto <span class=" icon-plus-sign"></span>
-				</a>
-			</div> 
-			<hr class="ocultarMenu principalMenu "/>
-		</article>
-		<article class="resultadoBusquedaInicio">
-				<div class="subTituloBarra">
-				<h3>Codigos Favoritos</h3>
+			<span class=" icon-plus-sign"></span>
+		</a>
+	</div>
+	<div class="botonCrear ocultarMenu principalMenu" >
+		<a href="{% url 'agregar_proyecto' %}">
+			Agregar Proyecto <span class=" icon-plus-sign"></span>
+		</a>
+	</div> 
+	<hr class="ocultarMenu principalMenu "/>
+</article>
+<article class="resultadoBusquedaInicio">
+	<div class="subTituloBarra">
+		<h3>Codigos Favoritos</h3>
 		<div class="opcionesVisualizacion">
-				<span class=" icon-star"></span>
+			<span class=" icon-star"></span>
 		</div>
 	</div>
-	
-{% if favoritos %}
-{% for favorito in favoritos %}
-					<div class="itemIngresadosCodigos">
-
-						<h4><a href="{% url 'detalle_codigo' favorito.codigo.id %}"> {{ favorito.codigo.titulo|truncatechars:140 }}</a></h4><span>
-							<div class="favoritoCodigo">
-								<a href="{% url 'quitar_fav_princ' favorito.codigo.id %}" class="icon-close "></a>
-							</div>
-
-			
-						<hr>
-						<p>{{ favorito.codigo.descripcion|truncatechars:140 }}</p>
-					</div>
-{% endfor %}
-
-{% endif %}
-
-{% if proyectos %}
-
-			<div class="proyectos">
-				
-						<div  class="itemIngresados">
-				<div class="tituloFavoritos">
+	{% if favoritos %}
+	{% for favorito in favoritos %}
+	<div class="itemIngresadosCodigos">
+		<h4><a href="{% url 'detalle_codigo' favorito.codigo.id %}"> {{ favorito.codigo.titulo|truncatechars:140 }}</a></h4><span>
+		<div class="favoritoCodigo">
+			<a href="{% url 'quitar_fav_princ' favorito.codigo.id %}" class="icon-close "></a>
+		</div>
+		<hr>
+		<p>{{ favorito.codigo.descripcion|truncatechars:140 }}</p>
+	</div>
+	{% endfor %}
+	{% endif %}
+	{% if proyectos %}
+	<div class="proyectos">
+		<div  class="itemIngresados">
+			<div class="tituloFavoritos">
 				<h3>Favoritos Proyectos</h3>
-					<span class=" icon-star"></span>
-					
-				</div>
-				<div class="contenidoFavorito">
-
-					<div class="item">
-						<h4>Codigo de ejemplo </h4><span>quitar</span>
-						<hr/>
-						<p>descripcion de los codigos de ejemplo </p>
-					</div>
-
-
+				<span class=" icon-star"></span>
+			</div>
+			<div class="contenidoFavorito">
+				<div class="item">
+					<h4>Codigo de ejemplo </h4><span>quitar</span>
+					<hr/>
+					<p>descripcion de los codigos de ejemplo </p>
 				</div>
 			</div>
-
-
-			</div>
-{% endif %}
-		</article>
-
-
-
-		<article class="ultimosIngresados">
-			<div class="itemIngresados">
-				<div class="tituloFavoritos">
-				<h3>Ultimos Ingresados</h3>
-				<span class="icon-download-alt"></span>
-					
+		</div>
+	</div>
+	{% endif %}
+</article>
+<article class="ultimosIngresados">
+	<div class="itemIngresados">
+		<div class="tituloFavoritos">
+			<h3>Ultimos Ingresados</h3>
+			<span class="icon-download-alt"></span>
+		</div>
+		<div class="contenidoFavorito">
+			{% if codigos %}
+			{% for codigo in codigos %}
+			<div class="item">
+				<h4> 
+					<a href="{% url 'detalle_codigo' codigo.id %}">
+						{{ codigo.titulo|truncatechars:70 }}
+					</a>
 				</div>
-
-				<div class="contenidoFavorito">
-					{% if codigos %}
-					{% for codigo in codigos %}
-					<div class="item">
-						<h4> 
-							<a href="{% url 'detalle_codigo' codigo.id %}">
-								{{ codigo.titulo|truncatechars:70 }}
-							</a>
-						
-					
-	
-					</div>
-					{% endfor %}
-					{% endif %}
-				</div>
+				{% endfor %}
+				{% endif %}
 			</div>
-
-		</article>
-
-
-
-{% endblock %}
+		</div>
+	</article>
+	{% endblock %}
 

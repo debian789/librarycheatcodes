@@ -8,10 +8,6 @@ urlpatterns = patterns ('apps.home.views',
 	url(r'^agregar/favoritos/(?P<id_codigo>.*)/$','agregar_favoritos_view',name='agregar_favorito'),
 	url(r'^quitar/favoritos/inicio/(?P<id_codigo>.*)/$','quitar_favoritos_principal_view',name='quitar_fav_princ'),
 	url(r'^quitar/favoritos/(?P<id_codigo>.*)/$','quitar_favorito',name='quitar_favorito'),
-
-
-
-
 )
 
 

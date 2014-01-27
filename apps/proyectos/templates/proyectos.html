@@ -1,16 +1,6 @@
 {% extends "base.html" %}
 {% block titulo%} Proyectos de proyecto {% endblock %}
 {% block contenido %}
-
-
-
-
-
-
-
-
-
-
 <article class="resultadoBusqueda">
 	<div class="subTituloBarra">
 		<h3>Mis Proyectos  </h3>
@@ -19,22 +9,14 @@
 			<span class="   icon-reorder"></span>
 		</div>
 	</div>
-
-
-
-<div class="botonCrear   ">
-	<a href="{% url 'agregar_proyecto'%}">				
-		Agregar Proyecto
-		<span class=" icon-plus-sign"></span>
-	</a>
-</div>
-<hr class="ocultarMenu principalMenu" />
-
-
+	<div class="botonCrear   ">
+		<a href="{% url 'agregar_proyecto'%}">				
+			Agregar Proyecto
+			<span class=" icon-plus-sign"></span>
+		</a>
+	</div>
+	<hr class="ocultarMenu principalMenu" />
 	{% if proyectos %}
-
-
-
 	{% for proyecto in proyectos %}
 	<div class="itemIngresadosCodigos">
 		<h4><a href="{% url 'detalle_proyecto' proyecto.id %}">{{ proyecto.nombre|truncatechars:140|capfirst }}</a></h4>
@@ -58,8 +40,6 @@
 			<div>{{ proyecto.Nivel }}</div>
 			<div>{{ proyecto.os }}</div>
 			<div>{{ proyecto.interfaz }}</div>
-
-
 		</div>
 		<div class="edicionCodigo">
 			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" icon-pencil"></a>
@@ -67,8 +47,6 @@
 		</div>
 	</div>
 	{% endfor %}
-
-
 	{% if not porFormulario %}
 	<div class="pagination">
 		<span class="step-links">
@@ -94,8 +72,6 @@
 
 				{% endif %}
 				{% csrf_token %}
-
-
 				<label class="ocultarTodo">
 
 					{{ formularioBusqueda.busqueda }}
@@ -104,8 +80,6 @@
 				</label>
 
 			</form>
-
-
 			<span class="current">
 				Pagina {{ proyectos.number }} de {{ proyectos.paginator.num_pages }}.
 			</span>
@@ -114,33 +88,20 @@
 				{% if proyectos.has_next %}
 				<input type="hidden" name="page" value="{{ proyectos.next_page_number }}">
 				<input type="submit" value='Siguiente'>
-
 				{% endif %}
-
 				<label class="ocultarTodo">
 					{{ formularioBusqueda.busqueda }}
 					{{ formularioBusqueda.lenguaje }}
 					{{ formularioBusqueda.adjunto }}
 				</label>
-
 				{% csrf_token %}
-
 			</form>
-
 		</span>
 	</div>
 	{% endif%}
-
-
 	{% endif %}
-
 </article>
-
-
-
 <article class="opcionesBusqueda">
-
-
 	<div class="subTituloBarra mostrar">
 		<h3>Buscador</h3>
 		<div class="opcionesVisualizacion">
@@ -166,14 +127,14 @@
 
 				</span></div>
 			</div>
-					<div class="itemFiltros">
+			<div class="itemFiltros">
 				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
 				<div class="datosFiltro"><span>
 					{{ formularioBusqueda.os }}
 
 				</span></div>
 			</div>
-					<div class="itemFiltros">
+			<div class="itemFiltros">
 				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
 				<div class="datosFiltro"><span>
 					{{ formularioBusqueda.interfaz }}
@@ -195,8 +156,5 @@
 		</article>
 		{% csrf_token %}
 	</form>
-
-
-
 </article> 
 {% endblock %}

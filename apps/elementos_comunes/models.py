@@ -43,11 +43,3 @@ class mdl_nivel_desarrollo(models.Model):
 
 	def __unicode__(self):
 		return self.nombre
-
-
-#class nueva(models.Model):
-#	so = models.ForeignKey(mdl_sistema_operativo)
-#	nombre = models.CharField(max_length=100)
-
-
-# Create your models here.
