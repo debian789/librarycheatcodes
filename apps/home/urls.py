@@ -1,13 +1,13 @@
 from django.conf.urls import patterns, url
 
 urlpatterns = patterns ('apps.home.views',
-	url(r'^inicioSesion/$','inicio_sesion_view', name = 'inicio_sesion'),
-	url(r'^$','ingresar_view', name = 'inicio'),
-	url(r'^salir/$','salir_view',name='salir'),
-	url(r'^ingresar/$','ingresar_view',name="ingresar"),
-	url(r'^agregar/favoritos/(?P<id_codigo>.*)/$','agregar_favoritos_view',name='agregar_favorito'),
-	url(r'^quitar/favoritos/inicio/(?P<id_codigo>.*)/$','quitar_favoritos_principal_view',name='quitar_fav_princ'),
-	url(r'^quitar/favoritos/(?P<id_codigo>.*)/$','quitar_favorito',name='quitar_favorito'),
+	url(r'^inicioSesion/$','view_inicio_sesion', name = 'inicio_sesion'),
+	url(r'^$','view_ingresar', name = 'inicio'),
+	url(r'^salir/$','view_salir',name='salir'),
+	url(r'^ingresar/$','view_ingresar',name="ingresar"),
+	url(r'^agregar/favorito/(?P<id_codigo>.*)/$','view_agregar_favoritos',name='agregar_favorito'),
+	url(r'^quitar/favorito/inicio/(?P<id_codigo>.*)/$','view_quitar_favorito_principal',name='quitar_fav_princ'),
+	url(r'^quitar/favorito/(?P<id_codigo>.*)/$','view_quitar_favorito',name='quitar_favorito'),
 )
 
 

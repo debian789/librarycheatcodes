@@ -33,6 +33,28 @@
 				<div class="tituloDescripcion"><span>Lenguaje</span></div>
 				<div class="contenidoExtra"><span>{{ proyecto.lenguaje }}</span></div>
 			</div>
+			<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Nivel de desarrollo </span></div>
+				<div class="contenidoExtra"><span>{{ proyecto.Nivel }}</span></div>
+			</div>
+			<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Sistema Operativo </span></div>
+				<div class="contenidoExtra"><span>{{ proyecto.os }}</span></div>
+			</div>
+
+			{% if proyecto.version %}
+			<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Version </span></div>
+				<div class="contenidoExtra"><span>{{ proyecto.version }}</span></div>
+			</div>
+			{% else %}
+			<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Version </span></div>
+				<div class="contenidoExtra"><span> --- </span></div>
+			</div>
+
+			{% endif %}
+
 			{% if proyecto.link %}
 			<div class="itemInformacion">
 				<div class="tituloDescripcion"><span>Url</span></div>
@@ -44,14 +66,6 @@
 				<div class="contenidoExtra"><span>Sin Url</span></div>
 			</div>
 			{% endif  %}
-			<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Nivel de desarrollo </span></div>
-				<div class="contenidoExtra"><span>{{ proyecto.Nivel }}</span></div>
-			</div>
-			<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Sistema Operativo </span></div>
-				<div class="contenidoExtra"><span>{{ proyecto.os }}</span></div>
-			</div>
 			<div class="itemInformacion">
 				<div class="tituloDescripcion"><span>Archivo Adjunto</span></div>
 				<div class="contenidoExtra">

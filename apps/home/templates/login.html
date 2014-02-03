@@ -2,8 +2,22 @@
 {% block title %} Inicio de Sesion {% endblock%}
 {% block contenidoInicio %}
 
-<article class="ingresar">
-	<fieldset>
+<article >
+
+<div class="cualidades">
+	<span> Ingresa a esta prueba Demo y comprueba que es muy facil ganar tiempo </span>
+	<ul>
+		<li>Almacena Comandos, Codigos y Proyectos de referencia. </li>
+		<li>Consulta rapidamente la informacion ingresada.</li>
+		<li>Y consigue el codigo fuente   <a href="https://github.com/debian789/BibliotecaCodigo" >aqui. </a></li>
+	</ul>
+	<span>No pierdas tiempo buscando lo que ya creaste y lo que te funciono.</span>
+
+	
+</div>
+	<div class="ingresar">
+		
+	<fieldset >
 		<span> Username: demo y Password: demo </span>
 		<form action="." method="POST">
 			{% csrf_token %}
@@ -12,5 +26,6 @@
 			<input type="submit" value="Ingresar" class="boton ">
 		</form>
 	</fieldset>
+	</div>
 </article>
 {% endblock%}

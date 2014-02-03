@@ -5,7 +5,7 @@ import os
 
 
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -19,8 +19,8 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'app-dev',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'app-dev.db',                      # Or path to database file if using sqlite3.
         #'USER': 'user',  #.
         'USER': 'user',
         'PASSWORD': '123456',                  # Not used with sqlite3.
@@ -152,6 +152,7 @@ INSTALLED_APPS = (
     'mockups',
     'apps.elementos_comunes',
     'apps.django_pygments',
+    'apps.comandos',
     'apps.home',
     'rest_framework',
     'django_extensions',

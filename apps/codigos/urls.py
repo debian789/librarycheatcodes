@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns ('apps.codigos.views',
-	url(r'^codigos/$','codigos_view', name = 'codigos'),
+	url(r'^codigos/$','view_codigos', name = 'codigos'),
 	url(r'^codigos/agregar/$','view_agregar_codigo', name = 'agregar_codigo'),
-	url(r'^codigo/detalles/(?P<id_codigo>.*)/$','single_codigo',name='detalle_codigo'),
-	url(r'^codigo/editar/(?P<id_codigo>.*)/$','editar_codigo_view',name='editar_codigo'),
-	url(r'^codigo/eliminar/(?P<id_codigo>.*)/$','eliminiar_codigo_view',name='eliminar_codigo'),
+	url(r'^codigo/detalles/(?P<id_codigo>.*)/$','view_codigo_simple',name='detalle_codigo'),
+	url(r'^codigo/editar/(?P<id_codigo>.*)/$','view_editar_codigo',name='editar_codigo'),
+	url(r'^codigo/eliminar/(?P<id_codigo>.*)/$','view_eliminiar_codigo',name='eliminar_codigo'),
 )

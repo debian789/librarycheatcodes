@@ -5,17 +5,14 @@
 	<div class="subTituloBarra">
 		<h3>Mis Proyectos  </h3>
 		<div class="opcionesVisualizacion">
-			<span class="  icon-th-large"></span>
-			<span class="   icon-reorder"></span>
-		</div>
-	</div>
 	<div class="botonCrear   ">
 		<a href="{% url 'agregar_proyecto'%}">				
 			Agregar Proyecto
 			<span class=" icon-plus-sign"></span>
 		</a>
 	</div>
-	<hr class="ocultarMenu principalMenu" />
+		</div>
+	</div>
 	{% if proyectos %}
 	{% for proyecto in proyectos %}
 	<div class="itemIngresadosCodigos">

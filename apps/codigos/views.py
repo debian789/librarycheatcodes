@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response,get_object_or_404,render,Http404
 from django.template import RequestContext
+from django.db.models import Q
 from apps.codigos.models import *
 from apps.codigos.forms import *
 from django.http import HttpResponseRedirect
@@ -11,7 +12,7 @@ from django.contrib.auth.models import User
 from django.utils.html import escape
 from pygments.lexers import LEXERS
 
-def codigos_view(request):
+def view_codigos(request):
 	if request.method == 'POST':
 		formularioBusqueda = frm_codigos_busqueda(request.POST)
 		if formularioBusqueda.is_valid():
@@ -19,7 +20,7 @@ def codigos_view(request):
 			codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
 
 			if formularioBusqueda.cleaned_data['busqueda']:
-				codigos = codigos.filter(titulo__icontains=formularioBusqueda.cleaned_data['busqueda'])
+				codigos = codigos.filter( Q(titulo__icontains=formularioBusqueda.cleaned_data['busqueda']) | Q(descripcion__icontains=formularioBusqueda.cleaned_data['busqueda']) ) 
 			else:
 				pass
 
@@ -114,7 +115,7 @@ def view_agregar_codigo(request):
 	else:
 		return HttpResponseRedirect('/codigos/')
 
-def editar_codigo_view(request,id_codigo):
+def view_editar_codigo(request,id_codigo):
 	if request.user.is_authenticated():
 		try: 
 			usuario = get_object_or_404(User, id=request.user.id)
@@ -137,7 +138,7 @@ def editar_codigo_view(request,id_codigo):
 		contexto = {'formulario':formulario}
 		return render(request,'codigo_ingresar.html',contexto)
 
-def eliminiar_codigo_view(request,id_codigo):
+def view_eliminiar_codigo(request,id_codigo):
 	if request.user.is_authenticated():
 		datos = mdl_codigos.objects.get(id=id_codigo)
 		datos.delete()
@@ -145,12 +146,7 @@ def eliminiar_codigo_view(request,id_codigo):
 
 	return HttpResponseRedirect('/')
 
-
-def filtroBusqueda(request):
-	pass
-
-
-def single_codigo(request,id_codigo):
+def view_codigo_simple(request,id_codigo):
 	if request.method == 'POST':
 		formularioBusqueda = frm_codigos_busqueda(request.POST)
 		codigosBuequeda = mdl_codigos.objects.filter(titulo= formularioBusqueda.cleaned_data['buesqueda'])

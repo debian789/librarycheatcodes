@@ -2,20 +2,30 @@
 {% block titulo %} Inicio Sesion {% endblock %}
 {% block contenido %}
 <article class="agregar">
-	<hr class="ocultarMenu principalMenu " />
-	<div class="botonCrear ocultarMenu principalMenu">
+	<hr class=" principalMenu " />
+	<div class="botonCrear  ">
+		<a href="{% url 'agregar_comando'%}">				
+			Agregar Comando
+			<span class=" icon-plus-sign"></span>
+		</a>
+	</div>
+
+	<div class="botonCrear  ">
 		<a href="{% url 'agregar_codigo'%}">				
 			Agregar Codigo
 			<span class=" icon-plus-sign"></span>
 		</a>
 	</div>
-	<div class="botonCrear ocultarMenu principalMenu" >
+
+	<div class="botonCrear  " >
 		<a href="{% url 'agregar_proyecto' %}">
 			Agregar Proyecto <span class=" icon-plus-sign"></span>
 		</a>
 	</div> 
-	<hr class="ocultarMenu principalMenu "/>
+	<hr class=" principalMenu "/>
 </article>
+
+
 <article class="resultadoBusquedaInicio">
 	<div class="subTituloBarra">
 		<h3>Codigos Favoritos</h3>

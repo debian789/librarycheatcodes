@@ -9,8 +9,9 @@ from django.core.urlresolvers import reverse
 
 def menu(request):
     menu = {'menu': [
+        {'name': 'Mis Comandos', 'url':reverse('comandos')},
         {'name': 'Mis Codigos', 'url': reverse('codigos')},
-        {'name': 'Mis Proyectos', 'url': reverse('proyectos')}
+        {'name': 'Mis Proyectos', 'url': reverse('proyectos')},
     ]}
     for item in menu['menu']:
         if request.path == item['url']:

@@ -16,6 +16,8 @@ class mdl_proyectos(models.Model):
 	archivo 	 = models.FileField(upload_to='archivoProyectos',null=True,blank=True,verbose_name="Archivo Adjunto")
 	favorito    = models.BooleanField(default=False,blank=False)
 	fechaIngreso = models.DateField(auto_now = True)
+	estado       = models.BooleanField(default = True)
+	
 
 	class Meta:
 		verbose_name = ('Proyecto')

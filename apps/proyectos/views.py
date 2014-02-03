@@ -1,6 +1,7 @@
 # Create your views here.
 from django.shortcuts import render_to_response,get_object_or_404,render
 from django.template import RequestContext
+from django.db.models import Q
 from models import *
 from forms import *
 from django.http import HttpResponseRedirect
@@ -39,7 +40,7 @@ def view_proyectos(request):
 			proyectos = mdl_proyectos.objects.select_related().filter(usuario=usuario)
 
 			if formularioBusqueda.cleaned_data['busqueda']:
-				proyectos = proyectos.filter(nombre__icontains=formularioBusqueda.cleaned_data['busqueda'])
+				proyectos = proyectos.filter( Q(nombre__icontains=formularioBusqueda.cleaned_data['busqueda']) | Q(descripcion__icontains=formularioBusqueda.cleaned_data['busqueda']) )
 			else:
 				pass
 
@@ -129,7 +130,7 @@ def view_proyectos(request):
 		return render(request,"proyectos.html",contexto)
 
 
-def editar_proyecto_view(request,id_proyecto):
+def view_editar_proyecto(request,id_proyecto):
 	if request.user.is_authenticated():
 		try: 
 			usuario = get_object_or_404(User, id=request.user.id)
@@ -153,7 +154,7 @@ def editar_proyecto_view(request,id_proyecto):
 		contexto = {'formulario':formulario}
 		return render(request,'proyectos_ingresar.html',contexto)
 
-def single_proyecto_view(request,id_proyecto):
+def view_proyecto_simple(request,id_proyecto):
 	usuario = User.objects.select_related().get(id=request.user.id)
 	proyecto = mdl_proyectos.objects.select_related().filter(usuario=usuario).get(id=id_proyecto)
 	contexto = {"proyecto":proyecto}		
@@ -161,7 +162,7 @@ def single_proyecto_view(request,id_proyecto):
 
 #def proyecto_uno_view(request,id_proyecto):
 
-def eliminiar_proyecto_view(request,id_proyecto):
+def view_eliminiar_proyecto(request,id_proyecto):
 	if request.user.is_authenticated():
 		usuario = User.objects.select_related().get(id=request.user.id)
 		proyecto = mdl_proyectos.objects.select_related().filter(usuario=usuario).get(id=id_proyecto)
