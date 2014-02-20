@@ -5,28 +5,34 @@
 {% if codigo %}
 
 <article class="detalles">
-	<div class="subTituloBarra">
-		<h3>Detalles del Codigo </h3>
-	</div>
-	<h1>{{ codigo.titulo}}</h1>
-	<div class="funcionalidades">
-		<div class="agregarNuevo">
-			<a href="{% url 'agregar_codigo'%}">Agregar Codigo   <span class=" icon-plus-sign"></span></a>	
-		</div>
-		<div class="edicion">
+	<div class="subTituloBarra barraColorB">
+		<h3>Detalles </h3>
+		<div class="opcionesVisualizacion">
+			<a href="{% url 'agregar_codigo'%}"><span class=" icon-plus-sign"></span></a>	
 			{% if codigo.favorito %}
-				<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a>
+				<a href="{% url 'quitar_favorito' codigo.id %}" class="lineaDerecha icon-star "></a>
 			{% else %}
-				<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a>
+				<a href="{% url 'agregar_favorito' codigo.id %}" class=" lineaDerecha icon-star3 "></a>
 			{% endif %}
 			<a href="{% url 'editar_codigo' codigo.id %}" class=" lineaDerecha icon-pencil"></a>
 			<a href="{% url 'eliminar_codigo' codigo.id %}" class=" lineaDerecha icon-remove2"></a>
+			
 		</div>
+		
 	</div>
+
+	<h1>{{ codigo.titulo}}</h1>
+
 	<div class="subTitulo"><span>Descripcion</span></div>
 	<div class="descripcionInformacion">
-		<div class="descripcionDetallada"><p>{{ codigo.descripcion }}</p></div>
+		<div class="descripcionDetallada"><p>{{ codigo.descripcion }}</p>
+		<div class="masInformacionDetallada"> Mas informacion  &nbsp; <span class=" icon-expand2"> </span></div>
+		</div>
+
+
+
 		<div class="descripcionExtra">
+
 			<div class="tituloDescripcion">Lenguaje de Programacion</div>
 			<div class="contenidoExtra">{{ codigo.lenguaje }}</div>
 			<div class="tituloDescripcion">Archivo Adjunto </div>
@@ -40,6 +46,7 @@
 				{% endif %}
 			</div>
 		</div>
+
 	</div>
 	<div > <p></p> </div>
 	<div class="subTitulo"><span>Codigo Fuente</span></div>

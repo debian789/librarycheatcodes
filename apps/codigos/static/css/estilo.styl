@@ -1,22 +1,35 @@
-azul_a = #1D4599
-azul_b = #2F3F60
-azul_c = #031A49
-azul_d = #7297E6
-azul_e = #A9BDE6
+azul_a = #2D6A94
+azul_b = #35576F
+azul_c = #0F3F60
+azul_d = #619ECA
+azul_e = #7DAACA
 
 blanco = #fcfcfc
 
-naranja_a = #E69F17
-naranja_b = #8F743F
-naranja_c = #6D4903
-naranja_d = #F9C96D
-naranja_e = #F9E0B0
+naranja_a = #E79D3C
+naranja_b = #AD834D
+naranja_c = #965D14
+naranja_d = #F3B86C
+naranja_e = #F3C890
+
+rojo_a = #E74C3C
+rojo_b = #AD564D
+rojo_c = #962014
+rojo_d = #F3796C
+rojo_e = #F39990
+
+verde_a = #2DAF4A
+verde_b = #3A834A
+verde_c = #0F7125
+verde_d = #60D77A
+verde_e = #7FD793
 
 gris_a = #f7f8fb 
 gris_b = #e0e1e7
 gris_c = #c3c3c3
 gris_d = #e1e1e1
 gris_e = #464b51
+
 @import "iconfonts.styl"
 @import "fonts.styl"
 @import 'nib/vendor'
@@ -38,16 +51,16 @@ footer
 	a 
 		color blanco 
 		text-decoration none 
-.alinear-izquierda
-	float left 
+	//.alinear-izquierda
+	//float left 
 	//border 1px solid red
 .barraTitulo
 	background azul_c
 	color blanco
-	margin 0
+	margin 0 0 0em 0
 	text-align left  
 	.logo 
-		border-bottom 1px solid gris_a
+		//border-bottom 1px solid gris_a
 		display block
 		display inline-block
 		font-weight bold 
@@ -55,6 +68,16 @@ footer
 		text-align left
 		vertical-align top 
 		width 98%
+		.session
+			//border 1px solid red 
+			display inline-block
+			vertical-align top 
+			width 25%
+			float right 
+			text-align right 	
+			a 
+				color blanco
+				text-decoration none
 	.ingresoSalida
 		//border 1px solid red
 		//display block
@@ -70,6 +93,27 @@ footer
 			margin-right 2%
 			border-right 1px solid gris_a
 			padding-right 3%
+	.subMenuPrincipal
+		width 100%
+		display block
+		//border 1px solid red 
+		text-align center
+		.menuMobilPrincipal
+			background verde_d
+		.activarBuscador
+			background azul_d
+		.menuMobilPrincipal,.activarBuscador
+			//border 1px solid blanco 
+			//background blue !important
+			width 50%
+			display inline-block 
+			vertical-align top 
+			text-align center
+			padding 2% 0 2% 0
+			margin 0 0 0 0  
+			float right 
+			//div:first-of-type 
+			//background red !important
 .contenido 
 	margin-left auto
 	margin-right auto 
@@ -139,18 +183,19 @@ footer
 			width 96% 
 			margin 0.2em 0 0.3em 0
 		.subTitulo
-			color blanco
+			color azul_c
 			border-radius 10px 10px 0 0 
 			font-weight bold
 			margin 0.8em auto 0em auto 
-			background linear-gradient(top,azul_d,azul_a)
+			//background linear-gradient(top,azul_d,azul_a)
 			padding 0.4em 0 0.4em 0em
 			text-align left
 			width 96%
-			span 
-				margin-left 2%
+			//span 
+			//margin-left 2%
 		.descripcionInformacion
-			background linear-gradient(top,blanco,gris_a)
+			background gris_e
+			//background linear-gradient(top,blanco,gris_a)
 			//border 1px   solid azul_d
 			margin-top 0 
 			margin-left auto 
@@ -159,6 +204,7 @@ footer
 			padding 0
 			position relative
 			width 96%
+			color blanco
 			.descripcionDetallada
 				display inline-block 
 				vertical-align top 
@@ -176,6 +222,14 @@ footer
 					height 90%
 					min-height 90%
 					width 98%
+				.masInformacionDetallada
+					display inline-block 
+					margin-top 0.5em
+					border 1px solid red 
+					text-align center
+					font-weight bold
+					cursor pointer
+					width 100%
 			.descripcionDetalladaCompleta
 				display inline-block 
 				vertical-align top 
@@ -215,6 +269,7 @@ footer
 				border-left 1px solid gris_b
 				//background red
 				display inline-block 
+				display none
 				vertical-align top 
 				text-align left	
 				margin-left auto		
@@ -222,23 +277,24 @@ footer
 				width 97%
 				padding 1%
 				.tituloDescripcion
-					background linear-gradient(top,azul_e,azul_d)
+					//background linear-gradient(top,azul_e,azul_d)
 					color blanco
+					font-weight bold
 					padding 0.1em 0 0.1em  0
 					border-radius 15px 15px 0px 0px
 					width 100%
-					text-align center
+					text-align left
 				.contenidoExtra
 					//border 1px solid red 
 					border-radius 0px 0px 10px 10px 
-					background linear-gradient(gris_a,gris_b)
+					//background linear-gradient(gris_a,gris_b)
 					padding 0.1em 0 0.1em  0
 					width 100%	
-					text-align center
+					text-align left
 					margin-bottom 0.2em
 					a 
 						text-decoration none 
-						color naranja_a			
+						color verde_a			
 		.descripcionCodigo
 			background blanco
 			border-left 0.5em solid azul_d
@@ -391,61 +447,7 @@ footer
 			hr 
 				border-top 1px solid azul_e
 				border-bottom 0
-	.opcionesBusqueda
-		//border 1px solid red
-		border-radius 10px 10px 10px 10px 
-		margin 0.5em auto 1em auto 
-		background linear-gradient(top,blanco,gris_b)
-		box-shadow 3px 3px 8px azul_b
-		//padding 0 0 1em 0
-		//float left
-		width 96%
-
-		.subTituloBarra  
-			background linear-gradient(top,azul_d,azul_a)
-		.tituloBuscar
-			margin-top 0.7em
-			display inline-block
-			margin-left  2%
-			vertical-align top
-			text-align left
-			width 98%
-			//border 1px solid red
-		input[type=text]
-			margin-top 0.5em 
-			width 94%
-		.filtros
-			width 100%
-			//border 1px solid red
-			margin-left auto 
-			margin-right auto 
-			.itemFiltros
-				//border 1px solid red
-				//background blanco
-				margin-top 0em				
-				.nombreFiltro
-					display inline-block 
-					vertical-align top 
-					//color blanco
-					//background azul_d
-					//border 1px solid green
-					padding 0em 0 0.3em 0
-					text-align left
-					width 100%
-					span 
-						margin-left 1%
-				.datosFiltro 
-					//background blanco
-					display inline-block
-					vertical-align top 
-					text-align left
-					padding 0.3em 0 0.3em 0
-					width 100%
-					span
-						margin 0 auto 0 auto 
-						margin-left 1%
-						select
-							width 96%
+	
 		.opcionBuscar
 			width 100%
 			.opcionCheckbox
@@ -454,23 +456,6 @@ footer
 				vertical-align top
 				margin 1%
 				//width 30%
-			.cantidadBusqueda
-				display inline-block
-				//border 1px solid red
-				padding-bottom 1em 
-				width 96%
-				input 
-					width 100% 
-					//border 1px solid naranja_a 
-					border 0
-					box-shadow 2px 2px 5px naranja_c
-					background naranja_a 
-					border-radius 10px 10px 10px 10px 
-					padding 0.4em 0 0.4em 0 
-					color blanco
-				input:hover 
-					background naranja_d
-					color naranja_c
 	.paginaInicial
 		figure 
 			background gris_b 
@@ -479,6 +464,7 @@ footer
 			box-shadow 5px 5px 10px gris_b
 			img 
 			width 80%
+
 	.resultadoBusqueda
 		background linear-gradient(top,gris_a,gris_b) 
 		box-shadow 3px 3px 8px azul_b
@@ -507,16 +493,15 @@ footer
 				vertical-align top 
 				margin 1%
 		.itemIngresadosCodigos
-			border-left 0.5em solid azul_d
 			background blanco
 			margin 0.5em auto 0.5em auto 
 			padding-bottom 0.2em
 			text-align left
 			width 95%
-			border-radius 10px  10px 10px 10px  
-			box-shadow 2px 3px  6px gris_e 
-			&:hover
-				border-left 0.5em solid azul_a
+			//border-radius 10px  10px 10px 10px  
+			//box-shadow 2px 3px  6px gris_e 
+			box-shadow: rgba(0,0,0,0.2) 0px 0px 1em;
+
 			h4 
 				margin 0em 0 0 1%
 				//border 1px solid red
@@ -639,7 +624,7 @@ footer
 				margin 1%
 		.itemIngresadosCodigos
 			border-left 0.5em solid azul_d
-			background blanco
+			//background blanco
 			margin 0.5em auto 0.5em auto 
 			padding-bottom 0.2em
 			text-align left
@@ -816,35 +801,40 @@ footer
 					h4,span 
 						display inline-block
 						vertical-align top
-.menuMobilPrincipal
+.principalMenu
 	//border 1px solid red
-	display inline-block
-	background azul_c
-	//border-top 1px solid gris_b
-	padding 0.3em 2% 0.5em 0 
-	color blanco 
-	float right 
-	span 
-		color blanco
-.navegacion
-	//border 1px solid red
-	background azul_a
+	display none 
+	//background verde_d
 	margin 0
-	padding-bottom 0.5em
-	border-bottom 1px solid blanco
-	margin-bottom 0.5em 
+	padding 0.5em 0 0.7em 0 
+	//margin-bottom 0.5em 
+	text-align center 
+	//padding 1em 0 0.5em 0 
+	//border-bottom 1px solid blanco
 	ul
 		//border 1px solid red
-		margin 0
+		margin 0 auto 0 auto  
 		padding 0
 		text-align left
 		width 96%
+		li:nth-child(1)
+			background rojo_a
+			&:hover 
+				background rojo_d
+		li:nth-child(2)
+			background naranja_a	
+			&:hover 
+				background naranja_d		
+		li:nth-child(3)
+			background azul_a	
+			&:hover 
+				background azul_d		
 		li 
-			background linear-gradient(top, azul_e, azul_d)
+			//background linear-gradient(top, azul_e, azul_d)
 			border-radius 0.7em
 			display inline-block
 			margin-top 0.3em
-			padding 0.4em 0 0.4em 0 
+			padding 0.5em 0 0.5em 0 
 			text-align center
 			vertical-align top 
 			width 100%
@@ -855,53 +845,32 @@ footer
 				font-weight bold
 				text-decoration none
 		li:hover 
-			background azul_e
 			a 
-				color azul_b
-
-	.buscador
-		//border 1px solid pink
-		display block
-		display inline-block
-		font-weight bold 
-		margin-top 0.5em	
-		margin-bottom 0.5em	
-		padding 0em
+				color blanco
+.principalMenuBuscador
+	display none 
+	padding 0.5em 1% 0.5em 1%
+	//background azul_d
+	text-align left
+	//border 1px solid red 
+	width 98%
+	input[type=text]
+		width 78%
+		margin-bottom 0.3em
+		display inline-block 
 		vertical-align top 
-		width 96%
-		input[type=text]
-			border-radius 15px 0 0 15px
-			border 1px solid azul_a
-			border-right 0
-			float right 
-			margin 0
-			padding-top 0.4em
-			padding-bottom 0.3em
-			width 87%
-		div
-			//border 1px solid red
-			background naranja_a
-			border-radius 0 15px 15px 0
-			color blanco
-			display inline-block
-			float right
-			margin 0 
-			padding-top 0.5em
-			padding-bottom 0.4em
-			width 10%
-		div:hover 
-			background naranja_d
-
-
-	ul,.buscador
-		display inline-block
-		vertical-align top 
+		border 0px solid red 
+		padding 0.2em
+	select 
+		width 100%
+		margin-top 0.5em
+		margin-bottom 0.5em
 .botonCrear 
 	//border 2px solid naranja_e
 	//border-style dashed
-	background naranja_a
+	background  verde_a
 	border-radius 0.5em
-	box-shadow 2px 2px 6px azul_a
+	//box-shadow 2px 2px 6px verde_c
 	color blanco
 	display inline-block
 	font-weight bold
@@ -909,7 +878,7 @@ footer
 	//margin 0.4em 0 0.2em 0
 	padding-top 0.1em
 	padding-bottom 0.2em
-	vertical-align top 
+	vertical-align top
 	text-align center 
 	width 96%
 	a 
@@ -917,17 +886,19 @@ footer
 		color blanco 
 		text-decoration none 
 		font-family: 'texgyreherosregular'
+		span 
+			vertical-align -5%
 	&:hover 
-		background naranja_d
+		background verde_d
 .boton
 	border 0
-	background naranja_a
+	background verde_a
 	color blanco
 	border-radius 10px 10px 10px 10px 
 	padding 0.4em 0 0.4em 0 
 	width 100%
 	&:hover 
-		background naranja_d
+		background verde_d
 .ocultar 
 	display none 
 .ocultarTodo
@@ -936,15 +907,37 @@ footer
 	display none
 .lineaDerecha
 	border-left 2px solid gris_b
-	margin-left 1%
+	margin-left 2%
 	//border 1px solid red
-	padding-left 2% 
+	//vertical-align -80%
+	padding-left 3% 
+.lineaColorA
+	border-left 0.5em solid rojo_a
+	&:hover
+		border-left 0.5em solid rojo_c
+.lineaColorB
+	border-left 0.5em solid naranja_a
+	&:hover
+		border-left 0.5em solid naranja_c
+.lineaColorC
+	border-left 0.5em solid azul_a
+	&:hover
+		border-left 0.5em solid azul_c
+.barraColorA
+	background rojo_a
+	background linear-gradient(top,rojo_d,rojo_a)
+.barraColorB
+	background naranja_a
+	background linear-gradient(top,naranja_d,naranja_a)
+.barraColorC
+	background azul_a
+	background linear-gradient(top,azul_d,azul_a)
 .subTituloBarra
 	//border 1px solid red
-	background linear-gradient(top,azul_d,azul_a)
+	//background linear-gradient(top,azul_d,azul_a)
 	border-radius 10px 10px 0 0 
 	margin-bottom 0.3em 
-	padding 0.4em 0 0.4em 0
+	padding 0.4em 0 0em 0
 	text-align left
 	width 100%
 
@@ -956,8 +949,8 @@ footer
 		vertical-align top 
 		margin 0
 		margin-left 2%
-		padding-left 1%
-		width 96%
+		//padding-left 1%
+		width 60%
 		//font-family: 'open_sansbold'
 	.opcionesVisualizacion
 		//border 1px solid red 
@@ -965,11 +958,48 @@ footer
 		vertical-align top 
 		//border 1px solid red
 		text-align right 
-		width 96%
-		span 
-			vertical-align top 
+		width 35%
+		a 
+			//border 1px solid red
+			//vertical-align -80% 
 			color blanco
 			margin-right 1%
+			text-decoration none
+.botonesCrear
+	background gris_d
+	padding-top 0.5em 
+	padding-bottom 0.5em
+.opcionBuscar
+	//border 1px solid red 
+	width 18%
+	display inline-block 
+	vertical-align top 
+	.btnBuscador
+		width 100%
+		background verde_a
+		border-radius 5px 
+		color blanco
+		border 0
+		padding 0.2em
+		margin 0 
+		&:hover 
+			background verde_d
+.filtros
+	display none
+	.opcionCheckbox 
+		//border 1px solid red 
+		input[type="checkbox"],label 
+			display inline-block 
+			//border 1px solid red
+.ocultoCrar
+	display none 
+.limpiarEspacio 
+	clear both
+.secciones
+	border 1px solid blue 
+	display inline-block
+	vertical-align top 
+	width 96%
 .contenidoInicio
 	width 100%
 	display inline-block 

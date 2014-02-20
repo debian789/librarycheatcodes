@@ -3,30 +3,26 @@
 {% block contenido %}
 {% if proyecto %}
 <article class="detalles">
-	<div class="subTituloBarra">
+	<div class="subTituloBarra barraColorC">
 		<h3>Detalles del Proyecto </h3>
-	</div>
-	<h1>{{ proyecto.nombre}}</h1>
-	<div class="funcionalidades">
-		<div class="agregarNuevo">
-			<a href="{% url 'agregar_proyecto'%}">Agregar proyecto   <span class=" icon-plus-sign"></span></a>	
-		</div>
-		<div class="edicion">
+		<div class="opcionesVisualizacion">
+			<a href="{% url 'agregar_proyecto'%}"><span class=" icon-plus-sign"></span></a>	
 			{% if proyecto.favorito %}
 			<!-- <a href="{% url 'quitar_favorito' proyecto.id %}" class=" icon-star "></a> -->
 			{% else %}
 		<!-- 	<a href="{% url 'agregar_favorito' proyecto.id %}" class="icon-star3 "></a> -->
 			{% endif %}
-
 			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" lineaDerecha icon-pencil"></a>
 			<a href="" class=" lineaDerecha icon-remove2"></a>
+			
 		</div>
-
 	</div>
+	<h1>{{ proyecto.nombre}}</h1>
 	<div class="subTitulo"><span>Descripcion</span></div>
 	<div class="descripcionInformacion">
 		<div class="descripcionDetallada">
 		 <p>{{ proyecto.descripcion }}</p>
+				 <span class="masInformacionDetallada"> Mas informacion</span>
 				 </div>
 		<div class="descripcionExtra">
 			<div class="itemInformacion">

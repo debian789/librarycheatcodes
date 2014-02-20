@@ -2,12 +2,12 @@
 {% block titulo%} Proyectos de proyecto {% endblock %}
 {% block contenido %}
 <article class="resultadoBusqueda">
-	<div class="subTituloBarra">
+	<div class="subTituloBarra barraColorC">
 		<h3>Mis Proyectos  </h3>
 		<div class="opcionesVisualizacion">
 	<div class="botonCrear   ">
 		<a href="{% url 'agregar_proyecto'%}">				
-			Agregar Proyecto
+			Nuevo
 			<span class=" icon-plus-sign"></span>
 		</a>
 	</div>
@@ -15,7 +15,7 @@
 	</div>
 	{% if proyectos %}
 	{% for proyecto in proyectos %}
-	<div class="itemIngresadosCodigos">
+	<div class="itemIngresadosCodigos lineaColorC">
 		<h4><a href="{% url 'detalle_proyecto' proyecto.id %}">{{ proyecto.nombre|truncatechars:140|capfirst }}</a></h4>
 		<div class="favoritoCodigo">
 			{% if proyecto.favorito %}
@@ -29,7 +29,6 @@
 			<a href="" class=" icon-download2"></a>
 			{% endif %}
 		</div>
-		<hr>
 		<p>{{ proyecto.descripcion|truncatechars:140 }}  </p>
 		<hr/>
 		<div class="informacionLenguaje">		
@@ -98,17 +97,16 @@
 	{% endif%}
 	{% endif %}
 </article>
-<article class="opcionesBusqueda">
-	<div class="subTituloBarra mostrar">
-		<h3>Buscador</h3>
-		<div class="opcionesVisualizacion">
-			<span class="icon-search"></span>
-		</div>
-	</div>
-	<form action="." method="post" class="menuMovil ocultar" >
+{% endblock %}
+{% block opcionBuscador %}
+	<form action="." method="post" class="menuMovil " >
 		<!-- <span class="tituloBuscar">Buscar</span> -->
 		{{ formularioBusqueda.busqueda }}
-		<hr/>	
+		<article class="opcionBuscar">			
+				<input type="submit" value="Buscar" class=' btnBuscador'>			
+		</article>
+		<span class="masOpciones icon-settings"></span>	
+
 		<div class="filtros">
 			<div class="itemFiltros">
 				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
@@ -139,19 +137,16 @@
 				</span></div>
 			</div>
 
-		</div>
-		<hr/>
-		<article class="opcionBuscar">
+	
 			<div class="opcionCheckbox">
 				{{ formularioBusqueda.adjunto }}
 				<label for="id_adjunto">Archivo Adjunto</label>
 			</div>
-			<hr/>
-			<div class="cantidadBusqueda">
-				<input type="submit" value="Buscar">
-			</div>
-		</article>
+		
+		</div>
+
+		
+
 		{% csrf_token %}
 	</form>
-</article> 
 {% endblock %}

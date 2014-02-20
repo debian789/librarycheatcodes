@@ -27,7 +27,9 @@ def view_salir(request):
 def view_ingresar(request):
 	mensaje=""
 	if request.user.is_authenticated():
-		return HttpResponseRedirect('/inicioSesion')
+		return HttpResponseRedirect('/comandos')
+		#return HttpResponseRedirect('/inicioSesion')
+
 	else:
 		if request.method == "POST":
 			form = loginForm(request.POST)
@@ -37,7 +39,9 @@ def view_ingresar(request):
 				usuario = authenticate(username=username,password=password)
 				if usuario is not None and usuario.is_active:
 					login(request,usuario)
-					return HttpResponseRedirect('/inicioSesion')
+					return HttpResponseRedirect('/comandos')
+					#return HttpResponseRedirect('/inicioSesion')
+
 				else:
 					mensaje = "usuario y password incorrectos "
 

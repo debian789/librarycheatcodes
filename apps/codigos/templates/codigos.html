@@ -2,20 +2,20 @@
 {% block titulo%} codigos de codigo {% endblock %}
 {% block contenido %}
 <article class="resultadoBusqueda">
-	<div class="subTituloBarra">
+	<div class="subTituloBarra barraColorB">
 		<h3>Mis Codigos </h3>
 		<div class="opcionesVisualizacion">
-<div class="botonCrear   ">
-	<a href="{% url 'agregar_codigo'%}">				
-		Agregar Codigo
-		<span class=" icon-plus-sign"></span>
-	</a>
-</div>
+			<div class="botonCrear   ">
+				<a href="{% url 'agregar_codigo'%}">	
+				Nuevo			
+					<span class=" icon-plus-sign"></span>
+				</a>
+			</div>
 		</div>
 	</div>
 	{% if codigos %}
 	{% for codigo in codigos %}
-	<div class="itemIngresadosCodigos">
+	<div class="itemIngresadosCodigos lineaColorB">
 		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a></h4>
 		<div class="favoritoCodigo">
 			{% if codigo.favorito %}
@@ -29,7 +29,6 @@
 			<a href="" class=" icon-download2"></a>
 			{% endif %}
 		</div>
-		<hr>
 		<p>{{ codigo.descripcion|truncatechars:140 }}  </p>
 		<hr/>
 		<div class="informacionLenguaje">		
@@ -90,39 +89,38 @@
 	</div>
 	{% endif%}
 	{% endif %}
+
+
+
+
 </article>
-<article class="opcionesBusqueda">
-	<div class="subTituloBarra mostrar">
-		<h3>Buscador</h3>
-		<div class="opcionesVisualizacion">
-			<span class="icon-search"></span>
-		</div>
-	</div>
-	<form action="." method="post" class="menuMovil ocultar" >
-		<!-- <span class="tituloBuscar">Buscar</span> -->
-		{{ formularioBusqueda.busqueda }}
-		<hr/>	
-		<div class="filtros">
-			<div class="itemFiltros">
-				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
-				<div class="datosFiltro"><span>
-					{{ formularioBusqueda.lenguaje }}
-				</span></div>
-			</div>
-		</div>
-		<hr/>
-		<article class="opcionBuscar">
-			<div class="opcionCheckbox">
-				{{ formularioBusqueda.adjunto }}
-				<label for="id_adjunto">Archivo Adjunto</label>
-			</div>
-			<hr/>
-			<div class="cantidadBusqueda">
-				<input type="submit" value="Buscar">
-			</div>
-		</article>
-		{% csrf_token %}
-	</form>
-</article> 
+
 {% endblock %}
+
+{% block opcionBuscador %}
+<form action="." method="post" class="menuMovil " >
+	<!-- <span class="tituloBuscar">Buscar</span> -->
+	{{ formularioBusqueda.busqueda }}
+	<article class="opcionBuscar">			
+				<input type="submit" value="Buscar" class=' btnBuscador'>			
+		</article>
+		<span class="masOpciones icon-settings"></span>
+	<div class="filtros">
+		<div class="itemFiltros">
+			<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
+			<div class="datosFiltro"><span>
+				{{ formularioBusqueda.lenguaje }}
+			</span></div>
+		</div>
+
+
+		<div class="opcionCheckbox">
+			{{ formularioBusqueda.adjunto }}
+			<label for="id_adjunto">Archivo Adjunto</label>
+		</div>
+
+	</div>
+	{% csrf_token %}
+</form>
+{% endblock %}	
 

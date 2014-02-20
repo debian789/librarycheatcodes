@@ -3,27 +3,24 @@
 {% block contenido %}
 {% if comando %}
 <article class="detalles">
-	<div class="subTituloBarra">
-		<h3>Detalles del comando </h3>
-	</div>
-	<h1>{{ comando.nombre}}</h1>
-	<div class="funcionalidades">
-		<div class="agregarNuevo">
-			<a href="{% url 'agregar_comando'%}">Agregar comando   <span class=" icon-plus-sign"></span></a>	
-		</div>
-		<div class="edicion">
+	<div class="subTituloBarra barraColorA">
+		<h3>Detalles</h3>
+		<div class="opcionesVisualizacion">
+			<a href="{% url 'agregar_comando'%}"><span class=" icon-plus-sign"></span></a>	
 			{% if comando.favorito %}
 			<!-- <a href="{% url 'quitar_favorito' comando.id %}" class=" icon-star "></a> -->
 			{% else %}
 		<!-- 	<a href="{% url 'agregar_favorito' comando.id %}" class="icon-star3 "></a> -->
 			{% endif %}
-
 			<a href="{% url 'editar_comando' comando.id %}" class=" lineaDerecha icon-pencil"></a>
 			<a href="" class=" lineaDerecha icon-remove2"></a>
+			
 		</div>
-
 	</div>
-	<div class="subTitulo"><span>Descripcion</span></div>
+	<h1>{{ comando.nombre}}</h1>
+	<div class="subTitulo">
+		<span>Descripción</span>
+	</div>
 	<div class="descripcionInformacion">
 		<div class="descripcionDetalladaCompleta">
 		 <p>{{ comando.descripcion }}</p>

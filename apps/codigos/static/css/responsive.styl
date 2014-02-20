@@ -2,36 +2,39 @@
 	.barraTitulo
 		.logo 
 			border 0
-			margin-left 8%
+			margin-left 5%
 			padding 0.5em 0 0.5em 1%
 			text-align left
-			width 42%
+			width 89%
 		.ingresoSalida
 			//border 1px solid red
 			display inline-block
 			width 40%
+		.subMenuPrincipal
+			.activarBuscador 
+				display none
+			.menuMobilPrincipal 
+				display none
 	.contenido
 		.agregar
+			display none
 			//border 3px solid blue 
 			width 100%
 			margin-top 0em
 			margin-bottom 0em
-			div 
-				margin-right 1% 
-				//margin-left auto  
-				width 26%
-				display inline-block 
-				vertical-align top 
 		.detalles
-			width 83%
+			width 90%
 			.descripcionInformacion
 				//border 1px solid red 
 				.descripcionDetallada
 					//border 1px solid red
 					width 65%
+					.masInformacionDetallada
+						display none 
 				.descripcionDetalladaCompleta
 					width 96%
 				.descripcionExtra
+					display inline-block !important
 					width 31%
 		.favoritosProyectos
 			margin 0 1% 0 1%
@@ -41,7 +44,7 @@
 			.descripcionCodigo
 				width 90%
 		.ingresoCodigo
-			width 70%
+			width 90%
 			//border 1px solid red
 			form 
 				.urlLenguaje
@@ -114,17 +117,18 @@
 						width 96%
 					.datosFiltro						
 						width 98%
-			.opcionBuscar 
-				.cantidadBusqueda
-					width 50%
 		.resultadoBusqueda
 			float none 
 			display inline-block 
 			vertical-align top 
-			width 60%
+			width 90%
 			.botonCrear
 				width 96%
 			.itemIngresadosCodigos
+				display inline-block 
+				vertical-align top 
+				//margin 1%
+				//width 46%
 				.informacionLenguaje
 					//border 1px solid blue
 					div 
@@ -133,7 +137,7 @@
 			float none 
 			display inline-block 
 			vertical-align top 
-			width 50%
+			width 100%
 			.botonCrear
 				width 96%
 			.itemIngresadosCodigos
@@ -144,17 +148,45 @@
 		.ultimosIngresados
 			width 30%
 			margin-left 1%
+	.secciones
+		border 1px solid red 
+		width 29%
+		margin-right 1%
 
 	.contenidoInicio
 		.ingresar
 			width 35%
 		.cualidades
 			width 38%
+	.principalMenu
+		display inline-block !important
+		vertical-align top
+		//border 1px solid red 
+		width 60%
+		text-align center
+		ul 
+			text-align center
+			li 
+				width 28%
+				margin-right 1%
+				display inline-block
+	.principalMenuBuscador 
+		//border 1px solid red
+		display inline-block !important
+		position absolute !important
+		width 34%
+		margin-top  0.6em
+		background azul_b
+		float right 
+		input[type=text]
+			width 70%
+		select 
+			width 95%
 	.subTituloBarra
 		h3
-			width 60%
+			width 78%
 		.opcionesVisualizacion
-			width 35%			
+			width 17%			
 	.menuMobilPrincipal 
 		display none
 	.navegacion

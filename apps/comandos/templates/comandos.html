@@ -2,107 +2,95 @@
 {% block titulo%} comandos de comando {% endblock %}
 {% block contenido %}
 <article class="resultadoBusqueda">
-	<div class="subTituloBarra">
-		<h3>Mis comandos  </h3>
+	<div class="subTituloBarra barraColorA">
+		<h3>Mis Comandos  </h3>
 		<div class="opcionesVisualizacion">
 <!-- 			<span class="  icon-th-large"></span>
-			<span class="   icon-reorder"></span> -->
+	<span class="   icon-reorder"></span> -->
 	<div class="botonCrear   ">
 		<a href="{% url 'agregar_comando'%}">				
-			Agregar comando
+			Nuevo
 			<span class=" icon-plus-sign"></span>
 		</a>
 	</div>
-		</div>
+</div>
+</div>
+
+{% if comandos %}
+{% for comando in comandos %}
+<div class="itemIngresadosCodigos lineaColorA">
+	<h4><a href="{% url 'detalle_comando' comando.id %}">{{ comando.nombre|truncatechars:140|capfirst }}</a></h4>
+	<div class="favoritoCodigo">
+		<a href="{% url 'editar_comando' comando.id %}" class=" icon-pencil"></a>
+		<a href="{% url 'eliminar_comando' comando.id %}" class="icon-trash" ></a>
 	</div>
-
-	{% if comandos %}
-	{% for comando in comandos %}
-	<div class="itemIngresadosCodigos">
-		<h4><a href="{% url 'detalle_comando' comando.id %}">{{ comando.nombre|truncatechars:140|capfirst }}</a></h4>
-		<div class="favoritoCodigo">
-
-<a href="{% url 'editar_comando' comando.id %}" class=" icon-pencil"></a>
-			<a href="{% url 'eliminar_comando' comando.id %}" class="icon-trash" ></a>
-
-		</div>
-		<hr>
-		<p>{{ comando.comando|truncatechars:140 }}  </p>
-
-
-	</div>
-	{% endfor %}
-	{% if not porFormulario %}
-	<div class="pagination">
-		<span class="step-links">
+	<p>{{ comando.comando|truncatechars:140 }}  </p>
+</div>
+{% endfor %}
+{% if not porFormulario %}
+<div class="pagination">
+	<span class="step-links">
+		{% if comandos.has_previous %}
+		<a href="?page={{ comandos.previous_page_number }}">Anterior</a>
+		{% endif %}
+		<span class="current">
+			Pagina {{ comandos.number }} de {{ comandos.paginator.num_pages }}.
+		</span>
+		{% if comandos.has_next %}
+		<a href="?page={{ comandos.next_page_number }}">Siguiente</a>
+		{% endif %}
+	</span>
+</div>
+{% endif %}
+{% if  porFormulario %}
+<div class="pagination">
+	<span class="step-links">
+		<form action="." method="post" class=" " >
 			{% if comandos.has_previous %}
-			<a href="?page={{ comandos.previous_page_number }}">Anterior</a>
+			<input type="hidden" name='page' value="{{ comandos.previous_page_number }}">
+			<input type="submit" value="Anterior">
+
 			{% endif %}
-			<span class="current">
-				Pagina {{ comandos.number }} de {{ comandos.paginator.num_pages }}.
-			</span>
+			{% csrf_token %}
+			<label class="ocultarTodo">
+
+				{{ formularioBusqueda.busqueda }}
+				{{ formularioBusqueda.lenguaje }}
+				{{ formularioBusqueda.adjunto }}
+			</label>
+
+		</form>
+		<span class="current">
+			Pagina {{ comandos.number }} de {{ comandos.paginator.num_pages }}.
+		</span>
+		<form action="." method="post" class=" " >
+
 			{% if comandos.has_next %}
-			<a href="?page={{ comandos.next_page_number }}">Siguiente</a>
+			<input type="hidden" name="page" value="{{ comandos.next_page_number }}">
+			<input type="submit" value='Siguiente'>
 			{% endif %}
-		</span>
-	</div>
-	{% endif %}
-	{% if  porFormulario %}
-	<div class="pagination">
-		<span class="step-links">
-			<form action="." method="post" class=" " >
-				{% if comandos.has_previous %}
-				<input type="hidden" name='page' value="{{ comandos.previous_page_number }}">
-				<input type="submit" value="Anterior">
-
-				{% endif %}
-				{% csrf_token %}
-				<label class="ocultarTodo">
-
-					{{ formularioBusqueda.busqueda }}
-					{{ formularioBusqueda.lenguaje }}
-					{{ formularioBusqueda.adjunto }}
-				</label>
-
-			</form>
-			<span class="current">
-				Pagina {{ comandos.number }} de {{ comandos.paginator.num_pages }}.
-			</span>
-			<form action="." method="post" class=" " >
-
-				{% if comandos.has_next %}
-				<input type="hidden" name="page" value="{{ comandos.next_page_number }}">
-				<input type="submit" value='Siguiente'>
-				{% endif %}
-				<label class="ocultarTodo">
-					{{ formularioBusqueda.busqueda }}
-					{{ formularioBusqueda.lenguaje }}
-					{{ formularioBusqueda.adjunto }}
-				</label>
-				{% csrf_token %}
-			</form>
-		</span>
-	</div>
-	{% endif%}
-	{% endif %}
+			<label class="ocultarTodo">
+				{{ formularioBusqueda.busqueda }}
+				{{ formularioBusqueda.lenguaje }}
+				{{ formularioBusqueda.adjunto }}
+			</label>
+			{% csrf_token %}
+		</form>
+	</span>
+</div>
+{% endif%}
+{% endif %}
 </article>
-<article class="opcionesBusqueda">
-	<div class="subTituloBarra mostrar">
-		<h3>Buscador</h3>
-		<div class="opcionesVisualizacion">
-			<span class="icon-search"></span>
-		</div>
-	</div>
-	<form action="." method="post" class="menuMovil ocultar" >
-		<!-- <span class="tituloBuscar">Buscar</span> -->
-		{{ formularioBusqueda.busqueda }}
-		<hr/>
-		<article class="opcionBuscar">
-			<div class="cantidadBusqueda">
-				<input type="submit" value="Buscar">
-			</div>
-		</article>
-		{% csrf_token %}
-	</form>
-</article> 
+
+{% endblock %}
+{% block opcionBuscador %}
+<form action="." method="post" class="menuMovil " >
+	<!-- <span class="tituloBuscar">Buscar</span> -->
+	{{ formularioBusqueda.busqueda }}
+	<article class="opcionBuscar">			
+		<input type="submit" value="Buscar" class=' btnBuscador'>	
+	</article>
+
+	{% csrf_token %}
+</form>
 {% endblock %}
