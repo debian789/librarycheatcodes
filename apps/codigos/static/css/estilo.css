@@ -252,7 +252,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .detalles .descripcionInformacion{background:#464b51;margin-top:0;margin-left:auto;margin-right:auto;text-align:left;padding:0;position:relative;width:96%;color:#fcfcfc;}
 .contenido .detalles .descripcionInformacion .descripcionDetallada{display:inline-block;vertical-align:top;text-align:left;width:100%;height:100%;min-height:100%;position:relative;}
 .contenido .detalles .descripcionInformacion .descripcionDetallada p{margin:1% auto 0 auto;text-align:justify;height:90%;min-height:90%;width:98%}
-.contenido .detalles .descripcionInformacion .descripcionDetallada .masInformacionDetallada{display:inline-block;margin-top:.5em;border:1px solid #f00;text-align:center;font-weight:bold;cursor:pointer;width:100%}
+.contenido .detalles .descripcionInformacion .descripcionDetallada .masInformacionDetallada{display:inline-block;margin-top:.5em;text-align:center;font-weight:bold;cursor:pointer;width:100%}
 .contenido .detalles .descripcionInformacion .descripcionDetalladaCompleta{display:inline-block;vertical-align:top;text-align:left;width:100%;height:100%;min-height:100%;position:relative;}
 .contenido .detalles .descripcionInformacion .descripcionDetalladaCompleta p{margin:1% auto 0 auto;text-align:justify;height:90%;min-height:90%;width:98%;padding-bottom:1em}
 .contenido .detalles .descripcionInformacion .descripcionNombreAdjunto{border:1px solid #f00;background:#619eca;color:#fcfcfc;text-align:left;width:100%}
