@@ -298,6 +298,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo .opcionBuscar .opcionCheckbox{display:inline-block;vertical-align:top;margin:1%}
 .contenido .paginaInicial figure{background:#e0e1e7;width:96%;margin:1% auto 1% auto;-webkit-box-shadow:5px 5px 10px #e0e1e7;box-shadow:5px 5px 10px #e0e1e7;imgwidth:80%}
 .contenido .resultadoBusqueda{background:-o-linear-gradient(top, #f7f8fb, #e0e1e7);background:-ms-linear-gradient(top, #f7f8fb, #e0e1e7);background:-moz-linear-gradient(top, #f7f8fb, #e0e1e7);background:-webkit-linear-gradient(top, #f7f8fb, #e0e1e7);background:linear-gradient(to bottom, #f7f8fb, #e0e1e7);-webkit-box-shadow:3px 3px 8px #35576f;box-shadow:3px 3px 8px #35576f;-webkit-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;margin:.5em auto .5em auto;padding-bottom:1em;width:96%;}
+.contenido .resultadoBusqueda .pagination{text-align:center}
 .contenido .resultadoBusqueda .botonCrear{width:96%}
 .contenido .resultadoBusqueda .itemResultado{border-left:.7em solid #619eca;background:#fcfcfc;margin:.5em auto .5em auto;text-align:left;width:90%;}
 .contenido .resultadoBusqueda .itemResultado h4{margin:.5em 0 0 1%;display:inline-block;vertical-align:top;width:80%}
@@ -307,14 +308,14 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .resultadoBusqueda .itemIngresadosCodigos h4 a{display:block;text-decoration:none;color:#35576f;font-family:'texgyreherosregular';font-size:1.1em}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .favoritoCodigo{display:inline-block;margin:.5em 0 0 1%;vertical-align:top;text-align:right;width:15%;}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .favoritoCodigo a:first-of-type{border-right:1px solid #0f3f60;padding-right:6%;padding-left:0}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .favoritoCodigo a{display:inline-block;vertical-align:top;padding-left:6%;color:#ad834d;text-decoration:none}
-.contenido .resultadoBusqueda .itemIngresadosCodigos p{display:inline-block;vertical-align:top;margin:0 1% 0 1%;text-align:justify;padding:0}
+.contenido .resultadoBusqueda .itemIngresadosCodigos .favoritoCodigo a{display:inline-block;vertical-align:top;padding-left:6%;color:#2daf4a;text-decoration:none}
+.contenido .resultadoBusqueda .itemIngresadosCodigos p{display:inline-block;vertical-align:top;margin:0 1% 0 1%;text-align:justify;padding:0;height:auto}
 .contenido .resultadoBusqueda .itemIngresadosCodigos hr{margin:.1em 0 .1em 0;border-top:1px solid #e0e1e7;border-bottom:0}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje{display:inline-block;vertical-align:top;margin:0 0 0 1%;width:80%;}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{-webkit-border-radius:0 10px 10px 0;border-radius:0 10px 10px 0;padding:0 1% 0 1%;background:#fcfcfc;color:#ad834d;float:left;display:inline-block;vertical-align:top;text-align:left;width:auto;max-width:50}
+.contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{-webkit-border-radius:0 10px 10px 0;border-radius:0 10px 10px 0;padding:0 1% 0 1%;background:#fcfcfc;color:#2daf4a;float:left;display:inline-block;vertical-align:top;text-align:left;width:auto;max-width:50}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo{display:inline-block;vertical-align:top;width:15%;text-align:right;}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo a:first-of-type{border-right:1px solid #0f3f60;padding-right:6%;padding-left:0;color:#ad834d}
-.contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo a{display:inline-block;vertical-align:top;color:#965d14;text-decoration:none}
+.contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo a:first-of-type{border-right:1px solid #0f3f60;padding-right:6%;padding-left:0;color:#2daf4a}
+.contenido .resultadoBusqueda .itemIngresadosCodigos .edicionCodigo a{display:inline-block;vertical-align:top;color:#e74c3c;text-decoration:none}
 .contenido .resultadoBusquedaInicio{background:-o-linear-gradient(top, #f7f8fb, #e0e1e7);background:-ms-linear-gradient(top, #f7f8fb, #e0e1e7);background:-moz-linear-gradient(top, #f7f8fb, #e0e1e7);background:-webkit-linear-gradient(top, #f7f8fb, #e0e1e7);background:linear-gradient(to bottom, #f7f8fb, #e0e1e7);-webkit-box-shadow:3px 3px 8px #35576f;box-shadow:3px 3px 8px #35576f;-webkit-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;margin:.5em auto .5em auto;padding-bottom:1em;width:96%;}
 .contenido .resultadoBusquedaInicio .botonCrear{width:96%}
 .contenido .resultadoBusquedaInicio .itemResultado{border-left:.7em solid #619eca;background:#fcfcfc;margin:.5em auto .5em auto;text-align:left;width:90%;}
@@ -348,6 +349,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item span{margin:.3em 1% 0 1%;width:15%}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item p{display:block;margin:.1em 1% .3em 1%;text-align:left;width:96%;text-align:justify}
 .contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item h4,.contenido .ultimosIngresados .itemIngresados .contenidoFavorito .item span{display:inline-block;vertical-align:top}
+.menuBuscador{position:relative}
 .principalMenu{display:none;margin:0;padding:.5em 0 .7em 0;text-align:center;}
 .principalMenu ul{margin:0 auto 0 auto;padding:0;text-align:left;width:96%;}
 .principalMenu ul li:nth-child(1){background:#e74c3c;}
@@ -434,10 +436,11 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .opcionesBusqueda .filtros .itemFiltros{margin-left:1%;display:inline-block;vertical-align:top;width:100%;text-align:left;}
 .contenido .opcionesBusqueda .filtros .itemFiltros .nombreFiltro{padding-left:2%;width:96%}
 .contenido .opcionesBusqueda .filtros .itemFiltros .datosFiltro{width:98%}
-.contenido .resultadoBusqueda{float:none;display:inline-block;vertical-align:top;width:90%;}
+.contenido .resultadoBusqueda{display:inline-block;vertical-align:top;width:90%;text-align:left;}
 .contenido .resultadoBusqueda .botonCrear{width:96%}
-.contenido .resultadoBusqueda .itemIngresadosCodigos{display:inline-block;vertical-align:top;}
+.contenido .resultadoBusqueda .itemIngresadosCodigos{display:inline-block;vertical-align:top;margin:1%;width:46%;}
 .contenido .resultadoBusqueda .itemIngresadosCodigos .informacionLenguaje div{width:auto}
+.contenido .resultadoBusqueda .itemIngresadosCodigos p{height:80px}
 .contenido .resultadoBusquedaInicio{float:none;display:inline-block;vertical-align:top;width:100%;}
 .contenido .resultadoBusquedaInicio .botonCrear{width:96%}
 .contenido .resultadoBusquedaInicio .itemIngresadosCodigos .informacionLenguaje div{width:auto}
@@ -448,7 +451,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .principalMenu{display:inline-block !important;vertical-align:top;width:60%;text-align:center;}
 .principalMenu ul{text-align:center;}
 .principalMenu ul li{width:28%;margin-right:1%;display:inline-block}
-.principalMenuBuscador{display:inline-block !important;position:absolute !important;width:34%;margin-top:.6em;background:#35576f;float:right;}
+.principalMenuBuscador{display:inline-block !important;position:absolute !important;width:34%;right:4%;top:0;margin-top:.6em;background:#35576f;}
 .principalMenuBuscador input[type=text]{width:70%}
 .principalMenuBuscador select{width:95%}
 .subTituloBarra h3{width:78%}
