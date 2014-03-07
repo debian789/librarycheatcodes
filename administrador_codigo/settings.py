@@ -19,7 +19,7 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'app-dev',                      # Or path to database file if using sqlite3.
         #'USER': 'user',  #.
         'USER': 'user',
@@ -35,8 +35,8 @@ DATABASES = {
 # configuracion para heroku 
 import dj_database_url
 
-#DATABASES['default'] =  dj_database_url.config()
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+DATABASES['default'] =  dj_database_url.config()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ############################
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -210,8 +210,8 @@ LOGIN_URL = '/login/'
 # Python Social Auth
 
 ## Twitter
-SOCIAL_AUTH_TWITTER_KEY = '' 
-SOCIAL_AUTH_TWITTER_SECRET = '' 
+SOCIAL_AUTH_TWITTER_KEY = 'bdPS5JK7wdseDEjVKOIqwQ' 
+SOCIAL_AUTH_TWITTER_SECRET = 'K6KEI9XYx5YTDwJoQU4YlYJlPZMjxvbA589KGjE4o' 
 
 
 ## Facebook
