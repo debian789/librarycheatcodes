@@ -26,10 +26,15 @@
 					{% endif %}					
 				</div>
 			</div >
+			{% if user.is_authenticated %}
 			<div class="subMenuPrincipal">
 				<div class="activarBuscador">Buscador</div>
 				<div class="menuMobilPrincipal">Menu</div>				
 			</div>
+				{% endif %}		
+
+
+
 			<div class="limpiarEspacio"></div>
 		{% if user.is_authenticated %}			
 		<div class="menuBuscador">

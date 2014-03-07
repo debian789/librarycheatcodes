@@ -5,6 +5,7 @@
 <article >
 
 <div class="cualidades">
+
 	<span> Ingresa a esta prueba Demo y comprueba que es muy facil ganar tiempo </span>
 	<ul>
 		<li>Almacena Comandos, Codigos y Proyectos de referencia. </li>
@@ -18,13 +19,28 @@
 	<div class="ingresar">
 		
 	<fieldset >
-		<span> Username: demo y Password: demo </span>
+		<div class="iniciarSocial">
+			
+
+		<a href="{% url 'social:begin' 'twitter' %}"> <span class="icon-twitter"></span> ENTRA CON TWITTER </a>	
+	<!-- 	<a href="{% url 'social:begin' 'facebook' %}"><span class=" icon-facebook2"></span>ENTRAR CON FACEBOOK</a> -->
+
+			
+		</div>
+
+		<hr>
+		<div class="">
+			<h3>Iniciar Prueba Demo </h3>
+
+		<span> Username: demo , Password: demo </span>
 		<form action="." method="POST">
 			{% csrf_token %}
 			{{mensaje}}
 			{{form.as_p}}
 			<input type="submit" value="Ingresar" class="boton ">
 		</form>
+			
+		</div>
 	</fieldset>
 	</div>
 </article>

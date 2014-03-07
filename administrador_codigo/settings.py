@@ -19,7 +19,7 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'app-dev',                      # Or path to database file if using sqlite3.
         #'USER': 'user',  #.
         'USER': 'user',
@@ -35,8 +35,8 @@ DATABASES = {
 # configuracion para heroku 
 import dj_database_url
 
-DATABASES['default'] =  dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#DATABASES['default'] =  dj_database_url.config()
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ############################
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -156,6 +156,7 @@ INSTALLED_APPS = (
     'apps.home',
     'rest_framework',
     'django_extensions',
+    'social.apps.django_app.default',
     
 
     #'rest_framework',
@@ -202,3 +203,31 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'apps.home.context_processors.menu',
     )
+
+
+LOGIN_URL = '/login/'
+
+# Python Social Auth
+
+## Twitter
+SOCIAL_AUTH_TWITTER_KEY = '' 
+SOCIAL_AUTH_TWITTER_SECRET = '' 
+
+
+## Facebook
+#SOCIAL_AUTH_FACEBOOK_KEY = ''
+#SOCIAL_AUTH_FACEBOOK_SECRET = ''
+#SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+# Backends
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookAppOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+# URLs
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_LOGIN_URL = '/login/'
+

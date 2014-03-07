@@ -30,6 +30,9 @@ gris_c = #c3c3c3
 gris_d = #e1e1e1
 gris_e = #464b51
 
+c_twitter = #1ec4fe
+c_twitter_linea = #1b9ac7
+
 @import "iconfonts.styl"
 @import "fonts.styl"
 @import 'nib/vendor'
@@ -1014,7 +1017,7 @@ footer
 		display inline-block 
 		vertical-align top 
 		width 90% 
-		margin 3% 0 3% 0 
+		margin 3% 0 10% 0 
 		margin-right auto 
 		margin-left auto 
 		padding 2% 2% 2% 2% 
@@ -1024,9 +1027,9 @@ footer
 		background gris_e
 		//background linear-gradient(top,gris_a,gris_b)
 		box-shadow 5px 5px -10px azul_b
-		border 1px solid #53565d 
+		//border 1px solid #53565d 
 		fieldset 
-			border 0
+			//border 1px solid red !important
 			width 80%
 			background gris_d
 			//border 1px solid red 
@@ -1044,6 +1047,20 @@ footer
 				border-radius 5px 
 				&:hover
 					border 1px solid gris_a
+			.iniciarSocial
+				text-align center
+				a 
+					background c_twitter
+					border 1px solid c_twitter_linea
+					border-bottom 2px solid c_twitter_linea
+					border-radius 5px 
+					display inline-block 
+					padding 2%
+					width 80%
+					color blanco	
+					text-decoration none	
+			h3 
+				margin 0 0 0.5em 0		
 	.cualidades
 		//border 1px solid red 
 		width 90%
