@@ -2,10 +2,17 @@
 import os
 #RUTA_PROYECTO = os.path.dirname(os.path.realpath(__file__))
 
+from django.core.exceptions import ImproperlyConfigured
 
 
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = 'Set the {var_name} environment variable'
+        raise ImproperlyConfigured(error_msg.format(var_name=var_name))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -34,7 +41,6 @@ DATABASES = {
 
 # configuracion para heroku 
 import dj_database_url
-
 DATABASES['default'] =  dj_database_url.config()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ############################
@@ -157,6 +163,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'django_extensions',
     'social.apps.django_app.default',
+    'django_ace',
     
 
     #'rest_framework',
@@ -210,9 +217,8 @@ LOGIN_URL = '/login/'
 # Python Social Auth
 
 ## Twitter
-SOCIAL_AUTH_TWITTER_KEY = 'bdPS5JK7wdseDEjVKOIqwQ' 
-SOCIAL_AUTH_TWITTER_SECRET = 'K6KEI9XYx5YTDwJoQU4YlYJlPZMjxvbA589KGjE4o' 
-
+SOCIAL_AUTH_TWITTER_KEY = get_env_variable('SOCIAL_AUTH_TWITTER_KEY')
+SOCIAL_AUTH_TWITTER_SECRET = get_env_variable('SOCIAL_AUTH_TWITTER_SECRET')
 
 ## Facebook
 #SOCIAL_AUTH_FACEBOOK_KEY = ''

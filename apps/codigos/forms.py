@@ -3,6 +3,8 @@ from apps.codigos.models import mdl_codigos
 from apps.elementos_comunes.models import *
 from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
+from django_ace import AceWidget
+
 
 SIN_OPCION = [
 ('','Lenguaje de Progrmacion')
@@ -27,7 +29,7 @@ class frm_codigos(ModelForm):
 			widgets = {
 			'titulo':forms.TextInput(attrs={'required':'','title':'Se necesita un Titulo'}),
 			'lenguaje':forms.Select(attrs={'required':'','title':'Se necesita un Lenguaje '}),
-			'codigo':forms.Textarea(attrs={'required':'','title':'Se necesita un Codigo '}),
+			'codigo':AceWidget(mode='python',width="100%",height="500px",theme='twilight',attrs={'required':'','title':'Se necesita un Codigo '}),
 			'links':forms.URLInput(attrs={'title':'http://pagina.com o http://www.pagina.com','pattern':"https?://.+"}),
 			}
 
@@ -52,4 +54,5 @@ class frm_codigos_busqueda(forms.Form):
 	lenguaje = forms.CharField(required=False,label="Lenguaje de Programacion",max_length = 200 ,  widget=forms.Select(
 		choices= SIN_OPCION + list(mdl_lenguaje.objects.all().values_list('id','nombre')),  ))
 	adjunto = forms.BooleanField(required=False,label="Archivo Adjunto")
+	#text = forms.CharField(widget=AceWidget(mode='python', theme='twilight'))
 	

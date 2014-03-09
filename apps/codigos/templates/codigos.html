@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block titulo%} codigos de codigo {% endblock %}
+
+
+
+
 {% block contenido %}
 <article class="resultadoBusqueda">
 	<div class="subTituloBarra barraColorB">
@@ -13,6 +17,7 @@
 			</div>
 		</div>
 	</div>
+		{{ formularioBusqueda }}
 	{% if codigos %}
 	{% for codigo in codigos %}
 	<div class="itemIngresadosCodigos lineaColorB">
@@ -122,5 +127,7 @@
 	</div>
 	{% csrf_token %}
 </form>
+
+
 {% endblock %}	
 

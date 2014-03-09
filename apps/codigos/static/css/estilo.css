@@ -235,7 +235,6 @@ footer a{color:#fcfcfc;text-decoration:none}
 .barraTitulo .subMenuPrincipal .activarBuscador{background:#619eca}
 .barraTitulo .subMenuPrincipal .menuMobilPrincipal,.barraTitulo .subMenuPrincipal .activarBuscador{width:50%;display:inline-block;vertical-align:top;text-align:center;padding:2% 0 2% 0;margin:0 0 0 0;float:right}
 .contenido{margin-left:auto;margin-right:auto;}
-.contenido div{margin-bottom:.5em}
 .contenido .agregar{margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:.7em;width:96%}
 .contenido .detalles{background:-o-linear-gradient(top, #f7f8fb, #c3c3c3);background:-ms-linear-gradient(top, #f7f8fb, #c3c3c3);background:-moz-linear-gradient(top, #f7f8fb, #c3c3c3);background:-webkit-linear-gradient(top, #f7f8fb, #c3c3c3);background:linear-gradient(to bottom, #f7f8fb, #c3c3c3);-webkit-border-radius:0 0 10px 10px;border-radius:0 0 10px 10px;-webkit-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;-webkit-box-shadow:5px 5px 10px #35576f;box-shadow:5px 5px 10px #35576f;margin:.5em auto .5em auto;padding-bottom:1em;width:96%;}
 .contenido .detalles .funcionalidades{border-top:1px solid #c3c3c3;border-bottom:1px solid #c3c3c3;text-align:right;padding:.5em 0 .4em 0;width:100%;}
@@ -285,13 +284,9 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo form .ingresoAdjunto{margin:1% 1% 1% 1%;}
 .contenido .ingresoCodigo form .ingresoAdjunto span{margin:0 0 0 0;display:inline-block;vertical-align:top;text-align:left;width:100%}
 .contenido .ingresoCodigo form .ingresoAdjunto input{padding:0;margin:0 0 0 0;width:100%}
-.contenido .ingresoCodigo form .descripcionCodigo{margin:1% 1% 1% 1%;margin:0 auto 0 auto;padding:0;width:96%;}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion{margin-top:1%;display:inline-block;vertical-align:top;padding:0;width:100%;}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion span{display:inline-block;vertical-align:top;text-align:left;width:100%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{-webkit-border-radius:10px;border-radius:10px;border:1px solid #e79d3c;padding:0;width:96%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente{display:inline-block;vertical-align:top;margin-top:1%;padding:0;width:100%;}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente span{display:inline-block;vertical-align:top;text-align:left;width:100%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea{border:1px solid #e79d3c;-webkit-border-radius:10px;border-radius:10px;padding:0;width:96%}
+.contenido .ingresoCodigo form .descripcionCodigo{margin:1% 1% 1% 1%;text-align:initial;}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{border:1px solid #965d14;-webkit-border-radius:10px;border-radius:10px;padding:0;width:100%}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente{margin-top:1%;}
 .contenido .ingresoCodigo form .guardarCodigo input{width:70%;margin:1% 0 2% 0}
 .contenido .ingresoCodigo form hr{border-top:1px solid #7daaca;border-bottom:0}
 .contenido .ingresoCodigo .opcionBuscar{width:100%;}
@@ -430,10 +425,8 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo form .ingresoAdjunto{text-align:left;}
 .contenido .ingresoCodigo form .ingresoAdjunto span{text-align:left;width:18%}
 .contenido .ingresoCodigo form .ingresoAdjunto input{text-align:left;width:76%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion{margin:0 1% 0 0%;width:48%;}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion{margin:0 1% 0 0%;}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{width:100%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente{margin:0 0% 0 2%;width:47%;}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea{width:100%}
 .contenido .opcionesBusqueda{float:none;width:20%;display:inline-block;vertical-align:top;margin-left:1%;}
 .contenido .opcionesBusqueda .filtros{width:100%;}
 .contenido .opcionesBusqueda .filtros .itemFiltros{margin-left:1%;display:inline-block;vertical-align:top;width:100%;text-align:left;}
