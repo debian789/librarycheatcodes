@@ -12,7 +12,7 @@ def get_env_variable(var_name):
         error_msg = 'Set the {var_name} environment variable'
         raise ImproperlyConfigured(error_msg.format(var_name=var_name))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
