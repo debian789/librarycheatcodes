@@ -261,9 +261,9 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .detalles .descripcionInformacion .descripcionExtra .tituloDescripcion{color:#fcfcfc;font-weight:bold;padding:.1em 0 .1em 0;-webkit-border-radius:15px 15px 0 0;border-radius:15px 15px 0 0;width:100%;text-align:left}
 .contenido .detalles .descripcionInformacion .descripcionExtra .contenidoExtra{-webkit-border-radius:0 0 10px 10px;border-radius:0 0 10px 10px;padding:.1em 0 .1em 0;width:100%;text-align:left;margin-bottom:.2em;}
 .contenido .detalles .descripcionInformacion .descripcionExtra .contenidoExtra a{text-decoration:none;color:#2daf4a}
-.contenido .detalles .descripcionCodigo{background:#fcfcfc;border-left:.5em solid #619eca;margin:1% auto .3em auto;text-align:left;padding:1% 0 .2em 0;width:96%;}
-.contenido .detalles .descripcionCodigo p{margin:0 1% 0 1%;display:block}
-.contenido .detalles .descripcionCodigo div{margin-left:auto;margin-right:auto;width:96%}
+.contenido .detalles .descripcionCodigo{text-align:left;width:96%;margin-left:auto;margin-right:auto;}
+.contenido .detalles .descripcionCodigo .highlight{width:100%;position:relative;display:inline-block;overflow-x:scroll;}
+.contenido .detalles .descripcionCodigo .highlight pre{line-height:normal;padding:.7em;position:relative;white-space:pre !important;display:inline-block}
 .contenido .ingresoCodigo{width:96%;margin:2% auto 2em auto;background:#e0e1e7;-webkit-border-radius:10px 10px 10px 10px;border-radius:10px 10px 10px 10px;-webkit-box-shadow:5px 5px 10px #35576f;box-shadow:5px 5px 10px #35576f;}
 .contenido .ingresoCodigo form .ingresoTitulo{margin:1% 1% 1% 1%;}
 .contenido .ingresoCodigo form .ingresoTitulo span{display:inline-block;vertical-align:top;text-align:left;width:100%}
@@ -414,7 +414,6 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .detalles .descripcionInformacion .descripcionExtra{display:inline-block !important;width:31%}
 .contenido .favoritosProyectos{margin:0 1% 0 1%;width:52%}
 .contenido .detallesCodigo{width:90%;}
-.contenido .detallesCodigo .descripcionCodigo{width:90%}
 .contenido .ingresoCodigo{width:90%;}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoUrl{margin-right:1%;width:48%;display:inline-block;vertical-align:top;}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoUrl span{text-align:left;margin:0 0 0 0;width:30%}
@@ -425,7 +424,6 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo form .ingresoAdjunto{text-align:left;}
 .contenido .ingresoCodigo form .ingresoAdjunto span{text-align:left;width:18%}
 .contenido .ingresoCodigo form .ingresoAdjunto input{text-align:left;width:76%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion{margin:0 1% 0 0%;}
 .contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{width:100%}
 .contenido .opcionesBusqueda{float:none;width:20%;display:inline-block;vertical-align:top;margin-left:1%;}
 .contenido .opcionesBusqueda .filtros{width:100%;}

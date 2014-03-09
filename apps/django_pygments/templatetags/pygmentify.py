@@ -19,13 +19,14 @@ def pygmentify(value):
 @register.filter
 @stringfilter
 def pygmentify_inline(value):
-    print "paso por aqui"
+    print "paso por aqui wiii"
     try:
-        res = pygmentify_html(value, noclasses=True)
+        res = pygmentify_html(value, noclasses=False)
     except Exception, e:
         print e
         print u'value="%s"' % value
         res = value
+        print res
     return mark_safe(res)
 
 class PygmentifyNode(template.Node):

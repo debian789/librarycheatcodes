@@ -155,7 +155,7 @@ def view_codigo_simple(request,id_codigo):
 	else:
 		formularioBusqueda = frm_codigos_busqueda()
 		codigo = mdl_codigos.objects.get(id=id_codigo)
-		codigoFuente = '<pre lang="'+ escape(codigo.lenguaje) +'">' + escape(codigo.codigo) + '</pre>' 
+		codigoFuente = '<pre  lang="'+ escape(codigo.lenguaje) +'">' + escape(codigo.codigo) + '</pre>' 
 
 		contexto = {"codigo":codigo,"formularioBusqueda":formularioBusqueda,"codigoFuente":codigoFuente}
 		return render(request,'codigo_detalles.html',contexto)

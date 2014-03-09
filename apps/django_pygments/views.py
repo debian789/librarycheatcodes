@@ -22,6 +22,6 @@ class ListHtmlFormatter(HtmlFormatter):
         yield 0, '</ol>'
     # a unicode comment: âăşţîÂĂŞŢÎ èéòçàù
     """
-    snippet = '<pre lang="python">' + escape(raw_snippet) + '</pre>'
+    snippet = '<pre lang="python" >' + escape(raw_snippet) + '</pre>'
     return render_to_response('django_pygments/demo.html', locals(), context_instance = RequestContext(request))
 
