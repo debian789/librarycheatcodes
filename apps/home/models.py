@@ -9,8 +9,10 @@ TIPO_FAVORITO =  (
 
 
 class mdl_favoritos(models.Model):
-	codigo = models.ForeignKey(mdl_codigos)
-	
+	codigo = models.ForeignKey(mdl_codigos)	
 	#codigo          = models.
 	#tipo            = models.charField(choice=TIPO_FAVORITO)
 	#tiempo_registro = models.DateTimeField(auto_now=True)
+
+class mdl_mensajes(models.Model):
+	mensaje 		 = models.CharField(max_length=500)

@@ -1,17 +1,18 @@
-from django.shortcuts import render_to_response,get_object_or_404,render,Http404
+from django.shortcuts import render_to_response,get_object_or_404,render,Http404,redirect
 from django.template import RequestContext
 from django.db.models import Q
 from apps.codigos.models import *
 from apps.codigos.forms import *
-from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 from django.utils.html import escape
 from pygments.lexers import LEXERS
 
+@login_required
 def view_codigos(request):
 	if request.method == 'POST':
 		formularioBusqueda = frm_codigos_busqueda(request.POST)
@@ -95,57 +96,55 @@ def view_codigos(request):
 		
 		return render(request,"codigos.html",contexto)
 
+@login_required
 def view_agregar_codigo(request):
-	if request.user.is_authenticated():
-		try: 
-			usuario = get_object_or_404(User, id=request.user.id)
-		except Http404:
-			return HttpResponseRedirect(reserve('codigos'))
+	try: 
+		usuario = get_object_or_404(User, id=request.user.id)
+	except Http404:
+		return redirect('codigos')
 
-		if request.method == "POST":
-			contenidoForm = frm_codigos(usuario,request.POST,request.FILES)
-			if contenidoForm.is_valid():
-				contenidoForm.save()
-				return HttpResponseRedirect('/codigos')
+	if request.method == "POST":
+		contenidoForm = frm_codigos(usuario,request.POST,request.FILES)
+		if contenidoForm.is_valid():
+			contenidoForm.save()
+			return redirect('codigos')
 
-		formulario = frm_codigos(usuario)
-		contexto = {'formulario':formulario}
-		#return render_to_response('codigos/codigo_ingresar.html',contexto,context_instance=RequestContext(request))
-		return render(request,'codigo_ingresar.html',contexto)
-	else:
-		return HttpResponseRedirect('/codigos/')
+	formulario = frm_codigos(usuario)
+	contexto = {'formulario':formulario}
+	#return render_to_response('codigos/codigo_ingresar.html',contexto,context_instance=RequestContext(request))
+	return render(request,'codigo_ingresar.html',contexto)
 
+
+@login_required
 def view_editar_codigo(request,id_codigo):
-	if request.user.is_authenticated():
-		try: 
-			usuario = get_object_or_404(User, id=request.user.id)
-		except Http404:
-			return HttpResponseRedirect(reserve('codigos'))
+	try: 
+		usuario = get_object_or_404(User, id=request.user.id)
+	except Http404:
+		return redirect('codigos')
 
-		try:
-			datos= mdl_codigos.objects.get(id=id_codigo)
-		except mdl_codigos.DoesNotExist:
-			return HttpResponseRedirect(reserve('codigos'))
+	try:
+		datos= mdl_codigos.objects.get(id=id_codigo)
+	except mdl_codigos.DoesNotExist:
+		return redirect('codigos')
 
-		if request.method == "POST":
-			contenidoForm = frm_codigos(usuario,request.POST,request.FILES,instance=datos)
-			if contenidoForm.is_valid():
-				contenidoForm.save()
-				return HttpResponseRedirect('/codigos')
+	if request.method == "POST":
+		contenidoForm = frm_codigos(usuario,request.POST,request.FILES,instance=datos)
+		if contenidoForm.is_valid():
+			contenidoForm.save()
+			return redirect('codigos')
 
 
-		formulario = frm_codigos(usuario,instance = datos )
-		contexto = {'formulario':formulario}
-		return render(request,'codigo_ingresar.html',contexto)
+	formulario = frm_codigos(usuario,instance = datos )
+	contexto = {'formulario':formulario}
+	return render(request,'codigo_ingresar.html',contexto)
 
+@login_required
 def view_eliminiar_codigo(request,id_codigo):
-	if request.user.is_authenticated():
-		datos = mdl_codigos.objects.get(id=id_codigo)
-		datos.delete()
-		return HttpResponseRedirect('/codigos')
+	datos = mdl_codigos.objects.get(id=id_codigo)
+	datos.delete()
+	return redirect('codigos')
 
-	return HttpResponseRedirect('/')
-
+@login_required
 def view_codigo_simple(request,id_codigo):
 	if request.method == 'POST':
 		formularioBusqueda = frm_codigos_busqueda(request.POST)
@@ -163,13 +162,14 @@ def view_codigo_simple(request,id_codigo):
 
 from django.views.generic import ListView, DetailView
 
-
+@login_required
 class CodigosListView(ListView):
 	model = mdl_codigos
 	context_object_name = 'codigos'
 	def get_template_names(self):
 		return 'codigos.html'
 
+@login_required
 class CodigosDetailView(DetailView):
 	model = mdl_codigos
 	def get_template_names(self):

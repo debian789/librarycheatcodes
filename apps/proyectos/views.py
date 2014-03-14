@@ -1,37 +1,36 @@
 # Create your views here.
-from django.shortcuts import render_to_response,get_object_or_404,render
+from django.shortcuts import render_to_response,get_object_or_404,render,redirect
 from django.template import RequestContext
 from django.db.models import Q
 from models import *
 from forms import *
-from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
 
-
+@login_required
 def view_agregar_proyecto(request):
-	if request.user.is_authenticated():
-		try: 
-			usuario = get_object_or_404(User, id=request.user.id)
-		except Http404:
-			return HttpResponseRedirect(reserve('proyectos'))
+	try: 
+		usuario = get_object_or_404(User, id=request.user.id)
+	except Http404:
+		return redirect('proyectos')
 
-		if request.method == "POST":
-			contenidoForm = frm_proyectos(usuario,request.POST,request.FILES)
-			if contenidoForm.is_valid:
-				contenidoForm.save()
-				return HttpResponseRedirect(reverse('proyectos'))
-				#return reverse('proyectos')
-
-
-		formulario = frm_proyectos(usuario)
-		contexto = {'formulario':formulario}
-
-		return render(request,'proyectos_ingresar.html',contexto)
+	if request.method == "POST":
+		contenidoForm = frm_proyectos(usuario,request.POST,request.FILES)
+		if contenidoForm.is_valid:
+			contenidoForm.save()
+			return redirect('proyectos')
+			#return reverse('proyectos')
 
 
+	formulario = frm_proyectos(usuario)
+	contexto = {'formulario':formulario}
+
+	return render(request,'proyectos_ingresar.html',contexto)
+
+@login_required
 def view_proyectos(request):
 	if request.method == 'POST':
 		formularioBusqueda = frm_proyectos_busqueda(request.POST)
@@ -129,44 +128,41 @@ def view_proyectos(request):
 		
 		return render(request,"proyectos.html",contexto)
 
-
+@login_required
 def view_editar_proyecto(request,id_proyecto):
-	if request.user.is_authenticated():
-		try: 
-			usuario = get_object_or_404(User, id=request.user.id)
-		except Http404:
-			return HttpResponseRedirect(reserve('proyectos'))
+	try: 
+		usuario = get_object_or_404(User, id=request.user.id)
+	except Http404:
+		return redirect('proyectos')
 
-		try:
-			datos= mdl_proyectos.objects.get(id=id_proyecto)
-		except mdl_proyectos.DoesNotExist:
-			return HttpResponseRedirect(reserve('proyectos'))
+	try:
+		datos= mdl_proyectos.objects.get(id=id_proyecto)
+	except mdl_proyectos.DoesNotExist:
+		return redirect('proyectos')
 
-		if request.method == "POST":
-			contenidoForm = frm_proyectos(usuario,request.POST,request.FILES,instance=datos)
-			if contenidoForm.is_valid():
-				contenidoForm.save()
-				return HttpResponseRedirect('/proyectos')
+	if request.method == "POST":
+		contenidoForm = frm_proyectos(usuario,request.POST,request.FILES,instance=datos)
+		if contenidoForm.is_valid():
+			contenidoForm.save()
+			return redirect('proyectos')
 
-		
+	
 
-		formulario = frm_proyectos(usuario,instance = datos )
-		contexto = {'formulario':formulario}
-		return render(request,'proyectos_ingresar.html',contexto)
+	formulario = frm_proyectos(usuario,instance = datos )
+	contexto = {'formulario':formulario}
+	return render(request,'proyectos_ingresar.html',contexto)
 
+@login_required
 def view_proyecto_simple(request,id_proyecto):
 	usuario = User.objects.select_related().get(id=request.user.id)
 	proyecto = mdl_proyectos.objects.select_related().filter(usuario=usuario).get(id=id_proyecto)
 	contexto = {"proyecto":proyecto}		
 	return render(request,"proyectos_detalles.html",contexto)
 
-#def proyecto_uno_view(request,id_proyecto):
 
+@login_required
 def view_eliminiar_proyecto(request,id_proyecto):
-	if request.user.is_authenticated():
-		usuario = User.objects.select_related().get(id=request.user.id)
-		proyecto = mdl_proyectos.objects.select_related().filter(usuario=usuario).get(id=id_proyecto)
-		proyecto.delete()
-		return HttpResponseRedirect(reverse("proyectos"))
-	
-	return HttpResponseRedirect(reverse('inicio'))
+	usuario = User.objects.select_related().get(id=request.user.id)
+	proyecto = mdl_proyectos.objects.select_related().filter(usuario=usuario).get(id=id_proyecto)
+	proyecto.delete()
+	return redirect("proyectos")
