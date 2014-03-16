@@ -19,6 +19,7 @@
 	<div class="itemIngresadosCodigos lineaColorB">
 		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a></h4>
 		<div class="favoritoCodigo">
+			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf "></a>
 			{% if codigo.favorito %}
 		<!-- 	<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a> -->
 			{% else %}

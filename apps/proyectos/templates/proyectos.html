@@ -18,6 +18,7 @@
 	<div class="itemIngresadosCodigos lineaColorC">
 		<h4><a href="{% url 'detalle_proyecto' proyecto.id %}">{{ proyecto.nombre|truncatechars:140|capfirst }}</a></h4>
 		<div class="favoritoCodigo">
+			<a href="{% url 'proyecto_pdf' proyecto.id %}" class="icon-file-pdf "> </a>
 			{% if proyecto.favorito %}
 			<!-- <a href="" class=" icon-star "></a> -->
 			{% else %}

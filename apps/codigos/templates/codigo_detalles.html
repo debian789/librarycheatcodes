@@ -8,6 +8,7 @@
 	<div class="subTituloBarra barraColorB">
 		<h3>Detalles </h3>
 		<div class="opcionesVisualizacion">
+			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf "></a>
 			<a href="{% url 'agregar_codigo'%}"><span class=" icon-plus-sign"></span></a>	
 			{% if codigo.favorito %}
 				<!-- <a href="{% url 'quitar_favorito' codigo.id %}" class="lineaDerecha icon-star "></a> -->

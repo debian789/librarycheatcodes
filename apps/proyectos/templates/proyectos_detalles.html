@@ -6,7 +6,8 @@
 	<div class="subTituloBarra barraColorC">
 		<h3>Detalles del Proyecto </h3>
 		<div class="opcionesVisualizacion">
-			<a href="{% url 'agregar_proyecto'%}"><span class=" icon-plus-sign"></span></a>	
+			<a href="{% url 'proyecto_pdf' proyecto.id %}" class="icon-file-pdf "> </a>
+			<a href="{% url 'agregar_proyecto'%}"><span class=" icon-plus-sign lineaDerecha"></span></a>	
 			{% if proyecto.favorito %}
 			<!-- <a href="{% url 'quitar_favorito' proyecto.id %}" class=" icon-star "></a> -->
 			{% else %}
@@ -21,6 +22,8 @@
 	<div class="subTitulo"><span>Descripcion</span></div>
 	<div class="descripcionInformacion">
 		<div class="descripcionDetallada">
+			
+
 		 <p>{{ proyecto.descripcion }}</p>
 				 <span class="masInformacionDetallada"> Mas informacion</span>
 				 </div>
@@ -54,7 +57,7 @@
 			{% if proyecto.link %}
 			<div class="itemInformacion">
 				<div class="tituloDescripcion"><span>Url</span></div>
-				<div class="contenidoExtra"><span>{{ proyecto.link }}</span></div>
+				<div class="contenidoExtra"><span><a href="{{ proyecto.link }}" target="_blank">{{ proyecto.link }}</a></span></div>
 			</div>
 			{% else  %}
 						<div class="itemInformacion">

@@ -10,6 +10,30 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
 
+
+import ho.pisa as pisa
+import cStringIO as StringIO
+import cgi
+from django.template.loader import render_to_string
+from django.http import HttpResponse
+
+def generar_pdf(html):
+    # Funcion para generar el archivo PDF y devolverlo mediante HttpResponse
+    result = StringIO.StringIO()
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), mimetype='application/pdf')
+    return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
+
+def proyecto_pdf(request,id_proyecto):
+	usuario = User.objects.select_related().get(id=request.user.id)
+	#def libro_pdf(request, id):
+	proyecto = mdl_proyectos.objects.select_related().filter(usuario=usuario).get(id=id_proyecto)
+	contexto = {"proyecto":proyecto}
+	html = render_to_string('proyecto_pdf.html', {'pagesize':'A4', 'proyecto':proyecto}, context_instance=RequestContext(request))
+	return generar_pdf(html)
+
+
 @login_required
 def view_agregar_proyecto(request):
 	try: 

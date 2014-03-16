@@ -1,0 +1,74 @@
+{% load pygmentify %}
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+
+/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+
+h1 {
+	text-align: center;
+color: #35576f;
+}
+div{
+	margin:  0;
+	padding:  0;
+}
+li{
+	margin: 0;
+	padding: 0;
+}
+span{
+	margin: 0;
+	padding: 0;
+}
+.subTitulo{
+
+	color: #0f3f60;
+	}
+</style>
+
+</head>    
+<body>
+
+	<h1>{{ codigo.titulo}}</h1>
+
+	<div class="subTitulo">Descripcion</div>
+	<div class="descripcionInformacion">
+		<div class="descripcionDetallada"><p>{{ codigo.descripcion }}</p>
+		<div class="subTitulo"> Mas informacion  	</div>
+		</div>
+		<div class="descripcionExtra">
+
+			<div class="tituloDescripcion">Lenguaje de Programacion : {{ codigo.lenguaje }}</div>
+		</div>
+
+	</div>
+	<div > <p></p> </div>
+	<div class="subTitulo">Codigo Fuente</div>
+	<br/>
+	<div class="descripcionCodigo"> {{ codigoFuente|pygmentify_inline }}</div>
+
+
+</body>
+</html>

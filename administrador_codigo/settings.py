@@ -164,7 +164,8 @@ INSTALLED_APPS = (
     'django_extensions',
     'social.apps.django_app.default',
     'django_ace',
-    
+  #'data_exports',
+ # 'pisa',
 
     #'rest_framework',
     #'apps.prueba',

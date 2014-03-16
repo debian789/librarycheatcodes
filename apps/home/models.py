@@ -10,6 +10,7 @@ TIPO_FAVORITO =  (
 
 class mdl_favoritos(models.Model):
 	codigo = models.ForeignKey(mdl_codigos)	
+	#place = models.OneToOneField(Place, primary_key=True)
 	#codigo          = models.
 	#tipo            = models.charField(choice=TIPO_FAVORITO)
 	#tiempo_registro = models.DateTimeField(auto_now=True)

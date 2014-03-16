@@ -144,6 +144,27 @@
 .icon-paragraph-right2:before{content:"\e6d2"}
 .icon-new-tab:before{content:"\e6d3"}
 .icon-search2:before{content:"\e6d4"}
+.icon-file-openoffice:before{content:"\e6d7"}
+.icon-file-powerpoint:before{content:"\e6d8"}
+.icon-file-zip:before{content:"\e6d9"}
+.icon-file-pdf:before{content:"\e6da"}
+.icon-libreoffice:before{content:"\e6db"}
+.icon-youtube:before{content:"\e6dc"}
+.icon-youtube2:before{content:"\e6dd"}
+.icon-mail:before{content:"\e6de"}
+.icon-mail2:before{content:"\e6df"}
+.icon-mail3:before{content:"\e6e0"}
+.icon-feed3:before{content:"\e6e1"}
+.icon-arrow-up:before{content:"\e6e2"}
+.icon-arrow-up-left:before{content:"\e6e3"}
+.icon-arrow-up-right:before{content:"\e6e4"}
+.icon-arrow-right:before{content:"\e6e5"}
+.icon-arrow-down-right:before{content:"\e6e6"}
+.icon-arrow-down:before{content:"\e6e7"}
+.icon-arrow-down-left:before{content:"\e6e8"}
+.icon-arrow-left:before{content:"\e6e9"}
+.icon-checkbox-checked:before{content:"\e6ea"}
+.icon-crop:before{content:"\e6eb"}
 .icon-settings2:before{content:"\e680"}
 .icon-trash:before{content:"\e6d5"}
 .icon-search3:before{content:"\e6d6"}
@@ -157,9 +178,16 @@
 .icon-drawer2:before{content:"\e688"}
 .icon-user4:before{content:"\e689"}
 .icon-upload4:before{content:"\e68a"}
-.icon-trash:before{content:"\e68b"}
+.icon-trash2:before{content:"\e68b"}
 .icon-disk2:before{content:"\e68c"}
 .icon-install:before{content:"\e68d"}
+.icon-facebook4:before{content:"\e6ec"}
+.icon-twitter4:before{content:"\e6ed"}
+.icon-twitter5:before{content:"\e6ee"}
+.icon-googleplus:before{content:"\e6ef"}
+.icon-googleplus2:before{content:"\e6f0"}
+.icon-text:before{content:"\e6f1"}
+.icon-folder2:before{content:"\e6f2"}
 .icon-th:before{content:"\e68e"}
 .icon-th-large:before{content:"\e68f"}
 .icon-ok:before{content:"\e690"}
@@ -167,7 +195,7 @@
 .icon-zoom-in:before{content:"\e692"}
 .icon-zoom-out:before{content:"\e693"}
 .icon-off:before{content:"\e694"}
-.icon-trash2:before{content:"\e695"}
+.icon-trash22:before{content:"\e695"}
 .icon-cog2:before{content:"\e696"}
 .icon-inbox:before{content:"\e697"}
 .icon-picture:before{content:"\e698"}
@@ -178,7 +206,7 @@
 .icon-ok-sign:before{content:"\e69d"}
 .icon-reorder:before{content:"\e69e"}
 .icon-youtube-sign:before{content:"\e69f"}
-.icon-youtube:before{content:"\e6a0"}
+.icon-youtube3:before{content:"\e6a0"}
 .icon-book3:before{content:"\e6a1"}
 .icon-tag2:before{content:"\e6a2"}
 .icon-volume-up:before{content:"\e6a3"}
@@ -186,11 +214,11 @@
 .icon-volume-off:before{content:"\e6a5"}
 .icon-refresh:before{content:"\e6b2"}
 .icon-repeat:before{content:"\e6b3"}
-.icon-lock:before{content:"\e6b4"}
-.icon-file:before{content:"\e6b5"}
+.icon-lock3:before{content:"\e6b4"}
+.icon-file5:before{content:"\e6b5"}
 .icon-download-alt:before{content:"\e6b6"}
-.icon-download:before{content:"\e6b7"}
-.icon-upload:before{content:"\e6b8"}
+.icon-download4:before{content:"\e6b7"}
+.icon-upload5:before{content:"\e6b8"}
 .icon-columns:before{content:"\e6b9"}
 .icon-sort:before{content:"\e6ba"}
 .icon-sort-down:before{content:"\e6bb"}
@@ -201,6 +229,8 @@
 .icon-caret-down:before{content:"\e6c0"}
 .icon-magic:before{content:"\e6c1"}
 .icon-foursquare:before{content:"\e6c2"}
+.icon-copy4:before{content:"\e6f3"}
+.icon-paper-clip:before{content:"\e6f4"}
 .icon-plus2:before{content:"\e6a6"}
 .icon-tick:before{content:"\e6a7"}
 .icon-times:before{content:"\e6a8"}
@@ -212,9 +242,9 @@
 .icon-th-small-outline:before{content:"\e6ae"}
 .icon-th-menu-outline:before{content:"\e6af"}
 .icon-news:before{content:"\e6b0"}
-.icon-zoom-in:before{content:"\e6c3"}
-.icon-zoom-out:before{content:"\e6c4"}
-.icon-attachment:before{content:"\e6c5"}
+.icon-zoom-in2:before{content:"\e6c3"}
+.icon-zoom-out2:before{content:"\e6c4"}
+.icon-attachment2:before{content:"\e6c5"}
 @font-face{font-family:'open_sansbold';src:url("../fonts/openSans/opensans_bold_macroman/OpenSans-Bold-webfont.eot");src:url("../fonts/openSans/opensans_bold_macroman/OpenSans-Bold-webfont.eot?#iefix") format('embedded-opentype'),url("../fonts/openSans/opensans_bold_macroman/OpenSans-Bold-webfont.woff") format('woff'),url("../fonts/openSans/opensans_bold_macroman/OpenSans-Bold-webfont.ttf") format('truetype'),url("../fonts/openSans/opensans_bold_macroman/OpenSans-Bold-webfont.svg#open_sansbold") format('svg');font-weight:normal;font-style:normal}
 @font-face{font-family:'open_sanslight';src:url("../fonts/openSans/opensans_light_macroman/OpenSans-Light-webfont.eot");src:url("../fonts/openSans/opensans_light_macroman/OpenSans-Light-webfont.eot?#iefix") format('embedded-opentype'),url("../fonts/openSans/opensans_light_macroman/OpenSans-Light-webfont.woff") format('woff'),url("../fonts/openSans/opensans_light_macroman/OpenSans-Light-webfont.ttf") format('truetype'),url("../fonts/openSans/opensans_light_macroman/OpenSans-Light-webfont.svg#open_sanslight") format('svg');font-weight:normal;font-style:normal}
 @font-face{font-family:'open_sansregular';src:url("../fonts/openSans/opensans_regular_macroman/OpenSans-Regular-webfont.eot");src:url("../fonts/openSans/opensans_regular_macroman/OpenSans-Regular-webfont.eot?#iefix") format('embedded-opentype'),url("../fonts/openSans/opensans_regular_macroman/OpenSans-Regular-webfont.woff") format('woff'),url("../fonts/openSans/opensans_regular_macroman/OpenSans-Regular-webfont.ttf") format('truetype'),url("../fonts/openSans/opensans_regular_macroman/OpenSans-Regular-webfont.svg#open_sansregular") format('svg');font-weight:normal;font-style:normal}
@@ -378,7 +408,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .barraColorA{background:#e74c3c;background:-o-linear-gradient(top, #f3796c, #e74c3c);background:-ms-linear-gradient(top, #f3796c, #e74c3c);background:-moz-linear-gradient(top, #f3796c, #e74c3c);background:-webkit-linear-gradient(top, #f3796c, #e74c3c);background:linear-gradient(to bottom, #f3796c, #e74c3c)}
 .barraColorB{background:#e79d3c;background:-o-linear-gradient(top, #f3b86c, #e79d3c);background:-ms-linear-gradient(top, #f3b86c, #e79d3c);background:-moz-linear-gradient(top, #f3b86c, #e79d3c);background:-webkit-linear-gradient(top, #f3b86c, #e79d3c);background:linear-gradient(to bottom, #f3b86c, #e79d3c)}
 .barraColorC{background:#2d6a94;background:-o-linear-gradient(top, #619eca, #2d6a94);background:-ms-linear-gradient(top, #619eca, #2d6a94);background:-moz-linear-gradient(top, #619eca, #2d6a94);background:-webkit-linear-gradient(top, #619eca, #2d6a94);background:linear-gradient(to bottom, #619eca, #2d6a94)}
-.subTituloBarra{-webkit-border-radius:10px 10px 0 0;border-radius:10px 10px 0 0;margin-bottom:.3em;padding:.4em 0 0 0;text-align:left;width:100%;}
+.subTituloBarra{-webkit-border-radius:10px 10px 0 0;border-radius:10px 10px 0 0;margin-bottom:.3em;padding:.4em 0 .4em 0;text-align:left;width:100%;}
 .subTituloBarra h3{color:#fcfcfc;display:inline-block;font-family:'texgyreherosregular';vertical-align:top;margin:0;margin-left:2%;width:60%}
 .subTituloBarra .opcionesVisualizacion{display:inline-block;vertical-align:top;text-align:right;width:35%;}
 .subTituloBarra .opcionesVisualizacion a{color:#fcfcfc;margin-right:1%;text-decoration:none}

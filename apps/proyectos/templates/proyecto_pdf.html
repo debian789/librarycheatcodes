@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+
+.subTitulo{
+
+	color: #0f3f60;
+	}
+
+h1 {
+	text-align: center;
+color: #35576f;
+}
+</style>
+
+</head>    
+<body>
+<article class="detalles">
+	<h1>{{ proyecto.nombre}}</h1>
+	<div class="subTitulo">Descripcion</div>
+	<div class="descripcionInformacion">
+
+
+		 <p>{{ proyecto.descripcion }}</p>
+				 <div class="subTitulo"> Mas informacion</div>
+
+		<div class="descripcionExtra">
+			<div class="itemInformacion">
+				<div class="tituloDescripcion">Lenguaje: {{ proyecto.lenguaje }}</div>
+			</div>
+			<div class="itemInformacion">
+				<div class="tituloDescripcion">Nivel de desarrollo: {{ proyecto.Nivel }}</div>
+			</div>
+			<div class="itemInformacion">
+				<div class="tituloDescripcion">Sistema Operativo: {{ proyecto.os }} </div>
+			</div>
+
+			{% if proyecto.version %}
+			<div class="itemInformacion">
+				<div class="tituloDescripcion">Version: {{ proyecto.version }} </div>
+			</div>
+			{% else %}
+			<div class="itemInformacion">
+				<div class="tituloDescripcion"><span>Version:--- </span></div>
+			</div>
+
+			{% endif %}
+
+			{% if proyecto.link %}
+			<div class="itemInformacion">
+				<div class="tituloDescripcion">Url: <a href="{{ proyecto.link }}" target="_blank">{{ proyecto.link }}</a> </div>
+					</div>
+			{% else  %}
+			{% endif  %}
+			<div class="itemInformacion">
+						{% if proyecto.archivo %}
+				<div class="tituloDescripcion">Archivo Adjunto: 
+						<a href="{{MEDIA_URL}}/{{proyecto.archivo}}" target="blank">
+							<span class=" icon-download2"></span> Descargar 
+						</a>
+				</div>
+						{% else %}
+					
+						{% endif %}
+				</div>
+		</div>
+	</div>
+</article>
+</body>
+</html>

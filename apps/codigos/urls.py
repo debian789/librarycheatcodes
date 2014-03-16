@@ -6,4 +6,6 @@ urlpatterns = patterns ('apps.codigos.views',
 	url(r'^codigo/detalles/(?P<id_codigo>.*)/$','view_codigo_simple',name='detalle_codigo'),
 	url(r'^codigo/editar/(?P<id_codigo>.*)/$','view_editar_codigo',name='editar_codigo'),
 	url(r'^codigo/eliminar/(?P<id_codigo>.*)/$','view_eliminiar_codigo',name='eliminar_codigo'),
+	url(r'^codigo/pdf/(?P<id_codigo>.*)/$','codigo_pdf',name='codigo_pdf'),
+
 )
