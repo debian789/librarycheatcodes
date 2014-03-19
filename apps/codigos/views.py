@@ -17,10 +17,10 @@ from django.http import HttpResponse
 
 
 
-
+def datos(request,id):
+	return HttpResponse("hola mundo ");
 
 def generar_pdf(html):
-    # Funcion para generar el archivo PDF y devolverlo mediante HttpResponse
     result = StringIO.StringIO()
     pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result)
     if not pdf.err:
@@ -28,19 +28,10 @@ def generar_pdf(html):
     return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
 
 def codigo_pdf(request,id_codigo):
-	#usuario = User.objects.select_related().get(id=request.user.id)
-	#def libro_pdf(request, id):
 	codigo = mdl_codigos.objects.get(id=id_codigo)
 	codigoFuente = '<pre  lang="'+ escape(codigo.lenguaje) +'">' + escape(codigo.codigo) + '</pre>' 
-	#contexto = {"codigo":codigo,"codigoFuente":codigoFuente}
-	#proyecto = mdl_proyectos.objects.select_related().filter(usuario=usuario).get(id=id_proyecto)
-	#contexto = {"proyecto":proyecto}
-
-
 	html = render_to_string('codigo_pdf.html', {'pagesize':'A4', "codigo":codigo,"codigoFuente":codigoFuente}, context_instance=RequestContext(request))
 	return generar_pdf(html)
-
-
 
 
 @login_required
