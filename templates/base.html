@@ -6,18 +6,11 @@
 	<meta name="google-site-verification" content="frHqvbBW-FgsYxY3UXoCw2Dcyp5T7S-RaabvtmzlF-M" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>{% block title %}Biblioteca de  Referencia {% endblock %}</title>
-	<link rel="stylesheet" href="{% static "css/normalize.min.css"%}"/>
-	<link rel="stylesheet" href="{% static "css/estilo.css"%}"/>	
-	<link rel="stylesheet" href="{% static "css/foundation.min.css"%}" />
-	<link rel="stylesheet" href="{% static "css/codigo.css"%}"/>
-
+	<link rel="stylesheet" href="{% static "css/estilo.css"%}"/>
 	{% block extraHead %}{% endblock%}
 </head>
 <body>
 	<header>
-
-
-
 		<div class="barraTitulo">
 			<div class="logo">
 				<span class="icon-books "></span>
@@ -32,51 +25,30 @@
 					{% endif %}					
 				</div>
 			</div >
-			{% if user.is_authenticated %}
-			
-		<div data-magellan-expedition="fixed">
-  <dl class="sub-nav">
- 			<div class="subMenuPrincipal">
-				<div class="activarBuscador">Buscador</div>
-				<div class="menuMobilPrincipal">Menu</div>				
-			</div>
-
-
-				{% endif %}		
-
-
-
-			<div class="limpiarEspacio"></div>
-		{% if user.is_authenticated %}			
-		<div class="menuBuscador">
-		<nav class="principalMenu ">
-			{% include 'menu.html'%}
-		</nav>
-		<div class="principalMenuBuscador ">
-			{% block opcionBuscador %}
-			{% endblock %}	
-			
+			{% if user.is_authenticated %}			
+			<div data-magellan-expedition="fixed">
+				<dl class="sub-nav">
+					<div class="subMenuPrincipal">
+						<div class="activarBuscador">Buscador</div>
+						<div class="menuMobilPrincipal">Menu</div>				
+					</div>
+					{% endif %}		
+					<div class="limpiarEspacio"></div>
+					{% if user.is_authenticated %}			
+					<div class="menuBuscador">
+						<nav class="principalMenu ">
+							{% include 'menu.html'%}
+						</nav>
+						<div class="principalMenuBuscador ">
+							{% block opcionBuscador %}
+							{% endblock %}	
+						</div>
+					</div>
+					{% endif%}
+				</div>
+			</dl>
 		</div>
-			
-		</div>
-		{% endif%}
-		</div>
-		  </dl>
-</div>
 	</header>
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<section class="contenido">
 		{% block barraContenido %}{% endblock %}	
 		{% block contenido%}{% endblock%}
@@ -88,21 +60,13 @@
 	</section>
 	<footer>
 		<a href="https://github.com/debian789/BibliotecaCodigo" target="_black">Mas informacion del proyecto <span class=" icon-github3"></span> <span> debian789@gmail.com</span></a> 
-
 	</footer>
-<!-- 	<section>
-		<figure>
-			<img src="{{STATIC_URL}}img/hot.jpg" width="100" height="100"/>
-		</figure>
-	</section> -->
-
 	<script src="{% static "js/vendor/jquery.js"%}"></script>
 	<script src="{% static "js/vendor/foundation.min.js"%}"></script>
 	<script src="{% static "js/main.js"%}"></script>
- <script>
-      $(document).foundation();
-    </script>
-
+	<script>
+	$(document).foundation();
+	</script>
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -111,8 +75,6 @@
 
 	ga('create', 'UA-47447387-1', 'cryptic-mesa-8094.herokuapp.com');
 	ga('send', 'pageview');
-
 	</script>
-
 </body>
 </html>

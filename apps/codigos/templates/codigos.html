@@ -7,13 +7,11 @@
 		<div class="opcionesVisualizacion">
 			<div class="botonCrear   ">
 				<a href="{% url 'agregar_codigo'%}">	
-				Nuevo			
-					<span class=" icon-plus-sign"></span>
+					Nuevo<span class=" icon-plus-sign"></span>
 				</a>
 			</div>
 		</div>
-	</div>
-		
+	</div>		
 	{% if codigos %}
 	{% for codigo in codigos %}
 	<div class="itemIngresadosCodigos lineaColorB">
@@ -21,9 +19,9 @@
 		<div class="favoritoCodigo">
 			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf "></a>
 			{% if codigo.favorito %}
-		<!-- 	<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a> -->
+			<!-- 	<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a> -->
 			{% else %}
-		<!-- 	<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a> -->
+			<!-- 	<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a> -->
 			{% endif %}
 			{% if codigo.archivo %}
 			<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2" target="blank"></a>
@@ -91,22 +89,16 @@
 	</div>
 	{% endif%}
 	{% endif %}
-
-
-
-
 </article>
-
 {% endblock %}
-
 {% block opcionBuscador %}
 <form action="." method="post" class="menuMovil " >
 	<!-- <span class="tituloBuscar">Buscar</span> -->
 	{{ formularioBusqueda.busqueda }}
 	<article class="opcionBuscar">			
-				<input type="submit" value="Buscar" class=' btnBuscador'>			
-		</article>
-		<span class="masOpciones icon-settings"></span>
+		<input type="submit" value="Buscar" class=' btnBuscador'>			
+	</article>
+	<span class="masOpciones icon-settings"></span>
 	<div class="filtros">
 		<div class="itemFiltros">
 			<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
@@ -114,17 +106,11 @@
 				{{ formularioBusqueda.lenguaje }}
 			</span></div>
 		</div>
-
-
 		<div class="opcionCheckbox">
 			{{ formularioBusqueda.adjunto }}
 			<label for="id_adjunto">Archivo Adjunto</label>
 		</div>
-
 	</div>
 	{% csrf_token %}
 </form>
-
-
 {% endblock %}	
-
