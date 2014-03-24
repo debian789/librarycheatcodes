@@ -3,7 +3,7 @@
 {% block extraHead %} {{ formulario.media }} {% endblock%}
 {% block contenido %}
 <article class="ingresoCodigo">
-	<div class="subTituloBarra barraColorB">
+	<div class="subTitulo">
 		<h3>Ingresar Codigo  </h3>		
 	</div>
 	<form action="." method="post" enctype="multipart/form-data" >	
@@ -36,6 +36,11 @@
 			<div class="ingresoCodigoFuente">
 				<span>Codigo</span>			
 				{{ formulario.codigo }}
+			</div>
+
+		<div class="ingresoCodigoFuente">
+				<span>Compartir el codigo en la plataforma </span>			
+				{{ formulario.estado }}
 			</div>
 		</div>
 		<hr/>

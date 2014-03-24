@@ -2,44 +2,79 @@
 {% block titulo%} codigos de codigo {% endblock %}
 {% block contenido %}
 <article class="resultadoBusqueda">
-	<div class="subTituloBarra barraColorB">
+	<div class="subTituloBarra ">
+	{% if user.is_authenticated %}
 		<h3>Mis Codigos </h3>
 		<div class="opcionesVisualizacion">
 			<div class="botonCrear   ">
 				<a href="{% url 'agregar_codigo'%}">	
-					Nuevo<span class=" icon-plus-sign"></span>
+					Nuevo <span class=" icon-plus-sign"></span>
 				</a>
 			</div>
 		</div>
-	</div>		
+		{% else %}
+		<h3>Codigos publicados </h3>
+		<div class="opcionesVisualizacion">
+		</div>
+	{% endif %}
+	</div>	
+
+
 	{% if codigos %}
-	{% for codigo in codigos %}
-	<div class="itemIngresadosCodigos lineaColorB">
-		<h4><a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a></h4>
-		<div class="favoritoCodigo">
-			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf "></a>
-			{% if codigo.favorito %}
-			<!-- 	<a href="{% url 'quitar_favorito' codigo.id %}" class=" icon-star "></a> -->
+	<div id="itemCollection" class="js-masonry">
+		{% for codigo in codigos %}		
+		<div class="itemIngresadosCodigos lineaColorB"  >
+			{% if user.is_authenticated %}
+			<h4>
+				<a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a>
+			</h4>
+			<div class="favoritoCodigo">
+				<a href="" class="icon-star"></a>
+			</div>
+			<p >{{ codigo.descripcion|truncatechars:140 }}  </p>
+			<hr/>
+			<div class="informacionLenguaje">		
+				<div>{{ codigo.lenguaje }}</div>
+			</div>
+			<div class="edicionCodigo">
+				<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf colorRojo"></a>
+				{% if codigo.favorito %}
+				<!-- 	<a href="{ url 'quitar_favorito' codigo.id }" class=" icon-star "></a> -->
+				{% else %}
+				<!-- 	<a href="{ url 'agregar_favorito' codigo.id }" class="icon-star3 "></a> -->
+				{% endif %}
+				{% if codigo.archivo %}
+				<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2 lineaDerecha colorVerde" target="blank"></a>
+				{% else %}
+				<!-- <a href="" class=" icon-download2 colorVerde"></a> -->
+				{% endif %}
+				<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil2 lineaDerecha colorNaranjaC"></a>
+				<a href="{% url 'eliminar_codigo' codigo.id %}" class=" icon-remove2 colorRojo lineaDerecha" ></a>
+			</div>
 			{% else %}
-			<!-- 	<a href="{% url 'agregar_favorito' codigo.id %}" class="icon-star3 "></a> -->
+			<h4>
+				<a href="{% url 'detalle_codigo_publico' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a>
+			</h4>
+			<div class="favoritoCodigo">
+				<a href="" class="icon-star"></a>
+			</div>
+			<p >{{ codigo.descripcion|truncatechars:140 }}  </p>
+			<hr/>
+			<div class="informacionLenguaje">		
+				<div>{{ codigo.lenguaje }}</div>
+			</div>
+			<div class="edicionCodigo">
+				<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf colorRojo"></a>
+				{% if codigo.archivo %}
+				<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2 lineaDerecha colorVerde" target="blank"></a>
+				{% else %}
+				<!-- <a href="" class=" icon-download2 colorVerde"></a> -->
+				{% endif %}
+			</div>
 			{% endif %}
-			{% if codigo.archivo %}
-			<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2" target="blank"></a>
-			{% else %}
-			<a href="" class=" icon-download2"></a>
-			{% endif %}
 		</div>
-		<p>{{ codigo.descripcion|truncatechars:140 }}  </p>
-		<hr/>
-		<div class="informacionLenguaje">		
-			<div>{{ codigo.lenguaje }}</div>
-		</div>
-		<div class="edicionCodigo">
-			<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil"></a>
-			<a href="{% url 'eliminar_codigo' codigo.id %}" class="icon-trash" ></a>
-		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
 	{% if not porFormulario %}
 	<div class="pagination">
 		<span class="step-links">

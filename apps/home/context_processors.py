@@ -12,8 +12,21 @@ def menu(request):
         {'name': 'Mis Comandos', 'url':reverse('comandos')},
         {'name': 'Mis Codigos', 'url': reverse('codigos')},
         {'name': 'Mis Proyectos', 'url': reverse('proyectos')},
+        #{'name': 'Favoritos', 'url': reverse('proyectos')},
     ]}
     for item in menu['menu']:
+        if request.path == item['url']:
+            item['active'] = True
+    return menu
+
+def menu_publico(request):
+    menu = {'menu_publico': [
+        {'name': 'Comandos', 'url':reverse('comandos_publicos')},
+        {'name': 'Codigos', 'url': reverse('codigos_plublicos')},
+        {'name': 'Proyectos', 'url': reverse('proyectos_publicos')},
+        
+    ]}
+    for item in menu['menu_publico']:
         if request.path == item['url']:
             item['active'] = True
     return menu

@@ -11,7 +11,7 @@ class mdl_comandos(models.Model):
 	usuario      = models.ForeignKey(User)
 	favorito    = models.BooleanField(default=False,blank=False)
 	fechaIngreso = models.DateField(auto_now = True)
-	estado       = models.BooleanField(default = True)
+	estado       = models.BooleanField(default = False)
 	
 
 	class Meta:

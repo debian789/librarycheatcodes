@@ -3,40 +3,44 @@
 {% block contenido %}
 {% if comando %}
 <article class="detalles">
-	<div class="subTituloBarra barraColorA">
-		<h3>Detalles</h3>
+	<div class="subTitulo">
+		<h3><span class="colorRojo">Detalles del Comando</span></h3>
+
+		{% if user.is_authenticated %}
 		<div class="opcionesVisualizacion">
-			<a href="{% url 'agregar_comando'%}"><span class=" icon-plus-sign"></span></a>	
+			<a href="{% url 'agregar_comando'%}"><span class=" icon-plus-sign colorVerde"></span></a>	
 			{% if comando.favorito %}
-			<!-- <a href="{% url 'quitar_favorito' comando.id %}" class=" icon-star "></a> -->
+			<!-- <a href="{ url 'quitar_favorito' comando.id }" class=" icon-star "></a> -->
 			{% else %}
-		<!-- 	<a href="{% url 'agregar_favorito' comando.id %}" class="icon-star3 "></a> -->
+			<!-- 	<a href="{ url 'agregar_favorito' comando.id }" class="icon-star3 "></a> -->
 			{% endif %}
-			<a href="{% url 'editar_comando' comando.id %}" class=" lineaDerecha icon-pencil"></a>
-			<a href="" class=" lineaDerecha icon-remove2"></a>
+			<a href="{% url 'editar_comando' comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC"></a>
+			<a href="" class=" lineaDerecha icon-remove2 colorRojo"></a>			
+		</div>
+		{% else %}
+		<div class="opcionesVisualizacion">
 			
 		</div>
+
+		{% endif %}
+
+
+
 	</div>
 	<h1>{{ comando.nombre}}</h1>
-	<div class="subTitulo">
+	<div class="subTitulo2">
 		<span>Descripción</span>
+		<div class="opcionesVisualizacion"></div>
 	</div>
+		<div class="descripcionDetalladaCompleta2">
+			<p>{{ comando.descripcion }}</p>
+		</div>	
+	<div class="subTitulo2"><span>Comando</span></div>
 	<div class="descripcionInformacion">
 		<div class="descripcionDetalladaCompleta">
-		 <p>{{ comando.descripcion }}</p>
-				 </div>
-
+			<p>{{ comando.comando }}</p>
+		</div>
 	</div>
-
-		<div class="subTitulo"><span>Comando</span></div>
-	<div class="descripcionInformacion">
-		<div class="descripcionDetalladaCompleta">
-		 <p>{{ comando.comando }}</p>
-				 </div>
-
-	</div>
-
-
 </article>
 {% endif%}
 {% endblock %}

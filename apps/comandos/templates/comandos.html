@@ -2,31 +2,57 @@
 {% block titulo%} comandos de comando {% endblock %}
 {% block contenido %}
 <article class="resultadoBusqueda">
-	<div class="subTituloBarra barraColorA">
+	{% if user.is_authenticated %}
+	<div class="subTituloBarra ">
 		<h3>Mis Comandos  </h3>
 		<div class="opcionesVisualizacion">
-<!-- 			<span class="  icon-th-large"></span>
-	<span class="   icon-reorder"></span> -->
 	<div class="botonCrear   ">
 		<a href="{% url 'agregar_comando'%}">				
-			Nuevo
-			<span class=" icon-plus-sign"></span>
+			Nuevo <span class=" icon-plus-sign"></span>
 		</a>
 	</div>
 </div>
+	{% else %}
+	<div class="subTituloBarra ">
+		<h3>Comandos publicados </h3>
+		<div class="opcionesVisualizacion">
+</div>
+
+
+	{% endif %}
+
+
 </div>
 
 {% if comandos %}
+<div id="itemCollection" class="js-masonry">
+
 {% for comando in comandos %}
-<div class="itemIngresadosCodigos lineaColorA">
-	<h4><a href="{% url 'detalle_comando' comando.id %}">{{ comando.nombre|truncatechars:140|capfirst }}</a></h4>
+
+<div class="itemIngresadosCodigos lineaColorA"  >
+{% if user.is_authenticated %}
+	<h4><a href="{% url 'detalle_comando' comando.id %}">{{ comando.nombre|truncatechars:100|capfirst }}</a></h4>
 	<div class="favoritoCodigo">
-		<a href="{% url 'editar_comando' comando.id %}" class=" icon-pencil"></a>
-		<a href="{% url 'eliminar_comando' comando.id %}" class="icon-trash" ></a>
+		<a href="{% url 'editar_comando' comando.id %}" class=" icon-pencil2 colorNaranjaC"></a>
+		<a href="{% url 'eliminar_comando' comando.id %}" class=" icon-remove2 colorRojo lineaDerecha" ></a>
 	</div>
 	<p>{{ comando.comando|truncatechars:140 }}  </p>
+{% else %}
+	<h4><a href="{% url 'detalle_comando_publico' comando.id %}">{{ comando.nombre|truncatechars:100|capfirst }}</a></h4>
+	<div class="favoritoCodigo">
+
+	</div>
+	<p>{{ comando.comando|truncatechars:140 }}  </p>
+
+{% endif %}
+
 </div>
+
 {% endfor %}
+	
+</div>
+
+
 {% if not porFormulario %}
 <div class="pagination">
 	<span class="step-links">

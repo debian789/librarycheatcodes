@@ -2,48 +2,94 @@
 {% block titulo%} Proyectos de proyecto {% endblock %}
 {% block contenido %}
 <article class="resultadoBusqueda">
-	<div class="subTituloBarra barraColorC">
+	<div class="subTituloBarra ">
+		{% if user.is_authenticated %}
 		<h3>Mis Proyectos  </h3>
 		<div class="opcionesVisualizacion">
-	<div class="botonCrear   ">
-		<a href="{% url 'agregar_proyecto'%}">				
-			Nuevo
-			<span class=" icon-plus-sign"></span>
-		</a>
-	</div>
+			<div class="botonCrear   ">
+				<a href="{% url 'agregar_proyecto'%}">				
+					Nuevo
+					<span class=" icon-plus-sign"></span>
+				</a>
+			</div>
 		</div>
+		{% else %}
+				<h3>Proyectos publicados  </h3>
+		<div class="opcionesVisualizacion">
+
+		</div>
+
+		{% endif %}
+
+
+
 	</div>
 	{% if proyectos %}
+	<div id="itemCollection" class="js-masonry">
 	{% for proyecto in proyectos %}
 	<div class="itemIngresadosCodigos lineaColorC">
+
+		{% if user.is_authenticated %}
+
 		<h4><a href="{% url 'detalle_proyecto' proyecto.id %}">{{ proyecto.nombre|truncatechars:140|capfirst }}</a></h4>
 		<div class="favoritoCodigo">
-			<a href="{% url 'proyecto_pdf' proyecto.id %}" class="icon-file-pdf "> </a>
+
+		</div>
+		<p>{{ proyecto.descripcion|truncatechars:140 }}  </p>
+		<hr/>
+		<div class="informacionLenguaje2">		
+			<div><span>Lenguaje</span> <span>{{ proyecto.lenguaje }}</span></div>
+			<div><span>Version</span><span>{{ proyecto.Nivel }}</span></div>
+			<div><span>URL</span><span>{{ proyecto.link }}</span></div>
+		</div>
+		<div class="edicionCodigo2">
+						<a href="{% url 'proyecto_pdf' proyecto.id %}" class="icon-file-pdf colorRojo  "> </a>
 			{% if proyecto.favorito %}
 			<!-- <a href="" class=" icon-star "></a> -->
 			{% else %}
 			<!-- <a href="" class="icon-star3 "></a> -->
 			{% endif %}
 			{% if proyecto.archivo %}
-			<a href="{{MEDIA_URL}}/{{proyecto.archivo}} " class=" icon-download2" target="blank"></a>
+			<a href="{{MEDIA_URL}}/{{proyecto.archivo}} " class=" icon-download2  lineaDerecha colorVerde" target="blank"></a>
 			{% else %}
-			<a href="" class=" icon-download2"></a>
+			<!-- <a href="" class=" icon-download2"></a> -->
 			{% endif %}
+
+			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" icon-pencil2 lineaDerecha  colorNaranjaC"></a>
+			<a href="{% url 'eliminar_proyecto' proyecto.id %}" class=" icon-remove2 lineaDerecha colorRojo" ></a>
+		</div>
+
+{% else %}
+
+
+		<h4><a href="{% url 'detalle_proyecto_publico' proyecto.id %}">{{ proyecto.nombre|truncatechars:140|capfirst }}</a></h4>
+		<div class="favoritoCodigo">
+
 		</div>
 		<p>{{ proyecto.descripcion|truncatechars:140 }}  </p>
 		<hr/>
-		<div class="informacionLenguaje">		
-			<div>{{ proyecto.lenguaje }}</div>
-			<div>{{ proyecto.Nivel }}</div>
-			<div>{{ proyecto.os }}</div>
-			<div>{{ proyecto.interfaz }}</div>
+		<div class="informacionLenguaje2">		
+			<div><span>Lenguaje</span> <span>{{ proyecto.lenguaje }}</span></div>
+			<div><span>Version</span><span>{{ proyecto.Nivel }}</span></div>
+			<div><span>URL</span><span>{{ proyecto.link }}</span></div>
 		</div>
-		<div class="edicionCodigo">
-			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" icon-pencil"></a>
-			<a href="{% url 'eliminar_proyecto' proyecto.id %}" class="icon-trash" ></a>
+		<div class="edicionCodigo2">
+			<a href="{% url 'proyecto_pdf' proyecto.id %}" class="icon-file-pdf colorRojo  "> </a>
+			{% if proyecto.archivo %}
+			<a href="{{MEDIA_URL}}/{{proyecto.archivo}} " class=" icon-download2  lineaDerecha colorVerde" target="blank"></a>
+			{% else %}
+			<!-- <a href="" class=" icon-download2"></a> -->
+			{% endif %}
+
 		</div>
+
+
+{% endif %}
+
+
 	</div>
 	{% endfor %}
+</div>
 	{% if not porFormulario %}
 	<div class="pagination">
 		<span class="step-links">

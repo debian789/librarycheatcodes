@@ -1,4 +1,5 @@
 <ul>
+	{% if user.is_authenticated %}
 	{% for item in menu%}
 	<!-- <li {% if item.active%} style="background:#A9BDE6"{% endif %}> -->
 	<li class="menuItem" {% if item.active%} style="border: 1px solid #ccc "{% endif %}>
@@ -7,4 +8,17 @@
 		</a>
 	</li>
 	{% endfor %}	
+	{% else %}
+	{% for item in menu_publico %}
+	<!-- <li {% if item.active%} style="background:#A9BDE6"{% endif %}> -->
+	<li class="menuItem" {% if item.active%} style="border: 1px solid #ccc "{% endif %}>
+		<a href="{{ item.url }}" >
+			{{ item.name }}<span class=" icon-code"></span>
+		</a>
+	</li>
+	{% endfor %}	
+
+	{% endif %}
+
+
 </ul>

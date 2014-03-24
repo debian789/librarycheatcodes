@@ -2,7 +2,7 @@
 {% block title %}Agregar Proyecto{% endblock%}
 {% block contenido %}
 <article class="ingresoCodigo">
-	<div class="subTituloBarra barraColorC">
+	<div class="subTituloBarra ">
 		<h3>Ingresar Proyecto</h3>
 		
 	</div>
@@ -54,6 +54,11 @@
 				<span>Descripcion</span>
 				{{ formulario.descripcion }}
 			</div>
+		<div class="ingresoDescripcionCompleto">
+				<span>Compartir el proyecto en la plataforma </span>
+				{{ formulario.estado }}
+			</div>
+
 		</div>
 		{% csrf_token %}
 		<hr/>

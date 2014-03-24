@@ -1,102 +1,137 @@
 {% extends "base.html" %}
+{% load static from staticfiles %}
 {% block titulo %} Inicio Sesion {% endblock %}
 {% block contenido %}
-<article class="agregar">
-	<span class="activarCrar botonCrear">Agregar</span>
-	<div class="ocultoCrar botonesCrear">
-		<div class="botonCrear  ">
-			<a href="{% url 'agregar_comando'%}">				
-				Agregar Comandos
-				<span class=" icon-plus-sign"></span>
-			</a>
-		</div>
-		<div class="botonCrear  ">
-			<a href="{% url 'agregar_codigo'%}">				
-				Agregar Codigo
-				<span class=" icon-plus-sign"></span>
-			</a>
-		</div>
-		<div class="botonCrear  " >
-			<a href="{% url 'agregar_proyecto' %}">
-				Agregar Proyecto <span class=" icon-plus-sign"></span>
-			</a>
-		</div> 
-	</div>
 
 
 
+<section id="opcionesInicio" data-equalizer>
+<h2> Bienvenido </h2>
+</br>
+</br>
 
-
-</article>
-	<div class="secciones"></div>
-	<div class="secciones">
-
-		<article class="resultadoBusquedaInicio">
-			<div class="subTituloBarra barraColorB">
-				<h3>Codigos Favoritos</h3>
-				<div class="opcionesVisualizacion">
-					<span class=" icon-star"></span>
-				</div>
+	<article class="secciones fondoRojoE" data-equalizer-watch>
+		<div class="fondoRojo">
+			
+			<h2>Comandos</h2>
+			<div class="botonCrear   ">
+				<a href="{% url 'agregar_comando'%}">	
+					Nuevo <span class=" icon-plus-sign"></span>
+				</a>
 			</div>
-		<div class="botonCrear  ">
-			<a href="{% url 'agregar_codigo'%}">				
-				Nuevo
-				<span class=" icon-plus-sign"></span>
-			</a>
+</br>
+</br>
+
+			
+			<!-- <a href="">  Ver comandos <span class=" icon-caret-right"></span> </a> -->
+
 		</div>
-			{% if favoritos %}
-			{% for favorito in favoritos %}
-			<div class="itemIngresadosCodigos">
-				<h4><a href="{% url 'detalle_codigo' favorito.codigo.id %}"> {{ favorito.codigo.titulo|truncatechars:140 }}</a></h4><span>
-				<div class="favoritoCodigo">
-					<a href="{% url 'quitar_fav_princ' favorito.codigo.id %}" class="icon-close "></a>
-				</div>
-				<hr>
-				<p>{{ favorito.codigo.descripcion|truncatechars:140 }}</p>
+
+
+		<div class="ultimosIngresadosItems ">
+			<h3>Ultimos Ingresados</h3>
+			{% if comandos %}
+			{% for comando in comandos %}
+			<div class="itemUltimos">
+				<a href="{% url 'detalle_comando' comando.id %}">
+					{{ comando.nombre|truncatechars:70 }}
+				</a>
 			</div>
 			{% endfor %}
 			{% endif %}
-			{% if proyectos %}
-			<div class="proyectos">
-				<div  class="itemIngresados">
-					<div class="tituloFavoritos">
-						<h3>Favoritos Proyectos</h3>
-						<span class=" icon-star"></span>
-					</div>
-					<div class="contenidoFavorito">
-						<div class="item">
-							<h4>Codigo de ejemplo </h4><span>quitar</span>
-							<hr/>
-							<p>descripcion de los codigos de ejemplo </p>
-						</div>
-					</div>
-				</div>
-			</div>
-			{% endif %}
-		</article>
-	</div>
-	<div class="secciones"></div>		
 
 
-<article class="ultimosIngresados">
-	<div class="itemIngresados">
-		<div class="tituloFavoritos">
-			<h3>Ultimos Ingresados</h3>
-			<span class="icon-download-alt"></span>
 		</div>
-		<div class="contenidoFavorito">
+
+
+
+	</article>
+	<article class="secciones fondoVerdeE" data-equalizer-watch>
+		<div class="fondoVerde">			
+			<h2>Codigos</h2>
+			<div class="botonCrear2   ">
+				<a href="{% url 'agregar_codigo'%}" >	
+					Nuevo <span class=" icon-plus-sign"></span>
+				</a>
+			</div>
+</br>
+</br>
+
+
+			<!-- <a href="" >  Ver Codigos <span class=" icon-caret-right"></span> </a> -->
+		</div>
+
+		<div class="ultimosIngresadosItems ">
+			<h3>Ultimos Ingresados</h3>
 			{% if codigos %}
 			{% for codigo in codigos %}
-			<div class="item">
-				<h4> 
-					<a href="{% url 'detalle_codigo' codigo.id %}">
-						{{ codigo.titulo|truncatechars:70 }}
-					</a>
-				</div>
-				{% endfor %}
-				{% endif %}
+			<div class="itemUltimos">
+				<a href="{% url 'detalle_codigo' codigo.id %}">
+					{{ codigo.titulo|truncatechars:70 }}
+				</a>
 			</div>
+			{% endfor %}
+			{% endif %}
 		</div>
+		<!--<a href="{% url 'agregar_codigo'%}">Nuevo<span class=" icon-plus-sign"></span></a> -->
 	</article>
-	{% endblock %}
+	<article class="secciones fondoAzulE" data-equalizer-watch>
+		<div class="fondoAzul">
+			
+			<h2>Proyectos</h2>
+			<div class="botonCrear   ">
+				<a href="{% url 'agregar_proyecto'%}">	
+					Nuevo <span class=" icon-plus-sign"></span>
+				</a>
+			</div>
+</br>
+</br>
+
+
+
+
+		<!-- 	<a href="">  ver comandos <span class=" icon-caret-right"></span> </a> -->
+		</div>
+		<div class="ultimosIngresadosItems ">
+
+			<h3>Ultimos Ingresados</h3>
+
+			{% if proyectos %}
+			{% for proyecto in proyectos %}
+			<div class="itemUltimos">
+				<a href="{% url 'detalle_proyecto' proyecto.id %}">
+					{{ proyecto.nombre|truncatechars:70 }}
+				</a>
+			</div>
+			{% endfor %}
+			{% endif %}
+
+
+
+		</div>
+	</article>	
+
+
+<!-- 	<article class="secciones fondoNaranjaE" data-equalizer-watch>
+		<div class="fondoNaranja">
+			
+
+			<h2>Favoritos</h2>
+			<a href="">  ver comandos <span class=" icon-caret-right"></span> </a>
+		</div>
+
+
+
+		<div class="ultimosIngresadosItems ">
+			<h3>Ultimos Ingresados</h3>
+			<div class="itemUltimos">Lorem ipsum dolor dfssdf asd asdfa sdf sit amet, consectetur adipisicing elit.</div>
+			<div class="itemUltimos">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+			<div class="itemUltimos">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+			<div class="itemUltimos">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+		</div>
+	</article>	 -->
+
+
+</section>
+{% endblock %}
 

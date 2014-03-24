@@ -25,6 +25,7 @@ class frm_codigos(ModelForm):
 					'lenguaje',
 					'archivo',
 					'codigo',
+					'estado',
 				)
 			widgets = {
 			'titulo':forms.TextInput(attrs={'required':'','title':'Se necesita un Titulo'}),

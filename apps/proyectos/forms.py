@@ -30,6 +30,7 @@ class frm_proyectos(ModelForm):
 				"interfaz",
 				"archivo",
 				"descripcion",
+				"estado",
 				)
 
 			widgets = {

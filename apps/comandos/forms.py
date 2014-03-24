@@ -16,7 +16,8 @@ class frm_comandos(ModelForm):
 			fields = (
 				"nombre",
 				"descripcion",
-				"comando"
+				"comando",
+				"estado",
 				)
 
 			widgets = {

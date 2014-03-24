@@ -40,9 +40,7 @@ $(document).ready(function(){
 		if($(".filtros").is(":visible")){
 			$(".filtros").hide();
 			//$(".opcionBuscar2").show();
-			//$(".opcionBuscar").hide();
-
-			
+			//$(".opcionBuscar").hide();			
 		}else{
 			$(".filtros").show();
 			//$(".opcionBuscar2").hide();
@@ -51,5 +49,33 @@ $(document).ready(function(){
 
 		} 
 	});
+
+		$(".itemIngresar").click(function(){
+		if($(".itemSesion").is(":visible")){
+			$(".itemSesion").hide();
+			//$(".opcionBuscar2").show();
+			//$(".opcionBuscar").hide();			
+		}else{
+			$(".itemSesion").show();
+			//$(".opcionBuscar2").hide();
+			//$(".opcionBuscar").show();
+
+
+		} 
+	});
+
+	
+
+
+
+
+
+$('#itemCollection').masonry({
+  columnWidth: 100,
+  itemSelector: '.itemIngresadosCodigos',
+  position: 'absolute',
+  containerStyle: null,
+});
+
 
 });

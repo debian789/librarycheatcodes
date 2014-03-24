@@ -3,78 +3,97 @@
 {% block contenido %}
 {% if proyecto %}
 <article class="detalles">
-	<div class="subTituloBarra barraColorC">
-		<h3>Detalles del Proyecto </h3>
+	<div class="subTitulo ">
+		<h3><span class="colorAzul"> Detalles del Proyecto</span> </h3>
 		<div class="opcionesVisualizacion">
-			<a href="{% url 'proyecto_pdf' proyecto.id %}" class="icon-file-pdf "> </a>
-			<a href="{% url 'agregar_proyecto'%}"><span class=" icon-plus-sign lineaDerecha"></span></a>	
+{% if user.is_authenticated %}
+			<a href="{% url 'proyecto_pdf' proyecto.id %}" class="icon-file-pdf colorRojo "> </a>
+			<a href="{% url 'agregar_proyecto'%}"><span class=" icon-plus-sign lineaDerecha colorVerde"></span></a>	
 			{% if proyecto.favorito %}
-			<!-- <a href="{% url 'quitar_favorito' proyecto.id %}" class=" icon-star "></a> -->
+			<!-- <a href="{ url 'quitar_favorito' proyecto.id }" class=" icon-star "></a> -->
 			{% else %}
-		<!-- 	<a href="{% url 'agregar_favorito' proyecto.id %}" class="icon-star3 "></a> -->
+		<!-- 	<a href="{ url 'agregar_favorito' proyecto.id }" class="icon-star3 "></a> -->
 			{% endif %}
-			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" lineaDerecha icon-pencil"></a>
-			<a href="" class=" lineaDerecha icon-remove2"></a>
-			
+			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC"></a>
+			<a href="" class=" lineaDerecha icon-remove2 colorRojo"></a>	
+{% else %}
+
+			<a href="{% url 'proyecto_pdf' proyecto.id %}" class="icon-file-pdf colorRojo "> </a>
+
+{% endif %}
+
 		</div>
 	</div>
 	<h1>{{ proyecto.nombre}}</h1>
-	<div class="subTitulo"><span>Descripcion</span></div>
 	<div class="descripcionInformacion">
 		<div class="descripcionDetallada">
-			
-
+	<div class="subTitulo2"><span>Descripcion</span></div>
 		 <p>{{ proyecto.descripcion }}</p>
 				 <span class="masInformacionDetallada"> Mas informacion</span>
 				 </div>
-		<div class="descripcionExtra">
+		<div class="descripcionExtra fondoAzulD">
+			<div class="tituloExtra">Informacion Extra </div>
 			<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Lenguaje</span></div>
-				<div class="contenidoExtra"><span>{{ proyecto.lenguaje }}</span></div>
+				<div class="tituloDescripcion"><span>Lenguaje</span>
+					<span>{{ proyecto.lenguaje }}</span>
+				</div>
+
 			</div>
 			<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Nivel de desarrollo </span></div>
-				<div class="contenidoExtra"><span>{{ proyecto.Nivel }}</span></div>
+				<div class="tituloDescripcion">
+					<span>Nivel de desarrollo </span>
+					<span>{{ proyecto.Nivel }}</span>
+				</div>
 			</div>
 			<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Sistema Operativo </span></div>
-				<div class="contenidoExtra"><span>{{ proyecto.os }}</span></div>
+				<div class="tituloDescripcion">
+					<span>Sistema Operativo </span>
+					<span>{{ proyecto.os }}</span>
+				</div>
 			</div>
 
 			{% if proyecto.version %}
 			<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Version </span></div>
-				<div class="contenidoExtra"><span>{{ proyecto.version }}</span></div>
+				<div class="tituloDescripcion">
+					<span>Version </span>
+					<span>{{ proyecto.version }}</span>
+				</div>
 			</div>
 			{% else %}
 			<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Version </span></div>
-				<div class="contenidoExtra"><span> --- </span></div>
+				<div class="tituloDescripcion">
+					<span>Version </span>
+					<span> --- </span>
+				</div>
 			</div>
 
 			{% endif %}
 
 			{% if proyecto.link %}
 			<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Url</span></div>
-				<div class="contenidoExtra"><span><a href="{{ proyecto.link }}" target="_blank">{{ proyecto.link }}</a></span></div>
+				<div class="tituloDescripcion">
+					<span>Url</span>
+					<span><a href="{{ proyecto.link }}" target="_blank">{{ proyecto.link|truncatechars:50 }}</a></span>
+				</div>
 			</div>
 			{% else  %}
 						<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Url</span></div>
-				<div class="contenidoExtra"><span>Sin Url</span></div>
+				<div class="tituloDescripcion">
+					<span>Url</span>
+					<span>Sin Url</span>
+				</div>
 			</div>
 			{% endif  %}
 			<div class="itemInformacion">
-				<div class="tituloDescripcion"><span>Archivo Adjunto</span></div>
-				<div class="contenidoExtra">
+				<div class="tituloDescripcion">
+					<span>Archivo Adjunto</span>
 					<span>	
 						{% if proyecto.archivo %}
 						<a href="{{MEDIA_URL}}/{{proyecto.archivo}}" target="blank">
 							<span class=" icon-download2"></span> Descargar 
 						</a>
 						{% else %}
-						<span class="icon-download2"></span> Sin Archivo Adjunto 
+						 Sin Archivo Adjunto 
 						{% endif %}
 					</span>
 				</div>

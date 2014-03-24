@@ -3,9 +3,8 @@
 {% block extraHead %} {{ formulario.media }} {% endblock%}
 {% block contenido %}
 <article class="ingresoCodigo">
-	<div class="subTituloBarra barraColorA">
-		<h3>Ingresar Comando</h3>
-		
+	<div class="subTitulo">
+		<h3>Ingresar Comando</h3>		
 	</div>
 	<form action="." method="post" enctype="multipart/form-data" >
 		<div class="ingresoTitulo">
@@ -20,6 +19,10 @@
 			<div class="ingresoCodigoFuente">
 				<span>Comando</span>
 				{{ formulario.comando }}
+			</div>
+			<div class="ingresoCodigoFuente">
+				<span>Compartir el comando en la plataforma </span>
+				{{ formulario.estado }}
 			</div>
 		</div>
 		{% csrf_token %}

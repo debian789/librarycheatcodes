@@ -17,24 +17,29 @@
 				BIBLIOTECA DE REFERENCIA
 				<div class="session">
 					{% if user.is_authenticated %}
-					<!-- <a href="{% url 'inicio_sesion' %}" class=" icon-home inicio "></a> -->
-					<a href="{% url 'salir' %}">  <span class="icon-exit lineaDerecha"></span></a>
+					<a href="{% url 'inicio_sesion' %}" class=" icon-home inicio "></a> 
+					<a href="{% url 'salir' %}"> <span class="icon-exit lineaDerecha ">Salir</span></a>
 					{% else %}
-					<!-- <a href="{% url 'inicio' %}" class=" icon-home inicio  "></a> -->
-					<a href="{% url 'ingresar' %}" class=" ">  <span class="icon-enter lineaDerecha"></span> </a>
-					{% endif %}					
+					 <a href="{% url 'inicio' %}" class="icon-home inicio  "></a> 
+					 <spam class="itemIngresar"><span class="icon-enter lineaDerecha"></span> Ingresar</spam>
+					{% endif %}		
 				</div>
+
+					<div class="itemSesion">
+
+					<a href="{% url 'social:begin' 'twitter' %}" class="inicioTwitter" > <span class="icon-twitter"></span> ENTRA CON TWITTER</a>
+					</div>			
 			</div >
-			{% if user.is_authenticated %}			
+					
 			<div data-magellan-expedition="fixed">
 				<dl class="sub-nav">
 					<div class="subMenuPrincipal">
 						<div class="activarBuscador">Buscador</div>
 						<div class="menuMobilPrincipal">Menu</div>				
 					</div>
-					{% endif %}		
+				
 					<div class="limpiarEspacio"></div>
-					{% if user.is_authenticated %}			
+							
 					<div class="menuBuscador">
 						<nav class="principalMenu ">
 							{% include 'menu.html'%}
@@ -44,7 +49,7 @@
 							{% endblock %}	
 						</div>
 					</div>
-					{% endif%}
+				
 				</div>
 			</dl>
 		</div>
@@ -63,6 +68,7 @@
 	</footer>
 	<script src="{% static "js/vendor/jquery.js"%}"></script>
 	<script src="{% static "js/vendor/foundation.min.js"%}"></script>
+	<script src="{% static "js/vendor/masonry.pkgd.min.js"%}"></script>
 	<script src="{% static "js/main.js"%}"></script>
 	<script>
 	$(document).foundation();

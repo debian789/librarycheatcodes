@@ -12,7 +12,7 @@ def get_env_variable(var_name):
         error_msg = 'Set the {var_name} environment variable'
         raise ImproperlyConfigured(error_msg.format(var_name=var_name))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -41,8 +41,8 @@ DATABASES = {
 
 # configuracion para heroku 
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#DATABASES['default'] =  dj_database_url.config()
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ############################
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -210,6 +210,7 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'apps.home.context_processors.menu',
+    'apps.home.context_processors.menu_publico',
     )
 
 

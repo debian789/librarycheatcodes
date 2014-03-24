@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block titulo %} Inicio {% endblock %}
+{% block contenido %}
+
+<section class="slide">
+	<figure>
+		<img src="{% static "img/hombre.jpg" %}" alt="">
+	</figure>
+	<div class="informacionSitio">
+		<h1>Comprueba que es muy facil ganar tiempo de desarrollo </h1>
+		<ul>
+			<li>Almacena comandos, codigos y proyectos que sirvan como referencia</li>
+			<li>Consulta de forma sencilla la informacion ingresada</li>
+			<li>Comparte tu informacion si lo deceas </li>		
+			<!-- <li>Administra la visualizacion de la informacion ingresada </li> -->	
+		<!-- 	<li>No pierdas tiempo buscando lo que creaste y te funciono </li> -->
+		</ul>
+		<h2>Inicia sesion con tu red social favorita 
+			<span>
+				
+<!-- 		<a href=""><span class="icon-facebook2 colorFacebook"></span></a>
+		<a href=""><span class="icon-google-plus2 colorGooglePlus"></span></a> -->
+		<a href=""><span class="icon-twitter3 colorTwitter"></span></a>
+	</h2>
+			</span>
+	</div>
+</section>
+</br>
+</br>
+
+
+<section  data-equalizer>
+	<article class="secciones fondoRojo " data-equalizer-watch>
+		<div class="fondoRojo">			
+		<h2>Comandos</h2>
+		<p>Aqui pudes consultar los comandos que han compartido las personas que se han registrado </p>
+		<br/>
+
+		<a href="{% url 'comandos_publicos' %}"><strong> <<<<  Ver comandos >>>></strong> </a>
+		</div>
+		<div class="ultimosIngresadosItems ">
+			<h3>Ultimos Ingresados</h3>
+			{% if comandos %}
+			{% for comando in comandos %}
+			<div class="itemUltimos">
+				<a href="{% url 'detalle_comando_publico' comando.id %}">
+					{{ comando.nombre|truncatechars:70 }}
+				</a>
+			</div>
+			{% endfor %}
+			{% endif %}
+
+
+		</div>
+	</article>
+	<article class="secciones fondoVerde" data-equalizer-watch>
+		<div class="fondoVerde">			
+		<h2>Codigos</h2>
+		<p >Aqui pudes consultar los codigos que han compartido las personas que se han registrado </p>
+		<br/>
+
+		<a href="{% url 'codigos_plublicos' %}" ><strong><span class="colorRojo"><<<< Ver Codigos >>>></span></strong> </a>
+		</div>
+
+		<div class="ultimosIngresadosItems ">
+			<h3>Ultimos Ingresados</h3>
+			{% if codigos %}
+			{% for codigo in codigos %}
+			<div class="itemUltimos">
+				<a href="{% url 'detalle_codigo_publico' codigo.id %}">
+					{{ codigo.titulo|truncatechars:70 }}
+				</a>
+			</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+		<!--<a href="{% url 'agregar_codigo'%}">Nuevo<span class=" icon-plus-sign"></span></a> -->
+	</article>
+	<article class="secciones fondoAzul" data-equalizer-watch>
+		<div class="fondoAzul">
+			
+		<h2>Proyectos</h2>
+		<p>Aqui pudes consultar los proyectos que han compartido las personas que se han registrado </p>
+		<br/>
+		<a href="{% url 'proyectos_publicos' %}"> <strong><<<<  Ver proyectos  >>>></strong></a>
+		</div>
+
+		<div class="ultimosIngresadosItems ">
+			<h3>Ultimos Ingresados</h3>
+
+			{% if proyectos %}
+			{% for proyecto in proyectos %}
+			<div class="itemUltimos">
+				<a href="{% url 'detalle_proyecto_publico' proyecto.id %}">
+					{{ proyecto.nombre|truncatechars:70 }}
+				</a>
+			</div>
+			{% endfor %}
+			{% endif %}
+
+
+		</div>
+	</article>		
+</section>
+{% endblock %}
+

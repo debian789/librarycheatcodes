@@ -4,43 +4,60 @@
 {% block contenido %}
 {% if codigo %}
 <article class="detalles">
-	<div class="subTituloBarra barraColorB">
-		<h3>Detalles </h3>
+	<div class="subTitulo ">
+		<h3><span class="colorVerde">Detalles del Codigo</span>  </h3>
+
 		<div class="opcionesVisualizacion">
-			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf "></a>
-			<a href="{% url 'agregar_codigo'%}"><span class=" icon-plus-sign"></span></a>	
+{% if user.is_authenticated %}
+			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf colorRojo "></a>
+			<a href="{% url 'agregar_codigo'%}"  class="  icon-plus-sign lineaDerecha colorVerde" ></a>	
 			{% if codigo.favorito %}
-			<!-- <a href="{% url 'quitar_favorito' codigo.id %}" class="lineaDerecha icon-star "></a> -->
+			<!-- <a href="{ url 'quitar_favorito' codigo.id }" class="lineaDerecha icon-star "></a> -->
 			{% else %}
-			<!-- <a href="{% url 'agregar_favorito' codigo.id %}" class=" lineaDerecha icon-star3 "></a> -->
+			<!-- <a href="{ url 'agregar_favorito' codigo.id }" class=" lineaDerecha icon-star3 "></a> -->
 			{% endif %}
-			<a href="{% url 'editar_codigo' codigo.id %}" class=" lineaDerecha icon-pencil"></a>
-			<a href="{% url 'eliminar_codigo' codigo.id %}" class=" lineaDerecha icon-remove2"></a>			
-		</div>		
+			<a href="{% url 'editar_codigo' codigo.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC"></a>
+			<a href="{% url 'eliminar_codigo' codigo.id %}" class=" lineaDerecha  icon-remove2 colorRojo"></a>		
+{% else %}
+			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf colorRojo "></a>
+{% endif %}
+		</div>	
+
+
+
+
 	</div>
-	<h1>{{ codigo.titulo}}</h1>
-	<div class="subTitulo"><span>Descripcion</span></div>
+	<div class="tituloDetalles">
+	<h1>{{ codigo.titulo}} </h1>
+		<div> compartir</div>
+	</div>
 	<div class="descripcionInformacion">
-		<div class="descripcionDetallada"><p>{{ codigo.descripcion }}</p>
+		<div class="descripcionDetallada">
+	<div class=""><strong><span>Descripcion</span></strong></div>
+			<p>{{ codigo.descripcion }}</p>
 			<div class="masInformacionDetallada"> Mas informacion  &nbsp; <span class=" icon-expand2"> </span></div>
 		</div>
-		<div class="descripcionExtra">
-			<div class="tituloDescripcion">Lenguaje de Programacion</div>
-			<div class="contenidoExtra">{{ codigo.lenguaje }}</div>
-			<div class="tituloDescripcion">Archivo Adjunto </div>
-			<div class="contenidoExtra">
+		<div class="descripcionExtra fondoVerdeD">
+			<div class="tituloExtra">Informacion Extra </div>
+			<div class="tituloDescripcion"><span>Lenguaje  </span>
+				<span>{{ codigo.lenguaje }}</span>
+			</div>
+			<div class="tituloDescripcion"><span>Adjunto </span>
 				{% if codigo.archivo %}
+				<span>
+					
 				<a href="{{MEDIA_URL}}/{{codigo.archivo}}" target="blank">
 					<span class=" icon-download2 " ></span> Descargar
 				</a>
+				</span>
 				{% else %}
-				Sin archivo adjunto 
+				<span>Sin adjunto </span>
 				{% endif %}
 			</div>
 		</div>
 	</div>
 	<div > <p></p> </div>
-	<div class="subTitulo"><span>Codigo Fuente</span></div>
+	<div class="subTitulo2"><span>Codigo Fuente</span></div>
 	<div class="descripcionCodigo"> {{ codigoFuente|pygmentify_inline }}</div>
 </article>
 {% endif%}
