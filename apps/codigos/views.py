@@ -46,21 +46,20 @@ def codigo_pdf(request,id_codigo):
 @login_required
 def view_codigos(request):
 	if request.method == 'POST':
+
+		# formulario de busqueda #
 		formularioBusqueda = frm_codigos_busqueda(request.POST)
 		if formularioBusqueda.is_valid():
 			usuario = User.objects.select_related().get(id=request.user.id)
 			codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
-
 			if formularioBusqueda.cleaned_data['busqueda']:
 				codigos = codigos.filter( Q(titulo__icontains=formularioBusqueda.cleaned_data['busqueda']) | Q(descripcion__icontains=formularioBusqueda.cleaned_data['busqueda']) ) 
 			else:
 				pass
-
 			if formularioBusqueda.cleaned_data['lenguaje']  :
 				codigos = codigos.filter(lenguaje=formularioBusqueda.cleaned_data['lenguaje'])
 			else:
 				pass
-
 			if formularioBusqueda.cleaned_data['adjunto']:
 				codigos = codigos.filter(archivo__isnull=False).exclude(archivo__exact='')
 				#codigos = codigos.filter(archivo__isnull=formularioBusqueda.cleaned_data['adjunto'])
@@ -68,10 +67,8 @@ def view_codigos(request):
 			else:
 				pass
 
-
 			paginator = Paginator(codigos,10)
 			page = request.POST.get('page')
-
 			try:
 				contacts = paginator.page(page)
 			except PageNotAnInteger:
@@ -80,7 +77,6 @@ def view_codigos(request):
 				contacts = paginator.page(paginator.num_pages)
 
 			porFormulario=True
-
 			contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 		else:
 			usuario = User.objects.select_related().get(id=request.user.id)
@@ -106,16 +102,13 @@ def view_codigos(request):
 
 	#contexto = {"codigos":codigos}
 	else:
+
 		usuario = User.objects.select_related().get(id=request.user.id)
+		#para implementar formulario.media en la plantilla html para el plugin de django-ace#
 		codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
-
-
 		formularioBusqueda = frm_codigos_busqueda()
-
 		paginator = Paginator(codigos,10)
-
 		page = request.GET.get('page')
-
 		try:
 			contacts = paginator.page(page)
 		except PageNotAnInteger:
@@ -123,8 +116,7 @@ def view_codigos(request):
 		except EmptyPage:
 			contacts = paginator.page(paginator.num_pages)
 
-		contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda}
-		
+		contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda}		
 		return render(request,"codigos.html",contexto)
 
 
@@ -243,7 +235,7 @@ def view_agregar_codigo(request):
 			return redirect('codigos')
 
 	formulario = frm_codigos(usuario)
-	contexto = {'formulario':formulario}
+	contexto = {'formulario':formulario,'mensaje':'Nuevo Codigo '}
 	#return render_to_response('codigos/codigo_ingresar.html',contexto,context_instance=RequestContext(request))
 	return render(request,'codigo_ingresar.html',contexto)
 
@@ -268,8 +260,12 @@ def view_editar_codigo(request,id_codigo):
 
 
 	formulario = frm_codigos(usuario,instance = datos )
-	contexto = {'formulario':formulario}
+	contexto = {'formulario':formulario,'mensaje':'Editar codigo '}
 	return render(request,'codigo_ingresar.html',contexto)
+
+
+
+
 
 @login_required
 def view_eliminiar_codigo(request,id_codigo):

@@ -12,7 +12,7 @@ def get_env_variable(var_name):
         error_msg = 'Set the {var_name} environment variable'
         raise ImproperlyConfigured(error_msg.format(var_name=var_name))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -41,8 +41,8 @@ DATABASES = {
 
 # configuracion para heroku 
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#DATABASES['default'] =  dj_database_url.config()
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ############################
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -206,11 +206,14 @@ LOGGING = {
 }
 
 
+#permite publicar variables globales en los template 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'apps.home.context_processors.menu',
     'apps.home.context_processors.menu_publico',
+    #hablita optener datos de request en los templates  {{ request.get_full_path }}
+    'django.core.context_processors.request',
     )
 
 
@@ -222,20 +225,33 @@ LOGIN_URL = '/login/'
 SOCIAL_AUTH_TWITTER_KEY = get_env_variable('SOCIAL_AUTH_TWITTER_KEY')
 SOCIAL_AUTH_TWITTER_SECRET = get_env_variable('SOCIAL_AUTH_TWITTER_SECRET')
 
+##Google 
+
+#GOOGLE_OAUTH2_CLIENT_ID = '32074046887-3ro6qukub2c5g2c53vdkboptueugf7cm.apps.googleusercontent.com'
+#GOOGLE_OAUTH2_CLIENT_SECRET  = 'YPu2jr7Pl1ZRVCJZVWtmkMgJ'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = get_env_variable('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = get_env_variable('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 ## Facebook
-#SOCIAL_AUTH_FACEBOOK_KEY = ''
-#SOCIAL_AUTH_FACEBOOK_SECRET = ''
-#SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_KEY = get_env_variable('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET =  get_env_variable('SOCIAL_AUTH_FACEBOOK_SECRET')
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+
 
 # Backends
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookAppOAuth2',
     'social.backends.facebook.FacebookOAuth2',
     'social.backends.twitter.TwitterOAuth',
+    'social.backends.google.GoogleOAuth',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.google.GoogleOpenId',
     'django.contrib.auth.backends.ModelBackend',
 )
 
 # URLs
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_LOGIN_URL = '/login/'
+SOCIAL_AUTH_BACKEND_ERROR_URL= '/'
 

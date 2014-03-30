@@ -24,7 +24,7 @@ def view_agregar_comando(request):
 
 
 	formulario = frm_comandos(usuario)
-	contexto = {'formulario':formulario}
+	contexto = {'formulario':formulario,'mensaje':'Nuevo Comando '}
 
 	return render(request,'comandos_ingresar.html',contexto)
 
@@ -193,7 +193,7 @@ def view_editar_comando(request,id_comando):
 	
 
 	formulario = frm_comandos(usuario,instance = datos )
-	contexto = {'formulario':formulario}
+	contexto = {'formulario':formulario ,'mensaje':'Editar Comando  '}
 	return render(request,'comandos_ingresar.html',contexto)
 
 @login_required

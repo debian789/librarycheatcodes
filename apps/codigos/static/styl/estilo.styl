@@ -32,7 +32,7 @@ gris_d = #e1e1e1
 gris_e = #464b51
 
 c_twitter = #55ACEE
-c_twitter_hover = #99aab5
+c_twitter_hover = #1ec4fe
 c_google = #dd4b39
 c_google_hover = #737373
 c_twitter_linea = #1b9ac7
@@ -98,10 +98,11 @@ footer
 		position relative
 		//border 3px solid red  !important
 		.principalMenu
+			//border 1px solid red 
 			display none 
 			margin 0
 			padding 0.5em 0 0.7em 0 
-			text-align center 
+			text-align left
 			background blanco 
 			//border 1px solid blue 
 			ul
@@ -145,6 +146,7 @@ footer
 					a 
 						color blanco
 		.principalMenuBuscador
+			//border 1px solid red 
 			display none 
 			padding 0.5em 1% 0.5em 1%
 			text-align left
@@ -298,6 +300,7 @@ footer
 				display inline-block 
 				display none
 				vertical-align top 
+				border-radius 5px
 				text-align left	
 				margin-left auto		
 				margin-right auto		
@@ -873,6 +876,7 @@ footer
 	a 
 		text-decoration none 
 		font-size 1em
+		
 
 	.inicioTwitter
 		margin auto !important
@@ -880,9 +884,28 @@ footer
 		background c_twitter
 		color blanco !important
 		padding 0.4em 0.5em 0.4em 0.5em
-		border 2px solid c_twitter_linea
+		border-left 1px solid c_twitter_linea
+		border-top 1px solid c_twitter_linea
+		border-right 1px solid c_twitter_linea
+		border-bottom 2px solid c_twitter_linea
+
+		border-radius 4px 
 		&:hover 
 			background c_twitter_hover
+	.inicioGoogle
+		margin 0.5em auto auto auto  !important
+		display inline-block 
+		background c_google
+		color blanco !important
+		padding 0.4em 0.5em 0.4em 0.5em
+		//border-left 1px solid c_
+		//border-top 1px solid c_twitter_linea
+		//border-right 1px solid c_twitter_linea
+		//border-bottom 2px solid c_twitter_linea
+
+		border-radius 4px 
+		&:hover 
+			background rojo_d
 
 .filtros
 	display none
@@ -893,6 +916,17 @@ footer
 	.opcionCheckbox 
 		input[type="checkbox"],label 
 			display inline-block 
+.subNavegacion 
+	width 90%
+	margin 0.6em auto 0.5em auto  
+	//border 1px solid red 
+	text-align left
+	a 
+		color gris_c
+		text-decoration none 
+	.activado 
+		//font-weight bold 
+		color c_facebook
 .ocultoCrar
 	display none 
 .limpiarEspacio 
@@ -921,4 +955,18 @@ footer
 	color naranja_c !important
 .sub-nav
 	margin-top 0 
+[data-magellan-expedition]
+	background: #e7ebf2
+	//background url("../img/fondo.png")
+	z-index: 50
+	min-width: 100%
+	border-bottom 3px solid #e1e1e1
+	//border 1px solid red 
+[data-magellan-expedition] .sub-nav
+	margin-bottom: 0
+[data-magellan-expedition]
+	//background: white
+	z-index: 50
+	min-width: 100%
+	padding: 0px
 @import "responsive.styl"

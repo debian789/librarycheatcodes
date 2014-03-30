@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 {% block titulo%} comandos de comando {% endblock %}
 {% block contenido %}
+
+<div class="subNavegacion">
+	<a href="{% url 'inicio' %} " > Home </a> >
+{% if user.is_authenticated %}
+	<a href="{% url 'comandos' %}" class="activado"> Mis Comandos  </a>  
+{% else %}
+	<a href="{% url 'comandos_publicos' %}" class="activado"> Comandos </a>  
+{% endif %}
+</div>
+
+
+
 <article class="resultadoBusqueda">
 	{% if user.is_authenticated %}
 	<div class="subTituloBarra ">
 		<h3>Mis Comandos  </h3>
 		<div class="opcionesVisualizacion">
 	<div class="botonCrear   ">
-		<a href="{% url 'agregar_comando'%}">				
+		<a href="{% url 'agregar_comando'%}"  class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal>				
 			Nuevo <span class=" icon-plus-sign"></span>
 		</a>
 	</div>
@@ -33,7 +45,7 @@
 {% if user.is_authenticated %}
 	<h4><a href="{% url 'detalle_comando' comando.id %}">{{ comando.nombre|truncatechars:100|capfirst }}</a></h4>
 	<div class="favoritoCodigo">
-		<a href="{% url 'editar_comando' comando.id %}" class=" icon-pencil2 colorNaranjaC"></a>
+		<a href="{% url 'editar_comando' comando.id %}" class=" icon-pencil2 colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal></a>
 		<a href="{% url 'eliminar_comando' comando.id %}" class=" icon-remove2 colorRojo lineaDerecha" ></a>
 	</div>
 	<p>{{ comando.comando|truncatechars:140 }}  </p>
@@ -119,4 +131,8 @@
 
 	{% csrf_token %}
 </form>
+
+<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 {% endblock %}

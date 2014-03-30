@@ -24,9 +24,8 @@ meta.foundation-mq-xxlarge
 meta.foundation-data-attribute-namespace
   font-family: false
 
-html,
-body
-  font-size: 100%
+
+
 
 a:hover
   cursor: pointer
@@ -77,14 +76,136 @@ textarea
   height: auto
   min-height: 50px
 
+select
+  width: 100%
+
 [data-magellan-expedition]
-  background: #e7ebf2
-  //background url("../img/fondo.png")
+  background: white
   z-index: 50
   min-width: 100%
-  border-bottom 3px solid #e1e1e1
-  //border 1px solid red 
+  padding: 10px
 
 [data-magellan-expedition] .sub-nav
   margin-bottom: 0
 
+[data-magellan-expedition] .sub-nav dd
+  margin-bottom: 0
+
+[data-magellan-expedition] .sub-nav a
+  line-height: 1.8em
+
+.reveal-modal-bg
+  position: fixed
+  height: 100%
+  width: 100%
+  background: rgba(0, 0, 0, 0.45)
+  z-index: 99
+  display: none
+  top: 0
+  left: 0
+
+dialog, .reveal-modal
+  visibility: hidden
+  display: none
+  position: absolute
+  z-index: 100
+  width: 100vw
+  top: 0
+  left: 0
+  background-color: white
+  padding: 1.25rem
+  border: solid 1px #666666
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4)
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4)
+
+@media only screen and (max-width: 40em)
+  dialog, .reveal-modal
+    height: 100vh
+    min-height: 100vh
+
+@media only screen and (min-width: 40.063em)
+  dialog, .reveal-modal
+    left: 50%
+
+dialog .column,
+  dialog .columns, .reveal-modal .column,
+  .reveal-modal .columns
+  min-width: 0
+
+dialog > :first-child, .reveal-modal > :first-child
+  margin-top: 0
+
+dialog > :last-child, .reveal-modal > :last-child
+  margin-bottom: 0
+
+@media only screen and (min-width: 40.063em)
+  dialog, .reveal-modal
+    margin-left: -40%
+    width: 80%
+
+@media only screen and (min-width: 40.063em)
+  dialog, .reveal-modal
+    top: 6.25rem
+
+dialog .close-reveal-modal, .reveal-modal .close-reveal-modal
+  font-size: 2.5rem
+  line-height: 1
+  position: absolute
+  top: 0.5rem
+  right: 0.6875rem
+  color: #aaaaaa
+  font-weight: bold
+  cursor: pointer
+
+dialog[open]
+  display: block
+  visibility: visible
+
+@media only screen and (min-width: 40.063em)
+  dialog, .reveal-modal
+    padding: 1.875rem
+
+  dialog.full, .reveal-modal.full
+    top: 0
+    left: 0
+    height: 100vh
+    min-height: 100vh
+    margin-left: 0 !important
+
+@media only screen and (min-width: 40.063em) and (min-width: 40.063em)
+  dialog, .reveal-modal
+    top: 1.25rem
+
+@media only screen and (min-width: 40.063em) and (min-width: 40.063em)
+  dialog.tiny, .reveal-modal.tiny
+    margin-left: -15%
+    width: 30%
+
+@media only screen and (min-width: 40.063em) and (min-width: 40.063em)
+  dialog.small, .reveal-modal.small
+    margin-left: -20%
+    width: 40%
+
+@media only screen and (min-width: 40.063em) and (min-width: 40.063em)
+  dialog.medium, .reveal-modal.medium
+    margin-left: -30%
+    width: 60%
+
+@media only screen and (min-width: 40.063em) and (min-width: 40.063em)
+  dialog.large, .reveal-modal.large
+    margin-left: -35%
+    width: 70%
+
+@media only screen and (min-width: 40.063em) and (min-width: 40.063em)
+  dialog.xlarge, .reveal-modal.xlarge
+    margin-left: -47.5%
+    width: 95%
+
+@media only screen and (min-width: 40.063em) and (min-width: 40.063em)
+  dialog.full, .reveal-modal.full
+    margin-left: -50vw
+    width: 100vw
+
+@media print
+  dialog, .reveal-modal
+    background: white !important

@@ -59,7 +59,7 @@ def view_agregar_proyecto(request):
 
 
 	formulario = frm_proyectos(usuario)
-	contexto = {'formulario':formulario}
+	contexto = {'formulario':formulario,'mensaje':'Nuevo Proyecto '}
 
 	return render(request,'proyectos_ingresar.html',contexto)
 
@@ -160,13 +160,6 @@ def view_proyectos(request):
 		contexto = {"proyectos":contacts,"formularioBusqueda":formularioBusqueda}
 		
 		return render(request,"proyectos.html",contexto)
-
-
-
-
-
-
-
 
 def view_proyectos_publicos(request):
 	if request.method == 'POST':
@@ -287,10 +280,8 @@ def view_editar_proyecto(request,id_proyecto):
 			contenidoForm.save()
 			return redirect('proyectos')
 
-	
-
 	formulario = frm_proyectos(usuario,instance = datos )
-	contexto = {'formulario':formulario}
+	contexto = {'formulario':formulario,'mensaje':'Editar Proyecto '}
 	return render(request,'proyectos_ingresar.html',contexto)
 
 @login_required

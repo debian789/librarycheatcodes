@@ -21,7 +21,19 @@
 				
 <!-- 		<a href=""><span class="icon-facebook2 colorFacebook"></span></a>
 		<a href=""><span class="icon-google-plus2 colorGooglePlus"></span></a> -->
-		<a href=""><span class="icon-twitter3 colorTwitter"></span></a>
+		
+		<a href="{% url 'social:begin' 'twitter' %}" class="inicioTwitter" ><span class="icon-twitter3 colorTwitter"></span></a>
+
+<!-- 			<a href="{% url 'social:begin' 'facebook' %}" class="inicioFacebook" ><span class="icon-twitter3 colorTwitter"></span></a>
+
+ -->
+			<a href="{% url 'social:begin' 'google' %}" class="inicioFacebook" ><span class="icon-google-plus2 colorGooglePlus"></span></a>
+
+
+
+
+					</div>	
+		
 	</h2>
 			</span>
 	</div>
@@ -60,7 +72,7 @@
 		<p >Aqui pudes consultar los codigos que han compartido las personas que se han registrado </p>
 		<br/>
 
-		<a href="{% url 'codigos_plublicos' %}" ><strong><span class="colorRojo"><<<< Ver Codigos >>>></span></strong> </a>
+		<a href="{% url 'codigos_publicos' %}" ><strong><span class="colorRojo"><<<< Ver Codigos >>>></span></strong> </a>
 		</div>
 
 		<div class="ultimosIngresadosItems ">

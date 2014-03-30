@@ -50,7 +50,7 @@ $(document).ready(function(){
 		} 
 	});
 
-		$(".itemIngresar").click(function(){
+	$(".itemIngresar").click(function(){
 		if($(".itemSesion").is(":visible")){
 			$(".itemSesion").hide();
 			//$(".opcionBuscar2").show();
@@ -59,7 +59,6 @@ $(document).ready(function(){
 			$(".itemSesion").show();
 			//$(".opcionBuscar2").hide();
 			//$(".opcionBuscar").show();
-
 
 		} 
 	});
@@ -70,12 +69,54 @@ $(document).ready(function(){
 
 
 
-$('#itemCollection').masonry({
-  columnWidth: 100,
-  itemSelector: '.itemIngresadosCodigos',
-  position: 'absolute',
-  containerStyle: null,
+	$('#itemCollection').masonry({
+		columnWidth: 100,
+		itemSelector: '.itemIngresadosCodigos',
+		position: 'absolute',
+		containerStyle: null,
+	});
+
+
+	$(document).on('click','.contenido', function(){ 
+
+		$(".itemSesion").hide();
+		$(".principalMenu").hide();
+		
+
+	});
+
+
+
+// $.post( $('h4 > a').attr('href'), function( data ) {
+// 	alert(data);
+//   //$( ".result" ).html( data );
+// });
+
+
+$('.opcionEditar').on('click',function(){
+
+	$.ajax({
+		url: $(this).attr('href'),
+		success: function(datos){
+			$('#modalAdministracion').html(datos);
+
+		}
+	});
 });
+
+
+
+$('.opcionNuevo').on('click',function(){
+
+	$.ajax({
+		url: $(this).attr('href'),
+		success: function(datos){
+			$('#modalAdministracion').html(datos);
+
+		}
+	});
+});
+
 
 
 });

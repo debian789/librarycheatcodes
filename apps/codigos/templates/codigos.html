@@ -1,13 +1,26 @@
 {% extends "base.html" %}
 {% block titulo%} codigos de codigo {% endblock %}
 {% block contenido %}
+
+<div class="subNavegacion">
+	<a href="{% url 'inicio' %} " > Home </a> >
+{% if user.is_authenticated %}
+	<a href="{% url 'codigos' %}" class="activado">Mis Codigos </a>  
+{% else %}
+	<a href="{% url 'codigos_publicos' %}" class="activado"> Codigos </a>  
+{% endif %}
+</div>
+
+
+
+
 <article class="resultadoBusqueda">
 	<div class="subTituloBarra ">
 	{% if user.is_authenticated %}
 		<h3>Mis Codigos </h3>
 		<div class="opcionesVisualizacion">
 			<div class="botonCrear   ">
-				<a href="{% url 'agregar_codigo'%}">	
+				<a href="{% url 'agregar_codigo'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal >	
 					Nuevo <span class=" icon-plus-sign"></span>
 				</a>
 			</div>
@@ -48,7 +61,7 @@
 				{% else %}
 				<!-- <a href="" class=" icon-download2 colorVerde"></a> -->
 				{% endif %}
-				<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil2 lineaDerecha colorNaranjaC"></a>
+				<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil2 lineaDerecha colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal ></a>
 				<a href="{% url 'eliminar_codigo' codigo.id %}" class=" icon-remove2 colorRojo lineaDerecha" ></a>
 			</div>
 			{% else %}
@@ -148,4 +161,8 @@
 	</div>
 	{% csrf_token %}
 </form>
+
+<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 {% endblock %}	

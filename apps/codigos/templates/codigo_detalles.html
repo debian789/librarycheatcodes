@@ -3,6 +3,21 @@
 {% block titulo%} Detalle del codigo  {% endblock %}
 {% block contenido %}
 {% if codigo %}
+
+
+<div class="subNavegacion">
+	<a href="{% url 'inicio' %} " > Home </a> > 
+{% if user.is_authenticated %}
+	<a href="{% url 'codigos' %}" > Codigos </a>  > 
+	<a href="#" class="activado"> Detalles del Codigo  </a>
+{% else %}
+	<a href="{% url 'codigos_publicos' %}" > Codigos </a>  > 
+	<a href="#" class="activado"> Detalles del Codigo  </a>
+{% endif %}
+</div>
+
+
+
 <article class="detalles">
 	<div class="subTitulo ">
 		<h3><span class="colorVerde">Detalles del Codigo</span>  </h3>
@@ -10,13 +25,13 @@
 		<div class="opcionesVisualizacion">
 {% if user.is_authenticated %}
 			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf colorRojo "></a>
-			<a href="{% url 'agregar_codigo'%}"  class="  icon-plus-sign lineaDerecha colorVerde" ></a>	
+			<a href="{% url 'agregar_codigo'%}"  class="  icon-plus-sign lineaDerecha colorVerde opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal  ></a>	
 			{% if codigo.favorito %}
 			<!-- <a href="{ url 'quitar_favorito' codigo.id }" class="lineaDerecha icon-star "></a> -->
 			{% else %}
 			<!-- <a href="{ url 'agregar_favorito' codigo.id }" class=" lineaDerecha icon-star3 "></a> -->
 			{% endif %}
-			<a href="{% url 'editar_codigo' codigo.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC"></a>
+			<a href="{% url 'editar_codigo' codigo.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal></a>
 			<a href="{% url 'eliminar_codigo' codigo.id %}" class=" lineaDerecha  icon-remove2 colorRojo"></a>		
 {% else %}
 			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf colorRojo "></a>
@@ -60,5 +75,9 @@
 	<div class="subTitulo2"><span>Codigo Fuente</span></div>
 	<div class="descripcionCodigo"> {{ codigoFuente|pygmentify_inline }}</div>
 </article>
+
+<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 {% endif%}
 {% endblock %}

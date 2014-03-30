@@ -14,10 +14,12 @@
 		<div class="barraTitulo">
 			<div class="logo">
 				<span class="icon-books "></span>
-				BIBLIOTECA DE REFERENCIA
+				BIBLIOTECA DE REFERENCIA 
 				<div class="session">
+
 					{% if user.is_authenticated %}
-					<a href="{% url 'inicio_sesion' %}" class=" icon-home inicio "></a> 
+					{{ user}} 	
+					<a href="{% url 'inicio_sesion' %}" class=" icon-home inicio lineaDerecha "></a> 
 					<a href="{% url 'salir' %}"> <span class="icon-exit lineaDerecha ">Salir</span></a>
 					{% else %}
 					 <a href="{% url 'inicio' %}" class="icon-home inicio  "></a> 
@@ -28,6 +30,12 @@
 					<div class="itemSesion">
 
 					<a href="{% url 'social:begin' 'twitter' %}" class="inicioTwitter" > <span class="icon-twitter"></span> ENTRA CON TWITTER</a>
+
+					<a href="{% url 'social:begin' 'google' %}" class="inicioGoogle" > <span class="icon-google-plus2"></span> ENTRA CON GOOGLE+</a>
+
+
+
+
 					</div>			
 			</div >
 					
@@ -70,6 +78,7 @@
 	<script src="{% static "js/vendor/foundation.min.js"%}"></script>
 	<script src="{% static "js/vendor/masonry.pkgd.min.js"%}"></script>
 	<script src="{% static "js/main.js"%}"></script>
+
 	<script>
 	$(document).foundation();
 	</script>

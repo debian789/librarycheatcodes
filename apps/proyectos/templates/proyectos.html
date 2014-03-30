@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 {% block titulo%} Proyectos de proyecto {% endblock %}
 {% block contenido %}
+<div class="subNavegacion">
+	<a href="{% url 'inicio' %} " > Home </a> >
+{% if user.is_authenticated %}
+	<a href="{% url 'proyectos' %}" class="activado"> Mis Proyectos  </a>  
+{% else %}
+	<a href="{% url 'proyectos_publicos' %}" class="activado"> Proyectos </a>  
+{% endif %}
+</div>
+
+
+
+
 <article class="resultadoBusqueda">
 	<div class="subTituloBarra ">
 		{% if user.is_authenticated %}
 		<h3>Mis Proyectos  </h3>
 		<div class="opcionesVisualizacion">
 			<div class="botonCrear   ">
-				<a href="{% url 'agregar_proyecto'%}">				
+				<a href="{% url 'agregar_proyecto'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal>				
 					Nuevo
 					<span class=" icon-plus-sign"></span>
 				</a>
@@ -55,7 +67,7 @@
 			<!-- <a href="" class=" icon-download2"></a> -->
 			{% endif %}
 
-			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" icon-pencil2 lineaDerecha  colorNaranjaC"></a>
+			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" icon-pencil2 lineaDerecha  colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal></a>
 			<a href="{% url 'eliminar_proyecto' proyecto.id %}" class=" icon-remove2 lineaDerecha colorRojo" ></a>
 		</div>
 
@@ -196,4 +208,8 @@
 
 		{% csrf_token %}
 	</form>
+
+	<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 {% endblock %}

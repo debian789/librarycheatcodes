@@ -2,19 +2,34 @@
 {% block titulo%} Proyectos de proyecto {% endblock %}
 {% block contenido %}
 {% if proyecto %}
+
+<div class="subNavegacion">
+	<a href="{% url 'inicio' %} " > Home </a> > 
+{% if user.is_authenticated %}
+	<a href="{% url 'proyectos' %}" > Mis Proyectos </a>  > 
+	<a href="#" class="activado"> Detalles Proyectos  </a>
+{% else %}
+	<a href="{% url 'proyectos_publicos' %}" > Proyectos </a>  > 
+	<a href="#" class="activado"> Detalles Proyectos  </a>
+{% endif %}
+</div>
+
+
+
+
 <article class="detalles">
 	<div class="subTitulo ">
 		<h3><span class="colorAzul"> Detalles del Proyecto</span> </h3>
 		<div class="opcionesVisualizacion">
 {% if user.is_authenticated %}
 			<a href="{% url 'proyecto_pdf' proyecto.id %}" class="icon-file-pdf colorRojo "> </a>
-			<a href="{% url 'agregar_proyecto'%}"><span class=" icon-plus-sign lineaDerecha colorVerde"></span></a>	
+			<a href="{% url 'agregar_proyecto'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal><span class=" icon-plus-sign lineaDerecha colorVerde"></span></a>	
 			{% if proyecto.favorito %}
 			<!-- <a href="{ url 'quitar_favorito' proyecto.id }" class=" icon-star "></a> -->
 			{% else %}
 		<!-- 	<a href="{ url 'agregar_favorito' proyecto.id }" class="icon-star3 "></a> -->
 			{% endif %}
-			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC"></a>
+			<a href="{% url 'editar_proyecto' proyecto.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal ></a>
 			<a href="" class=" lineaDerecha icon-remove2 colorRojo"></a>	
 {% else %}
 
@@ -101,5 +116,8 @@
 		</div>
 	</div>
 </article>
+<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 {% endif%}
 {% endblock %}
