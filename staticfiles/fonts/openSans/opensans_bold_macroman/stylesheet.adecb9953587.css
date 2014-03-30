@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'open_sansbold';
+    src: url("OpenSans-Bold-webfont.1d9c7945c7bc.eot");
+    src: url("OpenSans-Bold-webfont.1d9c7945c7bc.eot?#iefix") format('embedded-opentype'),
+         url("OpenSans-Bold-webfont.2e90d5152ce9.woff") format('woff'),
+         url("OpenSans-Bold-webfont.76cc6be5d8a2.ttf") format('truetype'),
+         url("OpenSans-Bold-webfont.93349923b527.svg#open_sansbold") format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
