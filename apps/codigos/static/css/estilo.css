@@ -468,10 +468,10 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .detalles .subTitulo2 span{font-weight:bold;display:inline-block;font-family:'texgyreherosregular';vertical-align:top;margin:0;width:60%}
 .contenido .detalles .subTitulo2 .opcionesVisualizacion{display:inline-block;vertical-align:top;text-align:right;width:35%;float:right;}
 .contenido .detalles .subTitulo2 .opcionesVisualizacion a{color:#464b51;margin-right:1%;text-decoration:none}
-.contenido .ingresoCodigo{background:#fcfcfc;width:96%;margin:2% auto 2em auto;}
+.contenido .ingresoCodigo{width:96%;margin:2% auto 2em auto;}
 .contenido .ingresoCodigo form .ingresoTitulo{margin:1% 1% 1% 1%;}
 .contenido .ingresoCodigo form .ingresoTitulo span{display:inline-block;vertical-align:top;text-align:left;width:100%}
-.contenido .ingresoCodigo form .ingresoTitulo input{border:1px solid #f3b86c;padding:0;width:96%}
+.contenido .ingresoCodigo form .ingresoTitulo input{border:1px solid #e1e1e1;padding:1%;width:98%}
 .contenido .ingresoCodigo form .urlLenguaje{margin:1% 1% 1% 1%;}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoUrl{display:inline-block;vertical-align:top;width:100%;}
 .contenido .ingresoCodigo form .urlLenguaje .ingresoUrl span{display:inline-block;vertical-align:top;margin:.5em 0 .3em 0;display:inline-block;vertical-align:top;text-align:left;width:96%}
@@ -489,10 +489,12 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo form .ingresoAdjunto span{margin:0 0 0 0;display:inline-block;vertical-align:top;text-align:left;width:100%}
 .contenido .ingresoCodigo form .ingresoAdjunto input{padding:0;margin:0 0 0 0;width:100%}
 .contenido .ingresoCodigo form .descripcionCodigo{margin:1% 1% 1% 1%;text-align:initial;}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{border:1px solid #965d14;-webkit-border-radius:10px;border-radius:10px;padding:0;width:100%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente{margin-top:1%}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{border:1px solid #e1e1e1;-webkit-border-radius:10px;border-radius:10px;height:5em;padding:1%;width:98%}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente{margin-top:1%;width:100%;}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea{background:#464b51;padding:1%;width:98%;-webkit-border-radius:5px;border-radius:5px;border:1px solid #e0e1e7;color:#fcfcfc;overflow-x:scroll !important;}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoCodigoFuente textarea:focus{border:1px solid #e0e1e7 !important}
 .contenido .ingresoCodigo form .guardarCodigo input{width:70%;margin:1% 0 2% 0}
-.contenido .ingresoCodigo form hr{border-top:1px solid #7daaca;border-bottom:0}
+.contenido .ingresoCodigo form hr{width:98%;border-top:1px solid #e1e1e1;border-bottom:0}
 .contenido .ingresoCodigo .opcionBuscar{width:100%;}
 .contenido .ingresoCodigo .opcionBuscar .opcionCheckbox{display:inline-block;vertical-align:top;margin:1%}
 .contenido .resultadoBusqueda{margin:.5em auto .5em auto;padding-bottom:1em;width:96%;background:#fcfcfc;}
@@ -631,7 +633,7 @@ footer a{color:#fcfcfc;text-decoration:none}
 .contenido .ingresoCodigo form .ingresoAdjunto{text-align:left;}
 .contenido .ingresoCodigo form .ingresoAdjunto span{text-align:left;width:18%}
 .contenido .ingresoCodigo form .ingresoAdjunto input{text-align:left;width:76%}
-.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{width:100%}
+.contenido .ingresoCodigo form .descripcionCodigo .ingresoDescripcion textarea{width:98%}
 .contenido .opcionesBusqueda{float:none;width:20%;display:inline-block;vertical-align:top;margin-left:1%}
 .contenido .resultadoBusqueda{display:inline-block;vertical-align:top;width:90%;text-align:center;}
 .contenido .resultadoBusqueda .botonCrear{width:96%}

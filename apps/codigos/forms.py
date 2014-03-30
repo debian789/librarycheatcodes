@@ -3,7 +3,7 @@ from apps.codigos.models import mdl_codigos
 from apps.elementos_comunes.models import *
 from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
-from django_ace import AceWidget
+#from django_ace import AceWidget
 
 
 SIN_OPCION = [
@@ -30,7 +30,8 @@ class frm_codigos(ModelForm):
 			widgets = {
 			'titulo':forms.TextInput(attrs={'required':'','title':'Se necesita un Titulo'}),
 			'lenguaje':forms.Select(attrs={'required':'','title':'Se necesita un Lenguaje '}),
-			'codigo':AceWidget(mode='python',width="100%",height="500px",theme='twilight',attrs={'required':'','title':'Se necesita un Codigo '}),
+			#'codigo':AceWidget(mode='python',width="100%",height="500px",theme='twilight',attrs={'required':'','title':'Se necesita un Codigo '}),
+			'codigo':forms.Textarea(attrs={'required':'','title':'Se necesita un Codigo '}),			
 			'links':forms.URLInput(attrs={'title':'http://pagina.com o http://www.pagina.com','pattern':"https?://.+"}),
 			}
 

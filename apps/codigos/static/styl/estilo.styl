@@ -427,7 +427,7 @@ footer
 					text-decoration none
 	.ingresoCodigo
 		//border 10px solid pink !important
-		background blanco
+		//background blanco
 		width 96% 
 		margin 2% auto 2em auto 
 		form 
@@ -440,9 +440,9 @@ footer
 					text-align left
 					width 100%
 				input 
-					border 1px solid naranja_d
-					padding 0
-					width 96%
+					border 1px solid gris_d
+					padding 1%
+					width 98%
 			.urlLenguaje
 				margin 1% 1% 1% 1%
 				.ingresoUrl
@@ -514,19 +514,34 @@ footer
 				text-align initial
 				.ingresoDescripcion
 					textarea 
-						border 1px solid naranja_c
+						border 1px solid gris_d
 						border-radius 10px 
 						//border 1px solid blue
-						padding 0
-						width 100%
+						height 5em
+						padding 1%
+						width 98%
 				.ingresoCodigoFuente
+					//border 1px solid red 
 					margin-top 1%
+					width 100%
+					textarea 
+						background gris_e
+						padding 1%
+						width 98%
+						border-radius 5px 
+						border 1px solid gris_b
+						color blanco
+						overflow-x scroll !important
+						&:focus
+							border 1px solid gris_b !important
+							//background red 
 			.guardarCodigo
 				input 
 					width 70%
 					margin 1% 0 2% 0 
 			hr 
-				border-top 1px solid azul_e
+				width 98%
+				border-top 1px solid gris_d
 				border-bottom 0
 	
 		.opcionBuscar

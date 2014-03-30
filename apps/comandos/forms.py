@@ -23,7 +23,8 @@ class frm_comandos(ModelForm):
 			widgets = {
 			'nombre':forms.TextInput(attrs={'required':'','title':'Se necesita un Nombre'}),
 			'descripcion':forms.Textarea(attrs={'required':'','title':'Se necesita una Descripcion '}),
-			'comando':AceWidget(mode='python',width="100%",theme='twilight',attrs={'required':'','title':'Se necesita un Comando  '}),
+			'comando':forms.Textarea(attrs={'required':'','title':'Se necesita un Comando  '}),
+			#'comando':AceWidget(mode='python',width="100%",theme='twilight',attrs={'required':'','title':'Se necesita un Comando  '}),
 			}
 
 	def __init__(self, usuario, *args, **kwargs):
