@@ -42,8 +42,8 @@
 			<div data-magellan-expedition="fixed">
 				<dl class="sub-nav">
 					<div class="subMenuPrincipal">
-						<div class="activarBuscador">Buscador</div>
-						<div class="menuMobilPrincipal">Menu</div>				
+						<div class="activarBuscador">Buscador <span class="icon-search2"></span></div>
+						<div class="menuMobilPrincipal"> Menu <span class="icon-menu"> </span></div>				
 					</div>
 				
 					<div class="limpiarEspacio"></div>
@@ -52,10 +52,10 @@
 						<nav class="principalMenu ">
 							{% include 'menu.html'%}
 						</nav>
-						<div class="principalMenuBuscador ">
+					
 							{% block opcionBuscador %}
 							{% endblock %}	
-						</div>
+						
 					</div>
 				
 				</div>

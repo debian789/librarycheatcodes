@@ -7,7 +7,7 @@ $(document).ready(function(){
 		if($(".principalMenu").is(":visible")){
 			$(".principalMenu").hide();
 		}else{
-			$(".principalMenu").show();
+			$(".principalMenu").show("fast");
 			$(".principalMenuBuscador").hide();
 		}       
 	});
@@ -16,7 +16,7 @@ $(document).ready(function(){
 		if($(".principalMenuBuscador").is(":visible")){
 			$(".principalMenuBuscador").hide();
 		}else{
-			$(".principalMenuBuscador").show();
+			$(".principalMenuBuscador").show("fast");
 			$(".principalMenu").hide();
 		} 
 	});
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		if($(".ocultoCrar").is(":visible")){
 			$(".ocultoCrar").hide();
 		}else{
-			$(".ocultoCrar").show();
+			$(".ocultoCrar").show("fast");
 		} 
 	});
 	
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		if($(".descripcionExtra").is(":visible")){
 			$(".descripcionExtra").hide();
 		}else{
-			$(".descripcionExtra").show();
+			$(".descripcionExtra").show("fast");
 		} 
 	});
 	$(".masOpciones").click(function(){
@@ -42,7 +42,7 @@ $(document).ready(function(){
 			//$(".opcionBuscar2").show();
 			//$(".opcionBuscar").hide();			
 		}else{
-			$(".filtros").show();
+			$(".filtros").show("fast");
 			//$(".opcionBuscar2").hide();
 			//$(".opcionBuscar").show();
 
@@ -56,7 +56,7 @@ $(document).ready(function(){
 			//$(".opcionBuscar2").show();
 			//$(".opcionBuscar").hide();			
 		}else{
-			$(".itemSesion").show();
+			$(".itemSesion").show("fast");
 			//$(".opcionBuscar2").hide();
 			//$(".opcionBuscar").show();
 

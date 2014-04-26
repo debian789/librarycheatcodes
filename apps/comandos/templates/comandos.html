@@ -122,11 +122,14 @@
 
 {% endblock %}
 {% block opcionBuscador %}
+<div class="principalMenuBuscador ">
 <form action="." method="post" class="menuMovil " >
 	<!-- <span class="tituloBuscar">Buscar</span> -->
 	{{ formularioBusqueda.busqueda }}
 	<article class="opcionBuscar">			
-		<input type="submit" value="Buscar" class=' btnBuscador'>	
+			<button type="submit" value="" class=' btnBuscador' >
+		<span class="icon-search"> </span>		
+	</button>		
 	</article>
 
 	{% csrf_token %}
@@ -134,5 +137,6 @@
 
 <div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
   <a class="close-reveal-modal">&#215;</a>
+</div>
 </div>
 {% endblock %}

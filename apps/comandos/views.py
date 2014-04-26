@@ -34,12 +34,12 @@ def view_comandos(request):
 		formularioBusqueda = frm_comandos_busqueda(request.POST)
 		if formularioBusqueda.is_valid():
 			usuario = User.objects.select_related().get(id=request.user.id)
-			comandos = mdl_comandos.objects.select_related().filter(usuario=usuario)
+			comandos = mdl_comandos.objects.select_related().filter(usuario=usuario).order_by('-id')
 
 			if formularioBusqueda.cleaned_data['busqueda']:
 				comandos = comandos.filter( Q(nombre__icontains=formularioBusqueda.cleaned_data['busqueda'])| Q(comando__icontains=formularioBusqueda.cleaned_data['busqueda'] ))
 
-			paginator = Paginator(comandos,10)
+			paginator = Paginator(comandos,50)
 			page = request.POST.get('page')
 
 			try:
@@ -54,10 +54,10 @@ def view_comandos(request):
 			contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 		else:
 			usuario = User.objects.select_related().get(id=request.user.id)
-			comandos = mdl_comandos.objects.select_related().filter(usuario=usuario)
+			comandos = mdl_comandos.objects.select_related().filter(usuario=usuario).order_by('-id')
 			formularioBusqueda = frm_comandos_busqueda()
 
-			paginator = Paginator(comandos,10)
+			paginator = Paginator(comandos,50)
 
 			page = request.POST.get('page')
 
@@ -77,9 +77,9 @@ def view_comandos(request):
 	else:
 		usuario = User.objects.select_related().get(id=request.user.id)
 		#comandos = []#mdl_comandos.objects.select_related().filter(usuario=usuario)
-		comandos = mdl_comandos.objects.select_related().filter(usuario=usuario)
+		comandos = mdl_comandos.objects.select_related().filter(usuario=usuario).order_by('-id')
 		formularioBusqueda = frm_comandos_busqueda()
-		paginator = Paginator(comandos,10)
+		paginator = Paginator(comandos,50)
 		page = request.GET.get('page')
 
 		try:
@@ -105,12 +105,12 @@ def view_comandos_publicos(request):
 		formularioBusqueda = frm_comandos_busqueda(request.POST)
 		if formularioBusqueda.is_valid():
 			#usuario = User.objects.select_related().get(id=request.user.id)
-			comandos = mdl_comandos.objects.select_related().filter(estado=True)
+			comandos = mdl_comandos.objects.select_related().filter(estado=True).order_by('-id')
 
 			if formularioBusqueda.cleaned_data['busqueda']:
 				comandos = comandos.filter( Q(nombre__icontains=formularioBusqueda.cleaned_data['busqueda'])| Q(comando__icontains=formularioBusqueda.cleaned_data['busqueda'] ))
 
-			paginator = Paginator(comandos,10)
+			paginator = Paginator(comandos,50)
 			page = request.POST.get('page')
 
 			try:
@@ -125,10 +125,10 @@ def view_comandos_publicos(request):
 			contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 		else:
 			#usuario = User.objects.select_related().get(id=request.user.id)
-			comandos = mdl_comandos.objects.select_related().filter(estado=True)
+			comandos = mdl_comandos.objects.select_related().filter(estado=True).order_by('-id')
 			formularioBusqueda = frm_comandos_busqueda()
 
-			paginator = Paginator(comandos,10)
+			paginator = Paginator(comandos,50)
 
 			page = request.POST.get('page')
 
@@ -148,9 +148,9 @@ def view_comandos_publicos(request):
 	else:
 		#usuario = User.objects.select_related().get(id=request.user.id)
 		#comandos = []#mdl_comandos.objects.select_related().filter(usuario=usuario)
-		comandos = mdl_comandos.objects.select_related().filter(estado=True)
+		comandos = mdl_comandos.objects.select_related().filter(estado=True).order_by('-id')
 		formularioBusqueda = frm_comandos_busqueda()
-		paginator = Paginator(comandos,10)
+		paginator = Paginator(comandos,50)
 		page = request.GET.get('page')
 
 		try:

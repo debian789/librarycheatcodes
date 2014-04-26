@@ -32,11 +32,13 @@
 						margin-right 1%
 						display inline-block
 			.principalMenuBuscador
+				text-align right 
 				//border 1px solid red
+				border-radius 5px 5px 5px 5px 
 				display inline-block !important
 				position absolute !important
 				width 25%
-				right 4%
+				right 5%
 				top 0 
 				margin-top  0.6em
 				//background azul_b
@@ -56,29 +58,29 @@
 		padding 0.4em
 	.filtros
 		display none
-		background gris_b 
-		width 400px !important
-		border 2px solid gris_d
+		padding-bottom 1em 
+		border-radius 0 0 5px 5px 
+		//background gris_b 
+		//width 94% !important
+		//border 0.1em solid gris_dd
 		position absolute !important
 		z-index 13431 !important
-		right 5%
-		padding 0.6em
+		right 0%
+		//text-align right
+		//padding 0.6em
 		//width 100%
-
+		.opcionCheckbox 
+			//border 1px solid red 
 		.itemFiltros
-			margin-left 1%
+			//margin-left 1%
 			display inline-block
 			vertical-align  top
-			width 100%
-			text-align left
-			//border 1px solid red
-			.nombreFiltro	
-				//border-radius 10px 0 0 10px 
-				padding-left 2%					
-				width 96%
-			.datosFiltro						
-				width 98%
-
+			//width 100%
+			//text-align left
+			select 
+				//border 1px solid red
+				width 100%
+				//margin auto 
 	.contenido
 		.agregar
 			display none
@@ -127,12 +129,12 @@
 				//width 90%
 
 		.ingresoCodigo
-			width 90%
+			width 100%
 			//border 1px solid red
 			form 
 				.urlLenguaje
 					//border 1px solid red
-					.ingresoUrl
+					.ingresoUrl,.ingresoLenguaje
 						//border 1px solid blue 
 						margin-right 1%
 						width 48% 
@@ -143,17 +145,11 @@
 							margin 0em 0 0em 0 							
 							width 30%
 						input 
-							width 66%
-					.ingresoLenguaje
-						margin-left 1%
-						display inline-block
-						//border 1px solid blue 
-						vertical-align top 
-						width 48%
-						span 
-							margin 0em 0 0em 0 							
-							width 30%
+							width 66% !important							
+							//border 1px solid red !important
 						select 
+							width 66%
+						p 
 							width 66%
 				.ingresoAdjunto
 					text-align left 
@@ -271,6 +267,7 @@
 		width 96%
 		margin 0 auto  0 auto
 	.boton 
+		margin auto 
 		//border 1px solid red
 		width 30% !important
 	.ocultar 

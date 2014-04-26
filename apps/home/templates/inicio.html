@@ -51,20 +51,7 @@
 
 		<a href="{% url 'comandos_publicos' %}"><strong> <<<<  Ver comandos >>>></strong> </a>
 		</div>
-		<div class="ultimosIngresadosItems ">
-			<h3>Ultimos Ingresados</h3>
-			{% if comandos %}
-			{% for comando in comandos %}
-			<div class="itemUltimos">
-				<a href="{% url 'detalle_comando_publico' comando.id %}">
-					{{ comando.nombre|truncatechars:70 }}
-				</a>
-			</div>
-			{% endfor %}
-			{% endif %}
 
-
-		</div>
 	</article>
 	<article class="secciones fondoVerde" data-equalizer-watch>
 		<div class="fondoVerde">			
@@ -72,21 +59,10 @@
 		<p >Aqui pudes consultar los codigos que han compartido las personas que se han registrado </p>
 		<br/>
 
-		<a href="{% url 'codigos_publicos' %}" ><strong><span class="colorRojo"><<<< Ver Codigos >>>></span></strong> </a>
+		<a href="{% url 'codigos_publicos' %}" ><strong><span ><<<< Ver Codigos >>>></span></strong> </a>
 		</div>
 
-		<div class="ultimosIngresadosItems ">
-			<h3>Ultimos Ingresados</h3>
-			{% if codigos %}
-			{% for codigo in codigos %}
-			<div class="itemUltimos">
-				<a href="{% url 'detalle_codigo_publico' codigo.id %}">
-					{{ codigo.titulo|truncatechars:70 }}
-				</a>
-			</div>
-			{% endfor %}
-			{% endif %}
-		</div>
+
 		<!--<a href="{% url 'agregar_codigo'%}">Nuevo<span class=" icon-plus-sign"></span></a> -->
 	</article>
 	<article class="secciones fondoAzul" data-equalizer-watch>
@@ -98,21 +74,8 @@
 		<a href="{% url 'proyectos_publicos' %}"> <strong><<<<  Ver proyectos  >>>></strong></a>
 		</div>
 
-		<div class="ultimosIngresadosItems ">
-			<h3>Ultimos Ingresados</h3>
-
-			{% if proyectos %}
-			{% for proyecto in proyectos %}
-			<div class="itemUltimos">
-				<a href="{% url 'detalle_proyecto_publico' proyecto.id %}">
-					{{ proyecto.nombre|truncatechars:70 }}
-				</a>
-			</div>
-			{% endfor %}
-			{% endif %}
 
 
-		</div>
 	</article>		
 </section>
 {% endblock %}

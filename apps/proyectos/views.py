@@ -69,7 +69,7 @@ def view_proyectos(request):
 		formularioBusqueda = frm_proyectos_busqueda(request.POST)
 		if formularioBusqueda.is_valid():
 			usuario = User.objects.select_related().get(id=request.user.id)
-			proyectos = mdl_proyectos.objects.select_related().filter(usuario=usuario)
+			proyectos = mdl_proyectos.objects.select_related().filter(usuario=usuario).order_by('-id')
 
 			if formularioBusqueda.cleaned_data['busqueda']:
 				proyectos = proyectos.filter( Q(nombre__icontains=formularioBusqueda.cleaned_data['busqueda']) | Q(descripcion__icontains=formularioBusqueda.cleaned_data['busqueda']) )
@@ -118,7 +118,7 @@ def view_proyectos(request):
 			contexto = {"proyectos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 		else:
 			usuario = User.objects.select_related().get(id=request.user.id)
-			proyectos = mdl_proyectos.objects.select_related().filter(usuario=usuario)
+			proyectos = mdl_proyectos.objects.select_related().filter(usuario=usuario).order_by('-id')
 			formularioBusqueda = frm_proyectos_busqueda()
 
 			paginator = Paginator(proyectos,10)
@@ -141,7 +141,7 @@ def view_proyectos(request):
 	#contexto = {"proyectos":proyectos}
 	else:
 		usuario = User.objects.select_related().get(id=request.user.id)
-		proyectos = mdl_proyectos.objects.select_related().filter(usuario=usuario)
+		proyectos = mdl_proyectos.objects.select_related().filter(usuario=usuario).order_by('-id')
 
 
 		formularioBusqueda = frm_proyectos_busqueda()
@@ -166,7 +166,7 @@ def view_proyectos_publicos(request):
 		formularioBusqueda = frm_proyectos_busqueda(request.POST)
 		if formularioBusqueda.is_valid():
 			#usuario = User.objects.select_related().get(id=request.user.id)
-			proyectos = mdl_proyectos.objects.select_related().filter(estado=True)
+			proyectos = mdl_proyectos.objects.select_related().filter(estado=True).order_by('-id')
 
 			if formularioBusqueda.cleaned_data['busqueda']:
 				proyectos = proyectos.filter( Q(nombre__icontains=formularioBusqueda.cleaned_data['busqueda']) | Q(descripcion__icontains=formularioBusqueda.cleaned_data['busqueda']) )
@@ -215,7 +215,7 @@ def view_proyectos_publicos(request):
 			contexto = {"proyectos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 		else:
 			#usuario = User.objects.select_related().get(id=request.user.id)
-			proyectos = mdl_proyectos.objects.select_related().filter(estado=True)
+			proyectos = mdl_proyectos.objects.select_related().filter(estado=True).order_by('-id')
 			formularioBusqueda = frm_proyectos_busqueda()
 
 			paginator = Paginator(proyectos,10)
@@ -238,7 +238,7 @@ def view_proyectos_publicos(request):
 	#contexto = {"proyectos":proyectos}
 	else:
 		#usuario = User.objects.select_related().get(id=request.user.id)
-		proyectos = mdl_proyectos.objects.select_related().filter(estado=True)
+		proyectos = mdl_proyectos.objects.select_related().filter(estado=True).order_by('-id')
 
 
 		formularioBusqueda = frm_proyectos_busqueda()

@@ -12,7 +12,7 @@ def get_env_variable(var_name):
         error_msg = 'Set the {var_name} environment variable'
         raise ImproperlyConfigured(error_msg.format(var_name=var_name))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -40,9 +40,9 @@ DATABASES = {
 
 
 # configuracion para heroku 
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#import dj_database_url
+#DATABASES['default'] =  dj_database_url.config()
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ############################
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -164,9 +164,8 @@ INSTALLED_APPS = (
     'django_extensions',
     'social.apps.django_app.default',
     #'django_ace',
-  #'data_exports',
- # 'pisa',
-
+    #'data_exports',
+    # 'pisa',    
     #'rest_framework',
     #'apps.prueba',
     'apps.proyectos',

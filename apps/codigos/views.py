@@ -51,7 +51,7 @@ def view_codigos(request):
 		formularioBusqueda = frm_codigos_busqueda(request.POST)
 		if formularioBusqueda.is_valid():
 			usuario = User.objects.select_related().get(id=request.user.id)
-			codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
+			codigos = mdl_codigos.objects.select_related().filter(usuario=usuario).order_by('-id')
 			if formularioBusqueda.cleaned_data['busqueda']:
 				codigos = codigos.filter( Q(titulo__icontains=formularioBusqueda.cleaned_data['busqueda']) | Q(descripcion__icontains=formularioBusqueda.cleaned_data['busqueda']) ) 
 			else:
@@ -67,7 +67,7 @@ def view_codigos(request):
 			else:
 				pass
 
-			paginator = Paginator(codigos,10)
+			paginator = Paginator(codigos,20)
 			page = request.POST.get('page')
 			try:
 				contacts = paginator.page(page)
@@ -80,10 +80,10 @@ def view_codigos(request):
 			contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 		else:
 			usuario = User.objects.select_related().get(id=request.user.id)
-			codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
+			codigos = mdl_codigos.objects.select_related().filter(usuario=usuario).order_by('-id')
 			formularioBusqueda = frm_codigos_busqueda()
 
-			paginator = Paginator(codigos,10)
+			paginator = Paginator(codigos,20)
 
 			page = request.POST.get('page')
 
@@ -105,9 +105,9 @@ def view_codigos(request):
 
 		usuario = User.objects.select_related().get(id=request.user.id)
 		#para implementar formulario.media en la plantilla html para el plugin de django-ace#
-		codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
+		codigos = mdl_codigos.objects.select_related().filter(usuario=usuario).order_by('-id')
 		formularioBusqueda = frm_codigos_busqueda()
-		paginator = Paginator(codigos,10)
+		paginator = Paginator(codigos,20)
 		page = request.GET.get('page')
 		try:
 			contacts = paginator.page(page)
@@ -126,7 +126,7 @@ def view_codigos_publicos(request):
 		formularioBusqueda = frm_codigos_busqueda(request.POST)
 		if formularioBusqueda.is_valid():
 			#usuario = User.objects.select_related().get(id=request.user.id)
-			codigos = mdl_codigos.objects.select_related().filter(estado=True)
+			codigos = mdl_codigos.objects.select_related().filter(estado=True).order_by('-id')
 
 			if formularioBusqueda.cleaned_data['busqueda']:
 				codigos = codigos.filter( Q(titulo__icontains=formularioBusqueda.cleaned_data['busqueda']) | Q(descripcion__icontains=formularioBusqueda.cleaned_data['busqueda']) ) 
@@ -146,7 +146,7 @@ def view_codigos_publicos(request):
 				pass
 
 
-			paginator = Paginator(codigos,10)
+			paginator = Paginator(codigos,20)
 			page = request.POST.get('page')
 
 			try:
@@ -161,10 +161,10 @@ def view_codigos_publicos(request):
 			contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 		else:
 			#usuario = User.objects.select_related().get(id=request.user.id)
-			codigos = mdl_codigos.objects.select_related().filter(estado=True)
+			codigos = mdl_codigos.objects.select_related().filter(estado=True).order_by('-id')
 			formularioBusqueda = frm_codigos_busqueda()
 
-			paginator = Paginator(codigos,10)
+			paginator = Paginator(codigos,20)
 
 			page = request.POST.get('page')
 
@@ -184,9 +184,9 @@ def view_codigos_publicos(request):
 	#contexto = {"codigos":codigos}
 	else:
 		#usuario = User.objects.select_related().get(id=request.user.id)
-		codigos = mdl_codigos.objects.select_related().filter(estado=True)
+		codigos = mdl_codigos.objects.select_related().filter(estado=True).order_by('-id')
 		formularioBusqueda = frm_codigos_busqueda()
-		paginator = Paginator(codigos,10)
+		paginator = Paginator(codigos,20)
 		page = request.GET.get('page')
 		try:
 			contacts = paginator.page(page)

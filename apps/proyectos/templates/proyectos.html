@@ -157,46 +157,38 @@
 	{% endif %}
 </article>
 {% endblock %}
+
+
 {% block opcionBuscador %}
+<div class="principalMenuBuscador ">
+
 	<form action="." method="post" class="menuMovil " >
 		<!-- <span class="tituloBuscar">Buscar</span> -->
 		{{ formularioBusqueda.busqueda }}
 		<article class="opcionBuscar">			
-				<input type="submit" value="Buscar" class=' btnBuscador'>			
+				<button type="submit" value="" class=' btnBuscador' >
+		<span class="icon-search"> </span>		
+	</button>		
 		</article>
 		<span class="masOpciones icon-settings"></span>	
 
 		<div class="filtros">
 			<div class="itemFiltros">
-				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
-				<div class="datosFiltro"><span>
-					{{ formularioBusqueda.lenguaje }}
-
-				</span></div>
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->				
+					{{ formularioBusqueda.lenguaje }}				
 			</div>
 			<div class="itemFiltros">
-				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
-				<div class="datosFiltro"><span>
-					{{ formularioBusqueda.Nivel }}
-
-				</span></div>
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->				
+					{{ formularioBusqueda.Nivel }}				
 			</div>
 			<div class="itemFiltros">
-				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
-				<div class="datosFiltro"><span>
-					{{ formularioBusqueda.os }}
-
-				</span></div>
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->				
+					{{ formularioBusqueda.os }}				
 			</div>
 			<div class="itemFiltros">
-				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->
-				<div class="datosFiltro"><span>
+				<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->			
 					{{ formularioBusqueda.interfaz }}
-
-				</span></div>
-			</div>
-
-	
+			</div>	
 			<div class="opcionCheckbox">
 				{{ formularioBusqueda.adjunto }}
 				<label for="id_adjunto">Archivo Adjunto</label>
@@ -211,5 +203,6 @@
 
 	<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
   <a class="close-reveal-modal">&#215;</a>
+</div>
 </div>
 {% endblock %}
