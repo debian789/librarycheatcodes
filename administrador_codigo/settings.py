@@ -27,7 +27,12 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+
         'NAME': 'biblioteca',                      # Or path to database file if using sqlite3.
+
+        #'NAME': 'app-dev',                       # Or path to database file if using sqlite3.
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+
         #'USER': 'user',  #.
         'USER': 'root',
         'PASSWORD': '',                  # Not used with sqlite3.
@@ -39,7 +44,7 @@ DATABASES = {
 
 
 
-# configuracion para heroku 
+# configuracion para heroku
 #import dj_database_url
 #DATABASES['default'] =  dj_database_url.config()
 #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -165,7 +170,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     #'django_ace',
     #'data_exports',
-    # 'pisa',    
+    # 'pisa',
     #'rest_framework',
     #'apps.prueba',
     'apps.proyectos',
@@ -205,7 +210,7 @@ LOGGING = {
 }
 
 
-#permite publicar variables globales en los template 
+#permite publicar variables globales en los template
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
@@ -228,7 +233,7 @@ SOCIAL_AUTH_TWITTER_SECRET = 'OCIAL_AUTH_TWITTER_SECRET'
 #SOCIAL_AUTH_TWITTER_KEY = get_env_variable('SOCIAL_AUTH_TWITTER_KEY')
 #SOCIAL_AUTH_TWITTER_SECRET = get_env_variable('SOCIAL_AUTH_TWITTER_SECRET')
 
-##Google 
+##Google
 
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'SOCIAL_AUTH_GOOGLE_OAUTH2_KEY'
