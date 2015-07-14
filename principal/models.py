@@ -1,4 +1,4 @@
-from apps.codigos.models import *
+from codigos.models import *
 from django.contrib.auth.models import User 
 
 

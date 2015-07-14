@@ -1,9 +1,9 @@
 from django.shortcuts import render_to_response,get_object_or_404,render,redirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
-from apps.codigos.models import *
-from apps.comandos.models import *
-from apps.proyectos.models import *
+from codigos.models import *
+from comandos.models import *
+from proyectos.models import *
 
 from models import *
 from forms import *

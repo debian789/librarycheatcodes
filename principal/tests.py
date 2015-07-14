@@ -6,8 +6,8 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
-from apps.codigos.models import mdl_codigos
-from apps.elementos_comunes.models import mdl_sistema_operativo
+from codigos.models import mdl_codigos
+from elementos_comunes.models import mdl_sistema_operativo
 
 class SimpleTest(TestCase):
    def registrar(self):
