@@ -1,5 +1,5 @@
 from django.forms import ModelForm, Textarea 
-from apps.elementos_comunes.models import *
+from elementos_comunes.models import *
 
 from django import forms
 from models import *

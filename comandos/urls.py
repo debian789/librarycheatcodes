@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-urlpatterns = patterns ('apps.comandos.views',
+urlpatterns = patterns ('comandos.views',
 	url(r'^comandos/$','view_comandos', name = 'comandos'),
 	url(r'^comandos-publicos/$','view_comandos_publicos', name = 'comandos_publicos'),
 	url(r'^comando/agregar/$','view_agregar_comando', name = 'agregar_comando'),

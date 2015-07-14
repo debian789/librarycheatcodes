@@ -1,6 +1,6 @@
 from django.forms import ModelForm, Textarea
-from apps.codigos.models import mdl_codigos
-from apps.elementos_comunes.models import *
+from codigos.models import mdl_codigos
+from elementos_comunes.models import *
 from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
 #from django_ace import AceWidget

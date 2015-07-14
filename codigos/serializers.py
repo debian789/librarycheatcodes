@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from apps.codigos.models import mdl_codigos
-from apps.elementos_comunes.models import mdl_lenguaje, mdl_sistema_operativo
+from codigos.models import mdl_codigos
+from elementos_comunes.models import mdl_lenguaje, mdl_sistema_operativo
 
 class codigosSerializer(serializers.HyperlinkedModelSerializer ):					   
 	class Meta:

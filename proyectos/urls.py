@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-urlpatterns = patterns ('apps.proyectos.views',
+urlpatterns = patterns ('proyectos.views',
 	url(r'^proyectos/$','view_proyectos', name = 'proyectos'),
 																	
 	url(r'^proyectos-publicos/$','view_proyectos_publicos', name = 'proyectos_publicos'),

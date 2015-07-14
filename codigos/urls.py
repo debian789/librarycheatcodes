@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 
-urlpatterns = patterns ('apps.codigos.views',
+urlpatterns = patterns ('codigos.views',
 	url(r'^codigos/$','view_codigos', name = 'codigos'),
 	url(r'^codigos-publicos/$','view_codigos_publicos',name='codigos_publicos'),
 	url(r'^codigo/agregar/$','view_agregar_codigo', name = 'agregar_codigo'),

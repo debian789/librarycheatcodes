@@ -1,6 +1,6 @@
 from django.contrib import admin
 from models import mdl_codigos
-from apps.elementos_comunes.models  import mdl_lenguaje,mdl_sistema_operativo
+from elementos_comunes.models  import mdl_lenguaje,mdl_sistema_operativo
 from actions import export_as_csv
 
 ## crea el listado de opciones en el administrado !!! 

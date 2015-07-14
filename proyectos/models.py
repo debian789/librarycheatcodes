@@ -1,7 +1,7 @@
 #encoding:utf-8
 from django.db import models
 from django.contrib.auth.models import User
-from apps.elementos_comunes.models import *
+from elementos_comunes.models import mdl_interfaz_aplicacion,mdl_sistema_operativo,mdl_nivel_desarrollo,mdl_lenguaje
 
 class mdl_proyectos(models.Model):
 	nombre 		 = models.CharField(max_length=500,verbose_name="Nombre")

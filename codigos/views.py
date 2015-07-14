@@ -1,8 +1,8 @@
 from django.shortcuts import render_to_response,get_object_or_404,render,Http404,redirect
 from django.template import RequestContext
 from django.db.models import Q
-from apps.codigos.models import *
-from apps.codigos.forms import *
+from codigos.models import *
+from codigos.forms import *
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 from django.contrib.auth.models import User
@@ -331,9 +331,9 @@ def view_codigo_simple_publico(request,id_codigo):
 # 		return 'codigos.html'
 
 
-from apps.codigos.serializers import  codigosSerializer,lenguajeSerializer,soSerializer
+from codigos.serializers import  codigosSerializer,lenguajeSerializer,soSerializer
 from rest_framework import viewsets
-from apps.elementos_comunes.models import *
+from elementos_comunes.models import *
 
 
 class CodigosViewSet(viewsets.ModelViewSet):

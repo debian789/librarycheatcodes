@@ -1,7 +1,7 @@
 #encoding:utf-8
 from django.db import models
 from django.contrib.auth.models import User
-from apps.elementos_comunes.models import *
+from elementos_comunes.models import *
 
 class mdl_codigos(models.Model):
 	titulo 		 = models.CharField(max_length=500)
