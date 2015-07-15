@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response,get_object_or_404,render,redirect
 from django.template import RequestContext
 from django.db.models import Q
-from models import *
+from models import mdl_comandos,comando_mdl
 from forms import *
 from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 from django.contrib.auth.models import User
@@ -201,10 +201,14 @@ def view_comando_simple(request,id_comando):
 	usuario = User.objects.select_related().get(id=request.user.id)
 	try: 
 		comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
+
+		intrucciones = comando_mdl.objects.filter(comando=comando)
+
+
 	except mdl_comandos.DoesNotExist:
 		return redirect('inicio')
 
-	contexto = {"comando":comando}		
+	contexto = {"comando":comando,"intrucciones":intrucciones}		
 	return render(request,"comandos_detalles.html",contexto)
 
 def view_comando_simple_publico(request,id_comando):

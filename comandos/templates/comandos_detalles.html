@@ -52,7 +52,17 @@
 	<div class="subTitulo2"><span>Comando</span></div>
 	<div class="descripcionInformacion">
 		<div class="descripcionDetalladaCompleta">
-			 <pre><code class="hljs bash"> {{ comando.comando }}</code></pre>
+			 <pre><code class="hljs bash"> 
+		{% for intruccion in intrucciones %}
+			 {{ intruccion }}
+
+		
+		{% endfor %}
+			 </code></pre>
+
+
+
+
 		</div>
 	</div>
 </article>

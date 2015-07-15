@@ -8,7 +8,7 @@ class frm_comandos(ModelForm):
 
 	def __init__(self,*args,**kwargs):
 		super(frm_comandos,self).__init__(*args,**kwargs)
-		self.fields.keyOrder = ["nombre","descripcion","comando"]
+		self.fields.keyOrder = ["nombre","descripcion"]#"comando"]
 
 
 	class Meta:
@@ -16,14 +16,14 @@ class frm_comandos(ModelForm):
 			fields = (
 				"nombre",
 				"descripcion",
-				"comando",
+				#"comando",
 				"estado",
 				)
 
 			widgets = {
 			'nombre':forms.TextInput(attrs={'required':'','title':'Se necesita un Nombre'}),
 			'descripcion':forms.Textarea(attrs={'required':'','title':'Se necesita una Descripcion '}),
-			'comando':forms.Textarea(attrs={'required':'','title':'Se necesita un Comando  '}),
+			#'comando':forms.Textarea(attrs={'required':'','title':'Se necesita un Comando  '}),
 			#'comando':AceWidget(mode='python',width="100%",theme='twilight',attrs={'required':'','title':'Se necesita un Comando  '}),
 			}
 
