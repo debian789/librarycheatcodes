@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load pygmentify %}
+
 {% block titulo%} Detalle del codigo  {% endblock %}
 {% block contenido %}
 {% if codigo %}
@@ -73,7 +73,7 @@
 	</div>
 	<div > <p></p> </div>
 	<div class="subTitulo2"><span>Codigo Fuente</span></div>
-	<div class="descripcionCodigo"> {{ codigoFuente|pygmentify_inline }}</div>
+	<div class="descripcionCodigo"> {{ codigoFuente |safe}}</div>
 </article>
 
 <div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>

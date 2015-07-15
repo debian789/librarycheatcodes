@@ -282,7 +282,7 @@ def view_codigo_simple(request,id_codigo):
 	except mdl_codigos.DoesNotExist:
 		return redirect('inicio')
 
-	codigoFuente = '<pre  lang="'+ escape(codigo.lenguaje) +'">' + escape(codigo.codigo) + '</pre>'
+	codigoFuente = '<pre  lang="'+ escape(codigo.lenguaje) +'"><code>' + escape(codigo.codigo) + '</code></pre>'
 	contexto = {"codigo":codigo,"codigoFuente":codigoFuente}	
 	return render(request,"codigo_detalles.html",contexto)
 	# if request.method == 'POST':
@@ -308,7 +308,7 @@ def view_codigo_simple_publico(request,id_codigo):
 	except mdl_codigos.DoesNotExist:
 		return redirect('inicio')
 
-	codigoFuente = '<pre  lang="'+ escape(codigo.lenguaje) +'">' + escape(codigo.codigo) + '</pre>'
+	codigoFuente = '<pre  lang="'+ escape(codigo.lenguaje) +'"><code>' + escape(codigo.codigo) + '</code></pre>'
 	contexto = {"codigo":codigo,"codigoFuente":codigoFuente}	
 	return render(request,"codigo_detalles.html",contexto)
 
