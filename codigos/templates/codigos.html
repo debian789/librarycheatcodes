@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 {% block titulo%} codigos de codigo {% endblock %}
 {% block contenido %}
+<ul class="breadcrumbs">
+ 	 <li><a href="{% url 'inicio' %} ">Home</a></li>
+	{% if user.is_authenticated %}
+		<li class="current">	<a href="{% url 'codigos' %}" class="activado"> Mis codigos  </a>  </li>
+	{% else %}
+		<li class="current"><a href="{% url 'codigos_publicos' %}" class="activado"> Comandos </a>  </li>
+	{% endif %}	 
+</ul>
 
-<div class="subNavegacion">
-	<a href="{% url 'inicio' %} " > Home </a> >
-{% if user.is_authenticated %}
-	<a href="{% url 'codigos' %}" class="activado">Mis Codigos </a>  
-{% else %}
-	<a href="{% url 'codigos_publicos' %}" class="activado"> Codigos </a>  
-{% endif %}
-</div>
+
+
+
+
+
 
 
 

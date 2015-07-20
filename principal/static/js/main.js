@@ -70,7 +70,7 @@ $(document).ready(function(){
 
 
 	$('#itemCollection').masonry({
-		columnWidth: 100,
+		columnWidth: 200,
 		itemSelector: '.itemIngresadosCodigos',
 		position: 'absolute',
 		containerStyle: null,

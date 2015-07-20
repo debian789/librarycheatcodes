@@ -43,21 +43,22 @@
 	</div>
 	<h1>{{ comando.nombre}}</h1>
 	<div class="subTitulo2">
-		<span>Descripción</span>
+		
 		<div class="opcionesVisualizacion"></div>
 	</div>
-		<div class="descripcionDetalladaCompleta2">
-			<p>{{ comando.descripcion }}</p>
-		</div>	
+	
 	<div class="subTitulo2"><span>Comando</span></div>
 	<div class="descripcionInformacion">
 		<div class="descripcionDetalladaCompleta">
 			 <pre><code class="hljs bash"> 
+		<table>
+			<tr><th>Instruccion</th><th>Descripcion</th></tr>
 		{% for intruccion in intrucciones %}
-			 {{ intruccion }}
-
+			<tr><td> {{ intruccion.instruccion }}</td><td>{{ intruccion.descripcion}}</td></tr>
+		
 		
 		{% endfor %}
+		</table>
 			 </code></pre>
 
 

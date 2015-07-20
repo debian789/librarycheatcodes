@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response,get_object_or_404,render,redirect
 from django.template import RequestContext
 from django.db.models import Q
-from models import mdl_comandos,comando_mdl
+from models import mdl_comandos,instruccion_mdl
 from forms import *
 from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 from django.contrib.auth.models import User
@@ -202,7 +202,8 @@ def view_comando_simple(request,id_comando):
 	try: 
 		comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
 
-		intrucciones = comando_mdl.objects.filter(comando=comando)
+		intrucciones = instruccion_mdl.objects.filter(comando=comando)
+		print intrucciones
 
 
 	except mdl_comandos.DoesNotExist:
