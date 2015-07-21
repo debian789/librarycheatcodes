@@ -48,7 +48,7 @@
 	
 
 <div class="large-8 column"><h2>Codigos</h2></div>
-<div class="large-4 column"> 
+<div class="large-4 column text-right"> 
 	{% if user.is_authenticated %}
 
 				<a href="{% url 'agregar_codigo'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal >	
@@ -161,12 +161,19 @@
 
 	{% endif %}
 </article>
+
+<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
 {% endblock %}
 
 {% block opcionBuscador %}
+
 <div class="principalMenuBuscador ">
 <form action="." method="post" class="menuMovil " >
-	<!-- <span class="tituloBuscar">Buscar</span> -->
+	
 	{{ formularioBusqueda.busqueda }}
 	<article class="opcionBuscar">		
 	<button type="submit" value="" class=' btnBuscador' >
@@ -174,10 +181,14 @@
 	</button>	
 		
 	</article>
+
+
 	<span class="masOpciones icon-settings"></span>
+
+
 	<div class="filtros">
 		<div class="itemFiltros">
-			<!-- <div class="nombreFiltro"><span>Lenguaje de Progrmacion</span></div> -->	
+			
 				{{ formularioBusqueda.lenguaje }}
 		</div>
 		<div class="opcionCheckbox">
@@ -187,9 +198,7 @@
 	</div>
 	{% csrf_token %}
 </form>
-
-<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
 </div>
 {% endblock %}	
+
+
