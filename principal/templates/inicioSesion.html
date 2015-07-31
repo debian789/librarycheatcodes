@@ -5,134 +5,103 @@
 
 
 
-<section id="opcionesInicio" data-equalizer>
-	<h2> Bienvenido  	{{ user}} </h2>
-</br>
-</br>
-
-<article class="secciones fondoRojoE" data-equalizer-watch>
-	<div class="fondoRojo">
-
-		<h2>Comandos</h2>
-		<div class="botonCrear   ">
-			<a href="{% url 'agregar_comando'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal>	
-				Nuevo <span class=" icon-plus-sign"></span>
-			</a>
-		</div>
-	</br>
-</br>
-
-
-<!-- <a href="">  Ver comandos <span class=" icon-caret-right"></span> </a> -->
-
-</div>
-
-
-<div class="ultimosIngresadosItems ">
-	<h3>Ultimos Ingresados</h3>
-	{% if comandos %}
-	{% for comando in comandos %}
-	<div class="itemUltimos">
-		<a href="{% url 'detalle_comando' comando.id %}">
-			{{ comando.nombre|truncatechars:70 }}
-		</a>
+<section class="slide row">
+	<div class="large-6 column show-for-large-up">
+		<figure><img src="{% static "img/hombre.jpg" %}" alt=""></figure>
+	
 	</div>
-	{% endfor %}
-	{% endif %}
+	<div class="large-6  column ">
+		<br>
 
 
-</div>
+		<div class=" large-12 medium-6 column informacionSitio">
+			<h3 class="text-center">Bienvenido {{ user }} </h3>
 
 
-
-</article>
-<article class="secciones fondoVerdeE" data-equalizer-watch>
-	<div class="fondoVerde">			
-		<h2>Codigos</h2>
-		<div class="botonCrear2   ">
-			<a href="{% url 'agregar_codigo'%}"  class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal >	
-				Nuevo <span class=" icon-plus-sign"></span>
-			</a>
-		</div>
-	</br>
-</br>
-
-
-<!-- <a href="" >  Ver Codigos <span class=" icon-caret-right"></span> </a> -->
-</div>
-
-<div class="ultimosIngresadosItems ">
-	<h3>Ultimos Ingresados</h3>
-	{% if codigos %}
-	{% for codigo in codigos %}
-	<div class="itemUltimos">
-		<a href="{% url 'detalle_codigo' codigo.id %}">
-			{{ codigo.titulo|truncatechars:70 }}
-		</a>
-	</div>
-	{% endfor %}
-	{% endif %}
-</div>
-<!--<a href="{% url 'agregar_codigo'%}">Nuevo<span class=" icon-plus-sign"></span></a> -->
-</article>
-<article class="secciones fondoAzulE" data-equalizer-watch>
-	<div class="fondoAzul">
-
-		<h2>Proyectos</h2>
-		<div class="botonCrear   ">
-			<a href="{% url 'agregar_proyecto'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal>	
-				Nuevo <span class=" icon-plus-sign"></span>
-			</a>
-		</div>
-	</br>
-</br>
-
-
-
-
-<!-- 	<a href="">  ver comandos <span class=" icon-caret-right"></span> </a> -->
-</div>
-<div class="ultimosIngresadosItems ">
-
-	<h3>Ultimos Ingresados</h3>
-
-	{% if proyectos %}
-	{% for proyecto in proyectos %}
-	<div class="itemUltimos">
-		<a href="{% url 'detalle_proyecto' proyecto.id %}">
-			{{ proyecto.nombre|truncatechars:70 }}
-		</a>
-	</div>
-	{% endfor %}
-	{% endif %}
-
-
-
-</div>
-</article>	
-
-
-<!-- 	<article class="secciones fondoNaranjaE" data-equalizer-watch>
-		<div class="fondoNaranja">
+			<br>
 			
+			<br>
+			<div class="large-12 column">
+				<div class="large-8 small-10 column"><h4><a href="{% url 'codigos_publicos' %}">Mis codigos</a></h4> </div>
+				<div class="large-4 small-2 column "><h4 class="text-right"><a href="{% url 'agregar_codigo'%}"  class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal > <span class="icon-file-text"></span> <span class="show-for-large-up">Nuevo</span></a></h4></div>
+			</div>
+			<hr>
 
-			<h2>Favoritos</h2>
-			<a href="">  ver comandos <span class=" icon-caret-right"></span> </a>
-		</div>
+			<div class="large-12 column">
+				<div class="large-8 small-10 column"><h4><a href="{% url 'comandos_publicos' %}">Mis comandos</a></h4> </div>
+				<div class="large-4 small-2 column "><h4 class="text-right"><a href="{% url 'agregar_comando'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal > <span class="icon-file-text"></span><span class="show-for-large-up"> Nuevo</span></a></h4></div>
+			</div>
+			<hr>
+
+
+			<div class="large-12 column">
+				<div class="large-8 small-10  column"><h4><a href="{% url 'proyectos_publicos' %}">Mis proyectos</a></h4> </div>
+				<div class="large-4 small-2 column "><h4 class="text-right"><a href="{% url 'agregar_proyecto'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal  > <span class="icon-file-text"></span><span class="show-for-large-up"> Nuevo</span></a></h4></div>
+			</div>
+			<hr>
+
+</div>
 
 
 
-		<div class="ultimosIngresadosItems ">
-			<h3>Ultimos Ingresados</h3>
-			<div class="itemUltimos">Lorem ipsum dolor dfssdf asd asdfa sdf sit amet, consectetur adipisicing elit.</div>
-			<div class="itemUltimos">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-			<div class="itemUltimos">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-			<div class="itemUltimos">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-		</div>
-	</article>	 -->
+
+		<article class="text-center large-12 medium-6 column">
+					
+			<h4>Mira lo que otras personas ha compartido en</h4>
+			<br>
+			<div class="large-4 medium-4 small-12 column"><h4><a href="{% url 'comandos_publicos' %}">Comandos</a></h4></div>
+			<div class="large-4 medium-4 small-12 column"><h4><a href="{% url 'codigos_publicos' %}" >Codigos</a></h4></div>
+			<div class="large-4 medium-4 small-12 column"><h4><a href="{% url 'proyectos_publicos' %}">Proyectos</a></h4></div>
+		</article>
+
+	</div>
+
+
+
 
 
 </section>
+
+<br/>
+<br/>
+<br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
   <a class="close-reveal-modal">&#215;</a>
 </div>

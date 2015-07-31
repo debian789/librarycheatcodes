@@ -24,7 +24,7 @@
 	<header>
 		<nav class="top-bar" data-topbar="">
 			<ul class="title-area">
- 				<li class="name"><h1><a href="#">Library Cheat Codes</a></h1></li>
+ 				<li class="name"><h1><a href="{% url 'inicio' %}">Library Cheat Codes</a></h1></li>
 				<li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
 			</ul>
 			
@@ -39,12 +39,14 @@
 					{% if user.is_authenticated %}
 						<li><a href="{% url 'salir' %}" ><span class="icon-exit"></span> </a></li>
 					{% else %}
-
+					<!--
 					<a href="{% url 'social:begin' 'twitter' %}" class="inicioTwitter" > <span class="icon-twitter"></span> ENTRA CON TWITTER</a>
 
-					<a href="{% url 'social:begin' 'google' %}" class="inicioGoogle" > <span class="icon-google-plus2"></span> ENTRA CON GOOGLE+</a>
+					<a href="{% url 'social:begin' 'google' %}" class="inicioGoogle" > <span class="icon-google-plus2"></span> ENTRA CON GOOGLE+</a>-->
 
-						<li> <a href="{% url 'inicio' %}" class="icon-home inicio  "></a> </li>
+
+
+						<!--<li> <a href="{% url 'inicio' %}" class="icon-home inicio  ">home</a> </li>-->
 					{% endif %}	
 				</ul>
 			</section>
@@ -80,9 +82,9 @@
 
 
 	<footer style="background:#262626;" class="text-center">
-	<br>
-	<br>
-	<br>
+		<br>
+		<br>
+		<br>
 		<a href="https://github.com/debian789/BibliotecaCodigo" target="_black">Mas informacion del proyecto <span class=" icon-github3"></span> <span> debian789@gmail.com</span></a> 
 		<br>
 		<br>

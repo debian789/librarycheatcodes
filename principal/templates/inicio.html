@@ -3,80 +3,48 @@
 {% block titulo %} Inicio {% endblock %}
 {% block contenido %}
 
-<section class="slide">
-	<figure>
-		<img src="{% static "img/hombre.jpg" %}" alt="">
-	</figure>
-	<div class="informacionSitio">
-		<h1>Comprueba que es muy facil ganar tiempo de desarrollo </h1>
+<section class="slide row">
+	<div class="large-6 column">
+		<figure><img src="{% static "img/hombre.jpg" %}" alt=""></figure>
+	
+	</div>
+	<div class="large-6 column">
+		<br>
+		<div class="informacionSitio">
+		<h3 class="text-center">Comprueba que es muy fácil ganar tiempo de desarrollo </h3>
 		<ul>
 			<li>Almacena comandos, codigos y proyectos que sirvan como referencia</li>
-			<li>Consulta de forma sencilla la informacion ingresada</li>
-			<li>Comparte tu informacion si lo deceas </li>		
-			<!-- <li>Administra la visualizacion de la informacion ingresada </li> -->	
-		<!-- 	<li>No pierdas tiempo buscando lo que creaste y te funciono </li> -->
+			<li>Consulta de forma sencilla la información ingresada</li>
+			<li>Comparte tu información si lo deceas </li>		
 		</ul>
-		<h2>Inicia sesion con tu red social favorita 
-			<span>
-				
-<!-- 		<a href=""><span class="icon-facebook2 colorFacebook"></span></a>
-		<a href=""><span class="icon-google-plus2 colorGooglePlus"></span></a> -->
-		
-		<a href="{% url 'social:begin' 'twitter' %}" class="inicioTwitter" ><span class="icon-twitter3 colorTwitter"></span></a>
+		<!--
+			<h2>Inicia sesion con tu red social favorita </h2>			
+			<a href="{% url 'social:begin' 'twitter' %}" class="inicioTwitter" ><span class="icon-twitter3 colorTwitter"></span></a>
+			<a href="{% url 'social:begin' 'google' %}" class="inicioFacebook" ><span class="icon-google-plus2 colorGooglePlus"></span></a>		
+		-->	
+		</div>
 
-<!-- 			<a href="{% url 'social:begin' 'facebook' %}" class="inicioFacebook" ><span class="icon-twitter3 colorTwitter"></span></a>
-
- -->
-			<a href="{% url 'social:begin' 'google' %}" class="inicioFacebook" ><span class="icon-google-plus2 colorGooglePlus"></span></a>
-
-
+		<!-- <li>Administra la visualizacion de la informacion ingresada </li> -->	
+		<!-- <li>No pierdas tiempo buscando lo que creaste y te funciono </li> -->
+		<!-- <a href=""><span class="icon-facebook2 colorFacebook"></span></a>
+				<a href=""><span class="icon-google-plus2 colorGooglePlus"></span></a> -->
+		<!-- 			<a href="{% url 'social:begin' 'facebook' %}" class="inicioFacebook" ><span class="icon-twitter3 colorTwitter"></span></a> -->
 
 
-					</div>	
-		
-	</h2>
-			</span>
+		<article class="text-center">
+			<br>
+			<h3>Mira lo que otras personas ha compartido en</h3>
+			<br>
+			<div class="large-4 column"><h4><a href="{% url 'comandos_publicos' %}">Comandos</a></h4></div>
+			<div class="large-4 column"><h4><a href="{% url 'codigos_publicos' %}" >Codigos</a></h4></div>
+			<div class="large-4 column"><h4><a href="{% url 'proyectos_publicos' %}">Proyectos</a></h4></div>
+		</article>
+
 	</div>
 </section>
-</br>
-</br>
 
-
-<section  data-equalizer>
-	<article class="secciones fondoRojo " data-equalizer-watch>
-		<div class="fondoRojo">			
-		<h2>Comandos</h2>
-		<p>Aqui pudes consultar los comandos que han compartido las personas que se han registrado </p>
-		<br/>
-
-		<a href="{% url 'comandos_publicos' %}"><strong> <<<<  Ver comandos >>>></strong> </a>
-		</div>
-
-	</article>
-	<article class="secciones fondoVerde" data-equalizer-watch>
-		<div class="fondoVerde">			
-		<h2>Codigos</h2>
-		<p >Aqui pudes consultar los codigos que han compartido las personas que se han registrado </p>
-		<br/>
-
-		<a href="{% url 'codigos_publicos' %}" ><strong><span ><<<< Ver Codigos >>>></span></strong> </a>
-		</div>
-
-
-		<!--<a href="{% url 'agregar_codigo'%}">Nuevo<span class=" icon-plus-sign"></span></a> -->
-	</article>
-	<article class="secciones fondoAzul" data-equalizer-watch>
-		<div class="fondoAzul">
-			
-		<h2>Proyectos</h2>
-		<p>Aqui pudes consultar los proyectos que han compartido las personas que se han registrado </p>
-		<br/>
-		<a href="{% url 'proyectos_publicos' %}"> <strong><<<<  Ver proyectos  >>>></strong></a>
-		</div>
-
-
-
-	</article>		
-</section>
+<br/>
+<br/>
+<br/>
 {% endblock %}
 
