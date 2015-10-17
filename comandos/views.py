@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response,get_object_or_404,render,redirec
 from django.template import RequestContext
 from django.db.models import Q
 from models import mdl_comandos,instruccion_mdl
-from forms import *
+from forms import frm_comandos_items,frm_comandos_busqueda,frm_comandos
 from django.core.paginator import Paginator,EmptyPage,InvalidPage,PageNotAnInteger
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -18,13 +18,44 @@ def view_agregar_comando(request):
 
 	if request.method == "POST":
 		contenidoForm = frm_comandos(usuario,request.POST,request.FILES)
+		print(request.POST)
 		if contenidoForm.is_valid:
 			contenidoForm.save()
+			idRegistro = contenidoForm.save().id 
+			if contenidoForm.save().id : 
+				#print (idRegistro)
+				idComando = mdl_comandos.objects.get(id=idRegistro)
+				itemcomandos = frm_comandos_items(idComando,request.POST,request.FILES)
+				if itemcomandos.is_valid: 
+
+					arrayInstruccion = request.POST.getlist('instruccion[]')
+					arrayDescripcion = request.POST.getlist('descripcion[]')
+					##print(itemcomandos)
+					ls_comandos_items = []
+
+					##print('--------    ---- ')
+					#print(request.POST.getlist)
+					#print('--------    ---- ')
+					#print(dir(request.POST))
+					#print(arrayInstruccion)
+
+					if arrayInstruccion:
+						for x in arrayInstruccion:
+							ls_comandos_items.append( instruccion_mdl(comando=idComando,instruccion=x,descripcion=arrayDescripcion[0])  )
+							if len(arrayDescripcion) > 1:
+								del arrayDescripcion[0]
+				
+						for datos in ls_comandos_items:
+							datos.save()
+
 			return redirect('comandos')
 
 
 	formulario = frm_comandos(usuario)
-	contexto = {'formulario':formulario,'mensaje':'Nuevo Comando '}
+	#formulario = ""
+	#print(frm_comandos_items())
+	comandos_items = frm_comandos_items(1)
+	contexto = {'formulario':formulario,'mensaje':'Nuevo Comando ','comandos_items':comandos_items}
 
 	return render(request,'comandos_ingresar.html',contexto)
 

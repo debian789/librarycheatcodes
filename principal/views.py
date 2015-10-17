@@ -47,31 +47,31 @@ def view_inicio(request):
 
 
 
-# def view_ingresar(request):
-# 	mensaje=""
-# 	if request.user.is_authenticated():
-# 		return redirect('inicio_sesion')
-# 		#return HttpResponseRedirect('/inicioSesion')
+def view_ingresar(request):
+	mensaje=""
+	if request.user.is_authenticated():
+		return redirect('inicio_sesion')
+		#return HttpResponseRedirect('/inicioSesion')
 
-# 	else:
-# 		if request.method == "POST":
-# 			form = loginForm(request.POST)
-# 			if form.is_valid():
-# 				username= form.cleaned_data['userName']
-# 				password = form.cleaned_data['password']
-# 				usuario = authenticate(username=username,password=password)
-# 				if usuario is not None and usuario.is_active:
-# 					login(request,usuario)
-# 					return redirect('comandos')
-# 					#return HttpResponseRedirect('/inicioSesion')
+	else:
+		if request.method == "POST":
+			form = loginForm(request.POST)
+			if form.is_valid():
+				username= form.cleaned_data['userName']
+				password = form.cleaned_data['password']
+				usuario = authenticate(username=username,password=password)
+				if usuario is not None and usuario.is_active:
+					login(request,usuario)
+					return redirect('comandos')
+					#return HttpResponseRedirect('/inicioSesion')
 
-# 				else:
-# 					mensaje = "Usuario o Password incorrectos "
+				else:
+					mensaje = "Usuario o Password incorrectos "
 
-# 		form = loginForm()
-# 		contexto = {'form':form,'mensaje':mensaje}
-# 		print mensaje
-# 		return render(request,'login.html',contexto)
+		form = loginForm()
+		contexto = {'form':form,'mensaje':mensaje}
+		print mensaje
+		return render(request,'login.html',contexto)
 
 
 

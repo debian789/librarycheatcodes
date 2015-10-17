@@ -27,20 +27,20 @@
 
 
 
-{% if comandos %}
 
 
 <div class="row">
 	
 
 <div class="large-8 column"><h2>Comandos</h2></div>
-<div class="large-4 column">Generar chuleta - Nuevo</div>
+<div class="large-4 column">Generar chuleta - <a href={% url 'agregar_comando'%}  data-reveal-id="modalAdministracion" class="opcionNuevo" data-reveal>Nuevo</a></div>
 
 
 <hr>
 <div id="itemCollection" class="js-masonry large-12 small-12">
 
 
+{% if comandos %}
 
 
 
@@ -106,7 +106,9 @@
 
 
 
-
+<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 
 
 {% endblock %}

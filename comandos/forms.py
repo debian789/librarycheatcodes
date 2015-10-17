@@ -1,14 +1,14 @@
 from django.forms import ModelForm, Textarea 
 
 from django import forms
-from models import *
+from models import instruccion_mdl,mdl_comandos
 from django_ace import AceWidget
 
 class frm_comandos(ModelForm):
 
 	def __init__(self,*args,**kwargs):
 		super(frm_comandos,self).__init__(*args,**kwargs)
-		self.fields.keyOrder = ["nombre","descripcion"]#"comando"]
+		self.fields.keyOrder = ["nombre",]#,"descripcion"]#"comando"]
 
 
 	class Meta:
@@ -34,6 +34,27 @@ class frm_comandos(ModelForm):
 	def save(self, commit=True,*args,**kwargs):
 		comando_ingresado = super(frm_comandos, self).save(commit=False, *args, **kwargs)
 		comando_ingresado.usuario = self.usuario
+
+		if commit: 
+			comando_ingresado.save()
+
+		return comando_ingresado
+
+
+class frm_comandos_items(ModelForm):
+	class Meta:
+		model = instruccion_mdl
+		fields = ("instruccion","descripcion",)
+
+
+
+	def __init__(self, comandoId, *args, **kwargs):
+		super(frm_comandos_items, self).__init__(*args, **kwargs)
+		self.comando = comandoId
+
+	def save(self, commit=True,*args,**kwargs):
+		comando_ingresado = super(frm_comandos_items, self).save(commit=False, *args, **kwargs)
+		comando_ingresado.comando = self.comando
 
 		if commit: 
 			comando_ingresado.save()

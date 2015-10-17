@@ -1,8 +1,10 @@
 
 {% block title %}{{ mensaje }} {% endblock%}
-{% block extraHead %} {{ formulario.media }} {% endblock%}
+{% block extraHead %} {{ formulario.media }} 
+ {{ comandos_items.media }} {% endblock%}
 {% block contenido %}
   <a class="close-reveal-modal">&#215;</a>
+
 
 <section class="contenido">
 
@@ -12,23 +14,52 @@
 	</div>
 	<form action="{{ request.get_full_path  }}" method="post" enctype="multipart/form-data" >
 		<div class="ingresoTitulo">
-			<span>Nombre</span>
+			
 			{{ formulario.nombre }}
 		</div>
 		<div class="descripcionCodigo">
-			<div class="ingresoDescripcion">
-				<span>Descripcion</span>
-				{{ formulario.descripcion }}
-			</div>
-			<div class="ingresoCodigoFuente">
-				<span>Comando</span>
-				{{ formulario.comando }}
-			</div>
 			<div class="ingresoCodigoFuente">
 				<span>Compartir el comando en la plataforma </span>
 				{{ formulario.estado }}
 			</div>
+
 		</div>
+
+			<div class="descripcionCodigo">
+			<div class="ingresoCodigoFuente">
+				<span>Comando</span>
+				<input id="id_instruccion" maxlength="500" name="instruccion[]" type="text">	
+			</div>
+
+		</div>
+
+					<div class="descripcionCodigo">
+			<div class="ingresoCodigoFuente">
+				<span>descripcion</span>
+					<textarea cols="40" id="id_descripcion" name="descripcion[]" rows="10"></textarea>
+			</div>
+
+
+
+				<div class="descripcionCodigo">
+			<div class="ingresoCodigoFuente">
+				<span>Comando</span>
+				<input id="id_instruccion" maxlength="500" name="instruccion[]" type="text">	
+			</div>
+
+		</div>
+		
+					<div class="descripcionCodigo">
+			<div class="ingresoCodigoFuente">
+				<span>descripcion</span>
+					<textarea cols="40" id="id_descripcion" name="descripcion[]" rows="10"></textarea>
+			</div>
+
+
+
+
+		</div>
+		
 		{% csrf_token %}
 		<hr/>
 		<div class="guardarCodigo">
