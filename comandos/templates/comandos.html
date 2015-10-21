@@ -11,73 +11,53 @@
 	{% endif %}	 
 </ul>
 
-
-
-
 <article class="resultadoBusqueda">
-	
-	<!--
-	{% if user.is_authenticated %}	
-		<h3>Mis Comandos  </h3>
-		<a href="{% url 'agregar_comando'%}"  class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal>Nuevo </a>
-	{% else %}	
-		<h3>Comandos publicados </h3>
-	{% endif %}
--->
-
-
-
-
-
-<div class="row">
-	
-
-<div class="large-8 column"><h2>Comandos</h2></div>
-<div class="large-4 column">Generar chuleta - <a href={% url 'agregar_comando'%}  data-reveal-id="modalAdministracion" class="opcionNuevo" data-reveal>Nuevo</a></div>
-
-
-<hr>
-<div id="itemCollection" class="js-masonry large-12 small-12">
-
-
-{% if comandos %}
-
-
-
-	{% for comando in comandos %}
-		<div class="itemIngresadosCodigos " style="margin-left:1%;width:48%;border:1px solid blue;">
-			{% if user.is_authenticated %}
-				<div style="border:1px solid red;">
-					<h4><a href="{% url 'detalle_comando' comando.id %}">{{ comando.nombre|truncatechars:100|capfirst }}</a></h4>
-					<a href="{% url 'editar_comando' comando.id %}" class=" icon-pencil2 colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal>editar</a>
-					<a href="{% url 'eliminar_comando' comando.id %}" class=" icon-remove2 colorRojo lineaDerecha" ></a>
-				</div>
-
-
-
-
-
-				
-			{% else %}
-				<h4><a href="{% url 'detalle_comando_publico' comando.id %}">{{ comando.nombre|truncatechars:100|capfirst }}</a></h4>
-				<div class="favoritoCodigo"></div>			
+	<div class="row">
+		<div class="large-8 column"><h2>Comandos</h2></div>
+		<div class="large-4 column">Generar chuleta - 
+			<a href={% url 'agregar_comando'%}  data-reveal-id="modalAdministracion" class="opcionNuevo" data-reveal>Nuevo</a>
+		</div>
+		<hr>
+		<div id="itemCollection" class="js-masonry large-12 small-12">
+		{% if comandos %}
+		<div id="itemCollection" class="large-12">
+			{% for comando in comandos %}		
+			<div class=" "  >
+				{% if user.is_authenticated %}
+					<div class=" " >
+						<div class="large-8 column">
+							<h4>
+								<a href="{% url 'detalle_comando' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
+							</h4>
+						</div>
+						<div class="large-4 column"  style="border-left:1px solid #ccc  ">
+					
+					
+					
+							<div class="large-12 small-12 column"> 
+								<span class="icon-calendar"></span> {{comando.fechaIngreso }}
+							</div>
+						</div>
+					</div>
+					<hr>
+				{% else %}
+					<h4>
+						<a href="{% url 'detalle_comando_publico' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
+					</h4>				
+					<p >{{ comando.descripcion|truncatechars:140 }}  </p>
+					<hr/>
+					<div class="edicioncomando">
+						{% if comando.archivo %}
+							<a href="{{MEDIA_URL}}/{{comando.archivo}} " class=" icon-download2 lineaDerecha colorVerde" target="blank"></a>
+						{% else %}
+							<!-- <a href="" class=" icon-download2 colorVerde"></a> -->
+						{% endif %}
+					</div>
 			{% endif %}
 		</div>
-
-
-
-
-
-	{% endfor %}	
-
-
-
-
-
-
-
+		{% endfor %}
+	</div>
 </div>
-
 </div>
 
 
