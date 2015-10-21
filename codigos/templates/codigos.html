@@ -6,7 +6,7 @@
 	{% if user.is_authenticated %}
 		<li class="current">	<a href="{% url 'codigos' %}" class="activado icon-embed2"> Mis codigos  </a>  </li>
 	{% else %}
-		<li class="current"><a href="{% url 'codigos_publicos' %}" class="activado"> Comandos </a>  </li>
+		<li class="current"><a href="{% url 'codigos_publicos' %}" class="activado"> Codigos </a>  </li>
 	{% endif %}	 
 </ul>
 
