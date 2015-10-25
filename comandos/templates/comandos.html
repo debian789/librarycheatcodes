@@ -7,16 +7,26 @@
 	{% if user.is_authenticated %}
 		<li class="current">	<a href="{% url 'comandos' %}" class="activado"> Mis Comandos  </a>  </li>
 	{% else %}
-		<li class="current"><a href="{% url 'comandos_publicos' %}" class="activado"> Comandos </a>  </li>
+		<li class="current"><a href="{% url 'comandos_publicos' %}" class="activado"> Comandos publicos </a>  </li>
 	{% endif %}	 
 </ul>
 
 <article class="resultadoBusqueda">
 	<div class="row">
+
+
+	{% if user.is_authenticated %}
 		<div class="large-8 column"><h2>Comandos</h2></div>
 		<div class="large-4 column">Generar chuleta - 
 			<a href={% url 'agregar_comando'%}  data-reveal-id="modalAdministracion" class="opcionNuevo" data-reveal>Nuevo</a>
 		</div>
+	{% else %}
+		<div class="large-8 column"><h2>Comandos publicos </h2></div>
+		<!--<div class="large-4 column">Generar chuleta - 
+		</div>-->
+	{% endif %}	 
+
+
 		<hr>
 		<div id="itemCollection" class="js-masonry large-12 small-12">
 		{% if comandos %}
@@ -82,6 +92,10 @@
 
 
 {% endif %}
+
+<br>
+<br>
+<br>
 </article>
 
 

@@ -234,7 +234,7 @@ def view_comando_simple(request,id_comando):
 		comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
 
 		intrucciones = instruccion_mdl.objects.filter(comando=comando)
-		print intrucciones
+		#print intrucciones
 
 
 	except mdl_comandos.DoesNotExist:
@@ -246,11 +246,12 @@ def view_comando_simple(request,id_comando):
 def view_comando_simple_publico(request,id_comando):
 	try: 
 		comando = mdl_comandos.objects.select_related().filter(estado=True).get(id=id_comando)
+		intrucciones = instruccion_mdl.objects.filter(comando=comando)		
 	except mdl_comandos.DoesNotExist:
 		return redirect('inicio')
 	#usuario = User.objects.select_related().get(id=request.user.id)
 	#comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
-	contexto = {"comando":comando}		
+	contexto = {"comando":comando,"intrucciones":intrucciones}		
 	return render(request,"comandos_detalles.html",contexto)
 
 

@@ -7,7 +7,7 @@
 	{% if user.is_authenticated %}
 		<li class="current">	<a href="{% url 'comandos' %}" class=" icon-embed2"> Mis comandos  </a>  </li>
 	{% else %}
-		<li class="current"><a href="{% url 'comandos_publicos' %}" class=""> Comandos </a>  </li>
+		<li class="current"><a href="{% url 'comandos_publicos' %}" class=""> Comandos Publicos </a>  </li>
 	{% endif %}	 
 		<li class="current">	<a href="#" class="activado icon-embed2"> Detalles del comando   </a>  </li>
 </ul>
@@ -69,5 +69,15 @@
 <div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
   <a class="close-reveal-modal">&#215;</a>
 </div>
+
+
+
+
 {% endif%}
+
+
+<br>
+<br>
+<br>
+<br>
 {% endblock %}
