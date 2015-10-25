@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="google-site-verification" content="frHqvbBW-FgsYxY3UXoCw2Dcyp5T7S-RaabvtmzlF-M" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>{% block title %}Biblioteca de  Referencia {% endblock %}</title>
+	<title>{% block title %}Library Cheat Codes {% endblock %}</title>
 	<!--<link rel="stylesheet" href="{% static "css/estilo.css"%}"/>-->
 	<link rel="stylesheet" href="{% static "foundation/css/foundation.min.css"%}"/>
 	<link rel="stylesheet" href="{% static "icomoon/style.css"%}"/>
@@ -37,8 +37,10 @@
 					{% include 'menu.html'%}
 					
 					{% if user.is_authenticated %}
-						<li><a href="{% url 'salir' %}" ><span class="icon-exit"></span> </a></li>
+						<li><a href="{% url 'salir' %}" ><span class="icon-exit"></span> Salir</a></li>
 					{% else %}
+						<li><a href="{% url 'ingresar' %}" ><span class="icon-enter"></span> Ingresar </a></li>
+					
 					<!--
 					<a href="{% url 'social:begin' 'twitter' %}" class="inicioTwitter" > <span class="icon-twitter"></span> ENTRA CON TWITTER</a>
 
@@ -85,7 +87,7 @@
 		<br>
 		<br>
 		<br>
-		<a href="https://github.com/debian789/BibliotecaCodigo" target="_black">Mas informacion del proyecto <span class=" icon-github3"></span> <span> debian789@gmail.com</span></a> 
+		<a href="https://github.com/debian789/librarycheatcodes" target="_black">Mas informacion del proyecto <span class=" icon-github3"></span> <span> debian789@gmail.com</span></a> 
 		<br>
 		<br>
 		<br>
