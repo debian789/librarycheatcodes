@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block titulo%} codigos de codigo {% endblock %}
+{% block contenido %}
+<ul class="breadcrumbs">
+   <li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
+    <li class="current"><a href="{% url 'codigos_publicos' %}" class="activado"> Codigos publicos </a>  </li>
+</ul>
+<article class="resultadoBusqueda">
+  <div class="row">
+    <div class="large-8 column"><h2>Codigos publicos</h2></div>
+      <hr>
+      {% if codigos %}
+        <div id="itemCollection" class="large-12">
+          {% for codigo in codigos %}   
+            <div class=" "  >
+              <div class=" " >
+                <div class="large-8 column">
+                  <h4>
+                    <a href="{% url 'detalle_codigo_publico' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a>
+                  </h4>
+                  <p >{{ codigo.descripcion|truncatechars:140 }}  </p>        
+                </div>
+                <div class="large-4 column"  style="border-left:1px solid #ccc  ">
+                  <div class="large-6 small-6 column">
+                    <span class="icon-leaf">
+                    {{codigo.lenguaje }}</span>
+                  </div>
+                  <div class="large-1 small-1 column">            
+                    {% if codigo.archivo %}
+                      <a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-attachment " target="blank"></a>
+                    {% else %} 
+                      <span class="icon-attachment"></span>
+                      
+                    {% endif %}
+                  </div>
+                  <div class="large-1 small-1 column">
+                    <a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-text">  </a>
+                  </div>
+                  <br>
+                  <div class="large-12 small-12 column"> 
+                    <span class="icon-calendar"></span>
+                    {{codigo.fechaIngreso }}
+                  </div>
+                </div>
+              </div>
+              <hr>    
+    </div>
+    {% endfor %}
+  </div>
+
+  </div>
+  {% if not porFormulario %}
+  <div class="text-center">
+  <br>
+  <br>
+    <span class="step-links">
+      {% if codigos.has_previous %}
+      <a href="?page={{ codigos.previous_page_number }}">Anterior</a>
+      {% endif %}
+      <span class="current">
+        Pagina {{ codigos.number }} de {{ codigos.paginator.num_pages }}.
+      </span>
+      {% if codigos.has_next %}
+      <a href="?page={{ codigos.next_page_number }}">Siguiente</a>
+      {% endif %}
+    </span>
+  </div>
+  {% endif %}
+
+
+
+
+
+
+  {% endif %}
+</article>
+
+<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
+{% endblock %}
+
+{% block opcionBuscador %}
+
+<div class="principalMenuBuscador ">
+<form action="." method="post" class="menuMovil " >
+  
+  {{ formularioBusqueda.busqueda }}
+  <article class="opcionBuscar">    
+  <button type="submit" value="" class=' btnBuscador' >
+    <span class="icon-search"> </span>    
+  </button> 
+    
+  </article>
+
+
+  <span class="masOpciones icon-settings"></span>
+
+
+  <div class="filtros">
+    <div class="itemFiltros">
+      
+        {{ formularioBusqueda.lenguaje }}
+    </div>
+    <div class="opcionCheckbox">
+      {{ formularioBusqueda.adjunto }}
+      <label for="id_adjunto">Archivo Adjunto</label>
+    </div>
+  </div>
+  {% csrf_token %}
+</form>
+</div>
+{% endblock %}  
+
+

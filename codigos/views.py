@@ -141,7 +141,7 @@ def view_codigos_publicos(request):
 			if formularioBusqueda.cleaned_data['adjunto']:
 				codigos = codigos.filter(archivo__isnull=False).exclude(archivo__exact='')
 				#codigos = codigos.filter(archivo__isnull=formularioBusqueda.cleaned_data['adjunto'])
-				print "busqueda por adjunto "
+				#print "busqueda por adjunto "
 			else:
 				pass
 
@@ -179,7 +179,7 @@ def view_codigos_publicos(request):
 			contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 
 		
-		return render(request,"codigos.html",contexto)
+		return render(request,"codigos_publicos.html",contexto)
 
 	#contexto = {"codigos":codigos}
 	else:
@@ -196,7 +196,7 @@ def view_codigos_publicos(request):
 			contacts = paginator.page(paginator.num_pages)
 
 		contexto = {"codigos":contacts,"formularioBusqueda":formularioBusqueda}		
-		return render(request,"codigos.html",contexto)
+		return render(request,"codigos_publicos.html",contexto)
 
 
 
@@ -310,7 +310,7 @@ def view_codigo_simple_publico(request,id_codigo):
 
 	codigoFuente = '<pre  lang="'+ escape(codigo.lenguaje) +'"><code>' + escape(codigo.codigo) + '</code></pre>'
 	contexto = {"codigo":codigo,"codigoFuente":codigoFuente}	
-	return render(request,"codigo_detalles.html",contexto)
+	return render(request,"codigo_detalles_publicos.html",contexto)
 
 
 
