@@ -16,20 +16,20 @@
     {% if comandos %}
     <div id="itemCollection" class="large-12">
       {% for comando in comandos %}   
-      <div class=" "  >
-  
-          <h4>
-            <a href="{% url 'detalle_comando_publico' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
-          </h4>       
-          <p >{{ comando.descripcion|truncatechars:140 }}  </p>
-          <hr/>
-          <div class="edicioncomando">
-            {% if comando.archivo %}
-              <a href="{{MEDIA_URL}}/{{comando.archivo}} " class=" icon-download2 lineaDerecha colorVerde" target="blank"></a>
-            {% else %}
-              <!-- <a href="" class=" icon-download2 colorVerde"></a> -->
-            {% endif %}
+        <div class=" "  >
+        <div class=" " >
+          <div class="large-8 column">
+            <h4>
+              <a href="{% url 'detalle_comando' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
+            </h4>
           </div>
+          <div class="large-4 column"  style="border-left:1px solid #ccc  ">
+            <div class="large-12 small-12 column"> 
+              <span class="icon-calendar"></span> {{comando.fechaIngreso }}
+            </div>
+          </div>
+        </div>
+        <hr>
     </div>
     {% endfor %}
   </div>

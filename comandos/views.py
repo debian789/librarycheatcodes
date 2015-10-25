@@ -18,7 +18,7 @@ def view_agregar_comando(request):
 
 	if request.method == "POST":
 		contenidoForm = frm_comandos(usuario,request.POST,request.FILES)
-		print(request.POST)
+		#print(request.POST)
 		if contenidoForm.is_valid:
 			contenidoForm.save()
 			idRegistro = contenidoForm.save().id 
