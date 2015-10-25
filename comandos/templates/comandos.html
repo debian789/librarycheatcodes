@@ -1,69 +1,35 @@
 {% extends "base.html" %}
 {% block titulo%} comandos de comando {% endblock %}
 {% block contenido %}
-
 <ul class="breadcrumbs">
- 	 <li><a href="{% url 'inicio' %} ">Home</a></li>
-	{% if user.is_authenticated %}
-		<li class="current">	<a href="{% url 'comandos' %}" class="activado"> Mis Comandos  </a>  </li>
-	{% else %}
-		<li class="current"><a href="{% url 'comandos_publicos' %}" class="activado"> Comandos publicos </a>  </li>
-	{% endif %}	 
+	<li><a href="{% url 'inicio' %} ">Home</a></li>
+	<li class="current">	<a href="{% url 'comandos' %}" class="activado"> Mis Comandos  </a>  </li>
 </ul>
-
 <article class="resultadoBusqueda">
 	<div class="row">
-
-
-	{% if user.is_authenticated %}
 		<div class="large-8 column"><h2>Comandos</h2></div>
 		<div class="large-4 column">Generar chuleta - 
 			<a href={% url 'agregar_comando'%}  data-reveal-id="modalAdministracion" class="opcionNuevo" data-reveal>Nuevo</a>
 		</div>
-	{% else %}
-		<div class="large-8 column"><h2>Comandos publicos </h2></div>
-		<!--<div class="large-4 column">Generar chuleta - 
-		</div>-->
-	{% endif %}	 
-
-
 		<hr>
 		<div id="itemCollection" class="js-masonry large-12 small-12">
 		{% if comandos %}
 		<div id="itemCollection" class="large-12">
 			{% for comando in comandos %}		
 			<div class=" "  >
-				{% if user.is_authenticated %}
-					<div class=" " >
-						<div class="large-8 column">
-							<h4>
-								<a href="{% url 'detalle_comando' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
-							</h4>
-						</div>
-						<div class="large-4 column"  style="border-left:1px solid #ccc  ">
-					
-					
-					
-							<div class="large-12 small-12 column"> 
-								<span class="icon-calendar"></span> {{comando.fechaIngreso }}
-							</div>
+				<div class=" " >
+					<div class="large-8 column">
+						<h4>
+							<a href="{% url 'detalle_comando' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
+						</h4>
+					</div>
+					<div class="large-4 column"  style="border-left:1px solid #ccc  ">
+						<div class="large-12 small-12 column"> 
+							<span class="icon-calendar"></span> {{comando.fechaIngreso }}
 						</div>
 					</div>
-					<hr>
-				{% else %}
-					<h4>
-						<a href="{% url 'detalle_comando_publico' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
-					</h4>				
-					<p >{{ comando.descripcion|truncatechars:140 }}  </p>
-					<hr/>
-					<div class="edicioncomando">
-						{% if comando.archivo %}
-							<a href="{{MEDIA_URL}}/{{comando.archivo}} " class=" icon-download2 lineaDerecha colorVerde" target="blank"></a>
-						{% else %}
-							<!-- <a href="" class=" icon-download2 colorVerde"></a> -->
-						{% endif %}
-					</div>
-			{% endif %}
+				</div>
+				<hr>
 		</div>
 		{% endfor %}
 	</div>

@@ -174,7 +174,7 @@ def view_comandos_publicos(request):
 			contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 
 		
-		return render(request,"comandos.html",contexto)
+		return render(request,"comandos_publicos.html",contexto)
 
 	else:
 		#usuario = User.objects.select_related().get(id=request.user.id)
@@ -192,7 +192,7 @@ def view_comandos_publicos(request):
 			contacts = paginator.page(paginator.num_pages)
 
 		contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda}		
-		return render(request,"comandos.html",contexto)
+		return render(request,"comandos_publicos.html",contexto)
 
 
 
@@ -252,7 +252,7 @@ def view_comando_simple_publico(request,id_comando):
 	#usuario = User.objects.select_related().get(id=request.user.id)
 	#comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
 	contexto = {"comando":comando,"intrucciones":intrucciones}		
-	return render(request,"comandos_detalles.html",contexto)
+	return render(request,"comandos_detalles_publico.html",contexto)
 
 
 @login_required

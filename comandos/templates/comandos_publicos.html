@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block titulo%} comandos de comando {% endblock %}
+{% block contenido %}
+
+<ul class="breadcrumbs">
+  <li><a href="{% url 'inicio' %} ">Home</a></li>
+  <li class="current"><a href="{% url 'comandos_publicos' %}" class="activado"> Comandos publicos </a>  </li>
+</ul>
+<article class="resultadoBusqueda">
+  <div class="row">
+    <div class="large-8 column"><h2>Comandos publicos </h2></div>
+    <!--<div class="large-4 column">Generar chuleta - 
+    </div>-->
+    <hr>
+    <div id="itemCollection" class="js-masonry large-12 small-12">
+    {% if comandos %}
+    <div id="itemCollection" class="large-12">
+      {% for comando in comandos %}   
+      <div class=" "  >
+  
+          <h4>
+            <a href="{% url 'detalle_comando_publico' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
+          </h4>       
+          <p >{{ comando.descripcion|truncatechars:140 }}  </p>
+          <hr/>
+          <div class="edicioncomando">
+            {% if comando.archivo %}
+              <a href="{{MEDIA_URL}}/{{comando.archivo}} " class=" icon-download2 lineaDerecha colorVerde" target="blank"></a>
+            {% else %}
+              <!-- <a href="" class=" icon-download2 colorVerde"></a> -->
+            {% endif %}
+          </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+
+
+{% if not porFormulario %}
+<div class="pagination">
+  <span class="step-links">
+    {% if comandos.has_previous %}
+    <a href="?page={{ comandos.previous_page_number }}">Anterior</a>
+    {% endif %}
+    <span class="current">
+      Pagina {{ comandos.number }} de {{ comandos.paginator.num_pages }}.
+    </span>
+    {% if comandos.has_next %}
+    <a href="?page={{ comandos.next_page_number }}">Siguiente</a>
+    {% endif %}
+  </span>
+</div>
+{% endif %}
+
+
+
+
+{% endif %}
+
+<br>
+<br>
+<br>
+</article>
+
+
+
+<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
+{% endblock %}
+
+
+
+<!--
+{% block opcionBuscador %}
+
+<div class="principalMenuBuscador ">
+<form action="." method="post" class="menuMovil " >
+  
+  {{ formularioBusqueda.busqueda }}
+  <article class="opcionBuscar">      
+      <button type="submit" value="" class=' btnBuscador' >
+    <span class="icon-search"> </span>    
+  </button>   
+  </article>
+
+  {% csrf_token %}
+</form>
+
+<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+</div> 
+{% endblock %}
+
+-->
