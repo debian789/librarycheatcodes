@@ -2,136 +2,53 @@
 {% block titulo%} codigos de codigo {% endblock %}
 {% block contenido %}
 <ul class="breadcrumbs">
- 	 <li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
-	{% if user.is_authenticated %}
-		<li class="current">	<a href="{% url 'codigos' %}" class="activado icon-embed2"> Mis codigos  </a>  </li>
-	{% else %}
-		<li class="current"><a href="{% url 'codigos_publicos' %}" class="activado"> Codigos </a>  </li>
-	{% endif %}	 
+ 	<li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
+	<li class="current">	<a href="{% url 'codigos' %}" class="activado icon-embed2"> Mis codigos  </a>  </li>
 </ul>
 
 
 
-
-
-
-
-
-
-
 <article class="resultadoBusqueda">
-
-
-
-<!--
-
-	<div class="subTituloBarra ">
-	{% if user.is_authenticated %}
-		<h3>Mis Codigos </h3>
-		<div class="opcionesVisualizacion">
-			<div class="botonCrear   ">
-				<a href="{% url 'agregar_codigo'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal >	
-					Nuevo <span class=" icon-plus-sign"></span>
-				</a>
-			</div>
-		</div>
-		{% else %}
-		<h3>Codigos publicados </h3>
-		<div class="opcionesVisualizacion">
-		</div>
-	{% endif %}
-	</div>	
-
--->
-
 <div class="row">
-	
+	<div class="large-8 column"><h2>Codigos</h2></div>
+	<div class="large-4 column text-right"> 
+		<a href="{% url 'agregar_codigo'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal >	
+		 <span class="icon-file-text2"></span> Nuevo</a>
+	</div>
 
-<div class="large-8 column"><h2>Codigos</h2></div>
-<div class="large-4 column text-right"> 
-	{% if user.is_authenticated %}
-
-				<a href="{% url 'agregar_codigo'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal >	
-					 <span class="icon-file-text2"></span> Nuevo</a>
-
-		{% else %}
-
-	{% endif %}
-
-
-</div>
-
-<hr>
+	<hr>
 
 	{% if codigos %}
 	<div id="itemCollection" class="large-12">
 		{% for codigo in codigos %}		
-		<div class=" "  >
-			{% if user.is_authenticated %}
-
-			<div class=" " >
-				<div class="large-8 column">
-					<h4>
-					<a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a>
-					</h4>
-					<p >{{ codigo.descripcion|truncatechars:140 }}  </p>
-				
-				</div>
-				<div class="large-4 column"  style="border-left:1px solid #ccc  ">
-
-		<div class="large-6 small-6 column"> <span class="icon-leaf">{{codigo.lenguaje }}</span></div>
-	
-
-
-					
-
-
-		<div class="large-1 small-1 column">
-			<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil2 opcionEditar" data-reveal-id="modalAdministracion" data-reveal ></a>
-		</div>
-
-		<div class="large-1 small-1 column">						
-			{% if codigo.archivo %}
-				<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-attachment " target="blank"></a>
-			{% else %} 
-				<span class="icon-attachment"></span>
-				
-			{% endif %}
-		</div>
-
-		<div class="large-1 small-1 column"><a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-text">	</a></div>
-		<div class="large-1 small-1 column">
-			<a href="{% url 'eliminar_codigo' codigo.id %}" class=" icon-bin2" ></a>
+			<div class=" "  >
+					<div class="large-8 column">
+						<h4>
+							<a href="{% url 'detalle_codigo' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a>
+						</h4>
+						<p >{{ codigo.descripcion|truncatechars:140 }}  </p>					
+					</div>
+					<div class="large-4 column"  style="border-left:1px solid #ccc  ">
+						<div class="large-6 small-6 column"> <span class="icon-leaf">{{codigo.lenguaje }}</span></div>
+						<div class="large-1 small-1 column">
+							<a href="{% url 'editar_codigo' codigo.id %}" class=" icon-pencil2 opcionEditar" data-reveal-id="modalAdministracion" data-reveal ></a>
+						</div>
+						<div class="large-1 small-1 column">						
+							{% if codigo.archivo %}
+								<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-attachment " target="blank"></a>
+							{% else %} 
+								<span class="icon-attachment"></span>
+							{% endif %}
+						</div>
+						<div class="large-1 small-1 column"><a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-text">	</a></div>
+						<div class="large-1 small-1 column">
+							<a href="{% url 'eliminar_codigo' codigo.id %}" class=" icon-bin2" ></a>
+						</div>
+						<br>
+						<div class="large-12 small-12 column"> <span class="icon-calendar"></span>{{codigo.fechaIngreso }}</div>
+					</div>
 			</div>
-		<br>
-		<div class="large-12 small-12 column"> <span class="icon-calendar"></span>{{codigo.fechaIngreso }}</div>
-
-
-
-			</div>
-			</div>
-
-			<hr>
-			{% else %}
-			<h4>
-				<a href="{% url 'detalle_codigo_publico' codigo.id  %}">{{ codigo.titulo|truncatechars:140|capfirst }}</a>
-			</h4>
-		
-			<p >{{ codigo.descripcion|truncatechars:140 }}  </p>
-			<hr/>
-			<div class="informacionLenguaje">		
-				<div>{{ codigo.lenguaje }}</div>
-			</div>
-			<div class="edicionCodigo">
-				<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-file-pdf colorRojo"></a>
-				{% if codigo.archivo %}
-				<a href="{{MEDIA_URL}}/{{codigo.archivo}} " class=" icon-download2 lineaDerecha colorVerde" target="blank"></a>
-				{% else %}
-				<!-- <a href="" class=" icon-download2 colorVerde"></a> -->
-				{% endif %}
-			</div>
-			{% endif %}
-		</div>
+			<hr>	
 		{% endfor %}
 	</div>
 
@@ -156,8 +73,18 @@
 
 
 
-
-
+{% else%}
+<br>
+<br>
+<br>
+<br>
+<h3 class="text-center">No se encontraron codigos</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 	{% endif %}
 </article>

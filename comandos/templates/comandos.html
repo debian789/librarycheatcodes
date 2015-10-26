@@ -2,74 +2,71 @@
 {% block titulo%} comandos de comando {% endblock %}
 {% block contenido %}
 <ul class="breadcrumbs">
-	<li><a href="{% url 'inicio' %} ">Home</a></li>
-	<li class="current">	<a href="{% url 'comandos' %}" class="activado"> Mis Comandos  </a>  </li>
+ 	<li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
+	<li class="current">	<a href="{% url 'comandos' %}" class="activado icon-embed2"> Mis comandos  </a>  </li>
 </ul>
-<article class="resultadoBusqueda">
-	<div class="row">
-		<div class="large-8 column"><h2>Comandos</h2></div>
-		<div class="large-4 column">Generar chuleta - 
-			<a href={% url 'agregar_comando'%}  data-reveal-id="modalAdministracion" class="opcionNuevo" data-reveal>Nuevo</a>
-		</div>
-		<hr>
-		<div id="itemCollection" class="js-masonry large-12 small-12">
+<div class="row">
+	<div class="large-8 column"><h2>Comandos</h2></div>
+	<div class="large-4 column">Generar chuleta - 
+		<a href={% url 'agregar_comando'%}  data-reveal-id="modalAdministracion" class="opcionNuevo" data-reveal>Nuevo</a>
+	</div>
+	<hr>
+	<div id="" >
 		{% if comandos %}
-		<div id="itemCollection" class="large-12">
-			{% for comando in comandos %}		
-			<div class=" "  >
-				<div class=" " >
-					<div class="large-8 column">
-						<h4>
-							<a href="{% url 'detalle_comando' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
-						</h4>
-					</div>
-					<div class="large-4 column"  style="border-left:1px solid #ccc  ">
-						<div class="large-12 small-12 column"> 
-							<span class="icon-calendar"></span> {{comando.fechaIngreso }}
+			<div id="itemCollection" class="large-12">
+				{% for comando in comandos %}						
+						<div class="large-8 column">
+							<h4>
+								<a href="{% url 'detalle_comando' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
+							</h4>
 						</div>
-					</div>
+						<div class="large-4 column"  style="border-left:1px solid #ccc  ">
+							<div class="large-12 small-12 column"> 
+								<span class="icon-calendar"></span> {{comando.fechaIngreso }}
+							</div>
+						</div>
+					<hr>
+				{% endfor %}
+			</div>
+
+			{% if not porFormulario %}
+				<div class="pagination">
+					<span class="step-links">
+						{% if comandos.has_previous %}
+						<a href="?page={{ comandos.previous_page_number }}">Anterior</a>
+						{% endif %}
+						<span class="current">
+							Pagina {{ comandos.number }} de {{ comandos.paginator.num_pages }}.
+						</span>
+						{% if comandos.has_next %}
+						<a href="?page={{ comandos.next_page_number }}">Siguiente</a>
+						{% endif %}
+					</span>
 				</div>
-				<hr>
-		</div>
-		{% endfor %}
+			{% endif %}
+		{% else %}
+			<br>
+			<br>
+			<br>
+			<br>
+			<h3 class="text-center">No se encontraron comandos</h3>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		{% endif %}
 	</div>
 </div>
-</div>
-
-
-
-{% if not porFormulario %}
-<div class="pagination">
-	<span class="step-links">
-		{% if comandos.has_previous %}
-		<a href="?page={{ comandos.previous_page_number }}">Anterior</a>
-		{% endif %}
-		<span class="current">
-			Pagina {{ comandos.number }} de {{ comandos.paginator.num_pages }}.
-		</span>
-		{% if comandos.has_next %}
-		<a href="?page={{ comandos.next_page_number }}">Siguiente</a>
-		{% endif %}
-	</span>
-</div>
-{% endif %}
-
-
-
-
-{% endif %}
 
 <br>
 <br>
 <br>
-</article>
-
-
 
 <div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
   <a class="close-reveal-modal">&#215;</a>
 </div>
-
 
 {% endblock %}
 
