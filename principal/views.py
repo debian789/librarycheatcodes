@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from codigos.models import *
 from comandos.models import *
 from proyectos.models import *
-
+from principal.forms import RegistroPersonaForm
 from models import *
 from forms import *
 #from django.http import HttpResponseRedirect
@@ -17,12 +17,12 @@ def view_inicio_sesion(request):
 	usuario = User.objects.select_related().get(id=request.user.id)
 	codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)[:4]
 	comandos = mdl_comandos.objects.select_related().filter(usuario=usuario)[:4]
-	proyectos = mdl_proyectos.objects.select_related().filter(usuario=usuario)[:4]
+	#proyectos = mdl_proyectos.objects.select_related().filter(usuario=usuario)[:4]
 	# codigos = mdl_codigos.objects.select_related().filter(usuario=usuario)
 	# favoritos = mdl_favoritos.objects.select_related().filter(codigo=codigos)
 	# ultimoCodigo = mdl_codigos.objects.select_related().filter(usuario=usuario)[:10]
 	#contexto = {"favoritos":favoritos,"codigos":ultimoCodigo}
-	contexto = {"codigos":codigos,"comandos":comandos,"proyectos":proyectos}
+	contexto = {"codigos":codigos,"comandos":comandos}# ,"proyectos":proyectos}
 	return render(request,"inicioSesion.html",contexto)
 
 
@@ -62,7 +62,7 @@ def view_ingresar(request):
 				usuario = authenticate(username=username,password=password)
 				if usuario is not None and usuario.is_active:
 					login(request,usuario)
-					return redirect('comandos')
+					return redirect('inicio_sesion')
 					#return HttpResponseRedirect('/inicioSesion')
 
 				else:
@@ -70,9 +70,30 @@ def view_ingresar(request):
 
 		form = loginForm()
 		contexto = {'form':form,'mensaje':mensaje}
-		print mensaje
+		# print mensaje
 		return render(request,'login.html',contexto)
 
+
+
+
+def registrarPersonaView(request):
+	if request.method == 'POST':
+		formulario = RegistroPersonaForm(request.POST)
+		if formulario.is_valid():
+			formulario.save()
+
+			usuario = authenticate(username=formulario.cleaned_data['username'],password=formulario.cleaned_data['password2'])
+
+			if usuario is not None:
+				login(request,usuario)
+
+				return redirect('inicio_sesion')
+
+	else:
+		formulario = RegistroPersonaForm()
+
+	contexto = {'form':formulario}
+	return render(request,'registro-persona.html', contexto)
 
 
 

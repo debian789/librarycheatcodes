@@ -1,0 +1,49 @@
+{% extends "base.html"%}
+{% block title %} Inicio de Sesion {% endblock%}
+{% block contenidoInicio %}
+<article >
+  <div class="row ">
+    <fieldset >
+      <h3>Iniciar  </h3>
+      <form action="." method="POST">
+        {% csrf_token %}
+
+
+  <div class="">
+      {{ form.email.errors }}
+      <label for="{{ form.email.id_for_label }}">Correo electronico</label>
+      {{ form.email }}
+  </div>
+
+  
+<div class="">
+      {{ form.username.errors }}
+      <label for="{{ form.username.id_for_label }}">username</label>
+      {{ form.username }}
+  </div>
+
+  <div class="">
+      {{ form.password1.errors }}
+      <label for="{{ form.password1.id_for_label }}">Password</label>
+      {{ form.password1 }}
+  </div>
+
+  <div class="">
+      {{ form.password2.errors }}
+      <label for="{{ form.password2.id_for_label }}">Confirmar password</label>
+      {{ form.password2 }}
+  </div>
+
+
+
+
+        <input type="submit" value="Ingresar" class="boton botton">
+      </form>
+  </fieldset>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</article>
+{% endblock%}

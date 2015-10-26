@@ -5,6 +5,8 @@ urlpatterns = patterns ('principal.views',
 	url(r'^$','view_inicio', name = 'inicio'),
 	url(r'^salir/$','view_salir',name='salir'),
 	url(r'^ingresar/$','view_ingresar',name="ingresar"),
+
+	url(r'^registrar/$','registrarPersonaView',name="registrar"),
 	#url(r'^agregar/favorito/(?P<id_codigo>.*)/$','view_agregar_favoritos',name='agregar_favorito'),
 	#url(r'^quitar/favorito/inicio/(?P<id_codigo>.*)/$','view_quitar_favorito_principal',name='quitar_fav_princ'),
 	#url(r'^quitar/favorito/(?P<id_codigo>.*)/$','view_quitar_favorito',name='quitar_favorito'),

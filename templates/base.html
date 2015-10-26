@@ -39,7 +39,9 @@
 					{% if user.is_authenticated %}
 						<li><a href="{% url 'salir' %}" ><span class="icon-exit"></span> Salir</a></li>
 					{% else %}
+						<li><a href="{% url 'inicio' %}" ><span class="icon-enter"></span> Inicio </a></li>
 						<li><a href="{% url 'ingresar' %}" ><span class="icon-enter"></span> Ingresar </a></li>
+						<li><a href="{% url 'registrar' %}" ><span class="icon-enter"></span> Regístrate </a></li>
 					
 					<!--
 					<a href="{% url 'social:begin' 'twitter' %}" class="inicioTwitter" > <span class="icon-twitter"></span> ENTRA CON TWITTER</a>
