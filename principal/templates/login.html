@@ -1,4 +1,6 @@
 {% extends "base.html"%}
+
+{% load static from staticfiles %}
 {% block title %} Inicio de Sesion {% endblock%}
 {% block contenidoInicio %}
 
@@ -29,7 +31,13 @@
 	 -->
 
 			<h3>Iniciar  </h3>
-
+<hr/>
+<div class="large-6 column">
+	<img src="{% static "img/login.jpg" %}"/>
+</div>
+<div class="large-6 column">
+<br/>
+<br/>
 		<!--<span> Username: demo , Password: demo </span>-->
 		<form action="." method="POST">
 			{% csrf_token %}
@@ -38,6 +46,8 @@
 			<input type="submit" value="Ingresar" class="boton botton">
 		</form>
 			
+
+</div>
 
 	</fieldset>
 	</div>

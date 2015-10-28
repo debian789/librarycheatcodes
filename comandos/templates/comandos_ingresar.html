@@ -6,68 +6,56 @@
   <a class="close-reveal-modal">&#215;</a>
 
 
-<section class="contenido">
+<div class="contenido">
 
-<article class="ingresoCodigo">
+<article class=" row ingresoCodigo">
 	<div class="subTitulo">
-	<!-- 	<h3>Ingresar Comando</h3>	 -->	
+	<h3>Ingresar Comando</h3>	 
 	</div>
 	<form action="{{ request.get_full_path  }}" method="post" enctype="multipart/form-data" >
-		<div class="ingresoTitulo">
-			
-			{{ formulario.nombre }}
+		<div class="row">
+			<div class="ingresoTitulo large-6 column">
+				{{ formulario.nombre }}
+			</div>
+			<div class="ingresoCodigoFuente large-6 column">
+				<label for="id_estado">Compartir el comando en la plataforma {{ formulario.estado }} </label>
+			</div>
 		</div>
+
 		<div class="descripcionCodigo">
-			<div class="ingresoCodigoFuente">
-				<span>Compartir el comando en la plataforma </span>
-				{{ formulario.estado }}
-			</div>
+
+		<table class="large-12">
+			<tr>
+				<th>Instrucción</th>
+				<th>Descripción</th>
+			</tr>
+			<tr>
+				<td><input id="id_instruccion" maxlength="500" name="instruccion[]" type="text"></td>
+				<td><textarea cols="40" id="id_descripcion" name="descripcion[]" rows="1"></textarea></td>
+			</tr>
+			<tr>
+				<td><input id="id_instruccion" maxlength="500" name="instruccion[]" type="text"></td>
+				<td><textarea cols="40" id="id_descripcion" name="descripcion[]" rows="1"></textarea></td>
+			</tr>
+		</table>
+
+
+
+	
 
 		</div>
 
-			<div class="descripcionCodigo">
-			<div class="ingresoCodigoFuente">
-				<span>Comando</span>
-				<input id="id_instruccion" maxlength="500" name="instruccion[]" type="text">	
-			</div>
-
-		</div>
-
-					<div class="descripcionCodigo">
-			<div class="ingresoCodigoFuente">
-				<span>descripcion</span>
-					<textarea cols="40" id="id_descripcion" name="descripcion[]" rows="10"></textarea>
-			</div>
+			
 
 
-
-				<div class="descripcionCodigo">
-			<div class="ingresoCodigoFuente">
-				<span>Comando</span>
-				<input id="id_instruccion" maxlength="500" name="instruccion[]" type="text">	
-			</div>
-
-		</div>
-		
-					<div class="descripcionCodigo">
-			<div class="ingresoCodigoFuente">
-				<span>descripcion</span>
-					<textarea cols="40" id="id_descripcion" name="descripcion[]" rows="10"></textarea>
-			</div>
-
-
-
-
-		</div>
 		
 		{% csrf_token %}
 		<hr/>
 		<div class="guardarCodigo">
-			<div class="publicar"></div>
 			<input type="submit" value="Guardar" class="boton">
 		</div>
 	</form>
 </article>
-</section>
+</div>
 {% endblock%}
 

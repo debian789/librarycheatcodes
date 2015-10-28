@@ -35,8 +35,16 @@
 			<br>
 			<h3>Mira lo que otras personas ha compartido en</h3>
 			<br>
-			<div class="large-6 column"><h4><a href="{% url 'comandos_publicos' %}">Comandos</a></h4></div>
-			<div class="large-6 column"><h4><a href="{% url 'codigos_publicos' %}" >Codigos</a></h4></div>
+			<div class="large-6 column">
+			<h4><a href="{% url 'comandos_publicos' %}">Comandos</a></h4>
+			<a href="{% url 'comandos_publicos' %}"><img src="{% static "img/comandos.jpg" %}"/></a>
+
+			</div>
+			<div class="large-6 column">
+			<h4><a href="{% url 'codigos_publicos' %}" >Codigos</a></h4>
+			<a href="{% url 'codigos_publicos' %}" ><img src="{% static "img/codigos.jpg" %}"/></a>
+
+			</div>
 			<!--<div class="large-4 column"><h4><a href="{% url 'proyectos_publicos' %}">Proyectos</a></h4></div>-->
 		</article>
 
