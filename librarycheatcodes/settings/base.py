@@ -10,6 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+
 # manejo de variables de entorno 
 def get_env_variable(var_name):
     try:
@@ -36,7 +43,7 @@ SECRET_KEY = '0nu1n6##6q9&7j=cj#7&i0kl#iui2yp*6*bntlkj@m066weqi_'
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
