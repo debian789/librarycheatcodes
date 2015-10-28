@@ -9,7 +9,7 @@ DATABASES = {
 		'NAME': get_env_variable('nameDB'),
 		'USER': get_env_variable('nameUserDB'),
 		'PASSWORD': get_env_variable('passUserDB'),
-		'HOST': get_env_variable('urlHostDB'),
+		'HOST': get_env_variable('DATABASE_URL'),
 
     }
 } 
