@@ -25,3 +25,4 @@ static3==0.6.1
 Werkzeug==0.10.4
 gunicorn==19.3.0
 psycopg2==2.6.1
+dj-database-url==0.3.0

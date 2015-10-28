@@ -1,1 +1,1 @@
-web: gunicorn librarycheatcodes.wsgi
+web: gunicorn librarycheatcodes.wsgi --log-file -
