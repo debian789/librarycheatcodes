@@ -17,3 +17,11 @@ class mdl_favoritos(models.Model):
 
 class mdl_mensajes(models.Model):
 	mensaje 		 = models.CharField(max_length=500)
+
+class GoogleAnalytics_mdl(models.Model):
+	ua 		 = models.CharField(max_length=500)
+	siteWeb  = models.CharField(max_length=500)
+
+	def __unicode__(self):
+		return self.siteWeb
+	

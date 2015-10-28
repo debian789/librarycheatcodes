@@ -1,4 +1,5 @@
 from random import choice 
+from principal.models import GoogleAnalytics_mdl
 
 frases = ['hola mundo ','django es lo mejor ','es dominto :P']
 
@@ -6,6 +7,17 @@ def saludar(request):
 	return {'saludo':choice(frases)}
 
 from django.core.urlresolvers import reverse
+
+
+def googleAnalytics(request):
+    try:
+        data = GoogleAnalytics_mdl.objects.all()
+    except GoogleAnalytics_mdl.DoesNotExist:
+        return {'AU':'','siteWeb':''}
+
+
+    return {'googleAnalytics':data}
+
 
 def menu(request):
     menu = {'menu': [

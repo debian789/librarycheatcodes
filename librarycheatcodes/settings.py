@@ -72,6 +72,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'principal.context_processors.menu',
                 'principal.context_processors.menu_publico',
+                'principal.context_processors.googleAnalytics',
             ],
         },
     },
