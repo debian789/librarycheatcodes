@@ -1,1 +1,1 @@
-web: gunicorn administrador_codigo.wsgi
+web: gunicorn librarycheatcodes.wsgi
