@@ -15,7 +15,7 @@ import dj_database_url
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-DEBUG = True
+DEBUG = False
 
 # manejo de variables de entorno 
 def get_env_variable(var_name):
@@ -100,8 +100,16 @@ WSGI_APPLICATION = 'librarycheatcodes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        ###configuracion en desarrollo
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        ### configuracion en produccion 
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': get_env_variable('NAME_DB'),
+        'USER': get_env_variable('USER_DB'),
+        'PASSWORD': get_env_variable('PASS_DB'),
+        'HOST': get_env_variable('DATABASE_URL'),
     }
 } 
 
