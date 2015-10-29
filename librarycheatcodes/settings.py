@@ -135,12 +135,15 @@ USE_TZ = True
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 
 MEDIA_ROOT = 'media'
-
-
 MEDIA_URL = '/media/'
 
 

@@ -1,0 +1,987 @@
+azul_a = #2D6A94
+azul_b = #35576F
+azul_c = #0F3F60
+azul_d = #619ECA
+azul_e = #7DAACA
+
+blanco = #fcfcfc
+blanco_b = #ffffff
+
+naranja_a = #E79D3C
+naranja_b = #AD834D
+naranja_c = #965D14
+naranja_d = #F3B86C
+naranja_e = #F3C890
+
+rojo_a = #E74C3C
+rojo_b = #AD564D
+rojo_c = #962014
+rojo_d = #F3796C
+rojo_e = #F39990
+
+verde_a = #2DAF4A
+verde_b = #3A834A
+verde_c = #0F7125
+verde_d = #60D77A
+verde_e = #7FD793
+
+gris_a = #f7f8fb 
+gris_b = #e0e1e7
+gris_c = #c3c3c3
+gris_d = #e1e1e1
+gris_e = #464b51
+
+c_twitter = #55ACEE
+c_twitter_hover = #1ec4fe
+c_google = #dd4b39
+c_google_hover = #737373
+c_twitter_linea = #1b9ac7
+c_facebook= #3b5999
+
+@import "normalize"
+@import "iconfonts.styl"
+@import "fonts.styl"
+@import 'nib/vendor'
+@import 'nib/gradients'
+@import "foundation"
+@import "codigo"
+
+vendor-prefixes = o ms moz webkit official
+
+
+colores(colorA,color_hoverB)
+	color colorA
+	vertical-align -7%
+	&:hover 
+		color color_hoverB
+
+body 
+		font-size 16px 
+		text-align center
+		background #e7ebf2
+		//background url("../img/fondo.png")
+		//background linear-gradient(top, blanco, azul_e)
+		color azul_b
+		font-family: 'open_sansregular'
+footer 
+	//background linear-gradient(top, azul_b, azul_c)
+	background gris_e
+	//margin-top 2em
+	padding 2% 0 2% 0 
+	a 
+		color blanco 
+		text-decoration none 
+.barraTitulo
+	border-bottom 2px solid gris_b  !important
+	color gris_e
+	margin 0 0 0em 0
+	text-align left  
+	.logo 
+		display block
+		display inline-block
+		font-weight bold 
+		padding 0.5em 0 0.5em 1%
+		text-align left
+		vertical-align top 
+		width 98%
+		.session
+			//border 1px solid red 
+			display inline-block
+			vertical-align top 
+			width 35%
+			float right 
+			text-align right 	
+			a 
+				color gris_e
+				text-decoration none
+	.menuBuscador
+		position relative
+		//border 3px solid red  !important
+		.principalMenu
+			//border 1px solid red 
+			display none 
+			margin 0
+			padding 0.5em 0 0.7em 0 
+			text-align left
+			background blanco 
+			//border 1px solid blue 
+			ul
+				//border 1px solid red
+				margin 0 auto 0 auto  
+				padding 0
+				text-align left
+				width 96%
+				li:nth-child(1)
+					background rojo_a
+					&:hover 
+						background rojo_d
+				li:nth-child(2)
+					background verde_a	
+					&:hover 
+						background verde_d		
+				li:nth-child(3)
+					background azul_a	
+					&:hover 
+						background azul_d	
+				li:nth-child(4)
+					background naranja_a	
+					&:hover 
+						background naranja_d		
+				li 
+					//background linear-gradient(top, azul_e, azul_d)
+					border-radius 0.4em
+					display inline-block
+					margin-top 0.3em
+					padding 0.5em 0 0.5em 0 
+					text-align center
+					vertical-align top 
+					width 100%
+					a 
+						//border 1px solid red 
+						color blanco
+						display block
+						font-weight bold
+						text-decoration none
+				li:hover 
+					a 
+						color blanco
+		.principalMenuBuscador
+			//border 1px solid red 
+			display none 
+			padding 0.5em 1% 0.5em 1%
+			text-align left
+			width 98%
+			input[type=text]
+				width 78%
+				margin-bottom 0.3em
+				display inline-block 
+				vertical-align top 
+				border 0px solid red 
+				padding 0.2em
+			select 
+				width 100%
+				margin-top 0.5em
+				margin-bottom 0.5em
+	.ingresoSalida
+		//border 1px solid red
+		padding 0.5em 0 0.5em 0
+		vertical-align top 
+		text-align right 
+		width 96%
+		a 
+			color blanco
+			text-decoration none 
+		.inicio 
+			margin-right 2%
+			border-right 1px solid gris_a
+			padding-right 3%
+	.subMenuPrincipal
+		width 100%
+		display block
+		//border 1px solid red 
+		text-align center
+		.menuMobilPrincipal
+			background verde_d
+		.activarBuscador
+			background azul_d
+		.menuMobilPrincipal,.activarBuscador
+			//border 1px solid blanco 
+			width 50%
+			display inline-block 
+			vertical-align top 
+			text-align center
+			padding 2% 0 2% 0
+			margin 0 0 0 0  
+			float right 
+.colorTwitter 
+	colores(c_twitter,c_twitter_hover)
+.colorGooglePlus
+	colores(c_google,c_google_hover)
+.colorFacebook
+	colores(c_facebook,c_twitter_hover)
+.fondoAzulD
+	background azul_d
+.fondoVerdeD 
+	background verde_d
+.contenido 
+	//border 1px solid red 
+	margin-left auto
+	margin-right auto 
+	.detalles
+		//border 1px solid blue !important
+		//background linear-gradient(top,gris_a,gris_c)
+		margin 0.5em auto 1em auto 
+		padding  0em 0 1em 0%
+		width 94%
+		background blanco
+		.descripcionDetalladaCompleta2
+			//border 3px solid pink !important 
+			display inline-block 
+			vertical-align top 
+			text-align left				
+			width 100%
+			height 100%
+			min-height 100%
+			position relative 
+			//height 300px
+			//border 1px solid red
+			p 
+				margin 0 
+				text-align justify
+				//border 1px solid red 
+				height 90%
+				min-height 90%
+				width 98%
+				padding-bottom 1em
+
+		.descripcionInformacion
+			//background gris_e
+			//background linear-gradient(top,blanco,gris_a)
+			//border 1px   solid azul_d
+			margin-top 0 
+			margin-left auto 
+			margin-right auto 
+			text-align left 
+			padding 0 1% 0 1%
+			position relative
+			width 98%
+			color blanco
+			.descripcionDetallada				
+				display inline-block 
+				vertical-align top 
+				text-align left				
+				width 100%
+				height 100%
+				min-height 100%
+				position relative 
+				color gris_e 
+				p 
+					//margin 1% auto 0 auto 
+					margin-bottom 0 
+					text-align justify
+					//border 1px solid red 
+					//height 90%
+					min-height 90%
+					width 100%
+					color gris_e 
+				.masInformacionDetallada
+					display inline-block 
+					margin-top 0.5em
+					//border 1px solid red 
+					text-align center
+					font-weight bold
+					cursor pointer
+					width 100%
+			.descripcionDetalladaCompleta
+				background gris_e
+				vertical-align top 
+				text-align left				
+				width 100%
+				height 100%
+				min-height 100%
+				position relative 
+				//border 3px solid pink !important 
+				//border 1px solid red 
+				//height 300px
+				//border 1px solid red
+				p 
+					margin 1% auto 0 auto 
+					text-align justify
+					//border 1px solid red 
+					height 90%
+					min-height 90%
+					width 98%
+					padding-bottom 1em
+			.descripcionExtra
+				//border 4px solid blue
+				//background verde_d
+				//float right
+				//background red
+				display inline-block 
+				display none
+				vertical-align top 
+				border-radius 5px
+				text-align left	
+				margin-left auto		
+				margin-right auto		
+				//width 80%
+				padding 0.3em 1% 1% 1%
+				.tituloExtra
+						color blanco
+						font-weight bold 
+						//border 1px solid red !important
+						text-align center 
+						margin-bottom 0.3em 
+				.tituloDescripcion
+					//background linear-gradient(top,azul_e,azul_d)
+					color black
+					padding 0.1em 0 0.1em  0
+					border-radius 15px 15px 0px 0px
+					width 100%
+					text-align left
+					position relative
+					span:first-of-type
+						font-weight bold
+						color blanco 
+						width 45%
+					span 
+						width 50%
+						//border 1px solid red 
+						color blanco_b
+						display inline-block 
+						vertical-align top 
+						overflow hidden 	
+						white-space nowrap
+						text-overflow  ellipsis
+						a 
+							display block
+							//overflow hidden 	
+							//white-space nowrap
+							//text-overflow  ellipsis
+							//outline 1px solid green
+							//border 1px solid blue 
+							//color red 
+							//width 100%
+							//display inline-block
+		.descripcionCodigo
+			text-align left
+			width 98%
+			padding 0 1% 0 1%
+			//margin-left auto
+			margin-right  auto 
+			.highlight
+				width 100%
+				position relative
+				display inline-block				
+				overflow-x scroll 
+				pre 
+					line-height: normal;
+					padding 0.7em
+					position   relative
+					white-space  pre !important
+					//border 1px solid red
+					//width 100%
+					display inline-block
+		.tituloDetalles	
+			margin-bottom 0.6em
+			div 
+				//border 1px solid red 
+				width 90%
+				margin-left 1%
+				text-align left 
+				margin auto 
+
+		.subTitulo
+			border-bottom 3px solid gris_d
+			//border-radius 10px 10px 0 0 
+			margin-bottom 0.3em 
+			padding 0.4em 1% 0.4em 1%
+			text-align left
+			width 98%
+			//border 1px solid red 
+			h3 
+				display inline-block 
+				font-family: 'texgyreherosregular'
+				vertical-align top 
+				margin 0
+				//margin-left 2%
+				width 60%
+			.opcionesVisualizacion
+				display inline-block 
+				vertical-align top 
+				text-align right 
+				width 35%
+				float right 
+				a
+					color gris_e 
+					font-size 1.2em
+					margin-right 1%
+					text-decoration none
+		.subTitulo2
+			//border-bottom 3px solid gris_d
+			//border-radius 10px 10px 0 0 
+			margin-bottom 0.3em 
+			padding 0.4em 1% 0.4em 1%
+			text-align left
+			width 98%
+			//border 1px solid red 
+			span 
+				font-weight bold
+				display inline-block 
+				font-family: 'texgyreherosregular'
+				vertical-align top 
+				margin 0
+				//margin-left 2%
+				width 60%
+				//border 1px solid red 
+			.opcionesVisualizacion
+				//border 1px solid red 
+				display inline-block 
+				vertical-align top 
+				text-align right 
+				width 35%
+				float right 
+				a
+					color gris_e 
+					margin-right 1%
+					text-decoration none
+	.ingresoCodigo
+		//border 10px solid pink !important
+		//background blanco
+		width 96% 
+		margin 2% auto 2em auto 
+		form 
+			.ingresoTitulo 
+				margin 1% 1% 1% 1%
+				//border 1px solid red 
+				span 
+					display inline-block 
+					vertical-align top
+					text-align left
+					width 100%
+				input 
+					border 1px solid gris_d
+					padding 1%
+					width 98%
+			.urlLenguaje
+				margin 1% 1% 1% 1%
+				.ingresoUrl
+					display inline-block
+					vertical-align top
+					//border 1px solid red
+					width 100%
+					span 
+						display inline-block
+						vertical-align top
+						margin 0.5em 0 0.3em 0 
+						display inline-block 
+						vertical-align top
+						text-align left
+						width 96%
+					input 
+						display inline-block
+						vertical-align top
+						border 1px solid naranja_d
+						padding 0
+						width 96%
+				.ingresoLenguaje
+					display inline-block
+					vertical-align top
+					width 100%
+					span 
+						display inline-block 
+						margin 0.5em 0 0.3em 0 
+						vertical-align top
+						text-align left
+						width 100%
+					select 
+						width 96%
+				.ingresoDescripcionCompleto
+					text-align left
+					//border 1px solid red
+					span
+						margin-left 1%
+						width 99%
+					textarea 
+						border 1px solid naranja_d
+						margin-left 1%
+						width 97%
+			.ingresoOperativo
+				margin 1% 1% 1% 1%
+				span 
+					display inline-block 
+					vertical-align top
+					text-align left
+					margin 0.5em 0 0.3em 0 
+					width 100%
+				select 
+					border 1px solid naranja_a
+					width 100%
+			.ingresoAdjunto
+				margin 1% 1% 1% 1%
+				span 
+					margin 0em 0 0em 0 
+					display inline-block 
+					vertical-align top
+					text-align left
+					width 100%
+				input 
+					padding 0
+					margin 0em 0 0em 0 
+					width 100%
+			.descripcionCodigo
+				margin 1% 1% 1% 1%
+				text-align initial
+				.ingresoDescripcion
+					textarea 
+						border 1px solid gris_d
+						border-radius 10px 
+						//border 1px solid blue
+						height 5em
+						padding 1%
+						width 98%
+				.ingresoCodigoFuente
+					//border 1px solid red 
+					margin-top 1%
+					width 100%
+					textarea 
+						background gris_e
+						padding 1%
+						width 98%
+						border-radius 5px 
+						border 1px solid gris_b
+						color blanco
+						overflow-x scroll !important
+						&:focus
+							border 1px solid gris_b !important
+							//background red 
+			.guardarCodigo
+				input 
+					width 70%
+					margin 1% 0 2% 0 
+			hr 
+				width 98%
+				border-top 1px solid gris_d
+				border-bottom 0
+	
+		.opcionBuscar
+			width 100%
+			.opcionCheckbox
+				//border 1px solid red
+				display inline-block
+				vertical-align top
+				margin 1%
+	.resultadoBusqueda
+		margin 0.5em auto 0.5em auto 
+		padding-bottom 1em
+		width 96%
+		background blanco
+		.pagination
+			text-align center 
+		.botonCrear 
+			width 96%
+		.itemResultado
+			margin 0.5em auto 0.5em auto 
+			text-align left
+			width 90%
+			h4 
+				margin 0.5em 0 0em 1%
+				//border 1px solid red
+				display inline-block 
+				vertical-align top 
+				width 80%
+			p 
+				display inline-block 
+				vertical-align top 
+				margin 1%
+		.itemIngresadosCodigos
+			background gris_a
+			margin 0.5em auto 0.5em auto 
+			padding-bottom 0.2em
+			text-align left
+			width 95%
+			//position relative
+			box-shadow rgba(0,0,0,0.2) 3px 5px 0.5em;
+
+			h4 
+				margin 0em 0 0 1%
+				//border 1px solid red
+				display inline-block 
+				vertical-align top 
+				width 80%
+				a 
+					display block
+					text-decoration none 
+					color azul_b
+					font-family: 'texgyreherosregular'
+					font-size 1.1em
+			.favoritoCodigo 
+				display inline-block 
+				margin 0.5em 0 0 1%
+				vertical-align top
+				text-align right 
+				//border 1px solid red
+				width 15%
+				a 
+					display inline-block 
+					vertical-align top 
+					//margin-right 4% !important
+					padding-left 6% 
+					color naranja_d
+					text-decoration none 
+					&:hover 
+						color naranja_e
+			p 
+				vertical-align top 
+				margin auto 
+				text-align  justify
+				padding 0
+				width 94%
+			hr 
+				margin 0.1em 0 0.1em 0 
+				border-top 1px solid gris_b
+				border-bottom 0
+			.informacionLenguaje2
+				border-bottom  1px solid gris_d 
+				padding 0.4em
+				margin-bottom 0.2em
+				width 96%
+
+				span:first-of-type
+						font-weight bold
+						color azul_b 
+						width 40%
+					span 
+						width 50%
+						//border 1px solid red 
+						color azul_b
+						display inline-block 
+						vertical-align top 
+						overflow hidden 	
+						white-space nowrap
+						text-overflow  ellipsis
+						a 
+							display block
+
+			.informacionLenguaje
+				display inline-block 
+				vertical-align top
+				margin 0 0 0 1%
+				width 65%
+				overflow-x hiden 
+				div 
+					border-radius 0px 10px 10px 0px 
+					padding 0em 1% 0em 1% 
+					background blanco
+					color verde_a
+					float left 
+					display inline-block 
+					vertical-align top 
+					text-align left 
+					width auto 
+					max-width 50
+			.edicionCodigo2
+				width 96%
+				text-align right
+				a 
+					text-decoration  none  
+			.edicionCodigo
+				//border 1px solid blue
+				display inline-block 
+				vertical-align top 
+				width 29%
+				text-align right
+				a 
+					display inline-block 
+					vertical-align top 
+					//color rojo_a
+					text-decoration none 
+		.subTituloBarra
+			border-bottom 3px solid gris_d
+			//border-radius 10px 10px 0 0 
+			margin-bottom 0.3em 
+			padding 0.4em 1% 0.4em 1%
+			text-align left
+			width 98%
+			//border 1px solid red 
+			h3 
+				display inline-block 
+				font-family: 'texgyreherosregular'
+				vertical-align top 
+				margin 0
+				//margin-left 2%
+				width 60%
+			.opcionesVisualizacion
+				display inline-block 
+				vertical-align top 
+				text-align right 
+				width 35%
+				float right 
+				a
+					color gris_e 
+					margin-right 1%
+					text-decoration none
+	.slide 
+		//border-bottom 3px solid gris_c 
+		width 90%
+		display inline-block
+		vertical-align top 
+		background blanco_b
+		margin-bottom 1em 
+		figure 
+			width 18%
+			vertical-align top 
+			display none 
+			//border 1px solid red 
+			img 
+				width 100%
+
+		.informacionSitio
+			//border 1px solid red 
+			width 90%
+			vertical-align top 
+			display inline-block
+			ul 
+				text-align left 
+				width 90%
+				margin auto 
+				//border 1px solid red 
+				li 
+					margin-top 0.4em 
+			a 
+				text-decoration none 
+	.secciones
+		//border 1px solid blue 
+		display inline-block
+		vertical-align top 
+		margin-bottom 1.5em
+		width 96%
+		//background rojo_a
+		color blanco
+		position relative
+		padding-bottom 1.5em
+		h2 
+			margin 0 
+			padding 0.5em  
+		p 
+			margin auto 
+			text-align justify
+			width 80%
+		a 
+			display block
+			color verde_e
+			text-decoration none
+			//margin 0.4em auto 0.5em auto 
+		.ultimosIngresadosItems
+			display inline-block
+			margin-bottom 0
+			width 100%
+			.itemUltimos
+				//border 1px solid blue 
+				background blanco
+				width 96%
+				color azul_a			
+				margin auto  auto 0.3em auto  
+				a 
+					color azul_a	
+	#opcionesInicio
+		background blanco
+		
+		padding-top 2em 
+		padding-bottom 0em
+		article
+			width 100% !important
+			margin-bottom 1em 
+
+.botonCrear 
+	background  verde_a
+	border-radius 0.5em
+	color blanco 
+	display inline-block
+	font-weight bold
+	font-size 1em
+	padding-top 0.1em
+	padding-bottom 0.2em
+	vertical-align top
+	text-align center 
+	width 96%
+	a 
+		display block
+		color blanco !important
+		text-decoration none 
+		font-family: 'texgyreherosregular'
+		span 
+			vertical-align -5%
+	&:hover 
+		background verde_d
+.botonCrear2
+	background  azul_a
+	border-radius 0.5em
+	color blanco 
+	display inline-block
+	font-weight bold
+	font-size 1em
+	padding-top 0.1em
+	padding-bottom 0.2em
+	vertical-align top
+	text-align center 
+	width 96%
+	a 
+		display block
+		color blanco !important
+		text-decoration none 
+		font-family: 'texgyreherosregular'
+		span 
+			vertical-align -5%
+	&:hover 
+		background azul_d
+
+.boton
+	border 0
+	background verde_a
+	color blanco
+	border-radius 10px 10px 10px 10px 
+	padding 0.4em 0 0.4em 0 
+	width 100%
+	&:hover 
+		background verde_d
+.ocultar 
+	display none 
+.ocultarTodo
+	display none 
+.ocultarMenu
+	display none
+.lineaDerecha
+	border-left 2px solid gris_b
+	margin-left 2%
+	//border 1px solid red
+	//vertical-align -80%
+	padding-left 3% 
+.lineaColorA
+	border-left 0.4em solid rojo_a
+	&:hover
+		border-left 0.4em solid rojo_c
+.lineaColorB
+	border-left 0.4em solid verde_a
+	&:hover
+		border-left 0.4em solid verde_c
+.lineaColorC
+	border-left 0.4em solid azul_a
+	&:hover
+		border-left 0.4em solid azul_c
+.barraColorA
+	background rojo_a
+	background linear-gradient(top,rojo_d,rojo_a)
+.barraColorB
+	background naranja_a
+	background linear-gradient(top,naranja_d,naranja_a)
+.barraColorC
+	background azul_a
+	background linear-gradient(top,azul_d,azul_a)
+.botonesCrear
+	background gris_d
+	padding-top 0.5em 
+	padding-bottom 0.5em
+.opcionBuscar
+	//border 10px solid red 
+	width 18%
+	display inline-block 
+	vertical-align top 
+	.btnBuscador
+		width 100%
+		background verde_a
+		border-radius 5px 
+		color blanco
+		border 0
+		padding 0.2em
+		margin 0 
+		&:hover 
+			background verde_d
+.itemSesion
+	display none
+	border 1px solid gris_c
+	width 100%
+	position relative
+	//margin-left -500px 
+	z-index 1000
+	//background gris_b 
+	//right 5%
+	text-align center 
+	padding 0.4em
+	a 
+		text-decoration none 
+		font-size 1em
+		
+
+	.inicioTwitter
+		margin auto !important
+		display inline-block 
+		background c_twitter
+		color blanco !important
+		padding 0.4em 0.5em 0.4em 0.5em
+		border-left 1px solid c_twitter_linea
+		border-top 1px solid c_twitter_linea
+		border-right 1px solid c_twitter_linea
+		border-bottom 2px solid c_twitter_linea
+
+		border-radius 4px 
+		&:hover 
+			background c_twitter_hover
+	.inicioGoogle
+		margin 0.5em auto auto auto  !important
+		display inline-block 
+		background c_google
+		color blanco !important
+		padding 0.4em 0.5em 0.4em 0.5em
+		//border-left 1px solid c_
+		//border-top 1px solid c_twitter_linea
+		//border-right 1px solid c_twitter_linea
+		//border-bottom 2px solid c_twitter_linea
+
+		border-radius 4px 
+		&:hover 
+			background rojo_d
+
+.filtros
+	display none
+	background gris_b 
+	width 100% !important
+	border 2px solid gris_d
+	padding 0.6em
+	.opcionCheckbox 
+		input[type="checkbox"],label 
+			display inline-block 
+.subNavegacion 
+	width 90%
+	margin 0.6em auto 0.5em auto  
+	//border 1px solid red 
+	text-align left
+	a 
+		color gris_c
+		text-decoration none 
+	.activado 
+		//font-weight bold 
+		color c_facebook
+.ocultoCrar
+	display none 
+.limpiarEspacio 
+	clear both
+.fondoRojo 
+	background rojo_a 
+.fondoVerde 
+	background verde_a
+.fondoAzul
+	background azul_a
+.fondoRojoE 
+	background rojo_e
+.fondoVerdeE 
+	background verde_e
+.fondoAzulE
+	background azul_e
+.fondoNaranja
+	background naranja_a
+.fondoNaranjaE
+	background naranja_e
+.colorRojo
+	color rojo_a !important
+.colorVerde 
+	color verde_a !important
+.colorNaranjaC
+	color naranja_c !important
+.sub-nav
+	margin-top 0 
+[data-magellan-expedition]
+	background: #e7ebf2
+	//background url("../img/fondo.png")
+	z-index: 50
+	min-width: 100%
+	border-bottom 3px solid #e1e1e1
+	//border 1px solid red 
+[data-magellan-expedition] .sub-nav
+	margin-bottom: 0
+[data-magellan-expedition]
+	//background: white
+	z-index: 50
+	min-width: 100%
+	padding: 0px
+@import "responsive.styl"
