@@ -29,6 +29,7 @@ gris_a = #f7f8fb
 gris_b = #e0e1e7
 gris_c = #c3c3c3
 gris_d = #e1e1e1
+gris_dd= #A9AFB5
 gris_e = #464b51
 
 c_twitter = #55ACEE
@@ -103,7 +104,7 @@ footer
 			margin 0
 			padding 0.5em 0 0.7em 0 
 			text-align left
-			background blanco 
+			background gris_e 
 			//border 1px solid blue 
 			ul
 				//border 1px solid red
@@ -147,6 +148,7 @@ footer
 						color blanco
 		.principalMenuBuscador
 			//border 1px solid red 
+			background gris_dd
 			display none 
 			padding 0.5em 1% 0.5em 1%
 			text-align left
@@ -181,9 +183,10 @@ footer
 		//border 1px solid red 
 		text-align center
 		.menuMobilPrincipal
-			background verde_d
+			background gris_e
+			color blanco
 		.activarBuscador
-			background azul_d
+			background gris_dd
 		.menuMobilPrincipal,.activarBuscador
 			//border 1px solid blanco 
 			width 50%
@@ -226,12 +229,13 @@ footer
 			//height 300px
 			//border 1px solid red
 			p 
-				margin 0 
+				margin auto
 				text-align justify
 				//border 1px solid red 
 				height 90%
 				min-height 90%
 				width 98%
+
 				padding-bottom 1em
 
 		.descripcionInformacion
@@ -276,7 +280,7 @@ footer
 				background gris_e
 				vertical-align top 
 				text-align left				
-				width 100%
+				width 100% !important
 				height 100%
 				min-height 100%
 				position relative 
@@ -285,13 +289,14 @@ footer
 				//height 300px
 				//border 1px solid red
 				p 
-					margin 1% auto 0 auto 
+					margin 1em auto 0 auto 
 					text-align justify
 					//border 1px solid red 
 					height 90%
 					min-height 90%
-					width 98%
+					width 98% !important
 					padding-bottom 1em
+					padding-top 1em 
 			.descripcionExtra
 				//border 4px solid blue
 				//background verde_d
@@ -428,11 +433,17 @@ footer
 	.ingresoCodigo
 		//border 10px solid pink !important
 		//background blanco
-		width 96% 
+		text-align left 
+		width 100% 
 		margin 2% auto 2em auto 
+		//border 1px solid red 
+		position relative
 		form 
+			margin auto 
+			//border 1px solid blue 
 			.ingresoTitulo 
-				margin 1% 1% 1% 1%
+				position relative
+				//margin 1% 1% 1% 1%
 				//border 1px solid red 
 				span 
 					display inline-block 
@@ -442,40 +453,40 @@ footer
 				input 
 					border 1px solid gris_d
 					padding 1%
-					width 98%
+					width 96%
+					margin auto 
 			.urlLenguaje
-				margin 1% 1% 1% 1%
-				.ingresoUrl
+				//margin 1% 1% 1% 1%
+				.ingresoUrl,.ingresoLenguaje
 					display inline-block
 					vertical-align top
 					//border 1px solid red
 					width 100%
 					span 
+						//border 1px solid blue
 						display inline-block
 						vertical-align top
-						margin 0.5em 0 0.3em 0 
+						margin 0.4em 0 0.2em 0 
 						display inline-block 
 						vertical-align top
 						text-align left
-						width 96%
+						width 98%
 					input 
 						display inline-block
 						vertical-align top
 						border 1px solid naranja_d
 						padding 0
-						width 96%
-				.ingresoLenguaje
-					display inline-block
-					vertical-align top
-					width 100%
-					span 
-						display inline-block 
-						margin 0.5em 0 0.3em 0 
-						vertical-align top
-						text-align left
-						width 100%
+						height 1.5em
+						width 98%
+				
 					select 
-						width 96%
+						width 98%
+					p 
+						width 98%
+						display inline-block 
+						vertical-align top 
+						margin 0 
+						padding 0 
 				.ingresoDescripcionCompleto
 					text-align left
 					//border 1px solid red
@@ -485,7 +496,8 @@ footer
 					textarea 
 						border 1px solid naranja_d
 						margin-left 1%
-						width 97%
+						width 95%
+						padding 1%
 			.ingresoOperativo
 				margin 1% 1% 1% 1%
 				span 
@@ -536,10 +548,15 @@ footer
 							border 1px solid gris_b !important
 							//background red 
 			.guardarCodigo
+				//border 1px solid red 
+				margin auto 
+				text-align center
 				input 
+					//border 1px solid red 
 					width 70%
-					margin 1% 0 2% 0 
+					margin 1% auto 1% auto !important
 			hr 
+				margin 0.3em
 				width 98%
 				border-top 1px solid gris_d
 				border-bottom 0
@@ -589,6 +606,7 @@ footer
 				display inline-block 
 				vertical-align top 
 				width 80%
+				overflow hidden
 				a 
 					display block
 					text-decoration none 
@@ -617,6 +635,7 @@ footer
 				text-align  justify
 				padding 0
 				width 94%
+				overflow hidden
 			hr 
 				margin 0.1em 0 0.1em 0 
 				border-top 1px solid gris_b
@@ -736,6 +755,7 @@ footer
 		vertical-align top 
 		margin-bottom 1.5em
 		width 96%
+		border-radius 10px 
 		//background rojo_a
 		color blanco
 		position relative
@@ -749,7 +769,7 @@ footer
 			width 80%
 		a 
 			display block
-			color verde_e
+			color blanco
 			text-decoration none
 			//margin 0.4em auto 0.5em auto 
 		.ultimosIngresadosItems
@@ -864,7 +884,7 @@ footer
 	padding-bottom 0.5em
 .opcionBuscar
 	//border 10px solid red 
-	width 18%
+	width 15%
 	display inline-block 
 	vertical-align top 
 	.btnBuscador
@@ -924,10 +944,19 @@ footer
 
 .filtros
 	display none
-	background gris_b 
-	width 100% !important
-	border 2px solid gris_d
-	padding 0.6em
+	background gris_dd
+	//width 96% !important
+	//border 2px solid gris_d
+	//padding 0.6em
+	//padding 2%
+	width 100%
+	text-align center
+	.itemFiltros
+		//border 1px solid red 
+		width 100%
+		select 
+			width 96% !important
+			margin auto
 	.opcionCheckbox 
 		input[type="checkbox"],label 
 			display inline-block 

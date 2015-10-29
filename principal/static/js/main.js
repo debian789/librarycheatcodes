@@ -63,8 +63,31 @@ $(document).ready(function(){
 		} 
 	});
 
-	
 
+	$('body').on('click','#agregarCampoItemComandos',function(e){
+		$('.itemsComandosTabla').append('<tr><td><input id="id_instruccion" maxlength="500" name="instruccion[]" type="text"></td><td><textarea cols="40" id="id_descripcion" name="descripcion[]" rows="1"></textarea></td></tr>');
+		e.preventDefault();
+	})
+
+$('.editarItemComando').click(function(){
+	$.ajax({
+		url: '/comandoItem/editar/4/11/',
+		success: function(datos){
+			$('#modalAdministracion').html(datos);
+
+		}
+	});
+});
+
+
+	$('.eliminarComandoItem').click(function(e){
+		var r = confirm("Realmente desea elimarlo ? ");
+		if(r== true){
+			return true;
+		}else{
+			e.preventDefault();
+		}
+	})
 
 
 

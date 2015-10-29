@@ -225,7 +225,38 @@ def view_editar_comando(request,id_comando):
 
 	formulario = frm_comandos(usuario,instance = datos )
 	contexto = {'formulario':formulario ,'mensaje':'Editar Comando  '}
-	return render(request,'comandos_ingresar.html',contexto)
+	return render(request,'comandos_modificar_comando.html',contexto)
+
+
+@login_required
+def view_editar_comandoItem(request,id_comando,id_comandoItem):
+	try: 
+		#comandoId = get_object_or_404(User, id=request.user.id)
+		comandoId = get_object_or_404(mdl_comandos, usuario=request.user.id,id=id_comando)
+		
+	except Http404:
+		return redirect('comandos')
+
+	try:
+		datos= instruccion_mdl.objects.get(id=id_comandoItem,comando=comandoId)
+		
+	except instruccion_mdl.DoesNotExist:
+		return redirect('comandos')
+
+	if request.method == "POST":
+		contenidoForm = frm_comandos_items(comandoId,request.POST,request.FILES,instance=datos)
+		if contenidoForm.is_valid():
+			contenidoForm.save()
+			return redirect('comandos')
+
+	
+
+	formulario = frm_comandos_items(comandoId,instance = datos )
+	contexto = {'formulario':formulario ,'mensaje':'Editar instruccion  '}
+	return render(request,'comandos_modificar_itemComando.html',contexto)
+
+
+
 
 @login_required
 def view_comando_simple(request,id_comando):
@@ -260,5 +291,22 @@ def view_eliminar_comando(request,id_comando):
 	usuario = User.objects.select_related().get(id=request.user.id)
 	comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
 	comando.delete()
+	return redirect("comandos")	
+	# return redirect('inicio')
+
+
+@login_required
+def view_eliminar_comando_item(request,id_comando,id_comandoItem):
+	try:
+		comandoId = get_object_or_404(mdl_comandos, usuario=request.user.id,id=id_comando)
+	except Http404:
+		return redirect('comandos')
+	#usuario = User.objects.select_related().get(id=request.user.id)
+	try:
+		comandoItem = instruccion_mdl.objects.select_related().filter(comando=comandoId).get(id=id_comandoItem)
+	except instruccion_mdl.DoesNotExist:
+		return redirect('comandos')
+
+	comandoItem.delete()
 	return redirect("comandos")	
 	# return redirect('inicio')

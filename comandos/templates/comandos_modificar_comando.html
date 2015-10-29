@@ -1,0 +1,33 @@
+
+{% block title %}{{ mensaje }} {% endblock%}
+{% block extraHead %} {{ formulario.media }} 
+ {{ comandos_items.media }} {% endblock%}
+{% block contenido %}
+  <a class="close-reveal-modal">&#215;</a>
+
+
+<div class="contenido">
+
+<article class=" row ingresoCodigo">
+  <div class="subTitulo">
+  <h3>Ingresar Comando</h3>  
+  </div>
+  <form action="{{ request.get_full_path  }}" method="post" enctype="multipart/form-data" >
+    <div class="row">
+      <div class="ingresoTitulo large-6 column">
+        {{ formulario.nombre }}
+      </div>
+      <div class="ingresoCodigoFuente large-6 column">
+        <label for="id_estado">Compartir el comando en la plataforma {{ formulario.estado }} </label>
+      </div>
+    </div>
+    {% csrf_token %}
+    <hr/>
+    <div class="guardarCodigo">
+      <input type="submit" value="Guardar" class="boton">
+    </div>
+  </form>
+</article>
+</div>
+{% endblock%}
+

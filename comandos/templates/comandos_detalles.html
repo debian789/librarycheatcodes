@@ -37,11 +37,15 @@
 			</div>
 		</div>
 			<table class="large-12">
-				<tr><th>Instruccion</th><th>Descripcion</th></tr>
+				<tr><th>Instruccion</th><th>Descripcion</th><th colspan="2">Accion</th></tr>
 				{% for intruccion in intrucciones %}
 					<tr>
 						<td> {{ intruccion.instruccion }}</td>
 						<td>{{ intruccion.descripcion}}</td>
+						<td>
+							<a href="{% url 'editar_comando_item' intruccion.id comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC editarItemComando" data-reveal-id="modalAdministracion" data-reveal>
+						</td>
+						<td><a href="{% url 'eliminar_comando_item' comando.id intruccion.id %}" class="eliminarComandoItem" >el</a></td>
 					</tr>	
 				{% endfor %}
 			</table>
