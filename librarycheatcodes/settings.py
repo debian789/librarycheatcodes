@@ -101,15 +101,15 @@ WSGI_APPLICATION = 'librarycheatcodes.wsgi.application'
 DATABASES = {
     'default': {
         ###configuracion en desarrollo
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
         ### configuracion en produccion 
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': get_env_variable('NAME_DB'),
-        'USER': get_env_variable('USER_DB'),
-        'PASSWORD': get_env_variable('PASS_DB'),
-        'HOST': get_env_variable('URL_DB'),
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': get_env_variable('NAME_DB'),
+        #'USER': get_env_variable('USER_DB'),
+        #'PASSWORD': get_env_variable('PASS_DB'),
+        #'HOST': get_env_variable('URL_DB'),
     }
 } 
 
