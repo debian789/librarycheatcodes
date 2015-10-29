@@ -45,7 +45,7 @@
 						<td>
 							<a href="{% url 'editar_comando_item' intruccion.id comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC editarItemComando" data-reveal-id="modalAdministracion" data-reveal>
 						</td>
-						<td><a href="{% url 'eliminar_comando_item' comando.id intruccion.id %}" class="eliminarComandoItem" >el</a></td>
+						<td><a href="{% url 'eliminar_comando_item' comando.id intruccion.id %}" class="icon-bin2 eliminarComandoItem" ></a></td>
 					</tr>	
 				{% endfor %}
 			</table>
