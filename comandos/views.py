@@ -18,26 +18,17 @@ def view_agregar_comando(request):
 
 	if request.method == "POST":
 		contenidoForm = frm_comandos(usuario,request.POST,request.FILES)
-		#print(request.POST)
 		if contenidoForm.is_valid:
 			contenidoForm.save()
 			idRegistro = contenidoForm.save().id 
 			if contenidoForm.save().id : 
-				#print (idRegistro)
 				idComando = mdl_comandos.objects.get(id=idRegistro)
 				itemcomandos = frm_comandos_items(idComando,request.POST,request.FILES)
 				if itemcomandos.is_valid: 
 
 					arrayInstruccion = request.POST.getlist('instruccion[]')
 					arrayDescripcion = request.POST.getlist('descripcion[]')
-					##print(itemcomandos)
 					ls_comandos_items = []
-
-					##print('--------    ---- ')
-					#print(request.POST.getlist)
-					#print('--------    ---- ')
-					#print(dir(request.POST))
-					#print(arrayInstruccion)
 
 					if arrayInstruccion:
 						for x in arrayInstruccion:
@@ -52,8 +43,6 @@ def view_agregar_comando(request):
 
 
 	formulario = frm_comandos(usuario)
-	#formulario = ""
-	#print(frm_comandos_items())
 	comandos_items = frm_comandos_items(1)
 	contexto = {'formulario':formulario,'mensaje':'Nuevo Comando ','comandos_items':comandos_items}
 
@@ -107,7 +96,6 @@ def view_comandos(request):
 
 	else:
 		usuario = User.objects.select_related().get(id=request.user.id)
-		#comandos = []#mdl_comandos.objects.select_related().filter(usuario=usuario)
 		comandos = mdl_comandos.objects.select_related().filter(usuario=usuario).order_by('-id')
 		formularioBusqueda = frm_comandos_busqueda()
 		paginator = Paginator(comandos,50)
@@ -135,7 +123,6 @@ def view_comandos_publicos(request):
 	if request.method == 'POST':
 		formularioBusqueda = frm_comandos_busqueda(request.POST)
 		if formularioBusqueda.is_valid():
-			#usuario = User.objects.select_related().get(id=request.user.id)
 			comandos = mdl_comandos.objects.select_related().filter(estado=True).order_by('-id')
 
 			if formularioBusqueda.cleaned_data['busqueda']:
@@ -155,7 +142,6 @@ def view_comandos_publicos(request):
 
 			contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 		else:
-			#usuario = User.objects.select_related().get(id=request.user.id)
 			comandos = mdl_comandos.objects.select_related().filter(estado=True).order_by('-id')
 			formularioBusqueda = frm_comandos_busqueda()
 
@@ -177,8 +163,6 @@ def view_comandos_publicos(request):
 		return render(request,"comandos_publicos.html",contexto)
 
 	else:
-		#usuario = User.objects.select_related().get(id=request.user.id)
-		#comandos = []#mdl_comandos.objects.select_related().filter(usuario=usuario)
 		comandos = mdl_comandos.objects.select_related().filter(estado=True).order_by('-id')
 		formularioBusqueda = frm_comandos_busqueda()
 		paginator = Paginator(comandos,50)
@@ -231,7 +215,6 @@ def view_editar_comando(request,id_comando):
 @login_required
 def view_editar_comandoItem(request,id_comando,id_comandoItem):
 	try: 
-		#comandoId = get_object_or_404(User, id=request.user.id)
 		comandoId = get_object_or_404(mdl_comandos, usuario=request.user.id,id=id_comando)
 		
 	except Http404:
@@ -265,7 +248,6 @@ def view_comando_simple(request,id_comando):
 		comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
 
 		intrucciones = instruccion_mdl.objects.filter(comando=comando)
-		#print intrucciones
 
 
 	except mdl_comandos.DoesNotExist:
@@ -280,8 +262,6 @@ def view_comando_simple_publico(request,id_comando):
 		intrucciones = instruccion_mdl.objects.filter(comando=comando)		
 	except mdl_comandos.DoesNotExist:
 		return redirect('inicio')
-	#usuario = User.objects.select_related().get(id=request.user.id)
-	#comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
 	contexto = {"comando":comando,"intrucciones":intrucciones}		
 	return render(request,"comandos_detalles_publico.html",contexto)
 
@@ -292,7 +272,6 @@ def view_eliminar_comando(request,id_comando):
 	comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
 	comando.delete()
 	return redirect("comandos")	
-	# return redirect('inicio')
 
 
 @login_required
@@ -301,7 +280,7 @@ def view_eliminar_comando_item(request,id_comando,id_comandoItem):
 		comandoId = get_object_or_404(mdl_comandos, usuario=request.user.id,id=id_comando)
 	except Http404:
 		return redirect('comandos')
-	#usuario = User.objects.select_related().get(id=request.user.id)
+
 	try:
 		comandoItem = instruccion_mdl.objects.select_related().filter(comando=comandoId).get(id=id_comandoItem)
 	except instruccion_mdl.DoesNotExist:
@@ -309,4 +288,3 @@ def view_eliminar_comando_item(request,id_comando,id_comandoItem):
 
 	comandoItem.delete()
 	return redirect("comandos")	
-	# return redirect('inicio')

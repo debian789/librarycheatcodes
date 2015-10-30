@@ -1,61 +1,46 @@
-
 {% block title %}{{ mensaje }} {% endblock%}
 {% block extraHead %} {{ formulario.media }} 
- {{ comandos_items.media }} {% endblock%}
+{{ comandos_items.media }} {% endblock%}
 {% block contenido %}
-  <a class="close-reveal-modal">&#215;</a>
-
-
+<a class="close-reveal-modal">&#215;</a>
 <div class="contenido">
-
-<article class=" row ingresoCodigo">
-	<div class="subTitulo">
-	<h3>Ingresar Comando</h3>	 
-	</div>
-	<form action="{{ request.get_full_path  }}" method="post" enctype="multipart/form-data" >
-		<div class="row">
-			<div class="ingresoTitulo large-6 column">
-				{{ formulario.nombre }}
+	<article class=" row ingresoCodigo">
+		<div class="subTitulo">
+		<h3>Ingresar Comando</h3>	 
+		</div>
+		<form action="{{ request.get_full_path  }}" method="post" enctype="multipart/form-data" >
+			<div class="row">
+				<div class="ingresoTitulo large-6 column">
+					{{ formulario.nombre }}
+				</div>
+				<div class="ingresoCodigoFuente large-6 column">
+					<label for="id_estado">Compartir el comando en la plataforma {{ formulario.estado }} </label>
+				</div>
 			</div>
-			<div class="ingresoCodigoFuente large-6 column">
-				<label for="id_estado">Compartir el comando en la plataforma {{ formulario.estado }} </label>
+			<div class="descripcionCodigo">
+				<table class="large-12 itemsComandosTabla">
+					<tr>
+						<th>Instrucción</th>
+						<th>Descripción</th>
+					</tr>
+					<tr>
+						<td><input id="id_instruccion" maxlength="500" name="instruccion[]" type="text"></td>
+						<td><textarea cols="40" id="id_descripcion" name="descripcion[]" rows="1"></textarea></td>
+					</tr>
+					<tr>
+						<td><input id="id_instruccion" maxlength="500" name="instruccion[]" type="text"></td>
+						<td><textarea cols="40" id="id_descripcion" name="descripcion[]" rows="1"></textarea></td>
+					</tr>
+				</table>
+				<button id="agregarCampoItemComandos">Agregar campo </button>
 			</div>
-		</div>
-
-		<div class="descripcionCodigo">
-
-		<table class="large-12 itemsComandosTabla">
-			<tr>
-				<th>Instrucción</th>
-				<th>Descripción</th>
-			</tr>
-			<tr>
-				<td><input id="id_instruccion" maxlength="500" name="instruccion[]" type="text"></td>
-				<td><textarea cols="40" id="id_descripcion" name="descripcion[]" rows="1"></textarea></td>
-			</tr>
-			<tr>
-				<td><input id="id_instruccion" maxlength="500" name="instruccion[]" type="text"></td>
-				<td><textarea cols="40" id="id_descripcion" name="descripcion[]" rows="1"></textarea></td>
-			</tr>
-		</table>
-
-
-
-	<button id="agregarCampoItemComandos">Agregar campo </button>
-
-		</div>
-
-			
-
-
-		
-		{% csrf_token %}
-		<hr/>
-		<div class="guardarCodigo">
-			<input type="submit" value="Guardar" class="boton">
-		</div>
-	</form>
-</article>
+			{% csrf_token %}
+			<hr/>
+			<div class="guardarCodigo">
+				<input type="submit" value="Guardar" class="boton">
+			</div>
+		</form>
+	</article>
 </div>
 {% endblock%}
 

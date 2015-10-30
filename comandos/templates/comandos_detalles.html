@@ -9,48 +9,48 @@
 </ul>
 
 {% if comando %}
-<div class="row">
-	<div class="large-6 medium-6 column">
-		<h3 class="text-center">{{ comando.nombre}}</h3>
-	</div>
-	<div class="large-6 medium-6 column">
-		<div class="opcionesVisualizacion">
-			<a href="{% url 'agregar_comando'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal ><span class=" icon-plus-sign colorVerde"></span></a>	
-			{% if comando.favorito %}
-			<!-- <a href="{ url 'quitar_favorito' comando.id }" class=" icon-star "></a> -->
-			{% else %}
-			<!-- 	<a href="{ url 'agregar_favorito' comando.id }" class="icon-star3 "></a> -->
-			{% endif %}
-			<a href="{% url 'editar_comando' comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal></a>
-			<a href="" class=" lineaDerecha icon-remove2 colorRojo"></a>			
+	<div class="row">
+		<div class="large-6 medium-6 column">
+			<h3 class="text-center">{{ comando.nombre}}</h3>
+		</div>
+		<div class="large-6 medium-6 column">
+			<div class="opcionesVisualizacion">
+				<a href="{% url 'agregar_comando'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal ><span class=" icon-plus-sign colorVerde"></span></a>	
+				{% if comando.favorito %}
+				<!-- <a href="{ url 'quitar_favorito' comando.id }" class=" icon-star "></a> -->
+				{% else %}
+				<!-- 	<a href="{ url 'agregar_favorito' comando.id }" class="icon-star3 "></a> -->
+				{% endif %}
+				<a href="{% url 'editar_comando' comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal></a>
+				<a href="" class=" lineaDerecha icon-remove2 colorRojo"></a>			
+			</div>
 		</div>
 	</div>
-</div>
-<div class="row" >
-<br>
-	<div class="large-12">
+	<div class="row" >
+		<br>
 		<div class="large-12">
-			<div class="large-6 column">
-				<span>Comando</span>
+			<div class="large-12">
+				<div class="large-6 column">
+					<span>Comando</span>
+				</div>
+				<div class="large-6 column">
+				</div>
 			</div>
-			<div class="large-6 column">
-			</div>
-		</div>
-			<table class="large-12">
-				<tr><th>Instruccion</th><th>Descripcion</th><th colspan="2">Accion</th></tr>
-				{% for intruccion in intrucciones %}
-					<tr>
-						<td> {{ intruccion.instruccion }}</td>
-						<td>{{ intruccion.descripcion}}</td>
-						<td>
-							<a href="{% url 'editar_comando_item' intruccion.id comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC editarItemComando" data-reveal-id="modalAdministracion" data-reveal>
-						</td>
-						<td><a href="{% url 'eliminar_comando_item' comando.id intruccion.id %}" class="icon-bin2 eliminarComandoItem" ></a></td>
-					</tr>	
-				{% endfor %}
-			</table>
-	</div>	
-</div>
+				<table class="large-12">
+					<tr><th>Instrucción</th><th>Descripción</th><th colspan="2">Acción</th></tr>
+					{% for intruccion in intrucciones %}
+						<tr>
+							<td> {{ intruccion.instruccion }}</td>
+							<td>{{ intruccion.descripcion}}</td>
+							<td>
+								<a href="{% url 'editar_comando_item' intruccion.id comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC editarItemComando" data-reveal-id="modalAdministracion" data-reveal>
+							</td>
+							<td><a href="{% url 'eliminar_comando_item' comando.id intruccion.id %}" class="icon-bin2 eliminarComandoItem" ></a></td>
+						</tr>	
+					{% endfor %}
+				</table>
+		</div>	
+	</div>
 
 
 

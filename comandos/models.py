@@ -10,12 +10,6 @@ class mdl_comandos(models.Model):
 	fechaIngreso = models.DateField(auto_now = True)
 	estado       = models.BooleanField(default = False)
 	
-	#lenguaje    = models.ForeignKey(mdl_lenguaje,blank=False)
-	#	class Meta:
-	#		verbose_name = ('Comando')
-	#		verbose_name_plural = ('Comandos')
-
-
 	def __unicode__(self):
 		return self.nombre
 

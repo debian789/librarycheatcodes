@@ -15,15 +15,11 @@ class frm_comandos(ModelForm):
 			model = mdl_comandos
 			fields = (
 				"nombre",
-				#"descripcion",
-				#"comando",
 				"estado",
 				)
 
 			widgets = {
 			'nombre':forms.TextInput(attrs={'required':'','title':'Se necesita un Nombre'}),
-			#'descripcion':forms.Textarea(attrs={'required':'','title':'Se necesita una Descripcion '}),
-			#'comando':forms.Textarea(attrs={'required':'','title':'Se necesita un Comando  '}),
 			#'comando':AceWidget(mode='python',width="100%",theme='twilight',attrs={'required':'','title':'Se necesita un Comando  '}),
 			}
 
