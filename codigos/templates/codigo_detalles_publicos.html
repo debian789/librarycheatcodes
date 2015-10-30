@@ -1,63 +1,62 @@
 {% extends "base.html" %}
-
 {% block titulo%} Detalle del codigo  {% endblock %}
 {% block contenido %}
 <ul class="breadcrumbs">
-   <li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
-
-    <li class=""><a href="{% url 'codigos_publicos' %}" class=""> Comandos publicos </a>  </li>
-    <li class="current">  <a href="#" class="activado icon-embed2"> Detalles del codigo   </a>  </li>
+  <li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
+  <li class=""><a href="{% url 'codigos_publicos' %}" class=""> Comandos publicos </a>  </li>
+  <li class="current">  <a href="#" class="activado icon-embed2"> Detalles del codigo   </a>  </li>
 </ul>
-{% if codigo %}
-<div class="row">
-  <div class="row">
-    <div class="large-6 medium-6 column">
-      <h3 class="text-center">{{ codigo.titulo}}</h3>
-      <hr>
-      <p>{{ codigo.descripcion }}</p>
-    </div>
-    <div class="large-6 medium-6 column">
-      <div class="large-12 text-center clearfix">
-        <div class="large-3 small-3 column">
-          <a href="{% url 'codigo_pdf' codigo.id %}" class="icon-newspaper colorRojo "></a>
-        </div>
-      </div>
-      <br>
-      <div class="large-12 clearfix panel"  >
-        <div class="large-4 medium-4 column text-right">
-          <strong>Lenguaje</strong>
-        </div>
-        <div class="large-8 medium-8 column"> {{ codigo.lenguaje }}</div>
-        <div class="large-4 medium-4 column text-right">
-          <strong>Adjunto</strong>
-        </div>
-        <div class="large-8 medium-8 column"> 
-          {% if codigo.archivo %}
-            <span>
-              <a href="{{MEDIA_URL}}/{{codigo.archivo}}" target="blank">
-                <span class=" icon-download2 " ></span> Descargar
-              </a>
-            </span>
-          {% else %}
-            <span>Sin adjunto </span>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="large-12">
-      {{ codigoFuente |safe}}
-    </div>
-  </div>
-</div>
-<br>
-<br>
-<br>
-<br> 
 
-<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
+{% if codigo %}
+  <div class="row">
+    <div class="row">
+      <div class="large-6 medium-6 column">
+        <h3 class="text-center">{{ codigo.titulo}}</h3>
+        <hr>
+        <p>{{ codigo.descripcion }}</p>
+      </div>
+      <div class="large-6 medium-6 column">
+        <div class="large-12 text-center clearfix">
+          <div class="large-3 small-3 column">
+            <a href="{% url 'codigo_pdf' codigo.id %}" class="icon-newspaper colorRojo "></a>
+          </div>
+        </div>
+        <br>
+        <div class="large-12 clearfix panel"  >
+          <div class="large-4 medium-4 column text-right">
+            <strong>Lenguaje</strong>
+          </div>
+          <div class="large-8 medium-8 column"> {{ codigo.lenguaje }}</div>
+          <div class="large-4 medium-4 column text-right">
+            <strong>Adjunto</strong>
+          </div>
+          <div class="large-8 medium-8 column"> 
+            {% if codigo.archivo %}
+              <span>
+                <a href="{{MEDIA_URL}}/{{codigo.archivo}}" target="blank">
+                  <span class=" icon-download2 " ></span> Descargar
+                </a>
+              </span>
+            {% else %}
+              <span>Sin adjunto </span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12">
+        {{ codigoFuente |safe}}
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br> 
+
+  <div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
 {% endif%}
 {% endblock %}

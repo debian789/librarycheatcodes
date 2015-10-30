@@ -16,10 +16,6 @@ from django.template.loader import render_to_string
 from django.http import HttpResponse
 
 
-
-# def datos(request,id):
-# 	return HttpResponse("hola mundo ");
-
 def generar_pdf(html):
     result = StringIO.StringIO()
     pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result)
@@ -63,7 +59,7 @@ def view_codigos(request):
 			if formularioBusqueda.cleaned_data['adjunto']:
 				codigos = codigos.filter(archivo__isnull=False).exclude(archivo__exact='')
 				#codigos = codigos.filter(archivo__isnull=formularioBusqueda.cleaned_data['adjunto'])
-				print "busqueda por adjunto "
+				#print "busqueda por adjunto "
 			else:
 				pass
 
@@ -236,7 +232,6 @@ def view_agregar_codigo(request):
 
 	formulario = frm_codigos(usuario)
 	contexto = {'formulario':formulario,'mensaje':'Nuevo Codigo '}
-	#return render_to_response('codigos/codigo_ingresar.html',contexto,context_instance=RequestContext(request))
 	return render(request,'codigo_ingresar.html',contexto)
 
 
@@ -278,31 +273,15 @@ def view_codigo_simple(request,id_codigo):
 	usuario = User.objects.select_related().get(id=request.user.id)
 	try: 
 		codigo = mdl_codigos.objects.select_related().filter(usuario=usuario).get(id=id_codigo)
-		#codigo = mdl_codigos.objects.select_related().filter(estado=True).get(id=id_codigo)
 	except mdl_codigos.DoesNotExist:
 		return redirect('inicio')
 
 	codigoFuente = '<pre  lang="'+ escape(codigo.lenguaje) +'"><code>' + escape(codigo.codigo) + '</code></pre>'
 	contexto = {"codigo":codigo,"codigoFuente":codigoFuente}	
 	return render(request,"codigo_detalles.html",contexto)
-	# if request.method == 'POST':
-	# 	formularioBusqueda = frm_codigos_busqueda(request.POST)
-	# 	codigosBuequeda = mdl_codigos.objects.filter(titulo= formularioBusqueda.cleaned_data['buesqueda'])
-	# 	contexto = {"codigos":codigosBuequeda,"formularioBusqueda":formularioBusqueda}
-	# 	return render(request,"codigos.html",contexto)
-	# else:
-	# 	formularioBusqueda = frm_codigos_busqueda()
-	# 	codigo = mdl_codigos.objects.get(id=id_codigo)
-	# 	codigoFuente = '<pre  lang="'+ escape(codigo.lenguaje) +'">' + escape(codigo.codigo) + '</pre>' 
-
-	# 	contexto = {"codigo":codigo,"formularioBusqueda":formularioBusqueda,"codigoFuente":codigoFuente}
-	# 	return render(request,'codigo_detalles.html',contexto)
-
 
 
 def view_codigo_simple_publico(request,id_codigo):
-	#usuario = User.objects.select_related().get(id=request.user.id)
-	#usuario = get_object_or_404(User, id=request.user.id)
 	try: 
 		codigo = mdl_codigos.objects.select_related().filter(estado=True).get(id=id_codigo)
 	except mdl_codigos.DoesNotExist:

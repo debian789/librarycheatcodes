@@ -1,69 +1,54 @@
 {% block title %} {{ mensaje }}{% endblock%}
 {% block extraHead %} {{ formulario.media }} {% endblock%}
 {% block contenido %}
-  <a class="close-reveal-modal">&#215;</a>
-
-<article class="ingresoCodigo">
-	<div class="subTitulo">
-	<!-- 	<h3>Ingresar Codigo  </h3>		 -->
-	</div>
-	<form action="{{ request.get_full_path  }}" method="post" enctype="multipart/form-data" >	
-		<div class="large-12">
-
-			<div class="large-6 column">
-				<span>Titulo *</span>
-				{{ formulario.titulo }}
-			</div>
-			<div class="large-6 column">
-						<span>Lenguaje *</span>
-					{{ formulario.lenguaje }}
-			</div>
-		
+	<a class="close-reveal-modal">&#215;</a>
+	<article class="ingresoCodigo">
+		<div class="subTitulo">
+			<!-- 	<h3>Ingresar Codigo  </h3>		 -->
 		</div>
-		<div class="large-12">
-			
-			<div class="large-6 small-12 column">
-				
+		<form action="{{ request.get_full_path  }}" method="post" enctype="multipart/form-data" >	
+			<div class="large-12">
+				<div class="large-6 column">
+					<span>Titulo *</span>
+					{{ formulario.titulo }}
+				</div>
+				<div class="large-6 column">
+							<span>Lenguaje *</span>
+						{{ formulario.lenguaje }}
+				</div>		
+			</div>
+			<div class="large-12">			
+				<div class="large-6 small-12 column">
 					<span>Url</span>
 					{{ formulario.links }}
+				</div>
+				<div class="large-6 small-12 column">
+					<span>Archivo Adjunto </span>
+				{{ formulario.archivo }}
+				</div>			
 			</div>
-			<div class="large-6 small-12 column">
-				<span>Archivo Adjunto </span>
-			{{ formulario.archivo }}
+			<hr/>
+			<div class="ingresoAdjunto"></div>	
+			<div class="descripcionCodigo">
+				<div class="ingresoDescripcion">
+					<span>Descripcion *</span>
+					{{ formulario.descripcion }}
+				</div>
+				<div class="ingresoCodigoFuente">
+					<span>Codigo *</span>			
+					{{ formulario.codigo }}
+				</div>
+				<div class="ingresoCodigoFuente">
+					<span>Compartir el codigo en la plataforma </span>			
+					{{ formulario.estado }}
+				</div>
 			</div>
-			
-		</div>
-
-
-		<hr/>
-		<div class="ingresoAdjunto">
-		
-		</div>
-	
-		<div class="descripcionCodigo">
-			<div class="ingresoDescripcion">
-				<span>Descripcion *</span>
-				{{ formulario.descripcion }}
+			<hr/>
+			<div class="guardarCodigo">
+				<div class="publicar"></div>
+				<input type="submit" value="Guardar" class="boton">
 			</div>
-
-			<div class="ingresoCodigoFuente">
-				<span>Codigo *</span>			
-				{{ formulario.codigo }}
-			</div>
-
-			<div class="ingresoCodigoFuente">
-				<span>Compartir el codigo en la plataforma </span>			
-				{{ formulario.estado }}
-			</div>
-		</div>
-		<hr/>
-		<div class="guardarCodigo">
-			<div class="publicar"></div>
-			<input type="submit" value="Guardar" class="boton">
-		</div>
-		{% csrf_token %}
-	</form>	
-</article>
-
-
+			{% csrf_token %}
+		</form>	
+	</article>
 {% endblock%}

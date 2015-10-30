@@ -1,133 +1,78 @@
 {% extends "base.html" %}
-
 {% block titulo%} Detalle del codigo  {% endblock %}
 {% block contenido %}
 <ul class="breadcrumbs">
- 	 <li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
-	{% if user.is_authenticated %}
-		<li class="">	<a href="{% url 'codigos' %}" class=" icon-embed2"> Mis codigos  </a>  </li>
-		
-		
-	{% else %}
-		<li class=""><a href="{% url 'codigos_publicos' %}" class=""> Comandos </a>  </li>
-	{% endif %}	 
-		<li class="current">	<a href="#" class="activado icon-embed2"> Detalles del codigo   </a>  </li>
+ 	<li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
+	<li class="">	<a href="{% url 'codigos' %}" class=" icon-embed2"> Mis codigos  </a>  </li>
+	<li class="current">	<a href="#" class="activado icon-embed2"> Detalles del codigo   </a>  </li>
 </ul>
 
-
-
 {% if codigo %}
-
-
-<div class="row">
-	
-<div class="row">
-	<div class="large-6 medium-6 column">
-		<h3 class="text-center">{{ codigo.titulo}}</h3>
-		<hr>
-		<p>{{ codigo.descripcion }}</p>
-
-	</div>
-	<div class="large-6 medium-6 column">
-
-<div class="large-12 text-center clearfix">
-
-
-{% if user.is_authenticated %}
-
-<div class="large-3 small-3 column"> 
-			<a href="{% url 'agregar_codigo'%}"  class=" icon-file-empty lineaDerecha colorVerde opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal  ></a>	
-</div>
-			{% if codigo.favorito %}
-			<!-- <a href="{ url 'quitar_favorito' codigo.id }" class="lineaDerecha icon-star "></a> -->
-			{% else %}
-			<!-- <a href="{ url 'agregar_favorito' codigo.id }" class=" lineaDerecha icon-star3 "></a> -->
-			{% endif %}
-<div class="large-3 small-3 column"> 
-			<a href="{% url 'editar_codigo' codigo.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal></a>
-</div>
-<div class="large-3  small-3 column"> 
-			<a href="{% url 'eliminar_codigo' codigo.id %}" class=" lineaDerecha  icon-bin2 colorRojo"></a>		
-</div>
-<div class="large-3 small-3 column">
-			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-newspaper colorRojo "></a>
- </div>
-{% else %}
-<div class="large-3 small-3 column">
-			<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-newspaper colorRojo "></a>
+	<div class="row">
+		<div class="row">
+			<div class="large-6 medium-6 column">
+				<h3 class="text-center">{{ codigo.titulo}}</h3>
+				<hr>
+				<p>{{ codigo.descripcion }}</p>
 			</div>
-{% endif %}
-
-
-
-
-
-
-
-
-</div>
-
-	
-
-<br>
-<div class="large-12 clearfix panel"  >
-	
-
-<div class="large-4 medium-4 column text-right"><strong>Lenguaje</strong> </div><div class="large-8 medium-8 column"> {{ codigo.lenguaje }}</div>
-
-<div class="large-4 medium-4 column text-right"><strong>Adjunto</strong> </div><div class="large-8 medium-8 column"> 
-
-		{% if codigo.archivo %}
-				<span>
-					
-				<a href="{{MEDIA_URL}}/{{codigo.archivo}}" target="blank">
-					<span class=" icon-download2 " ></span> Descargar
-				</a>
-				</span>
-				{% else %}
-				<span>Sin adjunto </span>
-				{% endif %}
-
-</div>
-
-
-</div>
-
-
-
-
+			<div class="large-6 medium-6 column">
+				<div class="large-12 text-center clearfix">
+					{% if user.is_authenticated %}
+						<div class="large-3 small-3 column"> 
+							<a href="{% url 'agregar_codigo'%}"  class=" icon-file-empty lineaDerecha colorVerde opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal  ></a>	
+						</div>
+						{% if codigo.favorito %}
+							<!-- <a href="{ url 'quitar_favorito' codigo.id }" class="lineaDerecha icon-star "></a> -->
+						{% else %}
+							<!-- <a href="{ url 'agregar_favorito' codigo.id }" class=" lineaDerecha icon-star3 "></a> -->
+						{% endif %}
+						<div class="large-3 small-3 column"> 
+							<a href="{% url 'editar_codigo' codigo.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal></a>
+						</div>
+						<div class="large-3  small-3 column"> 
+							<a href="{% url 'eliminar_codigo' codigo.id %}" class=" lineaDerecha  icon-bin2 colorRojo"></a>		
+						</div>
+						<div class="large-3 small-3 column">
+							<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-newspaper colorRojo "></a>
+	 					</div>
+					{% else %}
+						<div class="large-3 small-3 column">
+							<a href="{% url 'codigo_pdf' codigo.id %}" class="icon-newspaper colorRojo "></a>
+						</div>
+					{% endif %}
+				</div>
+				<br>
+				<div class="large-12 clearfix panel"  >
+					<div class="large-4 medium-4 column text-right"><strong>Lenguaje</strong> </div>
+					<div class="large-8 medium-8 column"> {{ codigo.lenguaje }}</div>
+					<div class="large-4 medium-4 column text-right"><strong>Adjunto</strong> </div>
+					<div class="large-8 medium-8 column"> 
+						{% if codigo.archivo %}
+							<span>
+								<a href="{{MEDIA_URL}}/{{codigo.archivo}}" target="blank">
+									<span class=" icon-download2 " ></span> Descargar
+								</a>
+							</span>
+						{% else %}
+							<span>Sin adjunto </span>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12">
+				{{ codigoFuente |safe}}
+			</div>
+		</div>
 	</div>
-</div>
-<div class="row">
-	
-	<div class="large-12">
-		
-{{ codigoFuente |safe}}
+	<br>
+	<br>
+	<br>
+	<br>
 
+	<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
+	  <a class="close-reveal-modal">&#215;</a>
 	</div>
-</div>
-
-</div>
-
-
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-	
-
-<div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
 {% endif%}
 {% endblock %}
