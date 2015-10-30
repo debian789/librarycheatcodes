@@ -2,9 +2,16 @@
 {% block titulo%} codigos de codigo {% endblock %}
 {% block contenido %}
 <ul class="breadcrumbs">
-   <li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
-    <li class="current"><a href="{% url 'codigos_publicos' %}" class="activado"> Codigos publicos </a>  </li>
+  <li><a href="{% url 'inicio' %} " class="icon-home3"> Home</a></li>
+  <li class="current">  <a href="{% url 'codigos_publicos' %}" class="activado icon-embed2"> Codigos publicos </a>  </li>
 </ul>
+
+
+
+
+
+
+
 <article class="resultadoBusqueda">
   <div class="row">
     <div class="large-12 "><h2 class="text-right">Codigos publicos</h2></div>
@@ -69,7 +76,16 @@
 
 
 
-
+{% else %}
+<br>
+<br>
+<br>
+<h3 class="text-center">No hay comandos</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
   {% endif %}

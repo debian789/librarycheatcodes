@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 {% block titulo%} comandos de comando {% endblock %}
 {% block contenido %}
-
 <ul class="breadcrumbs">
-  <li><a href="{% url 'inicio' %} ">Home</a></li>
-  <li class="current"><a href="{% url 'comandos_publicos' %}" class="activado"> Comandos publicos </a>  </li>
+  <li><a href="{% url 'inicio' %} " class="icon-home3"> Home</a></li>
+  <li class="current">  <a href="{% url 'comandos_publicos' %}" class="activado icon-embed2"> Comandos publicos </a>  </li>
 </ul>
+
+
+
+
+
 <article class="resultadoBusqueda">
   <div class="row">
-    <div class="large-8 column"><h2>Comandos publicos </h2></div>
+    <div class="large-12 column"><h2 class="text-right">Comandos publicos </h2></div>
     <!--<div class="large-4 column">Generar chuleta - 
     </div>-->
     <hr>
@@ -20,7 +24,7 @@
         <div class=" " >
           <div class="large-8 column">
             <h4>
-              <a href="{% url 'detalle_comando' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
+              <a href="{% url 'detalle_comando_publico' comando.id  %}">{{ comando.nombre|truncatechars:140|capfirst }}</a>
             </h4>
           </div>
           <div class="large-4 column"  style="border-left:1px solid #ccc  ">
@@ -34,12 +38,13 @@
     {% endfor %}
   </div>
 </div>
-</div>
 
 
+<br/>
+<br/>
 
 {% if not porFormulario %}
-<div class="pagination">
+<div class="pagination text-center">
   <span class="step-links">
     {% if comandos.has_previous %}
     <a href="?page={{ comandos.previous_page_number }}">Anterior</a>
@@ -54,7 +59,7 @@
 </div>
 {% endif %}
 
-
+</div>
 
 
 {% endif %}

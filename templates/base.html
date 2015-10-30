@@ -36,22 +36,7 @@
 						<li class="divider"></li>
 					{% include 'menu.html'%}
 					
-					{% if user.is_authenticated %}
-						<li><a href="{% url 'salir' %}" ><span class="icon-exit"></span> Salir</a></li>
-					{% else %}
-						<li><a href="{% url 'inicio' %}" ><span class="icon-enter"></span> Inicio </a></li>
-						<li><a href="{% url 'ingresar' %}" ><span class="icon-enter"></span> Ingresar </a></li>
-						<li><a href="{% url 'registrar' %}" ><span class="icon-enter"></span> Regístrate </a></li>
-					
-					<!--
-					<a href="{% url 'social:begin' 'twitter' %}" class="inicioTwitter" > <span class="icon-twitter"></span> ENTRA CON TWITTER</a>
-
-					<a href="{% url 'social:begin' 'google' %}" class="inicioGoogle" > <span class="icon-google-plus2"></span> ENTRA CON GOOGLE+</a>-->
-
-
-
-						<!--<li> <a href="{% url 'inicio' %}" class="icon-home inicio  ">home</a> </li>-->
-					{% endif %}	
+		
 				</ul>
 			</section>
 		</nav>

@@ -3,31 +3,29 @@
 {% block contenido %}
 <ul class="breadcrumbs">
   <li><a href="{% url 'inicio' %} " class="icon-home3">Home</a></li>
-  <li class="current"><a href="{% url 'comandos_publicos' %}" class="icon-embed2">Comandos publicos</a></li>
-  <li class="current">  <a href="#" class="activado icon-embed2"> Detalles del comando   </a>  </li>
+  <li ><a href="{% url 'comandos_publicos' %}" class="icon-embed2"> Comandos publicos</a></li>
+  <li class="current">  <a href="#" class="activado icon-newspaper"> Detalles del comando   </a>  </li>
 </ul>
 
 {% if comando %}
 <div class="row">
-  <div class="large-6 medium-6 column">
+  <div class="large-12 medium-12 column">
     <h3 class="text-center">{{ comando.nombre}}</h3>
   </div>
-  <div class="large-6 medium-6 column">
-    <div class="opcionesVisualizacion">     
-    </div>
-  </div>
+
 </div>
 
 <div class="row" >
   <br>
   <div class="large-12">
-      <div class="large-12">
+      <!--<div class="large-12">
         <div class="large-6 column">
           <span>Comando</span>
         </div>
         <div class="large-6 column">
+
         </div>
-      </div>
+      </div>-->
       <table class="large-12">
         <tr><th>Instruccion</th><th>Descripcion</th></tr>
         {% for intruccion in intrucciones %}

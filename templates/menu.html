@@ -1,8 +1,10 @@
 {% if user.is_authenticated %}
 	{% for item in menu%}
-		<li  {% if item.active%} style="border-left: 1px solid red "{% endif %} ><a href="{{ item.url }}">
-			{{ item.name }}<span class=" icon-code"></span>
-		</a></li>
+		<li  {% if item.active%} class="active "{% endif %} >
+			<a href="{{ item.url }}">
+				<span class=" {{ item.icono }}"></span> {{ item.name }}
+			</a>
+		</li>
 		<li class="divider"></li>
 
 		<!-- <li {% if item.active%} style="background:#A9BDE6"{% endif %}> 
@@ -15,11 +17,11 @@
 	{% endfor %}	
 {% else %}
 	{% for item in menu_publico %}
-		<!--
-		<li class="menuItem" {% if item.active%} style="border: 1px solid #ccc "{% endif %}>
+		
+		<li  {% if item.active%} class="active "{% endif %}>
 		<a href="{{ item.url }}" >
-		{{ item.name }}<span class=" icon-code"></span>
+		 <span class=" {{ item.icono }}"></span> {{ item.name }}
 		</a>
-		</li>-->
+		</li>
 	{% endfor %}	
 {% endif %}
