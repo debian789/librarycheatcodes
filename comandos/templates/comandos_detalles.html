@@ -15,14 +15,15 @@
 		</div>
 		<div class="large-6 medium-6 column">
 			<div class="opcionesVisualizacion">
-				<a href="{% url 'agregar_comando'%}" class="opcionNuevo"  data-reveal-id="modalAdministracion" data-reveal ><span class=" icon-plus-sign colorVerde"></span></a>	
+					<a href={% url 'agregar_comando_nuevo' comando.id %}  data-reveal-id="modalAdministracion" class="opcionNuevo" data-reveal>Nuevo</a>
+				<a href="{% url 'agregar_comando'%}" class="opcionNuevo"  data-reveal-id="nuevosElementosComando" data-reveal ><span class=" icon-plus-sign colorVerde"></span></a>
 				{% if comando.favorito %}
 				<!-- <a href="{ url 'quitar_favorito' comando.id }" class=" icon-star "></a> -->
 				{% else %}
 				<!-- 	<a href="{ url 'agregar_favorito' comando.id }" class="icon-star3 "></a> -->
 				{% endif %}
 				<a href="{% url 'editar_comando' comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC opcionEditar" data-reveal-id="modalAdministracion" data-reveal></a>
-				<a href="" class=" lineaDerecha icon-remove2 colorRojo"></a>			
+				<a href="" class=" lineaDerecha icon-remove2 colorRojo"></a>
 			</div>
 		</div>
 	</div>
@@ -43,13 +44,13 @@
 							<td> {{ intruccion.instruccion }}</td>
 							<td>{{ intruccion.descripcion}}</td>
 							<td>
-								<a href="{% url 'editar_comando_item' intruccion.id comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC editarItemComando" data-reveal-id="modalAdministracion" data-reveal>
+								<a href="{% url 'editar_comando_item' intruccion.id comando.id %}" class=" lineaDerecha icon-pencil2 colorNaranjaC editarItemComando" data-reveal-id="editarElementoComando" data-reveal>
 							</td>
 							<td><a href="{% url 'eliminar_comando_item' comando.id intruccion.id %}" class="icon-bin2 eliminarComandoItem" ></a></td>
-						</tr>	
+						</tr>
 					{% endfor %}
 				</table>
-		</div>	
+		</div>
 	</div>
 
 
@@ -57,6 +58,15 @@
 <div id="modalAdministracion" class="reveal-modal  small medium" data-reveal>
   <a class="close-reveal-modal">&#215;</a>
 </div>
+
+<div id="nuevosElementosComando" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="editarElementoComando" class="reveal-modal  small medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
 
 
 

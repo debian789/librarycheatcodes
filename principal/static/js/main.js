@@ -9,7 +9,7 @@ $(document).ready(function(){
 		}else{
 			$(".principalMenu").show("fast");
 			$(".principalMenuBuscador").hide();
-		}       
+		}
 	});
 
 	$(".activarBuscador").click(function(){
@@ -18,7 +18,7 @@ $(document).ready(function(){
 		}else{
 			$(".principalMenuBuscador").show("fast");
 			$(".principalMenu").hide();
-		} 
+		}
 	});
 
 	$(".activarCrar").click(function(){
@@ -26,41 +26,41 @@ $(document).ready(function(){
 			$(".ocultoCrar").hide();
 		}else{
 			$(".ocultoCrar").show("fast");
-		} 
+		}
 	});
-	
+
 	$(".masInformacionDetallada").click(function(){
 		if($(".descripcionExtra").is(":visible")){
 			$(".descripcionExtra").hide();
 		}else{
 			$(".descripcionExtra").show("fast");
-		} 
+		}
 	});
 	$(".masOpciones").click(function(){
 		if($(".filtros").is(":visible")){
 			$(".filtros").hide();
 			//$(".opcionBuscar2").show();
-			//$(".opcionBuscar").hide();			
+			//$(".opcionBuscar").hide();
 		}else{
 			$(".filtros").show("fast");
 			//$(".opcionBuscar2").hide();
 			//$(".opcionBuscar").show();
 
 
-		} 
+		}
 	});
 
 	$(".itemIngresar").click(function(){
 		if($(".itemSesion").is(":visible")){
 			$(".itemSesion").hide();
 			//$(".opcionBuscar2").show();
-			//$(".opcionBuscar").hide();			
+			//$(".opcionBuscar").hide();
 		}else{
 			$(".itemSesion").show("fast");
 			//$(".opcionBuscar2").hide();
 			//$(".opcionBuscar").show();
 
-		} 
+		}
 	});
 
 
@@ -69,14 +69,18 @@ $(document).ready(function(){
 		e.preventDefault();
 	})
 
-$('.editarItemComando').click(function(){
+$('.editarItemComando').click(function(e){
+	//var contexto = $(this);
+	//debugger;
+	var urlConexion = $(this).attr('href');
 	$.ajax({
-		url: '/comandoItem/editar/4/11/',
+		url: urlConexion,
 		success: function(datos){
-			$('#modalAdministracion').html(datos);
+			$('#editarElementoComando').html(datos);
 
 		}
 	});
+	e.preventDefault();
 });
 
 
@@ -100,11 +104,11 @@ $('.editarItemComando').click(function(){
 	});
 
 
-	$(document).on('click','.contenido', function(){ 
+	$(document).on('click','.contenido', function(){
 
 		$(".itemSesion").hide();
 		$(".principalMenu").hide();
-		
+
 
 	});
 

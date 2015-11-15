@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response,get_object_or_404,render,redirect
+from django.shortcuts import render_to_response,get_object_or_404,render,redirect,Http404
 from django.template import RequestContext
 from django.db.models import Q
 from models import mdl_comandos,instruccion_mdl
@@ -48,6 +48,53 @@ def view_agregar_comando(request):
 	contexto = {'formulario':formulario,'mensaje':'Nuevo Comando ','comandos_items':comandos_items}
 
 	return render(request,'comandos_ingresar.html',contexto)
+
+@login_required
+def view_agregar_comando_nuevo(request,id_comando):
+	try:
+		usuario = get_object_or_404(User, id=request.user.id)
+		comando = mdl_comandos.objects.get(id=id_comando,usuario=usuario)
+	except Http404:
+		return redirect('comandos')
+
+	if request.method == "POST":
+		##contenidoForm = frm_comandos(usuario,request.POST,request.FILES)
+		#if contenidoForm.is_valid:
+		#contenidoForm.save()
+		idRegistro = id_comando
+		#if contenidoForm.save().id :
+		idComando = mdl_comandos.objects.get(id=idRegistro)
+		itemcomandos = frm_comandos_items(idComando,request.POST,request.FILES)
+		if itemcomandos.is_valid:
+
+			arrayInstruccion = request.POST.getlist('instruccion[]')
+			arrayDescripcion = request.POST.getlist('descripcion[]')
+			ls_comandos_items = []
+
+			if arrayInstruccion:
+				for x in arrayInstruccion:
+					if len(x) > 0:
+						ls_comandos_items.append( instruccion_mdl(comando=idComando,instruccion=x,descripcion=arrayDescripcion[0])  )
+						if len(arrayDescripcion) > 1:
+							del arrayDescripcion[0]
+
+				for datos in ls_comandos_items:
+					datos.save()
+
+			return redirect('comandos')
+
+
+	formulario = frm_comandos(usuario)
+	comandos_items = frm_comandos_items(1)
+	contexto = {'formulario':formulario,'mensaje':'Nuevo Comando ','comandos_items':comandos_items}
+
+	return render(request,'comandos_ingresar_nuevos_items.html',contexto)
+
+
+
+
+
+
 
 @login_required
 def view_comandos(request):
@@ -214,12 +261,13 @@ def view_editar_comando(request,id_comando):
 
 
 @login_required
-def view_editar_comandoItem(request,id_comando,id_comandoItem):
+def view_editar_comandoItem(request,id_comandoItem,id_comando):
 	try:
 		comandoId = get_object_or_404(mdl_comandos, usuario=request.user.id,id=id_comando)
 
 	except Http404:
-		return redirect('comandos')
+		pass
+		#return redirect('comandos')
 
 	try:
 		datos= instruccion_mdl.objects.get(id=id_comandoItem,comando=comandoId)
