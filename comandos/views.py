@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def view_agregar_comando(request):
-	try: 
+	try:
 		usuario = get_object_or_404(User, id=request.user.id)
 	except Http404:
 		return redirect('comandos')
@@ -20,11 +20,11 @@ def view_agregar_comando(request):
 		contenidoForm = frm_comandos(usuario,request.POST,request.FILES)
 		if contenidoForm.is_valid:
 			contenidoForm.save()
-			idRegistro = contenidoForm.save().id 
-			if contenidoForm.save().id : 
+			idRegistro = contenidoForm.save().id
+			if contenidoForm.save().id :
 				idComando = mdl_comandos.objects.get(id=idRegistro)
 				itemcomandos = frm_comandos_items(idComando,request.POST,request.FILES)
-				if itemcomandos.is_valid: 
+				if itemcomandos.is_valid:
 
 					arrayInstruccion = request.POST.getlist('instruccion[]')
 					arrayDescripcion = request.POST.getlist('descripcion[]')
@@ -32,10 +32,11 @@ def view_agregar_comando(request):
 
 					if arrayInstruccion:
 						for x in arrayInstruccion:
-							ls_comandos_items.append( instruccion_mdl(comando=idComando,instruccion=x,descripcion=arrayDescripcion[0])  )
-							if len(arrayDescripcion) > 1:
-								del arrayDescripcion[0]
-				
+							if len(x) > 0:
+								ls_comandos_items.append( instruccion_mdl(comando=idComando,instruccion=x,descripcion=arrayDescripcion[0])  )
+								if len(arrayDescripcion) > 1:
+									del arrayDescripcion[0]
+
 						for datos in ls_comandos_items:
 							datos.save()
 
@@ -91,7 +92,7 @@ def view_comandos(request):
 			porFormulario=True
 			contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 
-		
+
 		return render(request,"comandos.html",contexto)
 
 	else:
@@ -108,7 +109,7 @@ def view_comandos(request):
 		except EmptyPage:
 			contacts = paginator.page(paginator.num_pages)
 
-		contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda}		
+		contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda}
 		return render(request,"comandos.html",contexto)
 
 
@@ -159,7 +160,7 @@ def view_comandos_publicos(request):
 			porFormulario=True
 			contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda,"porFormulario":porFormulario}
 
-		
+
 		return render(request,"comandos_publicos.html",contexto)
 
 	else:
@@ -175,7 +176,7 @@ def view_comandos_publicos(request):
 		except EmptyPage:
 			contacts = paginator.page(paginator.num_pages)
 
-		contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda}		
+		contexto = {"comandos":contacts,"formularioBusqueda":formularioBusqueda}
 		return render(request,"comandos_publicos.html",contexto)
 
 
@@ -189,7 +190,7 @@ def view_comandos_publicos(request):
 
 @login_required
 def view_editar_comando(request,id_comando):
-	try: 
+	try:
 		usuario = get_object_or_404(User, id=request.user.id)
 	except Http404:
 		return redirect('comandos')
@@ -205,7 +206,7 @@ def view_editar_comando(request,id_comando):
 			contenidoForm.save()
 			return redirect('comandos')
 
-	
+
 
 	formulario = frm_comandos(usuario,instance = datos )
 	contexto = {'formulario':formulario ,'mensaje':'Editar Comando  '}
@@ -214,15 +215,15 @@ def view_editar_comando(request,id_comando):
 
 @login_required
 def view_editar_comandoItem(request,id_comando,id_comandoItem):
-	try: 
+	try:
 		comandoId = get_object_or_404(mdl_comandos, usuario=request.user.id,id=id_comando)
-		
+
 	except Http404:
 		return redirect('comandos')
 
 	try:
 		datos= instruccion_mdl.objects.get(id=id_comandoItem,comando=comandoId)
-		
+
 	except instruccion_mdl.DoesNotExist:
 		return redirect('comandos')
 
@@ -232,7 +233,7 @@ def view_editar_comandoItem(request,id_comando,id_comandoItem):
 			contenidoForm.save()
 			return redirect('comandos')
 
-	
+
 
 	formulario = frm_comandos_items(comandoId,instance = datos )
 	contexto = {'formulario':formulario ,'mensaje':'Editar instruccion  '}
@@ -244,7 +245,7 @@ def view_editar_comandoItem(request,id_comando,id_comandoItem):
 @login_required
 def view_comando_simple(request,id_comando):
 	usuario = User.objects.select_related().get(id=request.user.id)
-	try: 
+	try:
 		comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
 
 		intrucciones = instruccion_mdl.objects.filter(comando=comando)
@@ -253,16 +254,16 @@ def view_comando_simple(request,id_comando):
 	except mdl_comandos.DoesNotExist:
 		return redirect('inicio')
 
-	contexto = {"comando":comando,"intrucciones":intrucciones}		
+	contexto = {"comando":comando,"intrucciones":intrucciones}
 	return render(request,"comandos_detalles.html",contexto)
 
 def view_comando_simple_publico(request,id_comando):
-	try: 
+	try:
 		comando = mdl_comandos.objects.select_related().filter(estado=True).get(id=id_comando)
-		intrucciones = instruccion_mdl.objects.filter(comando=comando)		
+		intrucciones = instruccion_mdl.objects.filter(comando=comando)
 	except mdl_comandos.DoesNotExist:
 		return redirect('inicio')
-	contexto = {"comando":comando,"intrucciones":intrucciones}		
+	contexto = {"comando":comando,"intrucciones":intrucciones}
 	return render(request,"comandos_detalles_publico.html",contexto)
 
 
@@ -271,7 +272,7 @@ def view_eliminar_comando(request,id_comando):
 	usuario = User.objects.select_related().get(id=request.user.id)
 	comando = mdl_comandos.objects.select_related().filter(usuario=usuario).get(id=id_comando)
 	comando.delete()
-	return redirect("comandos")	
+	return redirect("comandos")
 
 
 @login_required
@@ -287,4 +288,4 @@ def view_eliminar_comando_item(request,id_comando,id_comandoItem):
 		return redirect('comandos')
 
 	comandoItem.delete()
-	return redirect("comandos")	
+	return redirect("comandos")
